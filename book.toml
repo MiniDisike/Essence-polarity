@@ -6,8 +6,8 @@ multilingual = false
 src = "src"
 
 [output.html]
-default-theme = "navy"
-preferred-dark-theme = "navy"
+default-theme = "rust"
+preferred-dark-theme = "rust"
 no-section-label = true
 site-url = "/Essence-polarity/"
 
