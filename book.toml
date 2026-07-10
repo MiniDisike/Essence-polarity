@@ -1,0 +1,16 @@
+[book]
+title = "《魂孪英旅 上 地上星》"
+authors = ["COCOVS"]
+language = "zh"
+multilingual = false
+src = "src"
+
+[output.html]
+no-section-label = true
+site-url = "/Essence-polarity/"
+
+[output.html.playground]
+editable = true
+
+[output.html.search]
+enable = true
