@@ -1,0 +1,338 @@
+<!DOCTYPE HTML>
+<html lang="zh" class="coal sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>第一百零九章 闪光 - 魂孪英旅 下 魔齿磨轮</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "coal" : "coal";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('coal')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">魂孪英旅 下 魔齿磨轮</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="第一百零九章-闪光"><a class="header" href="#第一百零九章-闪光">第一百零九章 闪光</a></h1>
+<p>「<strong>升频？</strong>」</p>
+<p>莽子疑惑地看着这不起眼的小石头，上面有根金黄色的线条。</p>
+<p>一下秒，三十多座城市中响起了山呼海啸般的声音。</p>
+<p>{<strong>天啊，是升频装置！</strong>}</p>
+<p>{<strong>给没听说过这东西的人解释下，这玩意儿能让钝角Moxel变成三角形，让三角形提升至四边形！</strong>}</p>
+<p>{<strong>啊啊啊，我也要进魔英殿！</strong>}</p>
+<p>休息廊桥上早就喧嚷起来，竟然会抽出升频装置，难怪叫做神秘奖品！</p>
+<p>「<strong>捡起来看看，莽子，只有你能拿出来！</strong>」</p>
+<p>莽子一脸幸福地捡起这黑黢黢的石头。</p>
+<p>「<strong>运气太好了，快快快，你还有几次机会？快继续。</strong>」</p>
+<p>「<strong>但是奖券都快被我用光了吧，神秘奖品都已经拿到了，要不算了。</strong>」</p>
+<p>嗙嗙！</p>
+<p>两个拳头落在莽子脑袋上。</p>
+<p>顶着两个大包，男人继续将剩下的奖卷塞入其中。</p>
+<p>没两下，他无辜的抬头：</p>
+<p>「<strong>竟然真的还会有神秘奖励。</strong>」</p>
+<p>一个信封从机器吐了出来。</p>
+<p>……</p>
+<p>佐罗的恶魇摩托奔驰在广袤无垠的原野上，在失频之地正午阴沉光线下，如同一道拉长的红色闪电。</p>
+<p>{<strong>快乐小红马，我，已经快要跑遍这里每一个角落啦！</strong>}</p>
+<p>戴着遮蔽丑陋疤痕眼罩的男人将身躯在摩托上微微躬起。</p>
+<p>他的头发在劲风中狂舞。</p>
+<p>他的速度越来越快，让风发出爆鸣。</p>
+<p>「<strong>好，那我们就前往下一个地方吧！</strong>」</p>
+<p>男人的手一弹，一枚刻画着「<strong>子藏元年</strong>」的钱币被他弹射向前方，瞬间就砸在了他飞驰而至的掌中。</p>
+<p>啪！</p>
+<p>戴着露指皮套的手掌握住钱币的瞬间，这道红芒射入了前方的虚无。</p>
+<p>荒原上，疾驰的飞车不再有，仅剩突然消失的车辙，与缓缓荡开的微风。</p>
+<p>……</p>
+<p>星光幻境古老的球状建筑内。</p>
+<p>会议大殿中，几名制作组的组员看着波波利。</p>
+<p>「<strong>那升级Moxel的道具是你放进去的？</strong>」</p>
+<p>「<strong>嘿嘿，是幻保儿姐姐看我们的奖励太low，给我们申请调配的，这座城的转盘里面一共还有四枚哦。</strong>」</p>
+<p>「<strong>哇哦。</strong>」</p>
+<p>「<strong>不愧是魔英级的竞技城，奖励这么丰厚。</strong>」</p>
+<p>就连幻境公司的人都露出了羡慕的眼神，这种奖励也是干事级别才有。他们的目光继续落向光幕上其它画面。</p>
+<p>但随后，那封被标注为「<strong>神秘奖品</strong>」的信件吸引了他们的目光。</p>
+<p>......</p>
+<p>潋星科复古办公科室，椅子上撑着头的幻保儿狐疑地看了阵子。</p>
+<p>忽然，她眼睛微眯地道：</p>
+<p>「<strong>这个抽奖系统当时是谁负责的。</strong>」</p>
+<p>潋星科十几人疑惑地将看向荧幕的目光转向大椅子上的总干事。</p>
+<p>那个递给佐罗「<strong>弹跳弹跳蛋</strong>」的憨厚面貌人士道：</p>
+<p>「<strong>我记得应该是佐罗，这个抽奖系统里面还有我捐助的奖品。</strong>」</p>
+<p>幻保儿转头喝道：「<strong>把那个混账给我捉回来！马上！</strong>」</p>
+<p>「<strong>干事大人，他不是离职了吗？</strong>」</p>
+<p>「<strong>他那叫离职吗！那叫畏罪潜逃！</strong>」</p>
+<p>她刚一站起身，突然顿在原地。</p>
+<p>齐聚于此看直播的十来人疑惑望来，幻保儿又坐了下来，继续拿手轻撑着下巴，继续看着画面。</p>
+<p>仿佛刚才的话只是幻觉。</p>
+<p>众人不敢多言，他们继续闭嘴安静地看向古老荧幕。</p>
+<p>程允泽接过信封，将它撕开，疑惑抖了抖，从信封里滑出张有着虚实不清的水晶引擎画面的暗黑相片。</p>
+<p>[<strong>我获得【亚以太通道试用装：暗金枢纽镇】。</strong>]</p>
+<p>——「<strong>这是！</strong>」</p>
+<p>程允泽感觉自己的手就像触电般，整个身体都僵在了原地。</p>
+<p>涟星科内的十来人还有点摸不清楚怎么回事。</p>
+<p>「<strong>话说，那玩意儿不是以太通道相纸吗？</strong>」</p>
+<p>「<strong>有点像，但规格好像跟我们常用的不一样啊。</strong>」</p>
+<p>一阵惊呼从荧幕中传出。</p>
+<p>——「<strong>真的是暗金枢纽镇的传送坐标！可惜啊，是试用装，只能使用一次。</strong>」</p>
+<p>「<strong>什，什么？</strong>」办公室内几名同样来自枢纽镇的人颤抖地起身，难以置信地看着荧幕。</p>
+<p>里面的人正围绕在程允泽身边，相纸只要触碰就会得知信息，这么多人在那儿，程允泽早已来不及隐藏这件宝物的信息！</p>
+<p>——「<strong>一次就一次吧，至少可以交易。</strong>」</p>
+<p>——「<strong>居然还有第三座枢纽镇啊，不知道那座枢纽镇里有什么。</strong>」</p>
+<p>潋星科的众人跟傻了般听着放大画面里的声音。</p>
+<p>「<strong>啊？</strong>」</p>
+<p>「<strong>那家伙把暗金枢纽镇坐标做成奖品放进抽奖系统里面了？</strong>」</p>
+<p>或靠在座位，或盘腿席地而坐看着荧幕的这些人怔怔互相对视，确认着自己听到的信息。</p>
+<p>「<strong>那家伙的相纸哪里搞来的。</strong>」说话之人立即被身旁的人捂住嘴。</p>
+<p>「<strong>太，太帅了吧！</strong>」</p>
+<p>一人突然跳了起来。</p>
+<p>「<strong>哇！哈哈哈，保儿总干事，我们有人做到了啊！</strong>」</p>
+<p>「<strong>难怪那佐罗那家伙要跑路！</strong>」</p>
+<p>「<strong>罗素万岁！太酷啦！</strong>」</p>
+<p>科室内，众人仿佛庆祝般欢呼起来。</p>
+<p>背对着众人的幻保儿，在前方椅子上撑着头只言未语。</p>
+<p>但她嘴角却渐渐露出丝弧度。</p>
+<p>[<strong>我获得【群英闪光】+1。</strong>]</p>
+<p>......</p>
+<p>立方体中，看着这一幕的杨子藏眼睛都快瞎了。</p>
+<p>「<strong>竟然把那东西做进了抽奖系统！好家伙，佐罗！</strong>」</p>
+<p>此刻他心中因魔英殿伤亡而积聚的一些郁气也因为这突然的惊喜而消减许多。</p>
+<p>杨子藏没想到佐罗竟然给了自己这样一个大惊喜，也是给所有人的惊喜。只要有一张这样的试用装照片，就能想办法让不止一人进入，至于那会如何做到，便是要靠这些获得试用装之人自己的努力了。</p>
+<p>最简单的方式，当然莫过于失频之地上的大明星，小马超的念境穿梭能力了！</p>
+<p>「<strong>太厉害了，你终于跨过漫长的努力，做到了啊！</strong>」</p>
+<p>银白Moxel之人，只能共鸣属于这边的抵御物理攻击的雕像力场，红Moxel共鸣的则是抵御声波、气浪等方面的雕像力场。</p>
+<p>暗金血脉雕像，则可以抵御念力攻击。</p>
+<p>而这稀缺的暗金雕像只要寻找到，就能成为红白两种Moxel的中间桥梁，完全共鸣三种念力场，且能与所有颜色的Moxel无障碍地进行心灵链接！</p>
+<p>「<strong>佐罗，你这次干得实在太棒了！</strong>」</p>
+<p>可是…抽奖只有十次机会吗？</p>
+<p>杨子藏想到了克罗夫特的话。</p>
+<p>——「<strong>比如你们可以为那些喜欢到处聊天的女孩子，增加概率…</strong>」</p>
+<p>「<strong>佐罗，你可千万不要忘记这句话啊！</strong>」</p>
+<p>......</p>
+<p>「<strong>什么试用装？</strong>」</p>
+<p>监测室内，逐银噗地喷出嘴中的咖啡，他将手中的杯子随手丢在椅子上，脚步慌乱地靠近前方几名雇员的木椅靠背。</p>
+<p>「<strong>魔...英殿。</strong>」</p>
+<p>副镇长激动地看着小记者们从空中投放的画面。</p>
+<p>「<strong>杨子藏做到了...那个家伙，真是难以置信啊。是他自己，还是他跟别人一起？</strong>」</p>
+<p>逐银瞬间就想到了比杨子藏先一步进入遗失幻境公司的佐罗。</p>
+<p>还有好些年前其它进入遗失幻境公司，被逮住，或未被逮住之人。</p>
+<p>「<strong>佐罗，杨子藏。</strong>」</p>
+<p>这两个人在失频之地上就已经开始交集，他们的行动轨迹在一次又一次的交汇中，前往了同一个地方。</p>
+<p>又在此刻，迸发出了这难以置信的，最终成功之时光交汇节点。</p>
+<p>最终是谁做到的已经不重要了。</p>
+<p>因为在这个获取暗金枢纽镇的行动中，十数年来前后已有至少二十多名获知此信息之人，以自己的努力，将行动一点点推进。最终才有这次的成功。</p>
+<p>「<strong>好好好，既然你们真的将坐标点给送了出来。那么接下来的任务，就交给我好了。</strong>」</p>
+<p>让所有人能无碍的交流，彻底斩断Moxel间对立的使命，要真正地开始了！</p>
+<p>逐银欣喜地望向房间之外。</p>
+<p>外界热烈气氛的人们并不知道，这件看上去惊喜的事件，其背后到底有多少人在努力推动。</p>
+<p>......</p>
+<p>缓缓转动的魔齿房间中，得知信息的吕布等人立即分散兵力，前往不同的房间搜寻能够增加获得神秘奖品概率的「<strong>特邀奖券</strong>」。</p>
+<p>第三日上午，两座城的第二休息桥廊处，陆续出现了彻夜进行通关的队伍——这些队伍基本都是由原本数只队伍的高手们所临时组成。</p>
+<p>杨子藏的心不由得焦虑起来。</p>
+<p>他不知道佐罗到底塞入了多少信封进去，但肯定不可能太多。若被这群人以100N一次的消耗抽取，每人十次，到目前为止进去的三万多接近四万人，就按百分之五十来算，也有十乘以两万次...</p>
+<p>再乘以一百的话...</p>
+<p>「<strong>克罗夫特！</strong>」</p>
+<p>这个该死的混蛋。</p>
+<p>自己和波波利以及小娇玛，没有放进去哪怕一个需要花Chronos来抽取的奖品。</p>
+<p>现在出现这种100N一次的底概率抽取，和那该死的「<strong>抽取气氛</strong>」提示音。</p>
+<p>是谁修改得这大转盘，已不言而喻。</p>
+<p>如果没有这额外增加的每人一百年Chronos抽取次数，那么自己哪怕在魔英殿开启的五日后出现，也有机会来抽这藏着第三枢纽镇坐标的「<strong>亚以太通道相片</strong>」。</p>
+<p>可现在，若等到第五天再出去，可就没自己的什么事了啊！</p>
+<p>怎么办。</p>
+<p>「<strong>还有两天，又十二小时。</strong>」</p>
+<p>杨子藏吐出口焦虑的浊气，看向这足有个小卧室大的立方体。</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="chapter-108.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="chapter-110.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="chapter-108.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="chapter-110.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="ace.js"></script>
+        <script src="editor.js"></script>
+        <script src="mode-rust.js"></script>
+        <script src="theme-dawn.js"></script>
+        <script src="theme-tomorrow_night.js"></script>
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

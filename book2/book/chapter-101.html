@@ -1,0 +1,339 @@
+<!DOCTYPE HTML>
+<html lang="zh" class="coal sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>第一百零一章 坚定的抉择 - 魂孪英旅 下 魔齿磨轮</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "coal" : "coal";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('coal')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">魂孪英旅 下 魔齿磨轮</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="第一百零一章-坚定的抉择"><a class="header" href="#第一百零一章-坚定的抉择">第一百零一章 坚定的抉择</a></h1>
+<p>嗡嗡嗡～议论声中，杨子藏感觉自己的觉知在无数眼神中燃烧。</p>
+<p>他感受到肩膀上手掌的紧张，也听到一些人鼻息的急促与沉重。</p>
+<p>虽然根据制度，遗失幻境公司没有丝毫办法不允许没有违反任何保密条件的自己离职，但是...</p>
+<p>「<strong>没关系，我可以不参加。</strong>」杨子藏叹了口气道。</p>
+<p>「<strong>你！</strong>」克罗夫特望来。</p>
+<p>杨子藏看向这人，恐怕现在最支持自己离职的人就是眼前这青皮的魔英殿大设计师了吧。</p>
+<p>傅契雍狐疑注视青年道：</p>
+<p>「<strong>你真改变主意，不打算为你的城市出力了？</strong>」</p>
+<p>杨子藏像做出了某个艰难决定后的轻松，他淡然道：</p>
+<p>「<strong>我可以把我的Moxel，以‘Chronos迁移’交给我们城市的人，让他们用我的力量参赛。</strong>」</p>
+<p>波波利瞬间瞪大了眼！他腾地站起身，双掌拍在桌子上：「<strong>不行！不可以！我不准！</strong>」</p>
+<p>杨子藏看向波波利：</p>
+<p>「<strong>说不定这样一来，我反而回到了本身未被改变的命运里。</strong>」</p>
+<p>「<strong>那莫里的冒险牺牲不是白费了吗！</strong>」</p>
+<p>「<strong>莫里对未来的改变又被抹平，应该也就不会死了。那个时迁应该还在吧…</strong>」</p>
+<p>金方卯的眼珠转动地看向杨子藏。</p>
+<p>克罗夫特愕然，他望向杨子藏的目光，仿佛在看一个超级大傻逼。</p>
+<p>「<strong>唉，我真是错失了一个大宝贝啊。</strong>」他心中叹道。</p>
+<p>波波利对着两道虚影急道：</p>
+<p>「<strong>齿轮房间可以更换，我们所有人一起重新制作，只需要两三天时间！我们还可以替换两个轮组的承载柱，我还能改变城市结构，这样跟我们之前的就绝对不会一样了！求你们再给我一点时间！</strong>」</p>
+<p>两道虚影互相看了眼。</p>
+<p>{<strong>真的，这座竞技城，太方便了。</strong>}</p>
+<p>波波利咬牙切齿看向杨子藏，近乎吼着道：</p>
+<p>「<strong>我们说过的，所有重要决策，必须朴明集团三首席一致同意才行！你没有权利制作主张交出Chronos球！我首先不干！</strong>」</p>
+<p>金方卯道：「<strong>我看重新设计地形也不必了。换换房间位置就行。</strong>」</p>
+<p>「<strong>这...</strong>」</p>
+<p>「<strong>应选者杨子藏，</strong>」金首席注视着青年，「<strong>能在艰难中为星光幻境制作魔英级竞技城找到新道路，还参与制造出这样可以常驻的魔英殿，已是有大功。</strong>」</p>
+<p>他对众人道：</p>
+<p>「<strong>而且他本就是放弃个人珍贵际遇，为了他那排名垫底城市而战的真勇士。魔英殿既然已被评为常驻型，再在这么点破事上纠缠不清，也显得我们圣环议会太小家子气了。</strong>」</p>
+<p>「<strong>耶！</strong>」一堆人跳了起来。</p>
+<p>「<strong>唉。</strong>」克罗夫特失望无比地垂下头。</p>
+<p>「<strong>但是！</strong>」</p>
+<p>克罗夫特猛抬头，其他人也立即安静。</p>
+<p>金方卯笑道：「<strong>该有的惩罚还是要有，杨子藏。</strong>」</p>
+<p>所有人目光落在了金方卯微笑着的脸庞上。</p>
+<p>「<strong>为了公平起见，你在魔英殿投放的前五天内，不能出战。</strong>」</p>
+<p>杨子藏呼吸一紧。</p>
+<p>五天时间，希望两座城的人走不完这些房间。</p>
+<p>「<strong>我，同意。</strong>」</p>
+<p>「<strong>很好。那么从现在开始，你无法联系幻境公司与城市中的所有人，直到战斗开始！</strong>」</p>
+<p>说罢，瞬间一道四边形折线出现。</p>
+<p>[<strong>我获得方寸之间。</strong>]</p>
+<p>唰！杨子藏进入了一个有着马桶的透明方框内。</p>
+<p>{<strong>为了防止泄密，从现在开始，不论是梦境还是念力，抑或是心灵之环的连接，任何可能的交流都停止使用！</strong>}</p>
+<p>{<strong>每天你会按时收到食物，时间到了后，你自然会出现在魔英殿的门口。</strong>}</p>
+<p>「<strong>啊，被关禁闭了。</strong>」</p>
+<p>众人看向这个磨砂般的大方盒子，外界看不清里面。</p>
+<p>......</p>
+<p>......</p>
+<p>杨子藏盘坐在看上去透明的盒子里。</p>
+<p>没多久他就从众人未聚焦到自己身上的目光，察觉到了外界看不清里面的事实。</p>
+<p>「<strong>还想在排名战开始前，进入邮徽世界获得雕像，看来是不行了。</strong>」</p>
+<p>杨子藏叹了口气，心中计算了下这次的花费。</p>
+<p>哪怕有幻保儿总干事的「<strong>私房钱</strong>」支持，自己赚来的Chronos还是花了一大半在能力球的收购上。</p>
+<p>本用不着那么多奖励，但一想到两个城市之人，很多都是挣扎在生死线上。因此在莫里的提议下，三人决心将这半年通过技能书赚来的额外时间，回馈给大家。</p>
+<p>现在，三人算下来还有约三十多万Chronos的剩余。</p>
+<p>「<strong>既然难得休息，那我就好好锻炼吧。</strong>」</p>
+<p>杨子藏开始回忆与总结着最近建造魔英殿以来的收获。</p>
+<p>这次遗失幻境公司之旅，可以说对完全不清楚的精神念力知识，多出了非常非常深刻的理解。</p>
+<p>在自己实力与强者相比还很弱的时候，能得到这样的经历，以后自己在这条道路上将避免非常多的弯路。</p>
+<p>他回忆起《原始精神锻炼瑜伽》的内容，感受着脑海内越来越融为一体的置身林海气息，纷乱杂念浅浅消退。</p>
+<p>杨子藏盘腿入静，缓缓锻炼精神力。</p>
+<p>……</p>
+<p>两天后，波波利回到了住处。</p>
+<p>正在洗碗的梁喜见到他回来，立即开心迎接。</p>
+<p>「<strong>这两天麻烦你了。</strong>」波波利感激的道。</p>
+<p>「<strong>没关系，莫里哥是杨哥的好朋友，我当然要保护好他。</strong>」</p>
+<p>莫里拉开卧室门，「<strong>波波利回来了，怎么样？</strong>」</p>
+<p>「<strong>很不错！</strong>」</p>
+<p>波波利看了眼在厨房忙碌的梁喜，进入莫里的房间关上门道：「<strong>我有件事不知如何做主，想问你。</strong>」</p>
+<p>「<strong>问我？什么事。</strong>」这个胡子拉渣的男人奇怪的盯着少年。</p>
+<p>「<strong>遗失幻境公司的管事邀请我加入他们公司，成为那里的设计师。但是，我不知道我要不要同意。</strong>」</p>
+<p>「<strong>这是好事啊！</strong>」</p>
+<p>莫里惊喜的道，「<strong>以后你们两个都在那里，对我来说，最大的担忧都没有了。</strong>」</p>
+<p>他从杨子藏口中早就听过关于遗失幻境公司的事情，对于眼前之人，杨子藏对他没有秘密。</p>
+<p>「<strong>可是子藏哥会离职，他要参加年底的排名战。而且，他说如果不离职，就要把Moxel给他们城市的朋友，这样你对未来的改变可能就会失败，你也不用担心了。</strong>」</p>
+<p>「<strong>他混蛋！</strong>」</p>
+<p>莫里高声道：「<strong>怎么可以有这种想法，如果他真这样，我立即让洛宾把最后一个李尚响也干掉！</strong>」</p>
+<p>莫里身上散发出了杀意。</p>
+<p>波波利知道莫里没有在开玩笑，他真的能干出这种事。</p>
+<p>「<strong>你放心吧，我已经劝好了。另外他也被关禁闭了。</strong>」</p>
+<p>莫里一愣。不是刚干成了件天大的好事吗，怎么转眼就被关禁闭了。</p>
+<p>等波波利说完后，莫里哈哈大笑。</p>
+<p>梁喜在外面敲门。</p>
+<p>「<strong>莫里哥，你们在笑什么。</strong>」</p>
+<p>「<strong>没，没事，哈哈哈哈。</strong>」</p>
+<p>莫里笑出眼泪般的摆摆手，「<strong>子藏这个家伙，关得好！到时候他应该都来不及参加竞技城的战斗了。也好，你们两个都在遗失幻境公司吧。</strong>」</p>
+<p>「<strong>可你…</strong>」</p>
+<p>「<strong>我一个活生生的人，还能被饿死不成？放心吧。</strong>」</p>
+<p>莫里拍了拍波波利的肩膀。</p>
+<p>「<strong>既然要去遗失幻境公司，就不要摆架子。你们要遵守公司的规则。所以，你还是去往那里吧，他们会对你很好的。</strong>」</p>
+<p>波波利盯着莫里的眼睛良久。</p>
+<p>「<strong>我怎么感觉你有点不对劲呢？</strong>」</p>
+<p>「<strong>我是在为你们高兴啊，咱们队伍，区区三人，但两人都进入了遗失幻境公司，还被圣环议会所知晓。这样的事情，我都想跟你出去庆祝一番了。</strong>」</p>
+<p>「<strong>别，你老实呆着吧，再过两年半你就能出来了。</strong>」</p>
+<p>晚上，这处房间内，梁喜、波波利、莫里以及逐银四人聚会。</p>
+<p>在非常丰盛的晚宴下，他们与失频之地上的洛宾等人心灵感知的状态中，庆祝着波波利完成了一次近乎不可能的壮举。</p>
+<p>宁佳佳无聊看着大帐篷中，温暖的篝火旁洛宾和左非闲等众人开心得手舞足蹈的样子，脸上表情冷冷的。</p>
+<p>随后她转过头，帐篷外，幽影列车散发着幽光，静静注视着里面的人们。</p>
+<p>枢纽镇这边的房间中。</p>
+<p>「<strong>波波利小先生。</strong>」</p>
+<p>逐银真心的感叹道：</p>
+<p>「<strong>你在这里这么久，我都没好生看待过你的能力。没想到杨子藏与莫里先生慧眼识珠，将你的潜能发挥得如此之高。</strong>」</p>
+<p>梁喜在另一端啪啪拍着手。</p>
+<p>「<strong>开心！哈哈，莫里哥，我也要加入你们朴明集团！</strong>」</p>
+<p>「<strong>等杨子藏回来让你加入吧。我后面就把雕像的共鸣权限交给他。</strong>」</p>
+<p>「<strong>别啊，你永远是我们的队长。</strong>」波波利道。</p>
+<p>「<strong>那样的事情以后再说吧，哈哈，来。我敬你们一杯，逐银副镇长，多喝点。</strong>」</p>
+<p>欢声笑语中，几人敏酊大醉，逐银说完再见后，脚步虚浮地出门，随后一闪消失在门口。</p>
+<p>「<strong>你也离开吧。</strong>」莫里对着波波利道。</p>
+<p>「<strong>我…</strong>」</p>
+<p>「<strong>趁着现在大家对你的熟悉，快过去维系公司里的人际关系。</strong>」</p>
+<p>莫里教育着少年。</p>
+<p>「<strong>不要以为自己做出个竞技城就不得了了，你也说了，那种模式以后可以长期用，有你无你都无所谓。为了以后我们在命运轨迹之上的相遇，不要浪费时间。</strong>」</p>
+<p>他郑重地对波波利劝戒道。</p>
+<p>醉醺醺的波波利狐疑打量男人。</p>
+<p>「<strong>算了，随你。我睡去了。就让杨子藏在那边独自待着吧。梁喜，这些碗麻烦你了。</strong>」</p>
+<p>莫里起身伸了个懒腰，进门关上。</p>
+<p>他将自己靠在门上。</p>
+<p>「<strong>我最后的担心也没有了。茱莉亚。</strong>」</p>
+<p>这个男人紧张又带着期待的想着那通电话里的信息。</p>
+<p>未来的自己并没有维系这个名为朴明集团的队伍，而是加入了一个全是非亚洲人的队伍。</p>
+<p>未来的杨子藏失踪了整整三年，而现在，杨子藏真的在那个时间点后离开失频之地已经半年。</p>
+<p>自己看似改变的命运...</p>
+<p>似乎又回到了原来的轨迹。</p>
+<p>这让他很欣慰。</p>
+<p>本来想一百章左右结束第二卷，为此也省略了类似「<strong>心愿护符</strong>」的获取、清理部旧波段探索等方面内容，但算了算，好像还是要二十多章才能结束。前几天旅游完回来，把卷三的大纲重新写了下，加上了本来卷三里想删掉的内容，嗯...就这些。</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="chapter-100.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="chapter-102.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="chapter-100.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="chapter-102.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="ace.js"></script>
+        <script src="editor.js"></script>
+        <script src="mode-rust.js"></script>
+        <script src="theme-dawn.js"></script>
+        <script src="theme-tomorrow_night.js"></script>
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

@@ -1,0 +1,307 @@
+<!DOCTYPE HTML>
+<html lang="zh" class="coal sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>第七章 大地上的半球 - 魂孪英旅 下 魔齿磨轮</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "coal" : "coal";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('coal')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">魂孪英旅 下 魔齿磨轮</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="第七章-大地上的半球"><a class="header" href="#第七章-大地上的半球">第七章 大地上的半球</a></h1>
+<p>朦胧灰雾弥漫之地，一道巨型半球悬浮前方，如同一个缓缓转动的古物穹顶。</p>
+<p>这仿若堵塞世界边缘的巨大球形造物内部，道路交织于错综复杂的建筑之间，复古瓷砖铺就的长廊两旁是各式各样充满艺术气息的旧式机械装置。</p>
+<p>{<strong>那是怎么回事。</strong>}</p>
+<p>一间古老房间内，黑暗中微弱的心念声快速交流。</p>
+<p>{<strong>禁止的念境场时间继续演化了，这是那位的[<strong>格位</strong>]在崩塌？</strong>}</p>
+<p>{<strong>不可能，这才多少年，你看花眼了。</strong>}</p>
+<p>黑暗中显示着各种波段与数据的屏幕开始颤抖，然后黑屏，如同成为黑暗的一部分。</p>
+<p>但随即屏幕上亮起了个模糊的雪花信号般的身影轮廓。</p>
+<p>身穿皮服作硬汉打扮的蒙西走入这房间，抬起充满胡渣的下巴盯向隐藏于暗影中的古老荧幕。</p>
+<p>「<strong>是有高格位者入侵这位圣者的失频念力场了。</strong>」</p>
+<p>这些屏幕不知存在了多少岁月。</p>
+<p>不知是因有遗失幻境公司的存在，才有了它们；还是因为有它们，才诞生了遗失幻境公司。不论如何，房间中的东西自漫长岁月以来都始终顽强地延续着怪异的生命。</p>
+<p>一个屏幕内张开线条勾勒的古拙眼眸符号。</p>
+<p>{<strong>念力场里面没有活着的生命，你如何确认的？难道是死人进去了吗？</strong>}</p>
+<p>「<strong>对，里面没有活人的精神波段，却能让念力场所演化的世界继续维持活力。</strong>」</p>
+<p>{<strong>我的搞笑细胞早就丢失了，你不要给我讲笑话。那种事情怎么会发生。</strong>}</p>
+<p>「<strong>我不是蒙东，我不会像他一样讲冷笑话。</strong>」</p>
+<p>{<strong>你的意思是...</strong>}</p>
+<p>蒙西道：「<strong>所以那个高格位者不是生命体。</strong>」</p>
+<p>蒙西转头看向隔壁房间，他走了过去。</p>
+<p>{<strong>蒙东是谁。</strong>}</p>
+<p>一个古老屏幕问道。</p>
+<p>{<strong>编的。你的冷笑话细胞果然丢失了。</strong>}</p>
+<p>......</p>
+<p>蒙西的身体如透明般直接穿过了昏暗的玻璃墙体，出现在热闹的办公室内。</p>
+<p>这里各种机械声音嗒嗒作响，就像个繁忙的监听工作站，一格格辉光小屏幕显示着数据波动，到处是嗡嗡议论声。</p>
+<p>「<strong>蒙西干事。</strong>」</p>
+<p>穿着类似工业时期常见制服的工作人员起身。</p>
+<p>「<strong>还好您及时赶来了，否则我们已经打算上报管事了。</strong>」</p>
+<p>蒙西嗯了声，「<strong>虽然很难见到，但应该是某个‘古老黄金’级别的信息结晶与念力场发生了同频。很大概率是人为的，如果不是人为，呵呵，那基本相当于彗星撞地球砸死恐龙的事件正在我们面前上演了。</strong>」</p>
+<p>「<strong>不愧是蒙西干事，一眼就看出来发生了什么。就是不知道是哪位存在在干这种事情。</strong>」</p>
+<p>「<strong>不要想，不要揣摩。</strong>」蒙西瞪了说话的那人一眼，「<strong>小心跟不好的东西进行精神同频。</strong>」</p>
+<p>这人吐了吐舌头。</p>
+<p>——「<strong>A级警报解除，不是念力场提前崩塌。</strong>」</p>
+<p>蒙西转头看了眼方才进入的屋子玻璃墙。</p>
+<p>古老房间内的屏幕上除了闪缩的细微背噪，就只有那诡异的人影，其他可参考的数据都没有。蒙西指着玻璃墙对面：「<strong>最近与圣者‘阿斯纳’的失频力场同频的人是谁？</strong>」</p>
+<p>众人立即忙碌起来。负责这道失念念力场的人很快调出了档案递给了他。</p>
+<p>「<strong>杨子藏...</strong>」</p>
+<p>他看着手中的纸张。</p>
+<p>——杨子藏，男，Moxel条数为1+3，五行为风属性为主导，契合月界第一层，高度契合Chronos神殿频率。</p>
+<p>他翻看了下，哼哼了声，「<strong>打升频道具的主意。</strong>」</p>
+<p>一人撕下刚从打字机上出来的另一人的人物资料，也递给了蒙西干事。</p>
+<p>「<strong>这个人也进入过。</strong>」</p>
+<p>「<strong>知道了，把杨子藏录入公司成为低级雇员吧。我要亲自盯着他进去念力场，看看里面有什么，如果埋入了什么会对失频念力造成破坏的灾难性的信息，好早点控制住。</strong>」</p>
+<p>「<strong>毕竟关系到那种圣者的失频心念，这家伙的资料需要上报给命运轨迹吗？</strong>」一人问。</p>
+<p>蒙西正待说话，忽地他胸前亮起一抹微弱的环形光芒。</p>
+<p>[<strong>41号议员与我沟通。</strong>]</p>
+<p>{<strong>不用管他。</strong>}</p>
+<p>听到这位议员的声音，接过文件的蒙西松了口气。</p>
+<p>「<strong>没事了，静观其变就好。只要不是念力场崩塌就行。</strong>」</p>
+<p>「<strong>那杨子藏还要招录吗？毕竟他有疑点。</strong>」</p>
+<p>「<strong>嗯，走流程吧。</strong>」</p>
+<p>蒙西变得轻松的将杨子藏的资料纸张按在桌面上。</p>
+<p>「<strong>想要个升频道具而已，不算什么。过得了就进来吧。小倩，今晚有空吗？</strong>」</p>
+<p>「<strong>抱歉，干事大人，我约了小天了。</strong>」</p>
+<p>「<strong>真是令人伤心的称呼。</strong>」</p>
+<p>蒙西离去，这份命令很快传导至另一个部门。不过因为不是必须邀请的人，他们不需要主动出现在失频之地上。</p>
+<p>而在无人注意的角落，小屏幕上还未切换掉的属于杨子藏的运势曲线图，往下的波峰也随即开始重新上升了一点。</p>
+<p>……</p>
+<p>这球形建筑内，在附近某个区域，几分钟前，佐罗从一间房屋中走出。</p>
+<p>佐罗放眼看去，办公区域被巧妙地分割成多个层级和迷宫般的走廊。如果没有引导，在这里随便一个拐弯就会迷失。</p>
+<p>一位皮肤白皙、面容精致的二十来岁女孩从门前路过，看向他道：</p>
+<p>「<strong>佐罗，今天的工作时间已经消耗完了？要不要跟我去文献部散散心？</strong>」</p>
+<p>「<strong>求之不得。</strong>」</p>
+<p>路上他们见到些急匆匆的人往某个通道而去。佐罗停下脚步，站在个黄铜雕塑下看向通道另一端庄严肃穆的雄壮大门。</p>
+<p>「<strong>那边好像发生了什么。</strong>」佐罗道。</p>
+<p>「<strong>还从未见过这样紧张的气氛，恐怕有什么念力场出问题了。</strong>」</p>
+<p>「<strong>哦？那间屋子里面监测的是什么？</strong>」</p>
+<p>女人崇敬地看向那扇威武大门：</p>
+<p>「<strong>那边监听的都是这个世界的强大存在们牺牲之后还未消散的念力波段。</strong>」</p>
+<p>「<strong>这...</strong>」</p>
+<p>「<strong>虽然强者都已死去，但它们那骄傲而伟大的精神能量依旧能存在较长时间，于虚无处指导着我们的成长，为我们提供应对各种危机的训练经验。这是它们最后的奉献了。所以，我们称它们为圣者或贤人。</strong>」</p>
+<p>佐罗默默对着那个方向合掌，恭敬地闭眼了几秒才再次睁开。</p>
+<p>女人扭头看向佐罗，温和道：</p>
+<p>「<strong>我们走吧，去文献库，后面我教你如何为那些‘能够被同步的世界残影’，挑选合适的旧世界物品放进去。</strong>」</p>
+<p>「<strong>嗯，谢谢前辈。</strong>」</p>
+<p>「<strong>嘻嘻，你这样可把女孩子叫老了哦，我也才被选中进入遗失幻境一年而已。</strong>」</p>
+<p>「<strong>哇，一年时间你就能这么漂亮，精神等级肯定提升得很快咯。</strong>」</p>
+<p>......</p>
+<p>行至「<strong>历史文献部</strong>」，高耸的书架直通天花板。</p>
+<p>文献库的面积很大，它里面装饰着不同年代的科技元素与复古风格家具，以及雕花与画卷、艺术品。</p>
+<p>这些都是历史的见证，和谐地被放置在一起，没有任何突兀之处，犹如古老的图书馆兼博物馆。</p>
+<p>「<strong>我建议从这里看起，这里面是关于曾经大陆上一些植物与矿物成分的书籍与记录，不过没有地名，那是被禁止的。这儿我已经早看完了，我去那边区域，你先看着。如果有需要，你可以借阅。</strong>」</p>
+<p>佐罗扫了眼无数的书架：「<strong>谢谢。</strong>」</p>
+<p>等女孩离开后。佐罗轻轻呼出口气，抬手抚摸身旁的书架。它们上面摆满了泛黄的书籍、古老的卷轴以及珍贵的胶片。远处安静的行人身影在不同的书架下驻足，或乘梯查阅。</p>
+<p>[<strong>我迫切地在寻找「<strong>多余记忆</strong>」中所指的那处古老书架。</strong>]</p>
+<p>心念声突然不由自主响起。</p>
+<p>[<strong>不知道我今日能否找到它的身影，十数位任务接受者们为我贡献着名气，才让我走到这里...</strong>]</p>
+<p>或许是因为长久隐耐的目标近在眼前而激动。</p>
+<p>[<strong>我也不想让那种力场永久的不为普罗大众所知晓。</strong>]</p>
+<p>[<strong>或许我可以立即找到它。</strong>]</p>
+<p>「<strong>住嘴！</strong>」</p>
+<p>佐罗赶紧按捺住心中的自言自语。</p>
+<p>几秒后，内心轻轻地道...</p>
+<p>[<strong>可是我也知道，这是急不来的。</strong>]</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="chapter-006.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="chapter-008.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="chapter-006.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="chapter-008.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="ace.js"></script>
+        <script src="editor.js"></script>
+        <script src="mode-rust.js"></script>
+        <script src="theme-dawn.js"></script>
+        <script src="theme-tomorrow_night.js"></script>
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

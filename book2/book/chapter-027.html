@@ -1,0 +1,335 @@
+<!DOCTYPE HTML>
+<html lang="zh" class="coal sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>第二十七章 早回 - 魂孪英旅 下 魔齿磨轮</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "coal" : "coal";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('coal')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">魂孪英旅 下 魔齿磨轮</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="第二十七章-早回"><a class="header" href="#第二十七章-早回">第二十七章 早回</a></h1>
+<p>洪灏承看着女人还如昏迷般躺在自己的怀中。</p>
+<p>他感受了下身体，那随时能回应自己的心念声已经消失不见，不过，并未完全死去。那灵魂能量还能感受得到，而且更为清晰。或者说，是自己的感知变得更为敏锐了。</p>
+<p>所以那是真的？</p>
+<p>「<strong>女骗子，骗我只有二十八岁，靠。</strong>」</p>
+<p>洪灏承起身，他看了眼床上的女人，趁着对方难得的陷入沉睡般的状态，小心翼翼拉开小手提箱，翻找着里面的东西。</p>
+<p>「<strong>手机？嗯，不需要看。</strong>」</p>
+<p>丢在一旁，找了找，很容易看到了那东西——结婚证。两本都果然在这儿。</p>
+<p>那天自己被强扭着拜堂后一起去拍了个照，就在岛上，制作成结婚证后絮姬给自己晃了晃，却不给经手，说怕自己给撕掉。</p>
+<p>随后两人就各自散了，就像是只玩了个过家家的游戏。</p>
+<p>「<strong>这下被我逮着了吧，嘿嘿，我倒要看看，你把我拍得有多丑。</strong>」</p>
+<p>翻开看了几眼，洪灏承脸上一愣。</p>
+<p>相片是自己两人的，自己证件号也是正确的，但…年龄上，自己比她大了两岁。</p>
+<p>「<strong>为什么...你不是叫王絮妃吗？</strong>」</p>
+<p>洪灏承的心砰砰跳，他看向女人下方的名字：王茜怡，女，26岁。</p>
+<p>「<strong>王茜怡？那不是上次被我撞掉文件…又给我打电话让我逃的女孩？</strong>」</p>
+<p>洪灏承转头看向床上的女人沉静安睡的面容，那位女子虽美，但跟絮妃相比，身上缺少的是一种朴实无华又深邃幽远的气质，两人风格完全不同。</p>
+<p>忽然，他感觉自己的身体晃了下。</p>
+<p>——「<strong>警报，警报，飞机遭遇洋流，紧急迫降。</strong>」</p>
+<p>——「<strong>警报，飞机引擎出现故障！</strong>」</p>
+<p>「<strong>什么？！</strong>」</p>
+<p>洪灏承面色一变，他赶紧快速穿上衣服，将结婚证拽在手里，拉过被单裹住昏沉睁眼的女人。</p>
+<p>「<strong>老公，怎么了。</strong>」</p>
+<p>「<strong>飞机在颠簸，祸不单行，它还烧了个引擎。</strong>」</p>
+<p>他发现自己在这样波动的飞机上竟然还能稳稳站立着，看来自己不知不觉已经将训练成果转化了不少。</p>
+<p>碰！门被撞开，冯居冠看了眼里面的人，「<strong>快，将她给我。</strong>」</p>
+<p>「<strong>我抱着就行，我的平衡能力已经……</strong>」</p>
+<p>「<strong>给我！</strong>」</p>
+<p>冯居冠这声大喝让洪灏承证了下，随后听话的将絮姬递到了冯居冠手上。</p>
+<p>「<strong>结婚证，在行李箱里面，去拿下。</strong>」女人道。</p>
+<p>冯居冠点点头，抱着絮妃打算往里面走，却被洪灏承挡住。他将刚才放入衣兜的结婚证掏出来了一个递给对方。</p>
+<p>少年道：「<strong>另一个给我吧。</strong>」</p>
+<p>女人一下转头：「<strong>不可以，给我，两个都给我。</strong>」</p>
+<p>「<strong>为什么？</strong>」洪灏承奇怪的看着有点慌乱的她。</p>
+<p>「<strong>我…</strong>」</p>
+<p>「<strong>你还有什么瞒着我。</strong>」</p>
+<p>随着这问话，洪灏承模模糊糊像是回忆起来什么，那是份不属于自己的模糊记忆。</p>
+<p>来自于昨夜对女人念力的吞噬，虽然记忆的传递很少，但一个朦胧的破碎世界的印记，此刻已然如焰火般划过心识的海洋，激起千层浪。</p>
+<p>少年脸上一变，看向冯居冠手上的絮姬。</p>
+<p>「<strong>你们走吧。</strong>」</p>
+<p>「<strong>你，你知道了？</strong>」女人看向他突然释然的神色。</p>
+<p>洪灏承在物品左右滑动的房间中，如同稳健的水手走向机舱另一边。</p>
+<p>「<strong>快走吧，如果没错，不是再晚就来不及了吗，去吧。</strong>」</p>
+<p>冯居冠看着手中抱着的女人，有点焦急的小声道：「<strong>怎么会提前了，我们还没有到达准备好的基地。</strong>」</p>
+<p>女人眼眸中已经没有了之前的青春洋溢的神采。</p>
+<p>「<strong>或许这就是命运，那些准备已经用不上了。</strong>」</p>
+<p>她抬头看向前方的少年背影：</p>
+<p>「<strong>我的真名叫絮妃，没有那个姓氏，以后忘了我吧。</strong>」</p>
+<p>来不及再想什么的冯居冠，咬牙抱着女人快速冲向后方房间门，飞机在云层中倾斜俯冲而下。</p>
+<p>忽然，后方厚厚云层内雾气突然卷动。</p>
+<p>呼轰！</p>
+<p>一艘更为庞大的淡灰色飞机从云层中呼啸而出。</p>
+<p>——「<strong>呼叫BA6278号...</strong>」</p>
+<p>巨大的灰色飞机犹如挺近的陆地，紧紧咬在这艘姿态不稳的BA6278号上方。巨大的机身侧面有着几道五角星的图案。</p>
+<p>在它身边云层中，又有两艘战机划破扰动云层，带着尾迹挺近向这里，它们侧面有着新月以及星条图案。</p>
+<p>机群稳稳与这架失控的飞机平衡，从上面掉下几根绳子，特种兵们的身影从上面滑落至绳索底部，以几乎不可能的特技将这架失控飞机上的人快速转移至大飞机，除了望着这一切的少年自己。</p>
+<p>洪灏承平静的看着窗外的景色，他想起这些天女人给自己讲过的故事。</p>
+<p>十九世纪，波兰探险家伊瓦诺夫斯基兄弟，失踪于北冰洋。</p>
+<p>第一位独自飞越大西洋的女飞行员阿梅莉亚.埃尔哈特，于1937年失踪于环球航行之中。</p>
+<p>1803年，澳大利亚探险家乔治.巴斯，航行于南美洲附近消失不见……</p>
+<p>「<strong>原来你一直说的，是我的故事。</strong>」</p>
+<p>又有几架不同国家的飞机如刺破云霄的利剑，从身后的云层中出现，像是隐匿跟随的空天舰队露出自己的身形。</p>
+<p>一搜灰黑的三角机翼跟随在不断摇晃坠落的BA6278两旁。</p>
+<p>这样的轰鸣打破了洪灏承的思绪。</p>
+<p>他听着飞机内部滋滋声作响，一道广播声音出现在飞机内部各处。</p>
+<p>——「<strong>洪灏承同志。</strong>」</p>
+<p>几秒后。</p>
+<p>「<strong>嗯。</strong>」洪灏承淡淡地应了声，他抬起头看向喇叭，「<strong>我还在。</strong>」</p>
+<p>——「<strong>我们等你回家。</strong>」</p>
+<p>飞机呼啸着坠落向苍茫大地。</p>
+<p>他感觉自己仿佛像梦中一样，坠落又坠落，永远也落不到地，电波声断掉，只有不断响起的背燥。</p>
+<p>洪灏承看着窗外逐渐逼近的大地，心中涌起一股难以言喻的平静。</p>
+<p>——「<strong>滋滋滋。</strong>」</p>
+<p>少年想起了絮姬的笑容，想起了她说过的，「<strong>无论你走到哪里，我都想在你心里。</strong>」</p>
+<p>他闭上眼睛，任由身体随着飞机坠落，心中却诡异的浮现安宁，仿佛回到了本属于自己的命运。</p>
+<p>「<strong>谢谢。</strong>」他喃喃的道。</p>
+<p>飞机机翼爆炸燃烧，房间内物品全部被甩到了墙角，一股难以言喻的气息开始弥漫在整个机舱中，并快速开始变得晦涩、诡异，且充满压迫。</p>
+<p>砰、砰、砰。</p>
+<p>淡淡的心跳声在耳边与心间响起，像是踩在心脏上的沉重鬼魅脚步。</p>
+<p>这一坠，就是难以想像的长寂时间，仿佛天地间的距离被拉长了万倍。</p>
+<p>......</p>
+<p>「<strong>‘遗失幻境公司’到底是什么样的存在？</strong>」</p>
+<p>杨子藏躺在属于自己的舒适软床上，将手枕在枕头上想着这个问题。</p>
+<p>夜里静悄悄的，只有时钟模拟出的微弱走时声敲动着黑夜的静谧。</p>
+<p>在这里，自己只睡了三四个小时精神就已完全恢复，但若这时让自己起床，长久以来养成的习惯又无法真的支配身体起来做什么事情。而且就算起来也不知道干些什么。</p>
+<p>扭头看了眼一旁墙上的时间。</p>
+<p>04:12:28。</p>
+<p>无聊中，穿着棉茸茸睡衣的杨子藏从枕头旁，拿起张半个巴掌大的精致卡片来回翻转看着。随着他的拿起，这张坚硬的卡片也亮起微光。</p>
+<p>[<strong>通过‘员工身份证’，我知道，目前我的精神力强度为二环八阶。</strong>]</p>
+<p>「<strong>真不知道这种东西是怎么做出来的。</strong>」</p>
+<p>[<strong>我想知道员工卡的设计原理...这不是我该考虑的事情。</strong>]</p>
+<p>把玩了下员工卡后，杨子藏回想着关于自己的一些信息。</p>
+<p>短短半个月时间，自己就提升了两阶段的精神力强度。虽说得益于工作内容，刚开始加入公司的人的提升都比较快，但像自己这样快的，组长说非常稀少，至少她还没见过。</p>
+<p>但把玩着卡片的杨子藏的眉头微微皱起。</p>
+<p>虽然安逸的生活和安全的实力提升，是一些知晓此地存在的人想进入的真正原因，但那不包括自己。</p>
+<p>莫里的危险并未解除；沐小雨也还未被带入镇中，还有其它很多事情，比如年底的城市排名战。以及...失频之地上那道让人心思纷乱的倩影。</p>
+<p>来这个世界时间虽短，但自己已经多了许多羁绊了。</p>
+<p>「<strong>得尽快才行。</strong>」</p>
+<p>杨子藏侧了下身。</p>
+<p>[<strong>我在想，书架到底会在什么地方呢？我想早点回去。</strong>]</p>
+<p>被窝里的青年想着，通过那本手册印入心识的遗失幻境公司信息。相比于失频之地上那种连某些失念引擎配方都有详细记载的资料，关于这里的信息非常少，除了名字约等于零。</p>
+<p>[<strong>我在想，最初的「<strong>自由前进兵团</strong>」到底是如何调查出关于这里的信息的呢？</strong>]</p>
+<p>[<strong>那些人很厉害吗？</strong>]</p>
+<p>想到「<strong>自由前进兵团</strong>」留下的那句信念宣言，杨子藏下意识将捏着员工卡的手指伸直，在墙上划出「<strong>前</strong>」字的笔划，紧接着，又写了两横，以及与之交错的两竖...</p>
+<p>他打了口哈欠，缩回手指想到。</p>
+<p>[<strong>将银与红链接起来的暗金，指的难道是...那几位干事的Moxel颜色吗？</strong>]</p>
+<p>忽地，一道折线射来。</p>
+<p>{<strong>子藏，我看到你的员工卡可以进行通讯链接了。所以你是醒了吗？</strong>}</p>
+<p>杨子藏微微一愣，这个女孩子的声音直接响在了心中，随后他就放松了下来。</p>
+<p>「<strong>娇玛组长也没睡吗？</strong>」</p>
+<p>{<strong>嗯，我每天都是这个时候就起床了呢。</strong>}</p>
+<p>「<strong>呼...既然如此。</strong>」杨子藏一下掀开被子起床，摸着员工卡道，「<strong>娇玛组长，请问，我可以前往文献室查阅资料吗？</strong>」</p>
+<p>{<strong>当然可以耶。我早就想邀请你去了呢。</strong>}</p>
+<p>「<strong>早就？</strong>」</p>
+<p>杨子藏心中「<strong>唉</strong>」地声叹了一大口气。</p>
+<p>没想到自己心心念念、鬼鬼祟祟想要寻找的所谓神秘无比的「<strong>旧世界文献库</strong>」，在这里居然是个谁都能去的地方。早知道自己该早点问的。</p>
+<p>青年心中顿时升起一股「<strong>人穷志短不敢乱语</strong>」的感觉。</p>
+<p>「<strong>那我这会就有空，能告诉我过去的路线吗？</strong>」杨子藏略显急切的道。</p>
+<p>没想到成功来得如此迅速。</p>
+<p>{<strong>可以是可以，我都想陪你一起去呢，不过...</strong>}</p>
+<p>「<strong>不过什么？</strong>」</p>
+<p>{<strong>文献库记载的全是关于旧世界的数据。若阅读它们，就不能再回失频之地了哦。</strong>}</p>
+<p>「<strong>什，什么？</strong>」杨子藏瞬间就瞪大了眼。</p>
+<p>[<strong>我在哀嚎。</strong>]</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="chapter-026.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="chapter-028.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="chapter-026.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="chapter-028.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="ace.js"></script>
+        <script src="editor.js"></script>
+        <script src="mode-rust.js"></script>
+        <script src="theme-dawn.js"></script>
+        <script src="theme-tomorrow_night.js"></script>
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

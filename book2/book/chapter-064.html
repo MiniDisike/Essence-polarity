@@ -1,0 +1,318 @@
+<!DOCTYPE HTML>
+<html lang="zh" class="coal sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>第六十四章 真正的精神攻击 - 魂孪英旅 下 魔齿磨轮</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "coal" : "coal";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('coal')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">魂孪英旅 下 魔齿磨轮</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="第六十四章-真正的精神攻击"><a class="header" href="#第六十四章-真正的精神攻击">第六十四章 真正的精神攻击</a></h1>
+<p>清晨，当杨子藏从床上起身的时候，门口多了封信。</p>
+<p>它是暗金色的，信封三分之二处有着道优雅的花纹竖线。当杨子藏走来将它拾起拆开，里面是关于韩鸣啸事件的调查报告。</p>
+<p>最后结论是：据管事审核，当前公司内部来自韩鸣啸团伙的安全威胁度已经小于「<strong>一</strong>」。</p>
+<p>凝思片刻，青年将它放在了枕头旁，随后洗脸、吃了点面包，套上外套进行今天的清理工作。</p>
+<p>下午四五点左右，杨子藏通过相片来到11号城。</p>
+<p>见到青年乘着飞毯而来，洛宾过来道：「<strong>子藏，23城的人开始骚扰我们出去的那些猎队了。</strong>」</p>
+<p>「<strong>下手重不重？</strong>」</p>
+<p>「<strong>不重，但挺可恶的。我们好不容易引开了普通地缚之灵，将能血脉浓度高的地缚之灵孤立，但对面那些家伙们故意派人制造混乱，引动怪物过来让我们无从下手。</strong>」</p>
+<p>「<strong>到还算收敛。</strong>」杨子藏咬了咬唇，看向胖子的脸，「<strong>你那边怎么样了？</strong>」</p>
+<p>听到这话，洛宾嘿嘿一笑，贱贱地道，「<strong>大收获啊。</strong>」</p>
+<p>......</p>
+<p>天色渐晚，本就光线不好的城市，还不到六点便完全看不清了。</p>
+<p>安全起见在城中的队伍都回到了各自营地。</p>
+<p>四相天团所在的这处拱形建筑内，几只能够发光的恶魇模器将屋内照亮。「<strong>噗噗</strong>」熬煮着羹饭的几口铁锅旁，大伙儿举行着例行的晚间讨论。</p>
+<p>「<strong>对面停止接受新队伍的进入邀请了。枢纽镇的人都在骂咱们，说我们安插间谍才让他们失去进入11城的机会。</strong>」</p>
+<p>程允泽点了点头，他身旁一名头发金黄的北美人以不太流畅的中文道：</p>
+<p>「<strong>我听说，这几天只有我们队的那两个人被清理出来。他们怎么会这么精确知道的？</strong>」</p>
+<p>说完，他的目光在下方众人身上划过，特别是那些城中其它队伍跟着进来的七八人。</p>
+<p>众人左右互看了下，「<strong>不会吧，我们这边有对面的探子？</strong>」</p>
+<p>「<strong>行了，别疑神疑鬼的。</strong>」程允泽道，「<strong>你们见到那个跑进来的红Moxel的人没有。</strong>」</p>
+<p>大家一致摇头。</p>
+<p>「<strong>张苗和崔荣那三个家伙，也不回话，看来是王八吃秤砣，铁了心跟那小子了。</strong>」</p>
+<p>「<strong>行吧，那人的确是个人物，我们争取招揽。至于安插间谍的事情，就告一段落吧。我们接下来重点是放在怎么更快获得那些高级的缚灵核心，以及骚扰他们的获取进度上，年前让他们少得到哪怕一把虚零武器都算大收获。</strong>」</p>
+<p>正在话题逐渐转移到如何拉扯怪物的商议时，大殿内，一直踱步的副队长突地停下道：</p>
+<p>「<strong>不对，允泽。大甲方那边恐怕有非常厉害的情报高手。你们还记得之前那位心理医生吗？</strong>」</p>
+<p>会议室内大多数人都一脸茫然，程允泽抬头看去，猛地像是想到了什么。队伍中几名老人也不寒而栗地浑身一抖。</p>
+<p>「<strong>你说的是那个，光看表情细微变化就能判断说话是真是假，甚至能读出更多隐秘情绪的家伙！</strong>」</p>
+<p>副队长道：「<strong>他们那边恐怕有类似这样的人，否则如何能迅速又精确的发现我们插入进入的人？</strong>」</p>
+<p>众人疑惑的看过去。</p>
+<p>「<strong>如果有那种能力，杨子藏不至于被时迁团队暗算吧。</strong>」</p>
+<p>「<strong>也或许是这次进来的其它城市之人的能力。如果是那些进入的高手帮忙...见鬼！真有可能。</strong>」</p>
+<p>「<strong>不论如何，我们先假设是他们那边的人。以后大家都小心点。</strong>」</p>
+<p>正在这时，一道融资折线扩散开来，但转瞬消散。</p>
+<p>{<strong>四相天团宁佳佳，女，反嫩老姑娘，可复制九种不同光能力进行存储与调用。当前收集的光能力有四种。</strong>}</p>
+<p>「<strong>这是？</strong>」屋内众人一惊。</p>
+<p>宁佳佳腾地下站起身来，脸色刷地红掉，羞怒不已。</p>
+<p>「<strong>老...呃？</strong>」</p>
+<p>铁锅旁众人哑然。</p>
+<p>「<strong>他们想干嘛。</strong>」</p>
+<p>「<strong>佳佳，别理他。这个世界谁不是万年王八，岁数只是浮云而已。</strong>」</p>
+<p>「<strong>对，别生气。话说，你手上的光能力怎么才四种，那‘光门’还没有再复制成功吗。</strong>」</p>
+<p>「<strong>你管得着吗！</strong>」</p>
+<p>宁佳佳瞪了眼这哪壶不开提哪壶的人。</p>
+<p>又一道蕴含信息的扩散开，从众人胸前一划而过。</p>
+<p>{<strong>四相天团张志权，高傲御宅族，最喜欢的事情就是以主角心态欣赏其他人对自己团队的奉承。</strong>}</p>
+<p>「<strong>欸？什么。</strong>」</p>
+<p>众人看向坐在程允泽不远处，那被称之为张拳头的，拥有结实臂膀的茫然男人。</p>
+<p>{<strong>他是个每晚睡前都要美滋滋幻想，去往命运轨迹拯救水生火热之人后，被万人称赞的飘逸大侠场面。可惜啊，练功变成大块头，跟想成为的翩翩公子形象背道而驰。伤感嘢。</strong>}</p>
+<p>嘭！张志权一巴掌拍在旁边放茶缸的石墩上。</p>
+<p>「<strong>拳头，冷静。</strong>」</p>
+<p>张志权面色发红的怒道，「<strong>这是假的。</strong>」</p>
+<p>「<strong>想成为大侠好啊，咱们志权多棒啊。</strong>」一些知道张志权喜好的人道。</p>
+<p>「<strong>你少说两句吧。</strong>」</p>
+<p>话音未落，又一道折线扩散，众人齐齐一慌。</p>
+<p>还好不是那人，而是进入11城中的某个城市之人。</p>
+<p>{<strong>张志权是谁啊，你们在干嘛呀？</strong>}</p>
+<p>张志权脸色黑得跟锅灰一样，拳头快捏出水似的埋着头。</p>
+<p>屋内众人心惊胆战的窃窃私语，忽地又一道折线射来。</p>
+<p>{<strong>王天意...你，原来你还有这种毛病，可惜，你让以后喜欢你的女孩子怎么办啊。</strong>}</p>
+<p>屋内一人勃然大怒地扩散出Moxel。</p>
+<p>[<strong>你是谁！你们是不是大甲方货队的人！</strong>]</p>
+<p>「<strong>天意，不要冲动。</strong>」</p>
+<p>[<strong>我获得9999N投资。</strong>]</p>
+<p>刚刚喊出「<strong>天意，不要冲动</strong>」的人只瞧见，自己话音未落，这暴怒之人已然咻地从板凳上消失。</p>
+<p>房间内众人哗地一片惊讶，他身旁几人从木头小板凳上见鬼般踉跄起身跑远几步。哪怕他们晓得这是被对方以投资万年寿命给送走，但还是觉得一股凉意笼罩，生怕下一个被点名的就是自己。</p>
+<p>丝线又咻然扩散而来。</p>
+<p>{<strong>昂，终于出声了啊，这几天鬼鬼祟祟的过来偷窥，我还以为是阿猫阿狗呢。诶对了，我声明下，我只是帮忙念字的人。你们打算投资为我话，我很乐意啊。</strong>}</p>
+<p>这道蕴含着信息的融资宣言一闪而逝。气得想要努而投资的副队长猛地一拍木桌。</p>
+<p>「<strong>这些狗东西！</strong>」</p>
+<p>{<strong>四相天团钟小姐，哇噢，你能能看见水波内多余的物质诶，还能把它们分离。恩，最喜欢的事情是喜欢摸有腹肌的「<strong>奶狗男</strong>」肚子，最喜欢幻想跟他们约会。</strong>}</p>
+<p>「<strong>什，什么呀！</strong>」一位女孩捏着拳头气得站起身，胸前Moxel闪烁。</p>
+<p>「<strong>小钟，千万别步天意后尘！</strong>」</p>
+<p>「<strong>我，我!</strong>」女孩委屈巴巴的看了眼周围，泪水在眼眶中打转，她突然转身跑了出去，队伍里一个青年见此，立即不顾众人目光的跟着冲了过去，想要安慰这名少女。</p>
+<p>一道折线扩散开来。</p>
+<p>三十来人屁股齐齐一颤，连陈允泽的背脊都下意识紧了下。</p>
+<p>{<strong>是杨子藏的团队吗？我们是14城的，你们在哪，我能不能买点护符。</strong>}</p>
+<p>闪动的Moxel线条变得多了起来。</p>
+<p>{<strong>我是17城的人，杨子藏，你们在哪个光门？我也想买点你的「<strong>物华天宝</strong>」。但话说回来，小钟姑娘，我这边好多帅哥都有腹肌哦，我还会做猫耳发夹，你要不要来我们这边交点朋友啊。</strong>}</p>
+<p>「<strong>这些人太过分了！</strong>」</p>
+<p>殿内众人正在又憋屈又愤怒的时候，一道蕴含着融资宣言再次闪动着扩散开来。</p>
+<p>{<strong>身体的毛病能治，精神上的变态可就不好治了啊。啊，算了，这个太社死了，某人。我们先放你一马，反正年底的考核表现看着办，你也不想我们把具体事件和名字公布出来的吧，好自为之。</strong>}</p>
+<p>众人狐疑的左右看去，像是想要从身边人的神色变化中发现这次对方连名字都不说的人，会是谁。</p>
+<p>{<strong>四相天团的马克！</strong>}</p>
+<p>被点名的外国人脸色一僵地腾地起身声嘶力竭道：「<strong>不是我！他们在编造！</strong>」</p>
+<p>这一嗓子吼完，那道折线才大喘气般的再次扩散而出。</p>
+<p>{<strong>呵呵，马克先生的情报我也不说了，只能说，祝你成功。</strong>}</p>
+<p>「<strong>祝我成功？什么叫祝我成功！</strong>」</p>
+<p>随后，还在打量周围身边人的众人将目光挪动，齐刷刷落到了这叫马克的金发男身上。</p>
+<p>「<strong>他，他们胡扯。</strong>」马克抬头便看到陈允泽狐疑的目光</p>
+<p>「<strong>队长，这是他们的离间计。</strong>」</p>
+<p>宁佳佳怒气腾腾的看过去，像是找到个可以发泄情绪的对象似的，咄咄逼人道：「<strong>你在谋划什么，对面要祝你成功！</strong>」</p>
+<p>「<strong>我没有！</strong>」</p>
+<p>又一道折线扩散而来，大殿内四相天团的众人都要从椅子上跳起来了。</p>
+<p>{<strong>今天就到这里吧，咱们明天再见。</strong>}</p>
+<p>「<strong>见你大爷。</strong>」</p>
+<p>「<strong>终于结束了！</strong>」</p>
+<p>{<strong>对了，安居客，你喜欢宁佳佳的话，就要努力点啊，人家看不上没权没势的人，而且你啊仅仅只是个三角形，还是死了这条心吧。</strong>}</p>
+<p>板凳摔倒的声音。</p>
+<p>「<strong>仅仅三角形？</strong>」众人一愣地看向人群中某人，以及秀脸都成了猪肝的宁佳佳。</p>
+<p>自封为安居客的男人脸皮抖动着起身，他心中羞怒地扩散出三角形Moxel。</p>
+<p>「<strong>不是说今天结束了吗？！</strong>」</p>
+<p>「<strong>快停下！</strong>」</p>
+<p>「<strong>你想消失吗！</strong>」</p>
+<p>安居客一个激灵地断掉了融资Moxel。</p>
+<p>{<strong>哎呀呀，这不是记录宁佳佳的资料，顺嘴的事嘛。</strong>}</p>
+<p>宁佳佳怒气冲冲的往殿后几个帐篷而去，留下一屋子乌烟瘴气人人自危的队友。</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="chapter-063.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="chapter-065.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="chapter-063.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="chapter-065.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="ace.js"></script>
+        <script src="editor.js"></script>
+        <script src="mode-rust.js"></script>
+        <script src="theme-dawn.js"></script>
+        <script src="theme-tomorrow_night.js"></script>
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

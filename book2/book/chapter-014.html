@@ -1,0 +1,303 @@
+<!DOCTYPE HTML>
+<html lang="zh" class="coal sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>第十四章 分发秘技 - 魂孪英旅 下 魔齿磨轮</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "coal" : "coal";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('coal')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">魂孪英旅 下 魔齿磨轮</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="第十四章-分发秘技"><a class="header" href="#第十四章-分发秘技">第十四章 分发秘技</a></h1>
+<p>银白色的能力球在掌中摩挲出果实般的触感。</p>
+<p>[<strong>我已获得新的「<strong>Chronos效果</strong>」：逆向物理。</strong>]</p>
+<p>「<strong>逆向物理。</strong>」</p>
+<p>杨子藏看着它，这就是隐身Moxel的名字了。</p>
+<p>[<strong>我感受到超过万道「<strong>混乱的相同愿望</strong>」。</strong>]</p>
+<p>[<strong>我，伟大的四边形，如果满足这些心愿，应该能获得【愿望护符，万人级】！</strong>]</p>
+<p>「<strong>愿望护符？</strong>」</p>
+<p>杨子藏望仿佛能从黑夜虚空中感受到无数人灼热的目光。</p>
+<p>这些日子他已经知道有人能够通过某些手段获得「<strong>心愿护符</strong>」，甚至有人出售它们。</p>
+<p>比如为受灾地提供药物与救援、为大批迫切想要饱腹的饥饿者提供美味可口的食物。或是在镇中进行广受欢迎让人迫切想要知晓后续情节的新戏剧演出。</p>
+<p>亦或是一些撩人的、甚至带着疯狂的地下演出，每当这种时候都有一定的概率获得「<strong>心愿护符</strong>」。</p>
+<p>因为制作「<strong>心愿护符</strong>」的共同点就是，同时满足数百上千人以上的迫切心愿。</p>
+<p>而此刻，自己居然得到了万人级的愿望护符的提醒。</p>
+<p>杨子藏感受着这道心念声，微微叹了口气。</p>
+<p>如果是万人级不知道能不能扭转莫里改变未来的代价。</p>
+<p>但这是不可能被满足的。</p>
+<p>因为这上万人的愿望都是：想要获得手中这枚蕴含隐身Moxel的能力球！</p>
+<p>「<strong>隐身固然很强，但Chronos迁移才是最顶级的Moxel。</strong>」</p>
+<p>自己如今排名垫底的城市，曾也有过如此的强者。只是，他似乎没有用自己的Moxel。</p>
+<p>杨子藏轻叹口气后，看向周围逐渐围过来的三十来人。</p>
+<p>此刻他们的咳嗽声已经响成了一片。</p>
+<p>一位面色红润的高大胖子上前：</p>
+<p>「<strong>杨子藏先生，我是珍馐坊的掌勺，副镇转告说，我们老板已经备好饭菜，请您光临。</strong>」</p>
+<p>「<strong>不好意思，今夜就算了。我的偷渡时间已经用完了。</strong>」杨子藏随便找了个借口</p>
+<p>这人脸色茫然，显然不理解什么叫时间用完了。</p>
+<p>莫里走过来道：「<strong>大家还未吃晚饭，我带大家回去吃吧。</strong>」</p>
+<p>杨子藏看向莫里说：「<strong>现在去枢纽镇肯定一堆人打扰。今天这么多兄弟朋友来救我，我得单独找个地方款待各位。</strong>」</p>
+<p>「<strong>子藏兄弟。</strong>」周围张显棚主等人顶着隐隐的忧恼与期待，觍着脸跑来，「<strong>这儿还能做点饭菜，就在这里吃吧。</strong>」</p>
+<p>波波利双手插着衣兜靠近：「<strong>这里死了这么多人怎么能行，换个地方吧。</strong>」</p>
+<p>杨子藏首先想到无忧，刚才无忧棚主已经联系过自己，还有丽疆、黄昏、箜山等棚主，都无不希望能有一聚。</p>
+<p>正当杨子藏想回复无忧棚主之时，一道折线射来，又是之前联系自己那位玫瑰溪的女孩。</p>
+<p>{<strong>喂，大人物。玫瑰姐已经拿出了很多家底做饭了，杨子藏，你不是要道歉吗，哦，对不起子藏先生，请您能够带大家过来，在这边彻夜畅谈都可以。</strong>}</p>
+<p>杨子藏笑了笑，他看到玫瑰女王旁边女孩被徐爱媛一巴掌拍在屁股上，示意她好好说话。</p>
+<p>他抬眼看向这里望着自己的几十道目光灼灼的主人。</p>
+<p>「<strong>这两人我已绕过他们的性命，张显棚主，烦请您能够暂时让他们活着。改日若有缘，我想让他带我们去祭奠真正的时迁。</strong>」</p>
+<p>杨子藏对着众人继续说道：</p>
+<p>「<strong>玫瑰女王愿意提供场地，我想咱们就去那边为大家分发秘技，聊表谢意吧。</strong>」</p>
+<p>「<strong>哇哦！</strong>」</p>
+<p>众人鼓掌欢呼。</p>
+<p>「<strong>哈，是玫瑰溪？我没听错吧！</strong>」</p>
+<p>「<strong>据说那里美女如云，我，我还没女朋友呢。</strong>」</p>
+<p>「<strong>小声点，那边肯定看着这里，你首先第一个被排除。</strong>」</p>
+<p>……</p>
+<p>一座有着诸多暗沉色泽建筑的城市内。</p>
+<p>主位上的程允泽听完汇报后，揉了揉鼻梁靠在自己背后的大椅上。</p>
+<p>「<strong>都知道吧，杨子藏获得了隐身能力Moxel。而且还是可交易的。</strong>」</p>
+<p>屋内沙发上，几人略显惊异的看向此人。</p>
+<p>「<strong>这样的人物来争夺年底的排名，还真是麻烦。</strong>」</p>
+<p>「<strong>泽哥，虽然是对手，但这家伙不愧是能够把排名四十往后的城市一下提到跟我们23城平级的人。哪怕是用召唤名片解决，也不可小瞧。</strong>」</p>
+<p>陈允泽点点头，「<strong>之前是有点小看他了。</strong>」</p>
+<p>但随即他露出抹自信的冷笑，挺直腰离开沙发靠背，捏起红酒杯道：</p>
+<p>「<strong>不过，再麻烦也只是一个人而已。毕竟，考核的主动权在我们手上。</strong>」</p>
+<p>「<strong>对，有泽哥在，这些野物翻不起什么花浪。</strong>」</p>
+<p>「<strong>哈哈哈。泽哥威武。</strong>」</p>
+<p>……</p>
+<p>玫瑰溪的典雅石殿内。</p>
+<p>晚宴长桌已擦净，重新摆上新餐具与美食。</p>
+<p>杨子藏一行人咳嗽着进来。</p>
+<p>秦队长笑道：「<strong>之前还有点羡慕子藏先生的列车，哈，以后我可是不敢再坐了。</strong>」</p>
+<p>本想围观的棚区民众纷纷借故散去，生怕被传染。</p>
+<p>那脸色发红的珍馐坊厨师咳嗽走出，说道：</p>
+<p>「<strong>咱们这群病夫来这美女如云的玫瑰溪做客，却集体生病。这多失礼啊。请大家稍等，我为大家熬一锅开胃汤，助大家发汗退烧。应该能很快就好。</strong>」</p>
+<p>有玫瑰溪备好厨具，马彬在殿旁手法娴熟的在Moxel帮助下，很快煮出锅香汤。众人饮后，果然咳嗽声渐少。</p>
+<p>殿中宽大的横墙下，杨子藏歉意地道：「<strong>玫瑰女王，上次实在来不及解释，也不好解释。</strong>」</p>
+<p>长桌正中，少女将杨子藏的座位安置在了华光溢彩的美人身侧。</p>
+<p>「<strong>别一口一个玫瑰女王的叫，我可从来没承认过那名讳。你呀，就叫我的名字吧。我叫徐爱媛，子藏先生。</strong>」</p>
+<p>「<strong>那好，徐爱媛小姐。</strong>」</p>
+<p>桌边，换上婀娜旗袍、披着毛茸茸长披风的徐爱媛，在温和的氛围中更显美艳。在她身边，看上去充满干练、身上愈发拥有强者姿态的杨子藏，在气势上也不输人下。</p>
+<p>周围人的目光偶有瞟来，心中都暗赞两人的气质卓绝。</p>
+<p>徐爱媛浅笑着道：「<strong>首先恭喜你获得新的强大Moxel，真是令人羡慕。不知杨货队长打算给谁用呢。</strong>」</p>
+<p>淡淡的清香萦绕鼻尖，杨子藏不动声色地笑道：「<strong>这Moxel若是落入漠视人命之人手中，是一大祸患。我目前还不想随意给人使用。</strong>」</p>
+<p>「<strong>的确，无论何处有这样的人，都叫人如芒在背。</strong>」</p>
+<p>热腾腾的菜肴开始上桌。</p>
+<p>徐爱媛轻轻颔首，似认同杨子藏的话。但她知道，只要有人得到他们的信任，朴明集团就会多出一位令人闻风丧胆的强者。</p>
+<p>「<strong>今夜我都看到了。不光我，还有很多棚主的Moxel都被时迁惦记上，真是多亏你破了这场大阴谋。</strong>」</p>
+<p>「<strong>多亏了这些朋友们。</strong>」</p>
+<p>人们陆续入座，长桌末端，肖宇山几人坐在桌子左侧边缘的一角。</p>
+<p>虽然还稍不受待见，但跟来的七八人非但不在意，还庆幸不已。同样心情的还有几名一起进来的珍馐坊食客，他们听说能坐大明星专列进失频之地帮杨子藏的忙，冲动下跑来，没想到会有如此大的好处拿。</p>
+<p>「<strong>店里那几个不愿意来的肯定后悔死了。</strong>」</p>
+<p>「<strong>嘿嘿，谁让他们怀疑这个那个的。</strong>」</p>
+<p>「<strong>主要是当时情况太急，也不好解释不是。我一路上都还提心吊胆的呢。</strong>」</p>
+<p>众人窃窃私语中，杨子藏起身招呼众人，随后干了手上暗珀色的红酒。</p>
+<p>「<strong>干。</strong>」众人抬杯饮尽。</p>
+<p>一番感谢后，莫里起身，胸前Moxel光芒闪动，具现出一张张飘落的纸张。</p>
+<p>这才是今夜的重点！</p>
+<p>大殿中，无数目光热切灼灼地看着那些丝线轨迹交织的纸张。</p>
+<p>闪动丝线具现出一张张卷轴，转眼就有一叠被莫里按在桌面。</p>
+<p>「<strong>这么多！</strong>」</p>
+<p>「<strong>这些就是只要使用就能直接继承他人上百年修行经验的契约书！</strong>」</p>
+<p>众人的心脏怦怦直跳，哪怕已经喝过酒水还是感觉喉舌快速干燥，眼前全是渴望。</p>
+<p>「<strong>真要...尽数送给我们？</strong>」</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="chapter-013.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="chapter-015.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="chapter-013.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="chapter-015.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="ace.js"></script>
+        <script src="editor.js"></script>
+        <script src="mode-rust.js"></script>
+        <script src="theme-dawn.js"></script>
+        <script src="theme-tomorrow_night.js"></script>
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

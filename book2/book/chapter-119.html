@@ -1,0 +1,335 @@
+<!DOCTYPE HTML>
+<html lang="zh" class="coal sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>第一百一十九章 剑光枪影 - 魂孪英旅 下 魔齿磨轮</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "coal" : "coal";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('coal')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">魂孪英旅 下 魔齿磨轮</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="第一百一十九章-剑光枪影"><a class="header" href="#第一百一十九章-剑光枪影">第一百一十九章 剑光枪影</a></h1>
+<p>「<strong>吕…新俊。</strong>」</p>
+<p>刚被类似周蝉的气质温柔女士接上胳膊的赵云，捏住黑樱长枪的的手指捏得咔咔作响。</p>
+<p>自己只是回来疗伤的短短时间，吕新俊就被人刺杀了。</p>
+<p>对方以难以置信的隐藏手段分化了恶魇卫星，然后用可以进行远距离瞬移的那女人进行虚晃刺杀。</p>
+<p>最终在吕新俊愤怒与被刺杀后的松懈中，才由一直隐藏在身边的叛徒，以砍下了自己胳膊这种武器，完成最后的刺杀，一击毙命。</p>
+<p>周恒已经死了，他不知是谁在进行这种比周恒更险可怕的、犹如走钢丝一般的统局能力。</p>
+<p>「<strong>那个叫李弥的？还是他的那位演员上级？</strong>」</p>
+<p>列怪者联盟那边隐藏着个，丝毫不将失败风险放在眼里的疯子啊！</p>
+<p>「<strong>吕布！</strong>」地板被炸得嗵的声响，想得窝火的赵云一下自石床站拄枪站起身来。</p>
+<p>周貂直起身望着他惊怒的面容：</p>
+<p>「<strong>你的手还有几个月才会完全好定，不要再战斗了。等待比赛的结束吧。</strong>」</p>
+<p>赵云猛地转头，目光中战意如有实质般弥漫。周貂目光温和的与之相视，一点也未退缩。</p>
+<p>「<strong>小红帽！</strong>」</p>
+<p>这间如同建筑遗迹的魔齿房间角落，一个金发碧眼的少女站起身，她带着顶红色小软帽。</p>
+<p>「<strong>把吕布的帽子给我。</strong>」</p>
+<p>「<strong>没用的，你们遇到那种虚零武器，还是会被击溃。</strong>」</p>
+<p>「<strong>我说给我！</strong>」</p>
+<p>耸了下肩，这位少女走来丢给他一顶新鸭舌帽。</p>
+<p>赵云取下头上的帽子，将这顶新帽子带上。</p>
+<p>[<strong>我获得新的「<strong>第二颅顶</strong>」，重要器官防护部位增加。今日新增保护器官：心脏、肺叶、小肠。</strong>]</p>
+<p>「<strong>很好，除了大脑，新增了三个部位。</strong>」</p>
+<p>赵云将头转向另一边，一位棕色肤色的十七八岁少年人抱蹲着倚墙而坐。</p>
+<p>「<strong>匹诺，给我所有你的所有虚零Chronos。</strong>」</p>
+<p>「<strong>我没有很多。</strong>」</p>
+<p>「<strong>那你就去陪吕布吧。</strong>」赵云的枪毫不犹豫就握起。</p>
+<p>[<strong>曹匹诺想为我进行主动投资。</strong>]</p>
+<p>[<strong>曹匹诺为我投资虚零Chronos13000N.</strong>]</p>
+<p>「<strong>这可是我存了很久很久的。只有这么多了。</strong>」</p>
+<p>这次这个棕肤少年没说谎，以他微乎其微的虚零Chronos转换率，到现在能拥有这样多的虚零Chronos，已经是托雄英组的福了。</p>
+<p>磨齿房间内二十多米外的土堆旁，一个男人盯着赵云：</p>
+<p>「<strong>赵云，你要做什么。吕布已死，方天易主，雄英组不能再失去下一个强大武力！</strong>」</p>
+<p>赵云闭目，缓缓呼吸两次，自鼻息长出口气。</p>
+<p>「<strong>最初的会长之所以取名雄英，据说便是自某个信息得到的灵感。我相信，那个灵感就是我们脚下的这片磨轮。</strong>」</p>
+<p>赵云昂首挺胸地睁开虎眼，身上气势缓缓拔高扩散。</p>
+<p>「<strong>是时候让雄英回归雄英了，子龙君！</strong>」</p>
+<p>一道高昂的浮动人形自其身躯展开。宛如巨神。</p>
+<p>这道身影张开夕阳云霞般的双目。</p>
+<p>[<strong>我为子龙君投资虚零Chronos13000N</strong>]</p>
+<p>[<strong>我为子龙君投资9999N.</strong>]</p>
+<p>「<strong>杨子藏，邵敏，还有那所谓的总部…</strong>」</p>
+<p>咚！赵云以枪低地挪动握手位置后，在周貂担忧的目光中，提起长枪快步走出石门。</p>
+<p>……</p>
+<p>魔喉之殿外的最后磨齿组中。</p>
+<p>已经快要攀爬至这组磨轮最顶层的程允泽微一皱眉。</p>
+<p>「<strong>吕布居然死在了一个名不见经传的小人物手里。</strong>」</p>
+<p>甚至那强大的卫星也易主了，这41城的形式旦夕间便发生逆转了啊。</p>
+<p>队伍里的王纯道：「<strong>队长，盯着雄英组的兄弟汇报，赵云去咱们的核心轮组了，我看他是要去狙击杨子藏啊。</strong>」</p>
+<p>程允泽看了眼自己的骷髅月天使后，摩挲下巴沉思：</p>
+<p>「<strong>当时我虽砍下他的手臂，但这赵云却一点都不慌，反而有更强的杀意。呵，真希望杨子藏能快点，这样说不定我们还能有好戏看。</strong>」</p>
+<p>程允泽像是想到了什么：「<strong>等下，洪灏承在干嘛？</strong>」</p>
+<p>周围几人迷糊了一瞬。</p>
+<p>众人边缘的吴云扩散出红色Moxel，几秒后满头眼角微颤地转头道：</p>
+<p>「<strong>他正在率人攻击咱们的核心轮组。</strong>」</p>
+<p>「<strong>他！</strong>」程允泽声音猛然拔高，顿了两秒后，强压下去，缓了口气。</p>
+<p>「<strong>好好好，他倒是有长进，知道团队协作了。</strong>」</p>
+<p>周围人正待说点什么，程允泽不耐烦补了句：「<strong>快让他滚蛋吧，别挡了赵云的道。</strong>」</p>
+<p>白小瘦看了眼正打算联系洪灏承的吴云，叮嘱道：</p>
+<p>「<strong>告诉灏承缘由，不然那家伙不会听你的。</strong>」</p>
+<p>……</p>
+<p>众人下船。</p>
+<p>有杨子藏在，大家在魔喉之殿外的磨轮组前进的速度异常迅速。</p>
+<p>「<strong>可惜这里恶魇列车进不来。</strong>」</p>
+<p>「<strong>得真正的伴生恶魇才可以吧。</strong>」</p>
+<p>「<strong>我们已经比很多人方便了，大家快点。</strong>」</p>
+<p>成群可以释放火焰的魔狼怪物从撞来的房间中直接冲出，这里的怪物，甚至已经可以跑出魔齿房间，如果是普通队伍，很可能在刚清理完一个房间后立即陷入苦战。</p>
+<p>{<strong>听到了吗，又有人通过暗门直接进大殿了。</strong>}</p>
+<p>折线中，焦虑声很多。</p>
+<p>{<strong>子藏大神，你说你设计那么多暗门干什么啊！</strong>}</p>
+<p>身边总部的人看向杨子藏，杨子藏无奈道：</p>
+<p>「<strong>我没设计那些抽奖暗门，应该是别人添加的。</strong>」</p>
+<p>跟着充当信息接收器的邵敏道：「<strong>子藏先生，那个偷走你什么核心的家伙，这会正在跟我们城市的‘空骑队’和‘先锋集团’抢夺他们那边的最终之殿钥匙。</strong>」</p>
+<p>是洪灏承。杨子藏边往前边道：</p>
+<p>「<strong>那小子怎么样了。</strong>」</p>
+<p>「<strong>只能说，不愧是能从你手上顺走六枚核心的人，哈哈。</strong>」</p>
+<p>邵敏刚笑了两下，突然神色一变，「<strong>赵云从暗门过去了！</strong>」</p>
+<p>「<strong>嗯？</strong>」杨子藏心中猛的一紧。</p>
+<p>对莫里的死亡预兆，提前发现的时间最长。</p>
+<p>他一直担心或许下一秒莫里便会死。而此刻，这种担忧已经浓烈到让他的心脏快速跳动，分不清是预感还是胡思乱想。</p>
+<p>「<strong>赵云身后的那个伴生恶魇好奇怪啊，竟然是一团气体！</strong>」</p>
+<p>「<strong>哟，他一进来就把那有万年以上Chronos的人给秒杀了！</strong>」</p>
+<p>邵敏吃惊地道：</p>
+<p>「<strong>子藏先生，赵云的伴生恶魇，是个能化为三层楼高的气态巨人，还会凝聚出武器。我从来没见过那东西的出现。</strong>」</p>
+<p>杨子藏心中很是慌乱，如果赵云才是雄英组武力值最强的存在，是一个陆地上的王者，那么现在对莫里最大的威胁恐怕并非程允泽等人，而是他！</p>
+<p>杨子藏胸前Moxel再次扩散开来。</p>
+<p>[<strong>有人找到莫里了吗？</strong>]</p>
+<p>{<strong>没有。</strong>}</p>
+<p>{<strong>杨大神，他是不是没有来。或者进入更深的轮组了？</strong>}</p>
+<p>秀发挽在脑后的素娥脸上透露着担忧。</p>
+<p>对于这个从雄英组手上救过自己性命的男人，她非常想要帮上忙。</p>
+<p>「<strong>子藏弟弟，莫里先生会不会已经进入魔喉之殿里了？</strong>」</p>
+<p>「<strong>不应该那么快啊，他只是一个人。</strong>」</p>
+<p>......</p>
+<p>23城的核心轮组大殿中。</p>
+<p>殿内发生着两座城市成员之间、队伍与队伍之间的混战。</p>
+<p>作为守护钥匙的恶魇反而没人管。</p>
+<p>赵云一经进入，子云君便一拳红碎了杀红眼砍来的那人。</p>
+<p>洪灏承一脚踢开名头缠丝巾，屁股下骑着摩托车的41城之人，转头喝道：</p>
+<p>「<strong>你就是赵云？程允泽说让我放你一马。你去拿走钥匙开门吧，记得替我好好收拾下杨子藏。</strong>」</p>
+<p>正在往守护阵眼怪物走去的赵云略微顿住脚步，他转头看向不像是在开玩笑的洪灏承。</p>
+<p>气态人形也看向洪灏承。</p>
+<p>{<strong>他说他放我一马，很好，这彻底激燃了我的斗志。</strong>}</p>
+<p>雾气形态的子龙君一步迈出便已经自大殿一侧站到了十米外，一拳自上而下高速轰向洪灏承。</p>
+<p>[<strong>奇偶湖之剑宣告，现在是偶数。</strong>]</p>
+<p>洪灏承身形一转挥剑而上，在拳头靠近的瞬间…</p>
+<p>[<strong>奇偶湖之剑宣告，现在是奇数。</strong>]</p>
+<p>洪灏承背后，有人冲来想要偷袭。</p>
+<p>散发气息波动的长剑一剑刺在子龙君拳头，三千Chronos只打出了一千五。</p>
+<p>轰！子龙君拳头的一只指头弹出，洪灏承整个人似被高速撞来的钢柱崩飞，撞向后方那人，两人霹雳乓啷砸倒了好几人。</p>
+<p>「<strong>废物。</strong>」赵云冷哼了声，扭头往怪物走去。</p>
+<p>子龙君身影紧跟在其身后，前方垃圾堆般的怪物所散发的臭气，在子龙君的气态状态下，互相抵消着。激战很快开始。</p>
+<p>忽地赵云转头，他只见一头短发炸起，犹如小豹子般的家伙正急速冲来。</p>
+<p>「<strong>你找死！</strong>」</p>
+<p>赵云见这冷漠盯着自己的眼睛，忽然大怒。</p>
+<p>长枪对银剑。</p>
+<p>铛铛铛！</p>
+<p>两人快速过招。</p>
+<p>「<strong>灏承，加油啊！</strong>」一人抽空喊道。</p>
+<p>「<strong>这赵云是41城不输杨子藏的家伙，你小心！</strong>」</p>
+<p>「<strong>这正是我想要的啊！</strong>」洪灏承疯狂攻击着这据说跟杨子藏有得一拼之人，「<strong>我要看看我跟杨子藏的差距有多大！</strong>」</p>
+<p>几枪过后，赵云感受到对面少年几乎完全是在凭借本能地战斗，招式变化很是死板，只是不到二十招就已经穷尽。试探到对方底线的赵云脸上冷漠一笑。</p>
+<p>单臂横枪抵住剑刃的赵云一脚抖去，洪灏承扭身躲避，但同时...</p>
+<p>「<strong>爆龙吟！</strong>」</p>
+<p>轰，枪影瞬间变长，气浪形态的长枪一枪刺入洪灏承胸膛！</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="chapter-118.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="chapter-120.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="chapter-118.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="chapter-120.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="ace.js"></script>
+        <script src="editor.js"></script>
+        <script src="mode-rust.js"></script>
+        <script src="theme-dawn.js"></script>
+        <script src="theme-tomorrow_night.js"></script>
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

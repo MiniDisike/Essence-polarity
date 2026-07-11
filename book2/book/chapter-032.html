@@ -1,0 +1,314 @@
+<!DOCTYPE HTML>
+<html lang="zh" class="coal sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>第三十二章 拒绝 - 魂孪英旅 下 魔齿磨轮</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "coal" : "coal";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('coal')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">魂孪英旅 下 魔齿磨轮</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="第三十二章-拒绝"><a class="header" href="#第三十二章-拒绝">第三十二章 拒绝</a></h1>
+<p>[<strong>Chronos本金99N已投入。</strong>]</p>
+<p>[<strong>‘比例规划’能力之格位已永久扩展至十位。</strong>]</p>
+<p>洪灏承默默感受了下心中的信息。</p>
+<p>很是神奇的能力，只是提升了一次所谓的「<strong>格位</strong>」，就能让自己绘制其它生命之轨迹时，所消耗的航迹绘线直接少了个〇。</p>
+<p>[<strong>我可以以1000:1绘制生命之息轨迹。</strong>]</p>
+<p>「<strong>一千比一的比例来绘制吗...虽然我变化后的航迹绘线还多得很，但不能浪费。</strong>」</p>
+<p>张苗有心想要催促，但他又不太敢。眼前之人明明已经失去了伴生恶魇，但他身上依旧有着奇异的力量。这让张苗心中惊异莫名，仿佛长久以来所知的关于红Moxel的一些确定信息，在洪灏承的身上已经失去了指导作用。</p>
+<p>洪灏承想着那道依偎在自己胸膛的倩影，心中感觉到一阵绞痛。那样一个孤独的灵魂，最终选择了自己。</p>
+<p>「<strong>这些数量庞大的航迹绘线，都是坏老婆的嫁妆，我得省着点用。</strong>」</p>
+<p>他想要完全的保留这份属于絮妃的航迹绘线，预防有着一日可能会起到某种意料之外的作用。</p>
+<p>洪灏承感知了下自己所拥有的所谓的「<strong>Chronos</strong>」。</p>
+<p>他已经晓得这是好东西，似乎杀人就能拥有，像是一种能够抵消寿命的玩意儿。</p>
+<p>「<strong>还有一千多年，开启第三个‘格位’，需要九百九十九年？</strong>」</p>
+<p>他转过头看向张苗，目光灼烈。</p>
+<p>「<strong>哪里能搞到Chronos？</strong>」</p>
+<p>面对突如其来的问题，张苗吓了一跳，赶紧地道：「<strong>交错空间，野兽、变异生物和恶魇身上都能搞到。</strong>」</p>
+<p>洪灏承点点头，他不再有丝毫犹豫，这圆环内的一千多年瞬间减少九成。</p>
+<p>[<strong>Chronos本金999N已投入。</strong>]</p>
+<p>[<strong>‘比例规划’之能力之格位已永久扩展至百位。</strong>]</p>
+<p>[<strong>我可以以100:1绘制生命之息轨迹。</strong>]</p>
+<p>[<strong>我将以100：1绘制目标生命之息轨迹！我，我...是我们吗？</strong>]</p>
+<p>「<strong>我是我们！</strong>」</p>
+<p>洪灏承的手开始继续绘制，之前似被巨大阻力阻挡的手臂动作快了些，但也跟三岁小孩的速度差不多。一百一比的比例下，四十三公里距离也需要四千三百公里的航迹绘线。</p>
+<p>但这已经在自己能够承受的范围内。</p>
+<p>手上的动作很快勾勒出小部分「<strong>城市的轮廓</strong>」与「<strong>碧波的痕迹</strong>」，这是恶魇飞机的视线所记录过的地形。一根抛物虚线从城市中间到爆炸着陆点，又起飞往前，延伸到城市外的水中。</p>
+<p>一共只有43.3cm。</p>
+<p>它代表了这架恶魇飞机从诞生灵智到逝去生命，这个周期的所有路程。自己可以画得更小或更大，可这飞机墙壁，却只有这个距离才让它看上去最为和谐。</p>
+<p>[<strong>我将要分离出我对我们的认知。</strong>]</p>
+<p>随着最后一点距离的收拢，虚线被无形的能量所点亮的瞬间，洪灏承感觉自己有点恍惚，胸前Moxel中一点光亮闪过。</p>
+<p>机舱内不断左右震荡的虚影猛地收缩，成为一个指头大小的飞机虚影滑来。</p>
+<p>两道目光看着这如纸叠飞机般的虚影从机舱上飞下，洪灏承胸前漂浮的光点与之接触后，小小飞机虚影落向那份43.3cm的地图。</p>
+<p>洪灏承指头一弹，震动身前的机舱墙壁。</p>
+<p>「<strong>以后，我将不断走过你走的路，一复一日，年复一年。</strong>」</p>
+<p>嗵地脆响，地图炸开出一片飘渺的精神幻境。</p>
+<p>张苗震撼的左右看去，周围空间恍若降临出一片真实的迷蒙城市！一道飞机的虚影出现在云层，飞向城市边缘，稍作停留后又前往远处的水面，如此循环不断。</p>
+<p>「<strong>洪哥，这个，这个是什么啊？</strong>」</p>
+<p>洪灏承转过头，眼中的精神消失了很多，看上去很是疲惫。</p>
+<p>「<strong>记录。</strong>」</p>
+<p>「<strong>记录？</strong>」</p>
+<p>洪灏承也知道此地不宜久留，他开始翻找能够带走的东西，特别是那个在飞机甩动中落到角落里的结婚证。</p>
+<p>「<strong>因为我的绘制，它们的灵魂会慢点坠落。</strong>」</p>
+<p>......</p>
+<p>距离矗立地平线上那半球十几里外。</p>
+<p>一片怪石林立的阴暗山地中。</p>
+<p>最高的石块上，身着类似蓑衣外形的怪异人影静静伫立，俯瞰着大地。</p>
+<p>不多时，稳定的大地显出抹晃动的绿荫残影，一息之后又变得平稳，那抹闪动的绿色也消失了。</p>
+<p>山岩驻立，苍风拂过，最高的石块上已空无一人。</p>
+<p>......</p>
+<p>佐罗又来到文献部。这是他这个月来第九次进入这里，但是关于那份秘密手册中提及的古老书架，毫无所获。</p>
+<p>佐罗坐到一张书架侧面的朴素书案上，摊开本书阅读。</p>
+<p>坐在这里，身前的书架更显得如厚实的高墙似的。他不禁扭头望去，这些高大书架虽数量繁多，但真数起来也并非浩若烟海。一下午就能数清。</p>
+<p>「<strong>找了几天都没踪迹，还是一个个来吧。</strong>」</p>
+<p>此刻，佐罗打算老老实实从眼前书架看起，比如手上的就是关于某个标号地图区域的详细数据。</p>
+<p>轻微的脚步声传来，三十来岁带着圆形眼镜的中等身材男人站到佐罗身前。</p>
+<p>「<strong>你好。这些天我看你似乎有在寻找什么，但一直没找到，对吗。</strong>」</p>
+<p>佐罗抬头看向这位带着淡淡笑意，脸型如鹅蛋，将头发后梳，穿着黑绒长外套的男人。</p>
+<p>「<strong>阁下是？</strong>」</p>
+<p>「<strong>我曾是数据记录组的韩鸣啸，进入这里很久了，差不多十多年。嗯，现在我在文献部休假，这是我累积了五年的假期，足足有六个月的闲逛时间。</strong>」</p>
+<p>「<strong>十年。</strong>」佐罗心中微动，随后笑到：「<strong>不过，到文献部休假，还真是…</strong>」</p>
+<p>对方从书架上抽下本书。</p>
+<p>「<strong>你手上记载的地区虽然没打过已收录的标签，不过它大概永远不会出现了，这几本都跳过，</strong>」他随意地拿指头在一串书籍上一划，随后将另一只手中的递给佐罗，「<strong>从这份文献开始看吧。</strong>」</p>
+<p>佐罗接过后翻了翻，对方递来的文献所记录的地理区域内有着大片的建筑数据。</p>
+<p>「<strong>若我没记错，你是杨子藏的助手对吧。</strong>」韩鸣啸继续道。</p>
+<p>「<strong>正是。</strong>」</p>
+<p>韩鸣啸笑到：「<strong>可能你还不知道，你的雇主前段时间也进入了本遗失幻境公司。不过他似乎不打算来文献部。所以我有件事情拜托你，把这个东西转交给他。</strong>」</p>
+<p>韩鸣啸从脖子上取下个吊坠，上面是颗小黑色木榴。</p>
+<p>杨子藏也进入了遗失幻境公司？</p>
+<p>佐罗心念急转。</p>
+<p>「<strong>这是什么？</strong>」佐罗带着迟疑看向身前的男人：「<strong>你怎么不自己去找他。</strong>」</p>
+<p>「<strong>因为我这次休假时要研究一个东西，至少六个月不能离开这里，到时候他应该都离职了。</strong>」</p>
+<p>「<strong>离职！</strong>」</p>
+<p>「<strong>是啊，他上班第一天就是这么想的。</strong>」</p>
+<p>佐罗接过这吊坠看了两眼：「<strong>我不清楚这是什么，作为他的助手，我不能将不明物体带给他。</strong>」</p>
+<p>「<strong>满警惕的嘛。</strong>」</p>
+<p>韩啸鸣笑了笑：「<strong>这是梦境同步装置，我还有一个。你把这个交给他，这样说就行了。</strong>」</p>
+<p>[<strong>韩鸣啸想要赠送我100N虚零Chronos。</strong>]</p>
+<p>佐罗将吊坠递还给他，摇头道：</p>
+<p>「<strong>我见过杨子藏后会告诉他这件事的，到时候再由他决定来不来见你。这些虚零Chronos来之不易，这位先生，你还是自己攒着吧。</strong>」</p>
+<p>「<strong>好吧。</strong>」头发后梳的男人挺了挺背，吐了口气后，将吊坠放回衣服内兜后抬手指了指远方轻笑道，「<strong>转告他后，你这半年也可多来这里见我，我就在那个房间。</strong>」</p>
+<p>佐罗看了看那儿。远处的几扇门后，是研究人员们的聚集地。虽然他们并不排斥普通雇员，但大家都默契的不怎么过去打扰人家。</p>
+<p>「<strong>谢谢韩先生的慷慨，抱歉没能帮到你。</strong>」</p>
+<p>「<strong>能让他亲自来也更好。</strong>」韩鸣啸点点头离开。</p>
+<p>佐罗目送着他的离开。这道背影行走在巍峨壮观的大书架之间，如同行走在逝去世界的缝隙之下。</p>
+<p>......</p>
+<p>「<strong>不去文献室就没办法获得暗金的信息。去了的话，就不能再离职了。呼～</strong>」</p>
+<p>依靠在办公转椅靠背上的杨子藏头疼地呼出口浊气。</p>
+<p>「<strong>这根本就是个死结嘛。</strong>」</p>
+<p>一位五十来岁的国字脸男士从隔壁的枣黑木质工位上张开眼，眼睛略显失神后迅速恢复。他扭头望向杨子藏，恰好看到这个新来的青年一脸无奈地仰头躺在椅背上的样子。</p>
+<p>「<strong>小藏。</strong>」他起身走过来，看了眼杨子藏工位上毫无规律闪动的辉光管，「<strong>怎么，对失频波段的抓取又失败了吗？</strong>」</p>
+<p>「<strong>我太失败了。</strong>」杨子藏坐好后诚心的对着此人道：</p>
+<p>「<strong>伟叔，一般你们要多久才能够成功抓捕到那些混乱洪流中的失频波段啊？</strong>」</p>
+<p>这位不怒自威的男士想了想，看了眼雅致办公室的深处一个工位上，正放松坐在座位上眼皮闭目微动的另一个中年人。</p>
+<p>「<strong>我跟老邢刚来的时候，精神力都还不到二环。我记得第一次成功捕捉到能用作‘交错空间’投放的失频场景波段，是二环二阶的时候。嗯...是入职差不多近两个月时才成功的。</strong>」</p>
+<p>「<strong>两个月。</strong>」</p>
+<p>听上去比自己到目前为止所花的时间多出了三四倍，可那是二环二阶的精神力。</p>
+<p>而自己已经二环八阶了。</p>
+<p>「<strong>别灰心。</strong>」男人拍怕杨子藏的肩膀，「<strong>你的精神力很坚韧，有过完整邮徽世界的经验，你的精神能量也非常强。就像一艘动力很充沛的跑车，现在差的只是驾驶经验而已。</strong>」</p>
+<p>「<strong>谢谢伟叔，嗐，我要快点锻炼才行。</strong>」</p>
+<p>说着，杨子藏便打算继续。但身旁的这人却伸手挡住了杨子藏打算触摸向辉光管的手掌。</p>
+<p>「<strong>盲目的用力并不可取。要不，我带你去一个地方吧，你的精神阶位已经可以试试那里了。</strong>」</p>
+<p>「<strong>什么地方？</strong>」</p>
+<p>「<strong>精神念境训练场，运气好的话，可以在里面烙印份适合初学者的精神力运转纹路，那样你对自己精神力的把控会稳当许多。</strong>」</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="chapter-031.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="chapter-033.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="chapter-031.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="chapter-033.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="ace.js"></script>
+        <script src="editor.js"></script>
+        <script src="mode-rust.js"></script>
+        <script src="theme-dawn.js"></script>
+        <script src="theme-tomorrow_night.js"></script>
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

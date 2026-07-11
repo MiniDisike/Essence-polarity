@@ -1,0 +1,317 @@
+<!DOCTYPE HTML>
+<html lang="zh" class="coal sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>第三章 所思念的圣地 - 魂孪英旅 下 魔齿磨轮</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "coal" : "coal";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('coal')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">魂孪英旅 下 魔齿磨轮</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="第三章-所思念的圣地"><a class="header" href="#第三章-所思念的圣地">第三章 所思念的圣地</a></h1>
+<p>距离那场大爆炸已过去了两天。</p>
+<p>成为大明星的幻影列车——小马超！现在哪怕在白天也能自由驰骋在天际！</p>
+<p>唯一的问题是，它现在阴气森然。</p>
+<p>凡是进入的人，出来后没有不发烧生病的，连带着杨子藏自己也收购了很多药剂和治疗道具备在列车上。</p>
+<p>此刻，逐银副镇等人在列车中，看着药柜里成堆的退烧贴和药品以及治疗球...</p>
+<p>「<strong>患病卖药一条龙吗这是...</strong>」</p>
+<p>「<strong>总觉得...这辆飞天地铁有成为黑心医疗机构同伙的潜质啊。</strong>」</p>
+<p>......</p>
+<p>坐在飞毯上的杨子藏悬浮在云层之间，看着远方列车如同普通地铁的速度划过云层。</p>
+<p>「<strong>我们去更高的地方吧。</strong>」洛宾和徐秀川等人道。</p>
+<p>杨子藏点点头，飞毯继续拔高海拔，超过两百米后，它开始每秒花费多达一年的增幅Chronos。更高的地方则需要掌控更多格位才行。</p>
+<p>「<strong>空气好稀薄，脑袋都有点痛。</strong>」</p>
+<p>啪嗒，一瓶止痛片落在了捂着脑袋的范修云怀中。</p>
+<p>「<strong>你们看那边！</strong>」</p>
+<p>小刘突然起身指着前方。</p>
+<p>前方是一个混沌般的悬浮入口，如流动的水银幕布。</p>
+<p>「<strong>难道那就是遗失幻境公司？</strong>」</p>
+<p>这是这两天小马超的发现。如果不是靠近观察，谁也看不见它。</p>
+<p>「<strong>不像啊，但我不知道这世界除了‘遗失幻境公司’，还能有其它什么奇特秘境。</strong>」</p>
+<p>杨子藏试着以白影念龙过去查探，门口很安静。</p>
+<p>「<strong>应该是念力所化现的。</strong>」</p>
+<p>「<strong>能将念能力留在这里，在那场爆炸中都没有损毁，看来留下它的人很厉害。</strong>」</p>
+<p>几人深以为然的点头。</p>
+<p>「<strong>我看，这应该是对获得‘大明星’身份之人所留下的，不然干嘛丢在谁也上不来的地方。</strong>」</p>
+<p>陈老师蛊惑地道：「<strong>老板，要进去看看吗？</strong>」</p>
+<p>杨子藏摩挲了下下巴，他没有忘记星渺当时的那句话。</p>
+<p>——不要成为这里的主角。万一里面留的是给此地未来主人的东西呢？</p>
+<p>「<strong>等调查周全再进去看吧。不差这一时。</strong>」</p>
+<p>飞毯带着几人在天际遨游，它自然能够将疾风分开，让上面的人不至于被高速掀翻。</p>
+<p>陈老师趴在边缘看下去.</p>
+<p>下方的大地隐隐呈现不规则的长方形，更外面如同是永无尽头的混沌灰烬。它似乎存在于混沌暗黑之中，这并不是个星球的大陆。</p>
+<p>「<strong>竟然将自己的身躯化为大地留在此...</strong>」陈老师的头发在劲风中飞舞，感慨万分：「<strong>还能供给上面的生灵繁衍生息。这，真的不是神吗？</strong>」</p>
+<p>「<strong>不知道未来的我们，能不能成为这样的实力。</strong>」</p>
+<p>「<strong>那你就回城市去拿到每日评优吧。</strong>」</p>
+<p>「<strong>为啥。</strong>」</p>
+<p>「<strong>梦里啥都有。</strong>」</p>
+<p>......</p>
+<p>一处山林中，无影显出身形。</p>
+<p>「<strong>哼哼，杨子藏...呼，若不是你的能力太过珍贵，我还真想跟你做真正的朋友啊。</strong>」</p>
+<p>说着，他胸前一道折线射入虚空。</p>
+<p>......</p>
+<p>飞毯正在快速前进，忽地一道小光团冉冉飞起，上升到几人身边。</p>
+<p>「<strong>小记者来了。</strong>」几人喊道，「<strong>小可爱快过来玩。</strong>」</p>
+<p>杨子藏刚扭头看去，一道折线射来。他顿时心领神会，原来小记者是来做「<strong>调研</strong>」的。</p>
+<p>他笑着接通道：</p>
+<p>「<strong>无影，有什么事吗？</strong>」</p>
+<p>{<strong>哈哈，没什么。话说我搞到了几瓶存了好几年的美酒，晚上一起喝点？</strong>}</p>
+<p>「<strong>算了吧，前天还你宝物时才聚过，下次好了。</strong>」</p>
+<p>{<strong>那好吧，三天后几位大棚主有个共同举办的祭奠会。你一定要来。到时候我顺便跟你说点排名战的事。</strong>}</p>
+<p>「<strong>排名战？</strong>」</p>
+<p>那不就是「<strong>41号评议委员</strong>」建议自己参与的战斗吗。若胜利将有议员给予的一个额外奖励。</p>
+<p>{<strong>你来自41号城吧。要真正提升排名，必须在年末击败原本23号城市的首席队伍才行。</strong>}</p>
+<p>「<strong>可以的。谢谢你，无影。</strong>」</p>
+<p>看到杨子藏对聚会似乎升起了丝兴趣，无影满意地笑了笑，结束了通讯链接。</p>
+<p>见两人通话完，洛宾嘿嘿笑道：「<strong>这家伙跟我们也算是不打不相识了。</strong>」</p>
+<p>「<strong>还好吧。反正我觉得，跟这种人还是不要过多接触，保持合适的距离就行了。</strong>」</p>
+<p>飞毯上方粒粒牙的悬浮能力一下消失，从两米高落在毛毯上一蹦又弹起了几厘米。</p>
+<p>{<strong>好好玩。</strong>}</p>
+<p>洛宾嘀咕了下，「<strong>小记者该不会知道刚才那个吧。</strong>」</p>
+<p>几人目光唰地落在可爱的精灵上，她扭头看向几人。</p>
+<p>{<strong>你们都看我做什么呢？</strong>}</p>
+<p>杨子藏突然露出痴汉般的表情道：「<strong>世界上最可爱的粒粒牙小美女，你知道那边那个漩涡门里面是什么吗？</strong>」</p>
+<p>粒粒牙飞起凑了过来，嗅了嗅杨子藏的脸。</p>
+<p>{<strong>我嗅到了坏主意的臭味~！</strong>}</p>
+<p>「<strong>别闹，我打赌你也不知道对吧。</strong>」杨子藏抱着膀子道。</p>
+<p>{<strong>嗯...我是不知道呢。</strong>}</p>
+<p>粒粒牙果然失落的垂下了小脸，像是被戳中了软肋似的。</p>
+<p>看着这小表情，周围几道幽怨的目光怒视而来。杨子藏立即感觉自己像是捅了天大的大篓子，他慌乱摆手道：</p>
+<p>「<strong>别这样，其实大家都不知道，粒粒牙不知道也是正常的。</strong>」</p>
+<p>{<strong>嗯，是这样没错！</strong>}</p>
+<p>粒粒牙一下干劲十足的冲出了飞毯，直接跑掉了。</p>
+<p>「<strong>给她找了台阶，还是不好意思的跑了。</strong>」</p>
+<p>「<strong>你小子。</strong>」</p>
+<p>洛滨深一脚浅一脚的走了过来，充满老父亲的埋怨：「<strong>以后可别随便逗小精灵，人家会当真。</strong>」</p>
+<p>「<strong>啊哈哈。</strong>」</p>
+<p>杨子藏不好意思的抠了抠脑袋，周围一些人说：</p>
+<p>「<strong>以后...副镇随时可以联系小马超上天。要是我们错过宝贝可就大损失！</strong>」</p>
+<p>洛宾扫了眼一圈飞毯上，明里暗里吹促进念力洞里看看的货队成员：「<strong>那你们敢进去吗？</strong>」</p>
+<p>众人齐齐一个寒颤。</p>
+<p>「<strong>要不我们还是回家吧，该准备晚饭了。</strong>」</p>
+<p>杨子藏突然郑重的思索起来，「<strong>或许还有人能知道。</strong>」</p>
+<p>「<strong>不是吧老板，难道你想到什么办法了？</strong>」</p>
+<p>几人看过来。直勾勾盯着盘坐的杨子藏胸前散出丝线。</p>
+<p>[<strong>我，伟大的四边形列车长，开始联系我的列车。</strong>]</p>
+<p>不到片刻一道目光便落了过来。</p>
+<p>[<strong>枢纽镇在注视着我们。</strong>]</p>
+<p>「<strong>啊，是镇长。</strong>」</p>
+<p>已经通过大明星小马超知晓询问内容的银白枢纽镇，直接回应道：</p>
+<p>{<strong>那里面全是那位存在幻想出来的地方。哪怕她已死去，但因生前的强烈相信，还是由残留的精神具现出了真实的形象，伴生于大地。</strong>}</p>
+<p>「<strong>是星渺真正的主人，也就是化现这片大地的那位女神吗？</strong>」</p>
+<p>{<strong>按照你们人类的眼光来看，这的确是神迹。不过她并非神灵，你们可以称她为圣贤。至于幻境场内的建筑...是她所在的旧世界中，人类口口相传的圣地幻影。</strong>}</p>
+<p>「<strong>圣地！</strong>」几人一惊，圣地这词儿一听就是个宝藏遍地的地方啊！</p>
+<p>但枢纽镇补充道：</p>
+<p>{<strong>不过，因为她也没有去过旧世界的圣地。所以那里面跟真正的圣地还是不一样的，这里只是她凭借文字，幻想出的圣地。</strong>}</p>
+<p>「<strong>这...</strong>」</p>
+<p>「<strong>这样强的圣者，居然也没有去过心心念念的圣地吗？</strong>」</p>
+<p>几人有点心疼这位化身大地的圣者。</p>
+<p>{<strong>以前还有些其它的幻想的内容，已经逐渐消散。目前剩下的都是最坚固的「<strong>相信</strong>」。你若进去，自求多福，因为你相当于去探寻一位强大存在的内心最深处。</strong>}</p>
+<p>果然是如此，里面并不安全。</p>
+<p>镇长能提醒大伙儿一句，恐怕都是看在大明星小马超的面子上。</p>
+<p>「<strong>因为强烈的相信，哪怕死后，这份执念也具现出了那样的地方。所以才藏在这样高的天上。</strong>」</p>
+<p>杨子藏看向远方的天空。</p>
+<p>{<strong>她的残念已死，这里遗留的信息很快也会散去。</strong>}</p>
+<p>既然这样，杨子藏打算去门口撇一眼。</p>
+<p>飞毯重新靠近门口。在混沌的念力场外，他模糊可以看见片人头攒动的旷野。</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="chapter-002.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="chapter-004.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="chapter-002.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="chapter-004.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="ace.js"></script>
+        <script src="editor.js"></script>
+        <script src="mode-rust.js"></script>
+        <script src="theme-dawn.js"></script>
+        <script src="theme-tomorrow_night.js"></script>
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

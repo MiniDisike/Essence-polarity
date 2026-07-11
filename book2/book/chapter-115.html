@@ -1,0 +1,334 @@
+<!DOCTYPE HTML>
+<html lang="zh" class="coal sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>第一百一十五章 探路杖 - 魂孪英旅 下 魔齿磨轮</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "coal" : "coal";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('coal')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">魂孪英旅 下 魔齿磨轮</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="第一百一十五章-探路杖"><a class="header" href="#第一百一十五章-探路杖">第一百一十五章 探路杖</a></h1>
+<p>精神世界的暗沉大地，狂风呼啸。</p>
+<p>名为灰鸦的黑羽人身后拉出如水墨般的残影，念力羽毛不断飘荡、陨损。</p>
+<p>他走在四野昏暗的高原平地，前方一间孤独的小木屋逐渐出现。那道身穿黑纱长袍，正抓着断腕男人肩膀背对灰鸦的女人放下手，转身看来。</p>
+<p>「<strong>能进入我的精神结界，阁下是？</strong>」</p>
+<p>木杖握在她右手，女人徒步者一般饱经风霜的脸庞上显出丝诧异后，又露出早知道会有今日的淡然。</p>
+<p>灰鸦在她十米外停下脚步，身影如水中倒影轻微飘荡，双方都深深注视着对方。</p>
+<p>{<strong>你们这些游走在缝隙里的老鼠，竟然也有不知道的事情。</strong>}</p>
+<p>听闻这称呼，女人的眼眸微眯了下。</p>
+<p>「<strong>这里的命运偏差得太多，自然诞生了我们不晓得的事。请问，阁下的名讳？</strong>」</p>
+<p>女人看向这个不愿告知姓名的存在。</p>
+<p>这个时候，黄主任才如从水中窒息般苏醒过来，大口地喘着粗气，像是做了一场噩梦。</p>
+<p>随后他就觉得自己恐怕还未醒，自己这处好不容易建起的住所，居然被如水墨般的暴风之眼所笼罩着。</p>
+<p>而前方的两人又似奇异故事中所现的人物，如此不真实。</p>
+<p>{<strong>在询问对方名讳前，应该先告知自己的，这是一种礼节。</strong>}</p>
+<p>「<strong>我是疤莲娜。</strong>」</p>
+<p>{<strong>我是灰鸦。</strong>}</p>
+<p>灰鸦看了眼被自己形象吓得软倒在地的黄旭，冲女人道：</p>
+<p>{<strong>他本不该有的屋子，被他一只手建起来了。</strong>}</p>
+<p>黄旭看向身旁小屋，这的确是自己所做的，仅凭借一只手！</p>
+<p>想起来，黄旭都感觉有点自豪。</p>
+<p>{<strong>所以，这就是你提前到来的理由吗？因为他可能会不再继续后悔？</strong>}</p>
+<p>「<strong>不。</strong>」女人淡然含笑，言辞间却充满冷意：「<strong>这场风暴即将摧毁这间屋子，对我们来说虽然事小，但对他打击很大。他会为此非常后悔对此地的选址。</strong>」</p>
+<p>女人转头望来。</p>
+<p>「<strong>就像后悔之前的数次选择。</strong>」</p>
+<p>「<strong>后悔之前的选择？</strong>」两人的对话让黄旭胆寒。</p>
+<p>这是怎么回事，为什么这两个奇怪的人会谈论什么屋子，什么「<strong>之前</strong>」之类的事情。</p>
+<p>他转身就跑。</p>
+<p>疤莲娜手中木杖一杵，木杖中亮起光华，将外表的裂纹投射到地面，如同一圈朦胧的裂纹回路。</p>
+<p>她转身走向跑出几步外的黄旭，但身体还停留在原地，如同灵魂出体般行动，飞快出现在了男人的身前，一只手伸向男人的衣领。</p>
+<p>{<strong>为什么现在就来收取他的「<strong>悔恨</strong>」。</strong>}</p>
+<p>「<strong>你果然是来阻止我收集材料的。</strong>」</p>
+<p>疤莲娜看了眼出现在身边的人形黑鹳。</p>
+<p>自己依靠圣物施展了回路欺诈，却依旧被对方瞬间就识破了。</p>
+<p>「<strong>材料？！</strong>」黄旭屁滚尿流，他还没傻到听不出自己很可能就是那所谓的「<strong>材料</strong>」。</p>
+<p>{<strong>他强烈悔恨的事情，距离现今并不久远，仅仅数月而已。何必现在就提取呢？</strong>}</p>
+<p>疤莲娜木杖倾斜一指，木杖顶端冒出辉煌的辉光刺破黑夜。</p>
+<p>灰鸦脑后出现一圈光华。</p>
+<p>沉闷爆炸绵延响起，由近至远，从地到天，两道碰撞的光芒将漆黑风暴也割裂扩散爆开来。</p>
+<p>疤莲娜脸色一变，她身影嗖地出现在远处一道回路边缘。</p>
+<p>灰鸦如影随形出现在她身前。</p>
+<p>疤莲娜知道自己遇到实力非常强大的存在了。</p>
+<p>对方仅仅只是展露出光环，自己调动的回路力量就完全被压制——不是回路的格位低于眼前的存在，而是自己的实力终归是太低了。</p>
+<p>{<strong>我只是想问，为何现在就要提取？</strong>}</p>
+<p>疤莲娜胸前亮起暗金色的光环，一道折线飞速折射出去，还好眼前之人没有阻止。</p>
+<p>略显慌乱的疤莲娜脸上很快诞生出自信的光芒。</p>
+<p>「<strong>这条命运线...至少这块失频之地的命运线，已经偏离太多。与之相关的人命运波动越来越大，已经极不稳定。</strong>」</p>
+<p>疤莲娜看了眼在远方想要逃跑，却被重新诞生的精神风暴阻碍的男人。</p>
+<p>「<strong>这份改变的涟漪波动下，他这样孕育着优质材料的意念，也可能被转变。这个回答，你满意吗？灰鸦先生。</strong>」</p>
+<p>灰鸦走到她身前，几乎与之贴近地注视女人脸庞。</p>
+<p>{<strong>不，你在撒谎。</strong>}</p>
+<p>「<strong>你？</strong>」</p>
+<p>{<strong>你只是想现在就提取那一份悔意，好制造出产生裂缝的坐标，将改变的火种从源头浇灭。</strong>}</p>
+<p>疤莲娜的眼中闪过丝异色。</p>
+<p>灰鸦冲疤莲娜抬起手掌。</p>
+<p>女人胸前的光环从亮起就再也没有熄灭过，此刻她脸色数次变幻，忽地后退两步再次举起修长木杖抵向这双手掌。</p>
+<p>「<strong>住手！</strong>」女人紧张地喝道：</p>
+<p>「<strong>我们已经完全阅读了旧世界里关于你的所有事情，你的一切已经被我们所知晓！</strong>」</p>
+<p>{<strong>那又如何。</strong>}</p>
+<p>「<strong>你若在这里对我动手，我们无论花费多大代价，也会在不论是旧的还是新的命运轨迹中，修改你的命运原点！</strong>」</p>
+<p>女人笑得很灿烂，也很猖狂地看向定住爪子的灰鸦。</p>
+<p>「<strong>你也不想在所有的可能性中，都被我们从源头按熄你的命运吧！</strong>」</p>
+<p>黄旭看向女人，又看向这个长得半人半魔之人，他不知道两人在说什么，或者说他不敢去想。</p>
+<p>{<strong>如果你们真能做到，也不失为我的一次豪赌。</strong>}</p>
+<p>「<strong>你！</strong>」女人没想到眼前知晓自己组织存在的这位圣者，居然如此不在意自己的威胁！</p>
+<p>她胸中快速响起了十数人念诵的语句，那是一篇篇关于「<strong>灰鸦</strong>」之人的生命旅程。</p>
+<p>疤莲娜突地抬头惊异看向身前黑鹳般的男人。</p>
+<p>「<strong>你不是灰鸦！你居然用了这个失败者的名字，你难道不知道这意味着什么吗！你真想找死？</strong>」</p>
+<p>{<strong>你不能因为一个人的死亡而否定他的伟大。</strong>}</p>
+<p>灰鸦停下的手再次抬起，对向了女人面门。</p>
+<p>木杖尖端再次亮起辉煌光芒，却挡不住这五根指头散发出的五色彩光的笼罩。</p>
+<p>疤莲娜声音嘶哑而痛苦地喊着：</p>
+<p>「<strong>可笑，一个去寻找拯救故土方法之人...却未在故乡毁灭前赶回...一个死在路上的不自量力者，何谈伟大！</strong>」</p>
+<p>灰鸦岩石与金属混杂的金属脸庞望向女人。</p>
+<p>{<strong>从概率学上来讲，他们的牺牲非常有意义。</strong>}</p>
+<p>「<strong>哪怕我死...我们也会...让所有你从过往...就消失...</strong>」</p>
+<p>{<strong>只要你们找不到坐标，这种事情就不会发生。</strong>}</p>
+<p>像是听到了天大的笑话。</p>
+<p>闪动光线中的面容开始变得枯槁，苍老了十数年，却依旧以木杖努力抵抗着的疤莲娜声音逐渐苍老地道：</p>
+<p>「<strong>世上不可能...没有不后悔的人...每个人都会想，若当初不做这样的选择，会是怎样一番光景...一定会有与你相交集之人...在后悔着曾经的某件事...</strong>」</p>
+<p>{<strong>如果有一个那样的人诞生，他的故事也会激励很多人，你们在复现命轨上所掏的洞也就会减少。</strong>}</p>
+<p>自知自己是材料的黄旭傻掉般倒在地上，半撑着身子看着这一幕。</p>
+<p>「<strong>世上没有一个人...不会后悔他们的遭遇...你说的事情...永远不可能发生...</strong>」</p>
+<p>女人的面容变得苍老无比，她近乎痴癫地低语。</p>
+<p>「<strong>我们总会在不同纪元里...找到那些...与你弱小时有过交集之人...你绝对...会消失...</strong>」</p>
+<p>{<strong>这正是我所期待的。</strong>}</p>
+<p>她双膝一软地拄着木杖倒地，目光失去神采地望着地面上逐渐暗淡的回路。</p>
+<p>{<strong>前提是你们还找得到那个时代的【悔恨坐标】，去修改复现命运，替换真实历史。</strong>}</p>
+<p>灰鸦的手对准插在地上，被干枯手掌撑住的木杖。指尖的五色光华将木杖包裹，形成一道暗淡的五色薄膜隐入其中。</p>
+<p>精神的风暴逐渐摧毁木屋。</p>
+<p>风暴中的黄旭看着那道漆黑身影一步步离去，消失在逐渐混沌的世界边缘，一切都在风暴中摧毁，唯有木杖附近的小片区域，还在震颤中努力维持。</p>
+<p>他的左手伸向了木杖。</p>
+<p>[<strong>我获得了【穿行缝隙的探路杖】。</strong>]</p>
+<p>[<strong>探路杖可怜我的学识贫乏，所以为我分享了一些血脉炼金配方。</strong>]</p>
+<p>[<strong>我，神秘的三角形，获得了【悔恨枝点：百年新枝】配方：「<strong>持续的悔意</strong>」一份，一至三瓣月华十万缕，辉光五份，蕴含枯林气息杂草一捆，魔纹...</strong>]</p>
+<p>[<strong>我获得了【悔恨枝点：千年新枝】配方：「<strong>持续千年的悔意</strong>」一份或「<strong>蕴含清晰历史节点的...印记</strong>」一份，二至五瓣月华各十万缕，群英闪光一份，雾海凛冰十千克，白骨珊瑚一株，魔纹...</strong>]</p>
+<p>「<strong>为什么看不清。</strong>」</p>
+<p>那几个出现在脑海中，仿佛散发着黄金般的光华...</p>
+<p>[<strong>我获得了获得了【悔恨枝点：万年新枝】配方：「<strong>持续万年的悔意</strong>」一份或「<strong>蕴含清晰历史节点的神圣意念</strong>」一份，六至十瓣月华各若干缕，群英闪光三至十份，白骨珊瑚一株，倾斜王座一座，魔纹...</strong>]</p>
+<p>「<strong>神圣意念</strong>」几个字根本看不见，无数山呼海啸般的诵赞出现在耳边，仿佛群臣山呼万岁。</p>
+<p>可这道光自然让人念出了这四个字。</p>
+<p>强烈的精神冲击摄入黄主任头颅，木杖表面亮起五色光华，将他包裹。</p>
+<p>男人的表皮抽搐，双眼泛白地倒在地上，这只手却未从木杖上脱落。</p>
+<p>昏睡一整日后，黄旭逐渐从沉睡中醒来，他感觉自己做了一场模糊的梦，他梦见自己刚造好的木屋被两个不知道说了些什么的魔鬼给摧毁了。</p>
+<p>「<strong>果然只是个梦啊。</strong>」黄旭躺在床上，看着房顶外缓缓流动的阴云。</p>
+<p>一些寒冷夜风吹拂在他身上。</p>
+<p>黄旭一个跟头爬起来，几块碎木板从他身上滑下，他难以置信又心痛万分地看着周围狼藉的地面，屋子只剩参差不齐的短木板还在草地上，房顶和大部分木屋的主体都已经跟自己一样胡乱睡在了周围。</p>
+<p>「<strong>为什么，为什么要这样对我！</strong>」</p>
+<p>他愤怒地吼道，却连愤怒的对象也找不到。</p>
+<p>「<strong>呃啊！</strong>」黄旭将一块碎木块砸向荒草地，又起身一阵乱踢，一脚踢到块石头疼得跌在地上。</p>
+<p>他伸手撑住一根木棍，充满纹路的圆形木棍却因自己的用力而向外滑动，顿时刚爬了一半的身体摔了个狗吃屎。</p>
+<p>「<strong>啊...</strong>」</p>
+<p>黄主任突然就趴在地上哭了出来。</p>
+<p>好不容易才收集来的木材...如果当时不把屋子建在这里就好了。</p>
+<p>几道声音传来，黄主任立即顿住抽泣，怎么这么远的地方还有人！刚才的哭声应该不大吧。</p>
+<p>他首先擦了擦自己的脸，才转头看向两个打着火把背着背篓的男人。</p>
+<p>「<strong>兄弟，怎么在哭呢，要吃点东西吗？</strong>」</p>
+<p>「<strong>我...</strong>」黄旭尴尬到也不想哭了。</p>
+<p>「<strong>没事，大家都是一个地方来的，应该互相扶持。你一个人吗，要不要去我们村子住。</strong>」</p>
+<p>黄旭埋下头。</p>
+<p>他想到了自己死死拉住车门的画面，车内那些人的求情与诅咒仿佛真实地在耳边响起。</p>
+<p>「<strong>不了吧，我恐怕是被亡灵们诅咒之人，我走到哪儿，厄运就会跟到那里。</strong>」</p>
+<p>他握住这个被自己抓在手里的木杖撑着站起身来，拄着它慌忙地逃走了。</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="chapter-114.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="chapter-116.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="chapter-114.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="chapter-116.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="ace.js"></script>
+        <script src="editor.js"></script>
+        <script src="mode-rust.js"></script>
+        <script src="theme-dawn.js"></script>
+        <script src="theme-tomorrow_night.js"></script>
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

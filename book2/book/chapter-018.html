@@ -1,0 +1,320 @@
+<!DOCTYPE HTML>
+<html lang="zh" class="coal sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>第十八章 是谁干的！ - 魂孪英旅 下 魔齿磨轮</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "coal" : "coal";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('coal')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">魂孪英旅 下 魔齿磨轮</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="第十八章-是谁干的"><a class="header" href="#第十八章-是谁干的">第十八章 是谁干的！</a></h1>
+<p>制服几名被红色手术刀寄生的人后，众人已经围拢聚在了一起，看向身前走出来的这名自称拥有念能的人。</p>
+<p>此人虽然长相略丑但身上散发着朴实的气质。</p>
+<p>他从怀中掏出个暗沉的打火机，胸前红色的四边形折线渐渐浮现出来。</p>
+<p>「<strong>打火机？</strong>」周围有人低声点评，「<strong>还是四边形。这玫瑰溪真是藏龙卧虎。</strong>」</p>
+<p>「<strong>在我刚进入这里的时候，非常恐惧这个世界。但见到周围比我更艰难的人，我又心生同情。在前三日，是这个火机陪我度过了严寒，替我生火驱散黑暗，炙烤食物。所以哪怕它开始恶魇化，我也不愿意抛弃它…</strong>」</p>
+<p>{<strong>小林是我的好朋友！</strong>}</p>
+<p>恶魇打火机以朦胧微小的声音说道，不注意根本无法感知到这飘渺的细小声音。</p>
+<p>「<strong>请问你贵姓？</strong>」</p>
+<p>「<strong>就叫我林思特吧，我喜欢这个名字，曾经它是我的网名。</strong>」</p>
+<p>啪！火机打燃后，瘦小的林思特将火机放到胸前。</p>
+<p>除了这一小撮普通火焰，周围的众人并未见到异常。</p>
+<p>一个原本在徐爱媛身旁替她端茶递水的女孩，眼泪婆娑的道：「<strong>小林，你居然是念能，为什么之前从未听你说过？</strong>」</p>
+<p>林思特沉默着。</p>
+<p>杨子藏看向比自己矮上两个头的林思特。</p>
+<p>「<strong>我感觉，你有什么事情在瞒着我们。</strong>」</p>
+<p>突然间，绷带医生的声音响起：</p>
+<p>{<strong>这里不是交错空间，强就是强，弱就是弱。没有那种只比你们实力强一丝，让你们觉得还有希望战胜的‘月影’敌人存在。我的强大，不是你们这种半调子所能...哼...揣摩的。</strong>}</p>
+<p>大伙儿们如篝火般聚拢，背靠背抵在一起盯着周围。</p>
+<p>「<strong>滚出来！</strong>」杨子藏怒喝。</p>
+<p>{<strong>再说一次。把隐身能力球交出来我就离开，甚至能给你们平分。否者，这里接下来，每过一分钟，就死一个人。首先，就从这个红毛开始吧。</strong>}</p>
+<p>在肖宇山身旁的那名红发青年瞬间张嘴骂了起来，也不知道到底骂了个啥，但下一秒几道纱巾就从空中突然缠绕了过去。</p>
+<p>[<strong>调度！</strong>]</p>
+<p>[<strong>格位展开，千位！</strong>]</p>
+<p>银色四边形瞬间冲撞上那高处如同扭曲钢铁般卷来的绷带们。</p>
+<p>但在这瞬间！</p>
+<p>轰！</p>
+<p>林思特身上猛然爆发起醉人的酒红色焰光！</p>
+<p>它如同细密重叠的丝绸直充向上，往外扩散。这光与红中带金的Chronos增幅虚焰不同，而是如绸锦碾碎后，似山形海浪般聚集，华美无边，尊气盎然。</p>
+<p>随着念能火焰扩散，绷带在接触到华锦火焰的瞬间便噗噗作响，碎裂成纱布坠下，变得陈腐无比。</p>
+<p>这次纱布们被人用指头轻轻一碰便碎成了灰烬，已经无法成为「<strong>真实降临</strong>」的载体。</p>
+<p>「<strong>好厉害！</strong>」</p>
+<p>「<strong>真是强大的念能，你怎么不早点站出来。</strong>」</p>
+<p>林思特并未回答，只是眼眸静静盯着周遭，预备突然可能出现的绷带医生。</p>
+<p>然而杨子藏的目光却落在这个人的动作上，虽然隔着华锦般的念能火焰看他，如同看着被浓稠红光笼罩的人般模糊，但还是能瞧见，他的打火机一直有放在胸前。</p>
+<p>那与华锦焰火几乎融为一体的绯红Moxel，似乎…正在震颤。</p>
+<p>火焰在灼烧Moxel吗？！</p>
+<p>「<strong>林思特！</strong>」杨子藏突然凝重靠近道，「<strong>你的能力，是不是有什么额外代价？</strong>」</p>
+<p>周围众人都转头望来。</p>
+<p>「<strong>小林，你说话啊！</strong>」一人道。</p>
+<p>被几名肖宇山的人保护着的女孩望过来，悲戚道：</p>
+<p>「<strong>刚才玫瑰女王遇险的时候，你为什么不站出来！你明明这样强，却隐藏在镇中一刻也不表露出来！</strong>」</p>
+<p>林思特低头，看了眼倒地的徐爱媛苍老的躯体，脸上也露出股悲戚。</p>
+<p>「<strong>我的能力是燃烧生命。以生命为柴，灼烧念能，照亮范围内的‘真实’。在此范围内，念能力…无效。</strong>」</p>
+<p>「<strong>什么！</strong>」</p>
+<p>「<strong>如果我发动能力，就会彻底破坏掉女王的伴生恶魇。</strong>」</p>
+<p>原来如此！众人恍然。</p>
+<p>那因徐爱媛的死而精神受到大幅震荡的少女，也不再言语，呜呜哭了起来。</p>
+<p>「<strong>难怪你要隐藏，的确不能随便暴露。</strong>」</p>
+<p>杨子藏道：「<strong>等出去，我们给你一份能防身的‘代练契约书’。</strong>」</p>
+<p>林思特看向杨子藏：</p>
+<p>「<strong>我自认为配不上爱媛小姐，原本我以为流云会是她的归宿，可她最终也未接纳那强者，更不用说我这种人了。直到你的出现，可是…你…罢了！</strong>」他目光一冷，「<strong>撤掉你的念能蜈蚣吧，大家都靠近我！保护范围有限！</strong>」</p>
+<p>随着众人靠近，他咬牙切齿的低沉声音响起，「<strong>开…！</strong>」</p>
+<p>男人胸前的圆环急剧震荡。</p>
+<p>「<strong>开？开什么！</strong>」</p>
+<p>杨子藏猛然一惊，他瞬间感知到了这人的打算，「<strong>等下！</strong>」</p>
+<p>轰！华锦光芒扩散！</p>
+<p>十数米内扰动的念能量瞬间被逼走，这里居然出现了念能的真空，仿佛一切异向都不存在。</p>
+<p>也就是在这瞬间，林思特一愣后呆在了原地，刚刚扩散出的华锦念能火焰也瞬息消泯，红尘般落下。</p>
+<p>当色泽褪去让众人看清眼前时，才发现，不知何时小林背后已经插上了一柄恶魇化的红色手术刀！</p>
+<p>「<strong>你们…</strong>」林思特缓慢转头，难以置信般地扫视了身后紧挨着自己的众人，随后身体一扭瘫软倒地死去。</p>
+<p>众人哗地散开，互相警惕瞪视。</p>
+<p>「<strong>谁杀了他！</strong>」</p>
+<p>杨子藏握住银色长枪，双目如刀地愤怒扫视着这些人。</p>
+<p>「<strong>凶手就在我们中间，我先声明，不是我。</strong>」</p>
+<p>「<strong>是被手术刀控制的人？</strong>」</p>
+<p>有人指向被捆缚塞嘴的寄生者，他们只是在地上徒劳的扭动。</p>
+<p>「<strong>刚刚站在他身后的是谁！</strong>」</p>
+<p>「<strong>是他！</strong>」一人推嚷道。</p>
+<p>「<strong>你不也在吗，还有那个谁，那个瘸子，别跑！</strong>」</p>
+<p>「<strong>这家伙也在！</strong>」</p>
+<p>「<strong>够了！</strong>」</p>
+<p>轰！杨子藏手中长枪布满烈焰，一枪砸向趁此机会窜来的一道想要隆起的绷带人形，轰地声将高空的它撞出个大窟窿。</p>
+<p>白影念龙重新腾空而起，宛若扭曲的真龙般怒视下方。</p>
+<p>念能力本就与人的精神息息相关，此刻杨子藏的情绪极度憋屈愤怒，由精神念力所化的白影念龙也随之充满如有实质的暴虐煞气！</p>
+<p>他看向倒地的瘦小丑陋男子。</p>
+<p>明明有个愿意不惜让Moxel都可能崩碎的人，牺牲自己来照亮一小片没有念力干扰的区域，却被「<strong>自己人</strong>」给一刀捅死。</p>
+<p>「<strong>他的念能力好强，却就这样死了。该不会是谁嫉妒他，怕影响自己获得的‘沉吟之夜’吧！</strong>」</p>
+<p>「<strong>是你吗，你拿的就是‘沉吟之夜’！</strong>」</p>
+<p>「<strong>放屁，怎么会是我。</strong>」</p>
+<p>几人推嚷着，「<strong>怎么证明不是你。</strong>」</p>
+<p>杨子藏拿出隐身能力球，放在了自己脚下的古老岩石地面上，阴气森然地看向前方骚乱的三四十人。</p>
+<p>「<strong>它就在这里，来拿！</strong>」</p>
+<p>杀人般的目光扫过众人，忽然白影念龙轰地撞向人群，瞬间将两个露出些许渴望之色的人念力体给叼出来，两口便吞噬了下去。</p>
+<p>「<strong>啊，杨子藏你！</strong>」</p>
+<p>「<strong>老子那会还不顾生死来救你，你就是这样恩将仇报的吗！</strong>」</p>
+<p>「<strong>你这个暴君，区区一个隐身Moxel，就把你给看透了。</strong>」</p>
+<p>杨子藏脸上全是阴沉，这些人的叫喊在他耳中丝毫没有激起任何波动。</p>
+<p>「<strong>这个家伙的慷慨大度，果然是在失频之地上为了名气装出来的！</strong>」</p>
+<p>突然，杨子藏瞳孔猛地左移，瞬间百年器便自旋转黑洞中徒然射出，一枪将某个将手按在剑柄，企图发动Moxel的人脑袋崩成了碎片。</p>
+<p>他身边的两名女队友顿时捂头啊啊大叫。</p>
+<p>「<strong>别杀我，我不要能力球！</strong>」</p>
+<p>还在咒骂的几人喉咙暗哑，不敢再吭声。</p>
+<p>只要透露出丁点想要占据能力球的表情，就会被这暴君毫不迟疑地击杀。</p>
+<p>......</p>
+<p>众人感觉自己这晚真是进入了龙潭虎穴。怎么会这么倒霉，明明是来救人，却惹上了这样丢掉性命的麻烦。</p>
+<p>一个找不到任何踪迹的绷带医生也就罢了，眼前还有一个在发疯边缘的杨子藏，以及隐藏在人群中，不知是谁的凶手。</p>
+<p>大家警惕的左右看着身边的人，除了自己，每一个人都像是可能突然暴起杀人，替绷带医生抢夺隐身能力球的人。</p>
+<p>波波利和莫里站到了杨子藏身侧。忽地人群中一人张开力场的同时，振臂道：</p>
+<p>「<strong>兄弟们，趁绷带在牵扯跟那蜈蚣，大家跟我抢能力球！杀啊！</strong>」</p>
+<p>他一声吼叫后，众人都看向他。这人赶紧浑身一冷，竟然没有一个人响应自己的吗？</p>
+<p>嘭！他的脑袋炸成了碎片。</p>
+<p>缓缓旋转的黑洞中，银色长枪再次缩进。</p>
+<p>王公子与秦队长等人不由自主地，艰难吞咽了口唾沫。</p>
+<p>这就是能被星渺那种存在选中，替自己收集身体部位的人。哪怕念能力受到牵制，在他的身旁一片区域内，也掀不起丝毫的浪花。</p>
+<p>杨子藏身后，卷发的少年蹲下轻声道：</p>
+<p>「<strong>杨大哥，那人能用手术刀杀死小林，要么是早已与绷带有联系，要么就是乘乱与他联系，借着火焰色泽的掩盖而得到手术刀。</strong>」</p>
+<p>杨子藏强按住因酒力与激怒随时可能昏厥的精神，想了想后，再看向身前的众人。</p>
+<p>「<strong>如果是在进入这里之前就与绷带医生有过联系，获得了手术刀...就很大可能不是来自枢纽镇的人。那么，失频之地的人请出列。</strong>」</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="chapter-017.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="chapter-019.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="chapter-017.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="chapter-019.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="ace.js"></script>
+        <script src="editor.js"></script>
+        <script src="mode-rust.js"></script>
+        <script src="theme-dawn.js"></script>
+        <script src="theme-tomorrow_night.js"></script>
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

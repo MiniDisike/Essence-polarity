@@ -1,0 +1,331 @@
+<!DOCTYPE HTML>
+<html lang="zh" class="coal sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>第一百一十三章 凋零生机 - 魂孪英旅 下 魔齿磨轮</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "coal" : "coal";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('coal')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">魂孪英旅 下 魔齿磨轮</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="第一百一十三章-凋零生机"><a class="header" href="#第一百一十三章-凋零生机">第一百一十三章 凋零生机</a></h1>
+<p>{<strong>死亡序幕的目的，是为了让人有应对未来危机的准备。拥有这种血脉能力的它们，却被称为不吉。</strong>}</p>
+<p>灰鸦爪一般的手抬起在场景中。</p>
+<p>场景如同加速般快速播放，十几道闪动的画面于周遭重叠显现。</p>
+<p>杨子藏看到，其中一个可能性在八九种过程不一，但逐渐逼近同一结局的画面中诞生。</p>
+<p>画面慢了下来，杨子藏看到，超过半数以上关于未来的可能性画面中——</p>
+<p>那头大岩牛被大殿另一面突然出现的人，一枪射来，崩成碎片！</p>
+<p>他步入其中，身后跟着另一人的身影，两人都戴着鸭舌帽。</p>
+<p>是雄英组的赵云！</p>
+<p>是他，他很可能会在击败巨牛的同时，击杀殿内的其它人！</p>
+<p>画面中，梁喜在第一时间为了保护大家，而冲上去争取时间。</p>
+<p>「<strong>是啊，这就是梁喜，这就是那个孩子！</strong>」</p>
+<p>杨子藏想起了初次相遇时，那个摸着自己的枪，毫不犹豫跳下废弃污坑，想要替自己看洛宾是不是骗子的男孩。</p>
+<p>同时也想起了在C级交错地内，面对着月影级的雷电怪物，首先将两人护在身后的男孩！</p>
+<p>杨子藏牙关紧咬，浑身颤栗。</p>
+<p>这就是梁喜！这家伙绝对会做出灰鸦所推测的最大可能性，他会不顾一切挡在所有人的前方。</p>
+<p>「<strong>前辈！我愿意，就现在吧，请您让我为他进行那种投资吧！</strong>」</p>
+<p>灰鸦的五根爪子一抬。</p>
+<p>周围的画面倒退，视角变得更大，大殿出现在俯视的视线之下。</p>
+<p>殿外，两座城市的交界边缘轮廓浮现。</p>
+<p>「<strong>您这是...</strong>」</p>
+<p>这是处于两座如太极般纠缠的镜像之城交界处，被克罗夫特所添加的五座大殿。</p>
+<p>此刻吕布与赵云两人，已经从平台往前，即将在不到一分钟后，从属于23城的平台桥廊推开这座大殿的门。</p>
+<p>「<strong>前辈…</strong>」</p>
+<p>灰鸦另一只抓中，出现了枚金币，被他掂了掂后，又收了回去。</p>
+<p>此刻画面中，梁喜为了躲避石牛，好巧不巧地绕过大殿跑向了另一边，打算与洛宾一人一方来击溃这巨大怪物。</p>
+<p>而他背后的大门外，赵云已站在了石阶下，仰忘这座稳处于如地狱般层层魔齿之间的宫殿飞檐。</p>
+<p>——「<strong>这里就是大地型‘棘爪’的所有处。</strong>」</p>
+<p>画面中的吕布站到赵云跟前，点了下头，迈步往石阶而上。</p>
+<p>杨子藏心中万分紧张。</p>
+<p>他刚想催促，那只爪子再次搭在他肩头。</p>
+<p>{<strong>我想与你签订临时支配协议。</strong>}</p>
+<p>[<strong>灰鸦想与我签订临时支配协议。</strong>]</p>
+<p>这是！</p>
+<p>杨子藏头皮发麻了一瞬后，立即同意。</p>
+<p>[<strong>我已接受协议，持续时间10S.</strong>]</p>
+<p>随后，青年的精神体下意识抬起手。</p>
+<p>而在遗失幻境公司的立方体中，那道静静站立的身影也抬起手，指向了同一个方向。</p>
+<p>[<strong>根据协议，支配者需要兑换我身上的一次奇迹。</strong>]</p>
+<p>他的思绪不由自主开始回忆，就像被奇异的力量拉动，将存于意识深处的某段画面抽离而出——在洞穴中，自己在疯狂的攻击下被长枪刺穿胸膛倒在地上，几乎失去所有生命气息的最后，胸前的圆环闪烁...</p>
+<p>回忆的画面轮廓中隐约浮现光华。</p>
+<p>两道杨子藏身影的指尖，开始汇聚出抹奇异的光芒。</p>
+<p>{<strong>在旧世界无法办到的事情，还好，有英豪想到了解决方法。</strong>}</p>
+<p>[<strong>我，伟大的四边形...沉寂于我过往的Chronos闪光...</strong>]</p>
+<p>[<strong>「<strong>突破不可能之可能——垂死复生</strong>」被兑换为「<strong>群英闪光</strong>」。</strong>]</p>
+<p>「<strong>不可能…之可能…</strong>」</p>
+<p>吕布的脚步开始迈上石阶，赵云紧跟其后。</p>
+<p>[<strong>我体悟到死亡的序幕正在拉开，我感受到冥灵的来临...生机凋悯，懵懂无力，当需呵护。</strong>]</p>
+<p>杨子藏脑袋中。</p>
+<p>垂死的自己胸前光环内，一连串长长的0.00不断滑过。</p>
+<p>是那瞬间的空白！</p>
+<p>是那来自本源深处的求生反抗！</p>
+<p>是那自己也难以重现的灵光！</p>
+<p>这具身体仿佛赋予了奇异的力量，在强烈求生意志下疯魔般将逐渐缩短的长枪拔出，挡向对面失去投资的鼠人人首领。</p>
+<p>一抹豪气顿生。</p>
+<p>[<strong>群英闪光！</strong>]</p>
+<p>[<strong>我，坚韧的四边形，杨子藏！为亟待呵护的凋悯生机进行投资！新可能一份！</strong>]</p>
+<p>他的指尖高高扬起，命运的脉络中，一份新的光辉开始闪耀，共振，替换！</p>
+<p>两道身影的指间，光芒顿闪，随后消泯。</p>
+<p>吕布登上台阶最后一阶，赵云来到他身侧，将手上长枪换到右手，同时左掌按在了巨大门扉之上。</p>
+<p>像是什么也没有改变，一切都显得很平常。</p>
+<p>「<strong>前辈？</strong>」杨子藏扭头看向身边的灰鸦。</p>
+<p>{<strong>相信你的投资。</strong>}</p>
+<p>前方的吕布身影转过头，看向这处悬于高处的长廊另一端。</p>
+<p>——「<strong>等等。</strong>」吕布道。</p>
+<p>死亡序幕的气息快速消泯。</p>
+<p>杨子藏紧张的看着身前近在咫尺的两人影像。</p>
+<p>赵云触摸到岩石门上正准备用力推的手放下。</p>
+<p>——「<strong>怎么？</strong>」</p>
+<p>——「<strong>‘方天’刚才看到，有人突然拐弯往我们这边来了。很像是...23城的首席队伍，四相天团。</strong>」</p>
+<p>赵云的脸色变得凝重。</p>
+<p>——「<strong>那的确不能让他们螳螂捕蝉。不过，我倒是想会会他们。</strong>」</p>
+<p>[<strong>10S已到。</strong>]</p>
+<p>两人转身往石阶下走去。</p>
+<p>精神世界的杨子藏脱虚般一下坐倒与地。</p>
+<p>「<strong>这...太难以置信了。</strong>」</p>
+<p>大殿里的梁喜等人并不知道死神擦肩而过，还在热火朝天的攻击着这头威猛巨兽。</p>
+<p>歇了几息，杨子藏边看着画面中吕布两人的前行，边问向灰鸦。</p>
+<p>「<strong>前辈，刚才这种投资是怎么回事？</strong>」</p>
+<p>{<strong>所谓「<strong>闪光</strong>」。是突破一个个不可能的奇迹而诞生的光辉。他让你的那段人生如被铭刻般，随时都在时光中绽放异彩。</strong>}</p>
+<p>「<strong>闪光是这个意思。</strong>」</p>
+<p>杨子藏想到了小记者们与失频之地。</p>
+<p>{<strong>通过自己的努力，在命途中诞生了这样的波动，再将它记录并嫁接，就可以扭曲一个命运衰败之人的人生节点，让他展现出新的可能。</strong>}</p>
+<p>「<strong>好神奇啊！就这样改变了事情的走向。谢谢你，灰鸦前辈。</strong>」</p>
+<p>{<strong>你该谢谢的人不是我。是复现旧世界命运轨迹后，第一个将它们提取出来，并加以运用的那位伟大存在，林雷先生。以及…你自己。</strong>}</p>
+<p>灰鸦低头看向青年，岩石面具般的脸上露出个笑容。</p>
+<p>{<strong>希望未来的路途上，你能如今日一般，继续以自己的传奇经历投资那些无法诞生新可能的生命。这是那些额外的寿命，聚集到你们身上的意义。</strong>}</p>
+<p>杨子藏感动不已。</p>
+<p>上一次是星渺，这一次是灰鸦，都是借助他们自己才完成了战胜不可能强敌的改变。</p>
+<p>自己什么时候才能真正如他们一般啊！</p>
+<p>除了刚进入这世界，以及面对那几书架精神力相关的书籍。此刻的杨子藏再次感受到了自己的渺小。当前看上去耀武扬威的武力，在真正的强者面前不值一提。</p>
+<p>灰鸦的脸侧向远方，感受了下后，低沉道：</p>
+<p>{<strong>我要离开了，你在这里继续练习，直至五日禁闭结束吧。</strong>}</p>
+<p>说完他便身形一抖，化为只小巧的黑鹳鸟飞向远方。</p>
+<p>而这片精神立场却还稳固地留在此地。</p>
+<p>此刻杨子藏才发现，自己所在的不是对方所说的「<strong>精神之海</strong>」，而是灰鸦用精神力具现出的一片真实降临之地。</p>
+<p>「<strong>好强的人啊。</strong>」</p>
+<p>失去灰鸦的帮助，本已能触摸到的「<strong>死亡序幕</strong>」气息再次变得极其微弱，仿佛回到了这次修行的最开始之时。</p>
+<p>杨子藏试着控制魔英殿幻影，还好这黑鹳人给予的权限依旧存在。</p>
+<p>吕布两人远去的身影随着杨子藏的控制再次变得清晰。</p>
+<p>「<strong>真是偷窥利器啊，这就是小记者视角。</strong>」青年古怪的想到。</p>
+<p>随后他立即回忆起了一天之前毫无征兆被灰鸦逮住精神力的举动。在这世界，随随便便用精神力偷窥人，若是遇到实力强过自己的人，恐怕下场会很惨。以后沉吟之夜不能乱用。</p>
+<p>画面种，两座城市的最强队伍已经在磨轮阵眼交汇处碰面，张志权被派出与吕布交涉。</p>
+<p>——「<strong>你们就是23城的吕布和赵云对吧，听说你们霸占了抽奖处，不怕出去被人收拾吗？</strong>」</p>
+<p>站在张志全身前十几米外的吕布就像是没听到似的，直接无视了问话，将目光越过张拳头望向三四十米外的程允泽。</p>
+<p>等了几秒的张志权脸上出现怒容。</p>
+<p>「<strong>真是狂妄的家伙，区区两人，老子替你们城市的白Moxel来收拾你。</strong>」</p>
+<p>噔噔噔！</p>
+<p>张志权身形快速冲至平台，还在一半距离，他的身影徒然加速带起残影，不到两秒就带着刚猛的一拳出现在了吕布身前。</p>
+<p>嘭！</p>
+<p>赵云身穿战甲，手中长枪一枪将打来的拳影卸掉，同时收枪又瞬间爆刺而出！</p>
+<p>轰隆！似有龙吟响起。</p>
+<p>虚无中一道银光闪过，一杆无形之枪从赵云手上长枪中冲出，轰然撞向前方的张志权。</p>
+<p>——「<strong>爆龙吟！</strong>」</p>
+<p>张志权的骨与枪影撞击在一起，嘭地炸开道气浪，将张志权打得后退几步，抬头肃穆望来。</p>
+<p>赵云利落收枪立于吕布身侧。</p>
+<p>吕布淡声道：「<strong>可以。能让赵云使出‘爆龙吟’，你的实力也算入我眼了。</strong>」</p>
+<p>黎明前的天际一亮，一道笔直光华割裂天地。</p>
+<p>轰！张志权脚下的岩石暴起碎屑。</p>
+<p>在这瞬间，一道光之骷髅重叠着出现在张志权身上，抗下了这来自天上的一击。</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="chapter-112.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="chapter-114.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="chapter-112.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="chapter-114.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="ace.js"></script>
+        <script src="editor.js"></script>
+        <script src="mode-rust.js"></script>
+        <script src="theme-dawn.js"></script>
+        <script src="theme-tomorrow_night.js"></script>
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

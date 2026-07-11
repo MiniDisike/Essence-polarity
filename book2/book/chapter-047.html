@@ -1,0 +1,319 @@
+<!DOCTYPE HTML>
+<html lang="zh" class="coal sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>第四十七章 通道撕裂 - 魂孪英旅 下 魔齿磨轮</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "coal" : "coal";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('coal')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">魂孪英旅 下 魔齿磨轮</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="第四十七章-通道撕裂"><a class="header" href="#第四十七章-通道撕裂">第四十七章 通道撕裂</a></h1>
+<p>韩鸣啸将手中的一枚木榴吊坠递给娇玛。</p>
+<p>少女惊讶地接过，她从未想到今夜会有这样的奇遇。这让她今天受到的委屈心情好了些，孤独的夜也有了些许慰藉。</p>
+<p>「<strong>这是您的私人物品吗？</strong>」</p>
+<p>少女闪亮亮的眼睛盯着这位气质独特的男人，她想到若父亲未离开，应该也是这般年纪。</p>
+<p>「<strong>它叫做梦境同步装置，可以让我进入你的梦或者同一个念力场，这样你还觉得欢喜吗。</strong>」</p>
+<p>「<strong>这？</strong>」娇玛一下有点紧张。</p>
+<p>这东西，稍微不注意可能让自己的精神之海被别人窥见。</p>
+<p>「<strong>对不起，我不能要，这很危险。</strong>」</p>
+<p>娇玛很直白，一点想要欺骗对方的念头都没有。但她想到，眼前这位先生也很坦诚。</p>
+<p>「<strong>那我把另一个也给你。</strong>」</p>
+<p>韩鸣啸将第二个吊坠也递给她。</p>
+<p>「<strong>现在，你就拥有一整套了。以后你可以将它给你喜欢的另一半，这样你就能在梦境与念力场里清醒的与他相聚。同时，还能在同一个世界进行超远距离的心灵链接。</strong>」</p>
+<p>说罢，也不等娇玛拒绝，韩鸣啸便微笑着转身离开书架，走向远方。</p>
+<p>娇玛欲言却又怕喊出口会打破文献室的宁静。她低头沉默地看着手上一个略深，另一个色泽略浅点的「<strong>木榴</strong>」吊坠，心中砰砰跳。</p>
+<p>她首先想到的就是杨子藏。</p>
+<p>「<strong>虽然不会给你。</strong>」娇玛心想道，随后又轻笑了下，「<strong>但我居然就这么收下了，还想着这种事情。</strong>」</p>
+<p>小屋子中，男人睁开眼后首先看向胸前，挂在脖子上的吊坠消失了。</p>
+<p>他稍微掀开长袍，将手伸进衣服内兜里，抓出了一把颜色或深或浅的木榴吊坠，从中选取了一根套在脖子上，随后合上手中的数据书，换了本薄点的随手翻开。</p>
+<p>——红兔国只是其它国家对索门共和国的蔑称。因为他们的国王索罗斯三世、四世都喜欢长着兔耳朵的红发女郎，并为之沉迷。</p>
+<p>——甚至形成了在木涛纪中，一道以娶兔女郎为妾来彰显身份、风靡两百多年的贵族风气，耳朵越长的越受欢迎。</p>
+<p>一道折线射来。</p>
+<p>{<strong>大人，您之前关注的那位能与高频念力场共振的人，进入这里了。</strong>}</p>
+<p>[<strong>哦？他怎么会去到你那儿的？</strong>]</p>
+<p>{<strong>第一清理部的一位组长，将他邀请到了自己的组，他今天选择了巡视这片区域的清理任务。</strong>}</p>
+<p>[<strong>呵，看来天意也想让我搞清楚，到底是什么级别的玩意被塞进了那道念力场。你们把心灵同步装置戴上吧。</strong>]</p>
+<p>{<strong>是。</strong>}</p>
+<p>说完这话，韩鸣啸起身将书随手一丢，三步并作两步来到门口看了眼外面，立即将门合上。</p>
+<p>......</p>
+<p>轰隆隆隆。</p>
+<p>暗淡光线中，碎石块如潮水般从坡顶滚下来。</p>
+<p>哪怕有轨迹调度，这样长的坡度，大石块们蓄积的势那庞大的数量，依旧让三人应顾不暇。</p>
+<p>杨子藏调度三人的行动轨迹，快速在石块之中穿插。</p>
+<p>「<strong>我感觉速度快了整整一倍，杨子藏，这是你的能力？</strong>」</p>
+<p>「<strong>没错。</strong>」</p>
+<p>「<strong>哇，什么团队能有你的话，他们的主战肯定会牛皮得多。而且你还有这么强的战斗力，要是我们一起进精锐组，以后咱们肯定能快速成长，说不定以后能成为组长单独领导一个小队呢!</strong>」</p>
+<p>此地是穿过大城后的一处光秃秃的斜坡下。三道人影在乱石中窜动，逐渐适应了躲避节奏。</p>
+<p>步履轻盈的琼安很是八卦的冲杨子藏道：「<strong>喂，你之前是哪个组的呀，组长叫什么？</strong>」</p>
+<p>「<strong>娇玛。</strong>」</p>
+<p>琼安反应了下立即想起来是谁，「<strong>喔，她呀。我知道这小娇玛，她很小就进来了，据说有十二三年了吧。是她父亲带进来的。她父亲已经前往命运轨迹之上好几年了。</strong>」</p>
+<p>「<strong>是娇玛组长。</strong>」王定山略吃惊了下，「<strong>你居然能进她的组。</strong>」</p>
+<p>砰！杨子藏差点被一块石头撞到。</p>
+<p>「<strong>能进她的组有什么说法吗？</strong>」</p>
+<p>他心中想到，娇玛年纪不算大却已经是组长。也不知说她是好运还是可怜，这么多年都没有见过外面的世界，恐怕地球的记忆对她来说都是异世传说了。</p>
+<p>王定山嘿嘿笑到：「<strong>她组里都是脾气超好的中年人，突然被塞个实力强外表帅的小年轻进去，很让人怀疑啊。</strong>」</p>
+<p>杨子藏一愣。</p>
+<p>他刚想说什么，一道折线射来，余雨生的虚影画面出现在三人眼前。</p>
+<p>{<strong>你们那边果然很多那种怪物啊，这半天我都快走到死雾弥漫之地了也没见到「<strong>优评50</strong>」的影子，说明我的方向错了。</strong>}</p>
+<p>「<strong>哇，你小子来偷窥我们在哪？</strong>」王定山大呼小叫。</p>
+<p>{<strong>本来还只有三分之一的可能，但你们那边有那么多难缠的怪物，现在有八成可能性是11号城「<strong>地缚之灵</strong>」所在的方向。等等我。</strong>}</p>
+<p>画面消失。</p>
+<p>「<strong>加油杨子藏，别等他！我们快上去看看，早一步消灭那东西，我们就赢了！</strong>」</p>
+<p>不断闪动的引力弧光中，长枪神出鬼没地将高居这片坡顶的怪物们，给尽数拆成了碎片。</p>
+<p>{<strong>杨子藏获得48分，共计132分。</strong>}</p>
+<p>{<strong>琼安20分，共计66分，王定山18分，共计74分。</strong>}</p>
+<p>听上去挺多的，可惜这只是单个任务的贡献分数。</p>
+<p>「<strong>可恶，王定山，下次把你那破力场给关掉，挡挡灰尘和爆炸声就算分数，简直是偷懒刷分。</strong>」</p>
+<p>「<strong>我不跟你讲道理。第二个进入精锐团的绝对是我。</strong>」</p>
+<p>「<strong>啊，我要踢死你。</strong>」</p>
+<p>爬上碎石山顶，前方还有很多半身在泥土里的扭曲软泥怪物，其中一些在缓慢吞着石头，让自己体积变大。</p>
+<p>「<strong>这水池？</strong>」杨子藏看去。</p>
+<p>一片凹坑内，许多浑浊的液体将之塞满，臭味与怪异的香气混合着挥发出来。</p>
+<p>王定山赶紧再次展开力场，却也不能阻挡太多气味，它毕竟不是把整个人都包裹住的。</p>
+<p>「<strong>这水能诞生岩石怪物？</strong>」</p>
+<p>「<strong>好奇怪。</strong>」</p>
+<p>三人走到这里，王定山胸膛内的刮刮乐恶魇突然出声：</p>
+<p>{<strong>我感受到，吸引我的气息。</strong>}</p>
+<p>「<strong>吸引你的？</strong>」</p>
+<p>他拿出刮刮乐恶魇，上面的钻石形眼睛到处扫视，最后看向水面之下。</p>
+<p>「<strong>难道在这里面？</strong>」</p>
+<p>三人望向污水般的水中。</p>
+<p>{<strong>恭喜你们，仅仅不到十个小时就找到了地缚之灵的所在。我原本以为至少两天时间才会被人发现，看来你们的策略是正确的。不过，这个地缚之灵可没办法用你们的那把枪偷袭了。给你们提示，生机。</strong>}</p>
+<p>水面开始涌动，下方一个被拘束的大型能量人的轮廓浮现在这片水池正中。</p>
+<p>「<strong>太好了。连傅组长都说了我们找到了。</strong>」</p>
+<p>「<strong>快，我们将它干掉就能拿到五十优评分，老带新果然福利丰厚啊。</strong>」王定山欢喜得差点将舌头伸出来甩几甩。</p>
+<p>「<strong>可咱们这儿有三个人，怎么分。</strong>」</p>
+<p>琼安看向杨子藏，气势很盛的瞎说道：「<strong>兄弟，这么多分数铁定能让我进入精英团，这个怪物就让给我吧。</strong>」</p>
+<p>「<strong>可是我要离职诶，如果我成为精锐雇员，离开前还能选个奖励带走不是吗。</strong>」</p>
+<p>「<strong>啊！</strong>」琼安抓了抓脑袋，「<strong>唉，我都忘了，娘的。</strong>」</p>
+<p>王定山靠近走了走，嘴巴一呕，欲吐地道：</p>
+<p>「<strong>先不说怎么分这地缚之灵的事。这水有问题，我们能不能走进去都是难的。</strong>」</p>
+<p>{<strong>这里的水拥有催生怪物的功能，我们幻境公司也在研究它。</strong>}</p>
+<p>傅契雍躺在沙滩椅上的幻影身影出现在水面上，他指着下方道：</p>
+<p>{<strong>通过数据分析。这里面应该蕴含着某些血脉秘能的残留，不过因为太过稀薄与混杂，我们目前还没有…</strong>}</p>
+<p>「<strong>还没有什么？</strong>」琼安问道。</p>
+<p>{<strong>还没有…</strong>}</p>
+<p>傅组长的身影突然如信号不稳般闪动起来，他一下站起身。</p>
+<p>{<strong>有…离开…</strong>}</p>
+<p>三人背后唰地展开黑色的立方体。</p>
+<p>杨子藏眼色一紧：「<strong>有问题，快走！</strong>」</p>
+<p>「<strong>我们都领先这么多了。</strong>」</p>
+<p>王定山有点不舍，但立方体快速变得不稳定。</p>
+<p>既然傅组长都在出声让走，肯定是哪里出了岔子。经历数次生死危机的杨子藏立即开始逃跑，毫不犹豫转身冲向黑色的立方体通道。</p>
+<p>就在三人靠近前，三个黑色的亚以太通道一下炸开，无数破布般散开的暗淡能量线条更为扩散，如同扯网一般齐齐碎裂。</p>
+<p>{<strong>谁在阻我！</strong>}</p>
+<p>傅组长愤怒的声音响起。</p>
+<p>他的影像在四处闪烁，一道又一道黑色立方体或大或小的出现，但瞬息就炸断。</p>
+<p>「<strong>啊，我们遇到什么了。</strong>」琼安略显紧张的看着这诡异的画面。</p>
+<p>王定山眼睛左右瞟动，严肃地注视着四周。</p>
+<p>忽然，他感觉精神一阵颤动，转头发现杨子藏背后出现个巨大的白色虚影怪物，如同巨型蜈蚣。</p>
+<p>「<strong>念力体？！</strong>」</p>
+<p>王定山难以置信的看着这东西，身旁这小子实力不俗啊！不过现在不是讨论这些的时候。</p>
+<p>杨子藏瞧准一个再次闪现出的黑色立方体，手快速拽住了身旁女人的胳膊和腰肢，旋转着抛出，「<strong>闭眼，我送你出去！</strong>」</p>
+<p>但那立方体交错空间已经消失。</p>
+<p>「<strong>呀！</strong>」</p>
+<p>琼安感觉自己飞了起来，她知道亚以太通道不会在有人注视下开启，只得认命般闭眼。</p>
+<p>下一秒她只觉得坠落的身体突地二次加速冲上高处。</p>
+<p>眼看就要坠向坡下，女人抛物线划动般的身前奇迹般出现个闪动的黑色立方体一下炸开。</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="chapter-046.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="chapter-048.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="chapter-046.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="chapter-048.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="ace.js"></script>
+        <script src="editor.js"></script>
+        <script src="mode-rust.js"></script>
+        <script src="theme-dawn.js"></script>
+        <script src="theme-tomorrow_night.js"></script>
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

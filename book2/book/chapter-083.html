@@ -1,0 +1,352 @@
+<!DOCTYPE HTML>
+<html lang="zh" class="coal sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>第八十三章 书架与书 - 魂孪英旅 下 魔齿磨轮</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "coal" : "coal";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('coal')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">魂孪英旅 下 魔齿磨轮</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="第八十三章-书架与书"><a class="header" href="#第八十三章-书架与书">第八十三章 书架与书</a></h1>
+<p>佐罗来到了文献库的一个无人角落。</p>
+<p>此刻他抽出书又放回，拿手触摸书架，什么也没发生。</p>
+<p>「<strong>是啊，这几天我也来过多次了，有异常早该出现。</strong>」</p>
+<p>佐罗再次回忆起当时感觉异常的场景。</p>
+<p>那个时候，自己握着韩鸣啸的吊坠，后来才知道那看上去真实无比的东西竟然是由念力制造而出的。</p>
+<p>当时自己就想到，那个叫韩鸣啸的或许知道自己在寻找什么。</p>
+<p>如果说木榴吊坠是触发自己找到那书架的契物，那也太过巧合了。</p>
+<p>「<strong>哪里不对？</strong>」</p>
+<p>佐罗的思绪很乱，他感觉自己像是快触摸到答案，但又始终差那么一点。</p>
+<p>所以应该是念能力触触发？</p>
+<p>念能力上，目前自己所知的，没有比「<strong>心灵具现之权</strong>」更高的存在了。</p>
+<p>他深呼吸了下，胸前出现银色圆环。</p>
+<p>[<strong>我，渺小的三角形，开始沟通伟大的，心灵具现之权。</strong>]</p>
+<p>三角形缓缓转动。</p>
+<p>佐罗换了几本书拿在手上，拿手在一排排书架上划过，但什么也没有发生。</p>
+<p>「<strong>我的推断错误了吗。</strong>」</p>
+<p>佐罗皱了皱不太完整的眉毛。</p>
+<p>他内心诞生冲动，自己并未搞错，他强烈相信自己现在所做的是完全正确的，而且这是自己稍纵即逝的机会。</p>
+<p>毕竟魔英殿就快完成了，届时能力也会收回。</p>
+<p>「<strong>到底是哪里的问题呢。</strong>」</p>
+<p>佐罗眼眸闪动着沉思的目光。</p>
+<p>他回忆着韩鸣啸的面容，他的说话内容，他的动作…他质问自己，他递出吊坠…</p>
+<p>自己拒绝并诞生了强烈的疑心，随后自己开始询问组长关于韩鸣啸的身份。</p>
+<p>好像也就是在那个时候，手上的书出现了一丝异样。</p>
+<p>空旷的文献库，静谧而安静。佐罗矗立在高大的书架旁仰望，古老的书架群不语，只是沉默地矗立，如磐石般注视人来人往，安静与热闹。</p>
+<p>「<strong>当时在问组长，所以是要和人连通心灵链接吗。</strong>」佐罗低语道。</p>
+<p>他决定再做做尝试。</p>
+<p>[<strong>我想与杨子藏进行沟通。</strong>]</p>
+<p>胸前的折线速度飞快地消失，很快杨子藏就回应了。</p>
+<p>{<strong>噫？又跑文献库去了。临时抱佛脚？</strong>}</p>
+<p>[<strong>呵，我在做一个实验，需要与人沟通。</strong>]</p>
+<p>{<strong>什么实验。</strong>}</p>
+<p>佐罗捏着手中的书，皱着眉头。</p>
+<p>[<strong>可能失败了。我以为有「<strong>心灵具现</strong>」能力后，可能看书会更深刻些呢。</strong>]</p>
+<p>对面的杨子藏立即明白了佐罗的意思。的确，这玩意儿目前来说是自己等人能够接触到的最强大的「<strong>宝物</strong>」了，它甚至都没有具体的形象。</p>
+<p>佐罗感应了下没有期望的异常后，反思到，难到是因为「<strong>心灵具现之权</strong>」的力量太强，阶位太高，反而让本该出现的「<strong>意外</strong>」不会出现？</p>
+<p>{<strong>你的想法挺独特。为什么要出发这么多条件，又是摸书，又是发动能力，又是与人进行交流。你该不会从哪里看了什么奇怪的召唤步骤？</strong>}</p>
+<p>杨子藏道，佐罗点点头，轻声解释道：</p>
+<p>[<strong>可能是我的错觉，以前某次与人沟通的时候，这里的某些书出现了不正常的反应。</strong>]</p>
+<p>对面的杨子藏凝重思索了下，迟疑道：</p>
+<p>{<strong>所以你是想与它们沟通吗？</strong>}</p>
+<p>沟通...！</p>
+<p>佐罗霎那间如被一道雷电劈过。</p>
+<p>他呆愣了下后，轻轻吐了口气。</p>
+<p>[<strong>很好，杨子藏。如果我实验成功，得有你跟我一起背锅。</strong>]</p>
+<p>链接断掉。</p>
+<p>佐罗瞬间充满了干劲。</p>
+<p>他胸前的折线闪动着缩回，但三角形还在胸前光环中旋转着。</p>
+<p>佐罗维持着它的显现，看向手中的地理数据封面，《钻海纪150-200年，WN009区域，地理位置详录031》</p>
+<p>[<strong>我，渺小的三角形，继续运用心灵具现之权。</strong>]</p>
+<p>折线就像是找不到目标似的，在光环处闪动。</p>
+<p>[<strong>我想与《钻海纪150-200年，WN009区域，地理位置详录031》进行沟通。</strong>]</p>
+<p>随着佐罗吃力的驱动，突然光环内一道精粹的力量迸发，如同给折线们添了口油般将它们射出，窜入了手上的书本！</p>
+<p>佐罗瞬间感觉到阵酥麻！</p>
+<p>一股晦暗悠远，令人不适的气息弥漫至心间。但它很快就被降服。</p>
+<p>在心灵具现之权面前，这股气息根本不敢有任何异动。</p>
+<p>{<strong>阿肆答度…司卡蓝德鲁…</strong>}</p>
+<p>无法理解的语言。而且对方也没有什么灵念，这些声音只是某些无法言喻的缥缈意志的回响。</p>
+<p>成功了？！</p>
+<p>佐罗按耐住欣喜。</p>
+<p>又试了试过后，他将毫无交流进展的书放回了书架上。</p>
+<p>然后，男人的目光落向了这些书架。</p>
+<p>「<strong>Moxel，Chronos战器，变成怪物的人造物…对啊，沟通，Moxel的沟通不仅仅只是人类。</strong>」</p>
+<p>他的手触摸向书架，胸前圆环旋转，心中紧张的确认着这个想法。</p>
+<p>[<strong>我想与书架沟通。</strong>]</p>
+<p>没有回应。</p>
+<p>「<strong>嗯？</strong>」佐罗紧张地看了毫无动静的书架一眼，随后他走了几步，换了个书架。</p>
+<p>[<strong>我想与书架沟通。</strong>]</p>
+<p>依旧没有回应。</p>
+<p>「<strong>不应该啊，你到底....</strong>」</p>
+<p>佐罗看着一列列高大的造物，想了想，他深吸口气闭上眼。</p>
+<p>心中试探地默念到：</p>
+<p>[<strong>我想与文献部未显现的，多余的书架进行沟通。</strong>]</p>
+<p>随着这个念头一诞生，男人感觉周围的气息变化了。</p>
+<p>[<strong>心灵具现之权已响应我的请求。</strong>]</p>
+<p>佐罗张眼抬起头。</p>
+<p>周围的图书馆不知何时已经变得一望无际，但宽大的书架们都消失了。</p>
+<p>前方仅有一座如大门的黑书架伫立，孤独地立在广阔的、由图书馆延伸的天地中间。</p>
+<p>它的边缘有着丝丝金色的纹路，简约又不失贵气。</p>
+<p>一眨眼，书架出现在佐罗身前。</p>
+<p>男人下意识退了步，脚步发出空荡的回音。</p>
+<p>「<strong>嘚嘚嘚～</strong>」</p>
+<p>空旷的书架上跳出好几本书，它们的书脊上写着：</p>
+<p>《你》《找我》《想要》《做》《什么》。</p>
+<p>佐罗咽了口唾沫，紧张道：</p>
+<p>「<strong>我想要获得，进入第三座枢纽镇的门票制作方法。</strong>」</p>
+<p>这些书籍嗖地缩回消失，下一秒又是一本本书噼里啪啦地冒出来，竖立着排在上面。</p>
+<p>《你》《精神》《足够》《纯粹》。</p>
+<p>《但》《请求》《无法》《达成》。</p>
+<p>「<strong>这...请问，为什么呢？</strong>」</p>
+<p>佐罗握紧了拳直视着它。</p>
+<p>所有书往后一缩消退，又快速跳动出现。</p>
+<p>《方法》《不能》《泄漏》，《除非》《回答》《我》《一个》《问题》。</p>
+<p>「<strong>您请讲。</strong>」</p>
+<p>佐罗仿佛听到周围有脚步声传来，又像是有时钟咔哒作响。</p>
+<p>千万要快点啊！</p>
+<p>空旷的书架上迟迟没有新的书出现，正当佐罗紧张的想，是否是自己出了岔子的时候。书架上多出了本书。</p>
+<p>《世界》</p>
+<p>停顿了下，紧挨着它又冒出本书。</p>
+<p>《有尽头吗？》</p>
+<p>「<strong>……</strong>」</p>
+<p>佐罗感觉自己汗流浃背。</p>
+<p>这该怎么回答？</p>
+<p>对方就像一位深思终极问题无数岁月的智者，随意开口询问偶然闯进自己房间的小童。</p>
+<p>自己该如何回答，才不至于被赶走得太难看？</p>
+<p>怎么办，好不容易才抓住机会见到这书架，就要失败离开吗！</p>
+<p>几秒后，佐罗紧张地咬了咬唇齿，看着书架。</p>
+<p>对方像是知道自己的紧张似的，下方一层出现新的书：</p>
+<p>《有》，《还是》，《没有》。</p>
+<p>呼...</p>
+<p>佐罗的紧张突然平缓了下来，他张动干燥的唇舌。</p>
+<p>「<strong>我，不知道。</strong>」</p>
+<p>双方沉默了会儿，书籍缓缓缩回又出现。</p>
+<p>《在》《有》《和》《没有》《之间》。</p>
+<p>书籍「<strong>簌</strong>」地缩回。</p>
+<p>《你》《选择》《新的可能》，《也是》《最诚恳》《的》《内心直白》。</p>
+<p>「<strong>新的可能</strong>」爆发出一阵微弱的金光。</p>
+<p>噼里啪啦。</p>
+<p>所有书籍缩回又瞬间冒出。</p>
+<p>《虽然》《你》《浪费了》《一次》，《我的》《统计》《锚定》。</p>
+<p>书，消失，再次出现。</p>
+<p>《但》《这是》，《仅属于》《你的》《标准答案》。</p>
+<p>佐罗有点懵，自己浪费了统计？标准答案，仅属于自己...这是代表哪怕自己将这个答案传出去，下一个人也不可能成功了，那是否意味着...！</p>
+<p>前四本书又「<strong>簌</strong>」地缩回至背板的深黑中，如同虚无的宇宙。</p>
+<p>佐罗紧张而期待地抬头注视。</p>
+<p>还有最后一本书在书架上。</p>
+<p>它书脊上金色的四个字中，有着一道道幻影的金光。</p>
+<p>佐罗摈住呼吸等待了几秒，没有任何意动后，他伸手取下了这本唯一的书籍——《标准答案》。</p>
+<p>翻开之后，扉页的文字映入眼帘。</p>
+<p>——001页，目录。</p>
+<p>——003页，亚以太隧道失念引擎的制作法。</p>
+<p>——048页，暗金枢纽镇晦影界坐标。</p>
+<p>——050页，类暗金枢纽镇念力场的构建方法。</p>
+<p>——100页，谏言。</p>
+<p>就是这个！</p>
+<p>终于，终于拿到手了！</p>
+<p>佐罗爱不释手地抚摸着这本暗皮金字的软书册，虽然其中有很珍贵的资料，但他还是好奇的先翻到了「<strong>谏言</strong>」这一页。</p>
+<p>它只有一行字。</p>
+<p>——文字是历史的篆刀，历史是文字的血脉。</p>
+<p>这算什么谏言，他还以为会是类似不要被精神幻境欺骗的告诫。</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="chapter-082.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="chapter-084.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="chapter-082.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="chapter-084.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="ace.js"></script>
+        <script src="editor.js"></script>
+        <script src="mode-rust.js"></script>
+        <script src="theme-dawn.js"></script>
+        <script src="theme-tomorrow_night.js"></script>
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

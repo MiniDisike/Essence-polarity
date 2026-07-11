@@ -1,0 +1,321 @@
+<!DOCTYPE HTML>
+<html lang="zh" class="coal sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>第二十九章 需要向导吗 - 魂孪英旅 下 魔齿磨轮</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "coal" : "coal";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('coal')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">魂孪英旅 下 魔齿磨轮</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="第二十九章-需要向导吗"><a class="header" href="#第二十九章-需要向导吗">第二十九章 需要向导吗</a></h1>
+<p>改造成土炮弹的铁罐旋转着携带庞大力道，撞向快速冲来的被烈焰灼烧的人影。</p>
+<p>铁罐撞到洪灏承肩膀上，血肉瞬间爆炸。</p>
+<p>烧焦的少年整个人被巨力掀回火焰中，如破布娃娃在地上打着滚，一只手臂被甩飞了出去。</p>
+<p>{<strong>哈，哈哈哈，哈哈哈哈哈，跟老子玩！</strong>}</p>
+<p>阮监诚笑得很狂，他喝骂道：</p>
+<p>{<strong>一个新人而已，还是选择与恶魇共生的废物，这下死了吧！</strong>}</p>
+<p>但阮监诚疯魔般的笑意渐渐就收敛了起来。</p>
+<p>因为地上那男人已经失去只肩膀的身躯，正在颤抖着用剩下的一只手撑起肌肉不断鼓动的身子。</p>
+<p>{<strong>为什么...攻...击我...</strong>}</p>
+<p>一道沙哑的声音自火焰中传出...</p>
+<p>程允泽严肃感受着感应画面。</p>
+<p>这样重伤的人竟然还能站起身来。</p>
+<p>......</p>
+<p>[<strong>我获得了257.7N。</strong>]</p>
+<p>火焰中。洪灏承感觉自己意识昏沉，他觉得自己在渴望鲜血，还渴望着蕴含在鲜血内那种美味的...轨迹！</p>
+<p>他张开血色的眼眸，如野兽般注视向前方。</p>
+<p>忽地无数扭曲的线条，在那道土炮后颤抖的人影背后浮现。</p>
+<p>往前走了两步后，一道奇形怪状的铁罐黑影再次带着咆哮撞来！洪灏承脚下一蹬，脚尖微踮，身体便侧倾擦着那自肩头划过的铁罐冲向前方。</p>
+<p>「<strong>什么，打空了！</strong>」阮监诚不敢置信的看向这道身影扑来。</p>
+<p>对方皮肤下的肌肉鼓起，仿佛跃动的猎豹。</p>
+<p>轰！阮监诚瞬间被巨力撞飞出去，并感觉自己被抵消了接近两百年的时间。</p>
+<p>两人嘭嘭摔在地上。</p>
+<p>阮监诚恶狠狠地压着男人道：「<strong>哈哈，没想到吧，这里已经不是地球了，你的攻击对我来说，根本无用...</strong>」</p>
+<p>说着说着，阮监诚就心虚的咽了口唾沫。</p>
+<p>只因面前这道如野兽般的目光，仿佛感觉不到任何疼痛般地冰冷盯着自己。</p>
+<p>洪灏承张开了嘴。</p>
+<p>「<strong>味道似乎一般…</strong>」</p>
+<p>「<strong>味道？</strong>」</p>
+<p>阮监诚挪动震颤的目光看向洪灏承焦黑的断肩。</p>
+<p>对方消失的左臂处，隐约一道手臂的虚影浮现，正捏线头似的扯着某种能量线条，连接着自己身上。</p>
+<p>......</p>
+<p>远方高速奔驰的轿车中。</p>
+<p>一直目不转睛盯着这里的程允泽目光瞬间张开。</p>
+<p>「<strong>念能力？！</strong>」</p>
+<p>融资广播中，在城市各处为阮监诚投资的人，顿时疯狂的叫喊起来。</p>
+<p>{<strong>这打炮的绝对死定了！</strong>}</p>
+<p>{<strong>快，撤资！</strong>}</p>
+<p>轿车后座上，一位头发纷乱的外国人立即紧紧咬住嘴唇，他在心中默默撤回之前悄悄给予阮监诚的几百年Chronos投资。</p>
+<p>[<strong>我将撤回投资阮监诚的500N，Chronos损耗百分之二十，400N已收回。</strong>]</p>
+<p>已经接近疯癫的阮监诚从地上爬起，想要逃离。</p>
+<p>扯动！</p>
+<p>「<strong>啊！</strong>」</p>
+<p>阮监诚感觉到难以言喻的恐怖抽离感，正自灵魂深处浮现，他忍不住躺地捂脸翻滚尖叫。</p>
+<p>「<strong>嗦嗦嗦嗦。</strong>」</p>
+<p>阮监诚刚抬起的头僵在原处，他的目光飞速变得迷茫，暗沉。</p>
+<p>「<strong>队长！</strong>」</p>
+<p>火焰中，终于从爆炸中爬出一个阮监诚的队友。他浑身金辉覆盖着，震撼地看着前方这一幕。</p>
+<p>远处那烧焦之人能量虚影所构建的右臂，正如扯毛线团似的，将连接自男人身上的线条塞入其嘴中。</p>
+<p>「<strong>啊！你，你杀了队长...这么重的伤，竟然还能站着，魔鬼吗你是！</strong>」</p>
+<p>被烧焦的少年猛然转过头来，露出烤肉般的脸庞。</p>
+<p>「<strong>Chronos，三千五百年，这是什么意思？</strong>」</p>
+<p>金辉覆盖的张苗吓得后退了步的道：</p>
+<p>「<strong>三，三千五百！啊，队长获得的投资，全被你给拿去了？！</strong>」</p>
+<p>洪灏承逐渐恢复了点意识，刚才被爆炸掀翻了身体，剧烈震动中，他感觉自己昏了过去。</p>
+<p>但苏醒了点意识后就发现，自己已经吃掉了个人的灵魂。说是灵魂也不对，因为吃掉的只是对方的轨迹，以及些许记忆。</p>
+<p>但这些跟与絮妹所交换的信息一样都只是只言片语般，如同听见灵魂的梦呓，在很快消散。</p>
+<p>此刻，望着洪灏承的张苗浑身颤抖，他胸前无数折线闪动。</p>
+<p>{<strong>不要杀这个红Moxel的家伙。</strong>}</p>
+<p>{<strong>快干掉他，这家伙留不得。</strong>}</p>
+<p>{<strong>不能杀他，你们攻击他在先，被报复也是正常。此人难得，不要妄动。</strong>}</p>
+<p>{<strong>快，接受我的投资，干掉绯红出的新高手！</strong>}</p>
+<p>张苗冷汗直流。</p>
+<p>{<strong>杀！</strong>}</p>
+<p>{<strong>不能杀！</strong>}</p>
+<p>{<strong>快动手！</strong>}</p>
+<p>{<strong>若动手我千刃队弄死你！</strong>}</p>
+<p>张苗紧张万分，他从未受到过如此待遇。</p>
+<p>[<strong>王赟想为我投资3000N全权Chronos，时效7日。</strong>]</p>
+<p>[<strong>李风想为我投资4500N全权Chronos，时效30小时。</strong>]</p>
+<p>[<strong>朱千鸣想为我投资5000N全权Chronos，时效1日。</strong>]</p>
+<p>此刻竟然有上百人想要为自己投资，其中不乏平时仅闻其名的大佬。但他们给予的却是完全相反的两个要求。</p>
+<p>两边都在威胁着自己，自己该怎么办？！</p>
+<p>......</p>
+<p>一辆恶魇轿车飞驰在道路上。路两旁无数人影在周围走动，但对这辆车视若无睹。这些人都是只在今日才会出现的来自地球的幻影。</p>
+<p>「<strong>老大，这新人居然已经觉醒了如此强的Moxel能力，我们要铲除他吗？</strong>」车上一人凝重的问。</p>
+<p>程允泽目光中透露着莫名的神色。</p>
+<p>「<strong>先找到他再说。能用出Moxel能力，说明他的伴生恶魇还没死，我们快点！</strong>」</p>
+<p>奔腾的恶魇轿车速度再次拔高了一丝。</p>
+<p>......</p>
+<p>焦黑的洪灏承站起身来，他口中嗦进最后一段能量线条，默默看着前方艰难站立着的张苗。</p>
+<p>[<strong>我获得了17500里航迹绘线。</strong>]</p>
+<p>[<strong>我们获得了3521.7N</strong>]</p>
+<p>「<strong>为什么攻击我。</strong>」洪灏承的喉咙发出沙哑的声音，对着他问到。</p>
+<p>「<strong>你，催化了伴生恶魇。</strong>」</p>
+<p>洪灏承看着对方胸前不断闪烁的圆环颜色，又埋头看向自己胸前，此刻好几道红色折线在逐渐变色的圆环内延伸，却又难以完全浮现，似乎还在孕育中。</p>
+<p>洪灏承抬头道：</p>
+<p>「<strong>我是红色，你是白色...就因为颜色不一样，所以攻击我吗？</strong>」</p>
+<p>不断的Chronos抵消声音在心中出现，只是说了两句话，刚刚获得的上千年Chronos转眼就少了数十年。</p>
+<p>同时心中还有另一道声音。</p>
+<p>它不断「<strong>呀咦</strong>」地痛苦呼唤，仿佛急需被保护的婴孩。</p>
+<p>洪灏承扭头看向飞机的爆炸处。</p>
+<p>那里面还有两道不断挣扎的身影，他们因为寿命的长久而一时未死，但又因爆炸的冲击让未被保护周全的身体部位遭到严重创伤，而无法起身离开。只能一点点被火焰与高温不断消耗着Chronos。</p>
+<p>一股漠视的情绪驱使着洪灏承往飞机走去。</p>
+<p>「<strong>等下，我叫张苗，我想成为你的队友。</strong>」</p>
+<p>张苗见对方此刻竟没有继续攻击自己，心中一横的道。</p>
+<p>两边都在威胁着自己，就只是因为眼前这人！</p>
+<p>「<strong>哦？</strong>」听到这话，焦黑的洪灏承扭头看向男人：「<strong>为，什么。</strong>」</p>
+<p>「<strong>因为你需要一个向导快速了解这里，而我可以做到！</strong>」</p>
+<p>洪灏承的身躯刺痛难耐，支撑自己的奇异力量在快速消退。</p>
+<p>来不及多说，洪灏承趁着还能行动，快速往小了些的火焰中走去，路过几个铁棍的时候，顺手将它们抄起，对准机舱洞内挣扎的两人投去。刺入了两人身躯。</p>
+<p>[<strong>我们获得112.3N.</strong>]</p>
+<p>[<strong>我们又获得44.6N.</strong>]</p>
+<p>洪灏承这才看向自己的这只独臂手掌，为什么自己毫不犹豫就做出了这样的决定？</p>
+<p>张苗跑了过来，艰难道，「<strong>让我也进去吧！</strong>」</p>
+<p>如果还不知道对方获得了奇异的特殊能力，张苗就觉得自己是太傻了！</p>
+<p>光从那些联系自己的人的反应，就看得出来身前之人的恶魇能力肯定特殊无比。</p>
+<p>平庸还是成为强者身边之人，就在这一次的抉择！</p>
+<p>无论如何，都要赌一把！</p>
+<p>飞机破洞前的洪灏承转头看来，撑着最后的力气，点点头，随后步入之前的休息舱。</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="chapter-028.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="chapter-030.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="chapter-028.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="chapter-030.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="ace.js"></script>
+        <script src="editor.js"></script>
+        <script src="mode-rust.js"></script>
+        <script src="theme-dawn.js"></script>
+        <script src="theme-tomorrow_night.js"></script>
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

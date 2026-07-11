@@ -1,0 +1,293 @@
+<!DOCTYPE HTML>
+<html lang="zh" class="coal sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>第二章 去一个地方 - 魂孪英旅 下 魔齿磨轮</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "coal" : "coal";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('coal')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">魂孪英旅 下 魔齿磨轮</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="第二章-去一个地方"><a class="header" href="#第二章-去一个地方">第二章 去一个地方</a></h1>
+<p>「<strong>哎哟，这小兔崽子。</strong>」</p>
+<p>手被咬的冯居冠将手甩了甩，然后把人往这儿一丢，转身就往回走。</p>
+<p>女人的一条腿压在另一条腿上，洁白的脚趾上沾着泥沙，一晃一晃地看着地上的少年。</p>
+<p>「<strong>老公，你怎么怎么能咬冯先生的手呢。</strong>」</p>
+<p>「<strong>滚，老巫婆，谁是你老公。</strong>」</p>
+<p>「<strong>你呀，你不是喜欢我吗，我也喜欢你，我们结婚你就是我老公呀。</strong>」</p>
+<p>「<strong>结你的大头婚，我劝你们别开这种玩笑，我连你的名字都不知道。</strong>」</p>
+<p>洪灏承打算起身往外跑去，但不知怎么的，几次试着爬起手都不小心打滑让身体摔倒在地上。</p>
+<p>「<strong>你就叫人家宝贝嘛。</strong>」</p>
+<p>「<strong>我宝你这个恶女人的头。</strong>」</p>
+<p>已经察觉不对劲的洪灏承放弃抵抗地趴在地上，抬头望向斜上方。从这个角度，只能看到小脚丫在眼前晃来晃去。</p>
+<p>他咬牙切齿。这恶毒怪女人肯定是想要一个身材健美的帅气肌肉男，才会让自己每天锻炼。她以后绝对还有别的邪恶计划，不断让自己学习各种东西，好去满足她的变态欲望。</p>
+<p>女人伏下身来，细看了下洪灏承。</p>
+<p>「<strong>你是不是能看到他们身后的航迹绘线？</strong>」</p>
+<p>洪灏承一下抬起头，随后目光一转。</p>
+<p>「<strong>我不知道你在说什么。</strong>」</p>
+<p>「<strong>呵呵，还会撒谎谎呢。</strong>」</p>
+<p>「<strong>放我起来，最好送我回家。</strong>」</p>
+<p>她拿过那本厚厚的赫尔墨斯语的翻译手册，丢到地上。</p>
+<p>「<strong>三天内把它背熟，我就考虑放你回家。</strong>」</p>
+<p>「<strong>不可能！</strong>」</p>
+<p>「<strong>嘻嘻，一下就识破了我的话呢。你至少有几万公里的航迹绘线吧，试试看，把他们当成地图线路去记住就好，至于理解，以后慢慢也就熟悉了。全部背下来就满足你一个小愿望，比如看电影约会什么的。</strong>」</p>
+<p>洪灏承愣了下才回过味来。</p>
+<p>「<strong>我是说我‘不可能背下来’，可恶的坏女人，你果然在骗我，你就没打算放我走！</strong>」</p>
+<p>洪灏承死死盯住女人含笑的脸。他手一撑，胸膛离开地面，他感觉这次自己能够起来了。</p>
+<p>成功站起身后，少年拍了拍身上的灰尘，安静地看了身前女人几秒后道：</p>
+<p>「<strong>你说地图线路去记...是不是我只要有足够多的航迹，甚至能记下世界上所有的书籍，甚至是线条图案？</strong>」</p>
+<p>「<strong>老公真厉害，一下就有这么大的目标，你大可以试试看呢。绝对会诞生闪光的噢。</strong>」</p>
+<p>洪灏承拿鼻孔回应了这恶女人。</p>
+<p>不过既然知道了线条的一种作用，自己试试看也无妨。若是真能够成为过目不忘的人，也是件很厉害的事情。那就先从这本书开始好了。等自己学会更多的技能，总会找准机会逃出去的。</p>
+<p>「<strong>好，我听你的，只要记下来就放我走，你若不兑现承诺，我就学项羽。</strong>」</p>
+<p>女人开心地露出笑容：</p>
+<p>「<strong>呀，那要加油学喔。根据资料，刚开始可能转换速度有点慢，不过熟悉了就会快些。</strong>」</p>
+<p>「<strong>哼，你这...算了，我赖得搭理你。</strong>」洪灏承拿着手册往桌旁走去，忽地他脚下一滑，一头栽倒进了女人怀中。</p>
+<p>女人笑铃铃地伸手环保住了慌乱挣扎起身，却怎么都没成功的男人的颈脖。</p>
+<p>「<strong>你就晓得欺负人家。</strong>」</p>
+<p>「<strong>呸！你混蛋，放我起来！</strong>」</p>
+<p>「<strong>你在说什么呀？你看看你的手乱摸。</strong>」</p>
+<p>「<strong>啊啊啊！</strong>」忙活了几秒的少年干脆放弃了，「<strong>你们到底是什么人？别想用这种美人计使我就范！</strong>」</p>
+<p>女人「<strong>呀</strong>」了声，说：</p>
+<p>「<strong>他们现在都是普通人的身份了。因为我们要做的事，是将跨越无数岁月的事情，这不是一天两年，也不是一个朝代两个朝代能完成的，它注定是超越一切官方组织指派的。</strong>」</p>
+<p>洪灏承一愣：「<strong>那谁资助你们。竟然还有潜艇。</strong>」</p>
+<p>「<strong>当然是用爱发电咯。开玩笑啦，去年开始已经有四五个国家在支援我们了。</strong>」</p>
+<p>「<strong>骗...骗人的吧。</strong>」</p>
+<p>她俯身将嘴唇贴在男人耳边轻声道：</p>
+<p>「<strong>有一个地方，只有我的亲人才能去。我想让你找到那里，所以，你要加油学会运用你的能力喔。</strong>」</p>
+<p>……</p>
+<p>荒原上，稚嫩的哭声无力响起，小女孩前方倒塌的岩石下，压着两具苍老尸体。</p>
+<p>「<strong>爸爸...妈妈...</strong>」</p>
+<p>她徒手刨着冷硬的石头，一阵虚浮的脚步声靠近。</p>
+<p>「<strong>他们死了。</strong>」</p>
+<p>女孩转过头去，看到个头发比较奇怪的老叔叔，他用残疾的右手托着个虚弱的、被布条捆在背上的女人。</p>
+<p>「<strong>骗人！我要爸爸妈妈！</strong>」她嗓子嘶哑地喊，却被男人左手一把拽住，不由分说就拽着她小小的身子往前方走去。</p>
+<p>「<strong>不远了吧...</strong>」</p>
+<p>几小时后，耳边突然传来吃力的女人说话声。</p>
+<p>黄旭扭头看了眼肩膀上脸色发白的女人面容。</p>
+<p>自己已经来失频之地有一段时间了。自从抵御者被杨子藏召来的存在几拳干碎，他再也不敢出现在外界。还好自己找到了个小交错地入口躲了段时间，结果却在月末出现在这里。</p>
+<p>前两日山洞坍塌时，这女人曾用体温捂热他冻僵的断肢。在这个鬼地方，能找到个互相扶持的人多么不容易啊。</p>
+<p>「<strong>应该下午就能到玫瑰溪了。撑得住吗，小晴？</strong>」</p>
+<p>「<strong>嗯...</strong>」</p>
+<p>女人突然咳嗽起来。</p>
+<p>听到这有气无力的咳嗽声，黄旭心中忽地慌乱起来。</p>
+<p>「<strong>快点，我们还要再快点。</strong>」</p>
+<p>他左手拽起小女孩飞快的跑动。许久后，前方隐约出现一片黑影。看到那片宽广的倒塌建筑，黄旭心中升起了巨大的喜悦。</p>
+<p>「<strong>我们到了，晴儿，我...小晴？</strong>」</p>
+<p>黄旭突然愣住...</p>
+<p>「<strong>到了...</strong>」</p>
+<p>小女孩看着他颤抖着将不动的女人放在地上。</p>
+<p>男人后悔般地一拳捶在地上：</p>
+<p>「<strong>要是地震时...你跟我都从地穴出来该多好啊...要是你受伤前，我再给你点几十年Chronos，该多好啊...</strong>」</p>
+<p>走了一整下午的小女孩也擦着泪痕，她突然抽泣的说道：</p>
+<p>「<strong>妈妈说玫瑰溪姐姐们会织布，织出又暖又美的花布…那里有个玫瑰女王，无所不能...都能保护人们的灵魂…如果求她，能让爸爸妈妈和姐姐们活过来吗？</strong>」</p>
+<p>黄旭看向她。</p>
+<p>蹲着的女孩站起身，急切地瞪大眼大声地道：「<strong>爸爸妈妈给了我好多好多年，如果我们找到玫瑰溪的大姐姐，求她，能让妈妈的灵魂回来吗？</strong>」</p>
+<p>泪水滑落在她固执的小脸上。</p>
+<p>见黄旭不答，女孩突然转身跑向几步外，狠狠揪住地上枯草的叶子。</p>
+<p>「<strong>你干什么。</strong>」</p>
+<p>「<strong>颖颖也想成为玫瑰女王一样的人！颖颖也想织出好看的花布...</strong>」她死命撕扯着枯草，「<strong>只要织出最好的布，我一定能复活爸爸，还有妈妈...</strong>」</p>
+<p>黄旭走过来一把拽起她的小手，愤怒地两脚提散了枯草堆。</p>
+<p>「<strong>那是不可能的事！</strong>」</p>
+<p>他发怒般吼道，随后拽着小女孩的手往地平线上塌陷的断墙走去。在这男人的愤怒中，颖颖小手还是死死拽着几根草茎，倔强地抿着嘴被他拉着走。</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="chapter-001.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="chapter-003.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="chapter-001.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="chapter-003.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="ace.js"></script>
+        <script src="editor.js"></script>
+        <script src="mode-rust.js"></script>
+        <script src="theme-dawn.js"></script>
+        <script src="theme-tomorrow_night.js"></script>
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

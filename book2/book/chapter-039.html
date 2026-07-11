@@ -1,0 +1,308 @@
+<!DOCTYPE HTML>
+<html lang="zh" class="coal sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>第三十九章 心识频率的安全区 - 魂孪英旅 下 魔齿磨轮</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "coal" : "coal";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('coal')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">魂孪英旅 下 魔齿磨轮</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="第三十九章-心识频率的安全区"><a class="header" href="#第三十九章-心识频率的安全区">第三十九章 心识频率的安全区</a></h1>
+<p>「<strong>早上好，子藏先生。</strong>」</p>
+<p>「<strong>丽丽姐早上好。</strong>」</p>
+<p>进入办公室的杨子藏首先看到工位右边的花屏架。</p>
+<p>「<strong>看什么呢？</strong>」身穿淡雅白底黄点裙的娇玛斜挎小布包，轻快地走进办公室。</p>
+<p>「<strong>我…</strong>」杨子藏看了眼目光纯净的少女一眼，「<strong>我做了个很真实的梦。</strong>」</p>
+<p>「<strong>咦？有些人还会多愁善感吗。</strong>」</p>
+<p>杨子藏指了指工位旁盛放花屏的敦实木架。</p>
+<p>「<strong>这里原本还有一个工位，坐了位叫做…</strong>」</p>
+<p>想了想，杨子藏快速从自己的办公桌上拿起只铅笔，在娇玛伸着脑袋看来的目光下，在纸张背面写下「<strong>伟振国</strong>」三个字。</p>
+<p>「<strong>有这个姓氏吗？好奇怪。</strong>」</p>
+<p>「<strong>你的名字还不是奇怪。</strong>」</p>
+<p>「<strong>但我的名字是爸爸走之前取的，他先给我取了真名，这个是化名，说可以一定程度预防诅咒。</strong>」</p>
+<p>杨子藏笑了笑，「<strong>那你知道自己的真名吗？</strong>」</p>
+<p>他早就听说这个小姑娘虽然年纪不长，但却是位活生生的元老，从三四岁就已经跟着父亲进入公司生活了。</p>
+<p>听到杨子藏的提问，娇玛抿着嘴，鬼鬼祟祟地左右瞟了眼，见办公室除了远处的两位中年妇女，其他人还未进来，便悄声对着沉思的杨子藏道：</p>
+<p>「<strong>你是不是还在想着离职呀。</strong>」</p>
+<p>「<strong>啊？我…</strong>」</p>
+<p>「<strong>这边是比枢纽镇还要安全无数倍的地方，好些人都渴望进入。而且在这里，随着职位的提升，我们以后也能变得很厉害。</strong>」</p>
+<p>杨子藏当然知道这一点，不过他有不能长久停留的理由。</p>
+<p>娇玛抬起小脸，目光自然带着丝天生的妩媚，却又透着七八分单纯地望向杨子藏：</p>
+<p>「<strong>咱们都会拥有漫长的生命，虽然有同事陪伴。但在这儿…</strong>」</p>
+<p>她突然耳根很红的低头摆弄起裙角来，「<strong>我…其实一直想问你…</strong>」</p>
+<p>「<strong>这…</strong>」杨子藏心脏猛地跳动了几下。</p>
+<p>「<strong>我，我…如果你愿意跟我去文献部，以后我们其实可以多接触接触。我一个人住呢，念力场挺大的。</strong>」她一把捂住了脸，嗡嗡的低声传出道，「<strong>我在说些什么呀。</strong>」</p>
+<p>杨子藏紧张的看了眼远处努力埋着脑袋的两名同事，他觉得一切都有点怪异，娇玛的状态似乎有些太冲动了，仿佛是在主动弥补什么缺憾一样。</p>
+<p>话说回来，昨晚的梦里那个人好像就说过，想要喝自己和娇玛的喜酒来着？</p>
+<p>嗯…难道这是一个暗示？</p>
+<p>杨子藏也稍微有点脸发热的抠了抠后脑勺。</p>
+<p>「<strong>组、组长，城市中还有为我不惜赌上性命的伙伴，我注定...唉。</strong>」</p>
+<p>杨子藏突然就平复了下来，「<strong>我注定会离开。而且组长你，应该也不喜欢那种丢下别人独自享乐的人对吧。</strong>」</p>
+<p>「<strong>呼~</strong>」娇玛松手吐了口气，睫毛闪了闪，嗯了声紧着小拳头快步离去。</p>
+<p>等她走后，办公室的大门才慢慢推开了条缝，五十多岁外貌的老邢探头探脑看了眼安静坐到座位的少女，蹑手蹑脚走了进来。</p>
+<p>路过杨子藏身边的时候，他低声道，「<strong>娇娇可是组长级别，拥有十平方公里的真实私人念境。你真不打算再考虑考虑？</strong>」</p>
+<p>远处少女瞬间转头，要杀人般的目光落在了这个男人身上。</p>
+<p>「<strong>咳嗯。早上好啊子藏。</strong>」男人瞬间挺直了腰，郑重整理着衣领，在某少女缓缓挪动的目光中往自己的位置走去，「<strong>今天也要精神饱满的工作啊，组长。</strong>」</p>
+<p>……</p>
+<p>下午时分，走在暗靑与白色地砖交错走道上的杨子藏，看向周围的装饰雕像。</p>
+<p>快要转到训练场所在那条道上的时候，他望向一个雕得快接近人高的铁质雕像停下了迈动的脚步。</p>
+<p>这镶嵌着红宝石般眼眸的兽首，刻画得栩栩如生，只是上面已经覆盖有些许灰尘，让它看上去有点光彩黯淡。</p>
+<p>杨子藏想了下，冲着它迟疑开口说道：「<strong>你们，是不是，都附着着念力体？这是你们的另一种身体吗？</strong>」</p>
+<p>长廊安静，无人应答。</p>
+<p>杨子藏埋下头。</p>
+<p>「<strong>这个圆环，到底是什么，为什么我们都要拥有它，又为什么要互相战斗，就不能像在地球一样人们之间和平共处呢。</strong>」</p>
+<p>声音一出口，就消散无踪了。</p>
+<p>这边依旧静悄悄的。杨子藏看了眼通道转弯处路过路过的人影。</p>
+<p>「<strong>我做了个梦。非常真实。梦里告诉我，这些雕像中有些附着念力体，你们…算了。</strong>」</p>
+<p>杨子藏转过头，一步差点撞在个身影上。</p>
+<p>「<strong>啊喂！</strong>」青年后退了一步。看向身前有着张三瓣嘴，一双红宝石眼睛盯着自己的兽面人。</p>
+<p>{<strong>你还想问什么？</strong>}</p>
+<p>「<strong>吓死我了。</strong>」杨子藏吐了口气，看了眼胸前亮起的圆环，「<strong>我还想知道…算了。请问，你们时时刻刻都可以关注到这里吗？</strong>」</p>
+<p>{<strong>想问的不是这个吧。是担心蒙对了就没办法离开公司了？</strong>}</p>
+<p>身前的兽脸人像是能猜透自己的心思般笑了笑。</p>
+<p>{<strong>不用担心。自己推导出来的猜测，只要不在外界大肆宣扬，便不受保密条约的限制。至于时刻关注，呵，我们还没那么无聊。</strong>}</p>
+<p>怎么有种即视感。</p>
+<p>杨子藏细看身前突然出现的人，他身穿笔挺黑裤，肩上是由折叠的大方巾所围出的时髦装扮，眼珠如红宝石般夺目的男人自怀中掏出块念力怀表看了眼，指针正要指向五点半的位置。</p>
+<p>{<strong>每月下旬的早晚这个时间段，刚好是我的巡查区间而已。没别的事，就去拿属于你的奖励吧。</strong>}</p>
+<p>说罢，这道如有实质的念力化现者就转身打算离去。</p>
+<p>杨子藏赶紧道：「<strong>这位先生，请问我的那个梦是怎么回事，某个程度上讲，它今天已经应验两次了。</strong>」</p>
+<p>{<strong>两种情况。精神力越是强大，便越可能被元素力与以太场和其它灵能空间所影响，获得一些灵感。其二嘛，等你到达满月的时候就知道了。</strong>}</p>
+<p>「<strong>满月？</strong>」</p>
+<p>这位兽脸男士扭头轻笑了下，继续道：</p>
+<p>{<strong>也就是觉醒第五环。嗯，精神力增强虽会获得灵感，但也伴随着危险。有几种血脉的能力便是通过感悟宇宙间游离的讯息，获得超越现实的情报。那就是一种精神上的共振。如果你没有那种血脉能力，就不要主动去尝试。</strong>}</p>
+<p>杨子藏的眉头皱了皱。</p>
+<p>兽脸人把玩怀表，轻笑一声：</p>
+<p>{<strong>譬如你想要获得的‘基识纹路’，它便像锚，能助精神力初次与深层能量共振的人，将心识钉在频率的安全区。</strong>}</p>
+<p>说罢，这人前行了两步就消失在了长廊上。</p>
+<p>——「<strong>推箱子大师来啦！</strong>」</p>
+<p>——「<strong>小年轻，真厉害，站原地，跑不快，却挑战，隐藏关，替呆拙，展风采~</strong>」</p>
+<p>推开门的杨子藏一看，今天醒来的「<strong>人</strong>」更多。</p>
+<p>——「<strong>挑战隐藏关卡最后一天。已经是毫无悬念咯，等到假期，我老板也会来试试。</strong>」</p>
+<p>[<strong>犬吠之门告知我，今天有…</strong>]</p>
+<p>[<strong>我，伟大的四边形告知「<strong>犬吠之门</strong>」，你可以不用狗叫。</strong>]</p>
+<p>从换了个「<strong>保管员</strong>」的手中接过念力卡带的杨子藏进入了试炼场。灼热气浪开始舔舐他的皮肤，但有过两天经验，第三次的灼热温度已经不那么的让人难以忍受了。</p>
+<p>一通挑战下来，杨子藏觉得就算此刻让自己再坚持几分钟，也是能够做到的。</p>
+<p>嘭嘭嘭嘭！</p>
+<p>箱子坠地的闷响越来越密集，随着最后几个箱子在Moxel的控制下落入广场上的木箱空缺，面目模糊的风灵武士拍着手走来。</p>
+<p>{<strong>艺绝三军啊吾友，真能做到连续三局之SUPER评级，实乃大才。</strong>}</p>
+<p>杨子藏很是含蓄的挖了下耳朵。</p>
+<p>他很怀疑这是不是个被类似波波利那种能力的家伙所戏弄的外国人。</p>
+<p>面目模糊的风灵武士出现在眼前，他掌中浮现的首先是两枚不同的凯尔特结。</p>
+<p>{<strong>友打算选择哪份印记，当然吾友也可选择累积积分。</strong>}</p>
+<p>「<strong>我选这个。</strong>」</p>
+<p>他被覆盖的精神念力所变得晶莹的手指，指向了青绿色的「<strong>木歌的安抚</strong>」印记。</p>
+<p>杨子藏从第一天就已经想好了选择哪个。随着他手指的接触，这枚凝固的「<strong>精神念力运转纹路</strong>」迅速通过指尖缩进了青年的身体内。</p>
+<p>一股磅礴如海潮般的风拂树梢声响，在意识之中响起。</p>
+<p>[<strong>我植入了「<strong>精神念力运转纹路，木歌的安抚</strong>」。</strong>]</p>
+<p>这瞬间，杨子藏感觉自己仿佛置身于林海之中，大雪绞碎松针的声音、清泉抚摸苔藓的声音，阳光划过亿万阵阵碰撞叶片的声音，枯叶簌簌落下的声音，化为感受浮现…</p>
+<p>空旷、悠远、浩荡又寂静。</p>
+<p>肺腑不由自主的就深呼吸了起来，忽地杨子藏感觉自己体内「<strong>琉璃感知</strong>」的线路也主动运转了起来，刚刚经过挑战而有点疲倦的眼皮，居然迅速的就睁开了。</p>
+<p>「<strong>好舒服，这就是…精神力运转纹路吗？</strong>」</p>
+<p>此刻已经找不到那枚印记了，或者说那如影随形的，像是随时置身林海的错觉，就是这枚印记本身。</p>
+<p>[<strong>犬吠之门告诉我，该印记可以持续到三环四阶左右。</strong>]</p>
+<p>前方的风灵武士安静等待着，三枚被他托人铸造的「<strong>念力炼金</strong>」造物已经悬浮在其身前。</p>
+<p>这三个东西又该如何选择呢。好像都有用，但又好像目前都用不上。</p>
+<p>「<strong>这几个…</strong>」</p>
+<p>杨子藏皱着眉头，该如何选。</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="chapter-038.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="chapter-040.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="chapter-038.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="chapter-040.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="ace.js"></script>
+        <script src="editor.js"></script>
+        <script src="mode-rust.js"></script>
+        <script src="theme-dawn.js"></script>
+        <script src="theme-tomorrow_night.js"></script>
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

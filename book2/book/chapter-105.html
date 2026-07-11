@@ -1,0 +1,332 @@
+<!DOCTYPE HTML>
+<html lang="zh" class="coal sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>第一百零五章 奖励的吸引 - 魂孪英旅 下 魔齿磨轮</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "coal" : "coal";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('coal')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">魂孪英旅 下 魔齿磨轮</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="第一百零五章-奖励的吸引"><a class="header" href="#第一百零五章-奖励的吸引">第一百零五章 奖励的吸引</a></h1>
+<p>此刻，遗失幻境公司的杨子藏正在立方体中闭目盘腿冥想。</p>
+<p>一片浮光掠影般的景象忽地出现在身前的透明墙上。</p>
+<p>他睁开眼看去，里面浮现的正是属于41城当前画面。</p>
+<p>「<strong>这就是我们制作的魔英殿吗，居然已经出现在城市中了。</strong>」</p>
+<p>杨子藏看着这雄伟壮观的高大神秘建筑出现在残垣断壁遍地的荒芜城市中央，如同一片废墟中的魔王殿堂。</p>
+<p>一道声音响起。</p>
+<p>{<strong>这是你所在城市的画面，距离你离开此地，还剩五天零十二个小时。</strong>}</p>
+<p>杨子藏赶紧道：「<strong>先生，我还没有办理离职手续。我是不是可以先出来处理些私事？</strong>」</p>
+<p>刚说完，啪嗒一声，一个如同失念Moxel的小晶体落在他身侧，骨碌碌滚到手边。</p>
+<p>{<strong>这是承诺给你的奖励。另外，据说你的房间已经没什么东西可以收拾的了。就算有，也会给你的朋友让他带回。</strong>}</p>
+<p>「<strong>朋友？</strong>」杨子藏立即想到了某个这两天把小娇玛迷得神魂颠倒的小黄毛，「<strong>波波利加入星光幻境了？</strong>」</p>
+<p>{<strong>没错，这样的人才，正是星光幻境所需的。</strong>}</p>
+<p>这道声音彻底消失了。</p>
+<p>杨子藏一下欣喜起来，心中抑郁一扫而空。</p>
+<p>虚幻荧幕中，城市中无数的惊呼声隐隐传向云端。</p>
+<p>此刻，所有两座城市中的人身前的怀表幻象已经消失，出现另一个东西。</p>
+<p>{<strong>魔英排名战，所有收集到五色标签的参与者们奖励物品：【理性之辉】</strong>}</p>
+<p>「<strong>哇，还有奖励？</strong>」</p>
+<p>大家看着这东西的虚影，同样，一看之下信息出现。</p>
+<p>【理性之辉】</p>
+<p>【理性之辉初级效果：获得共鸣念力力场之权力。】</p>
+<p>【理性之辉中级效果：为念力力场提升格位一次。】</p>
+<p>【理性之辉高级效果：遭遇精神、念力攻击时，可主动展开防御力场，每日一次。】</p>
+<p>每日一次！</p>
+<p>无数人目光灼灼地盯着这如同吊坠般的虚影。</p>
+<p>「<strong>不知道这个初级、中级、高级是什么意思。</strong>」</p>
+<p>「<strong>没有解释呢。</strong>」</p>
+<p>有些人不明所以，但另一些人则非常震撼。</p>
+<p>猎怪者联盟总部，几位董事紧紧盯着身前的物品信息。</p>
+<p>「<strong>这！这是能够防御念力攻击的宝物啊！只要遭遇攻击就可以自动张开念力力场。</strong>」</p>
+<p>「<strong>以后遇到杨子藏那样的杀神，我们不是毫无还手的余地了！</strong>」</p>
+<p>「<strong>可惜每天只有一次被动防御。</strong>」</p>
+<p>「<strong>有就不错了。</strong>」</p>
+<p>众人情绪一下被点燃，一些人道：</p>
+<p>「<strong>好东西，我要参加，哪怕只是在门口也不亏。只要坚持到最后就可以！</strong>」</p>
+<p>「<strong>你记错了吧，看清楚，这不是第一个奖励。</strong>」</p>
+<p>「<strong>那个声音说了，第二个奖励不论城市输赢，但是必须收集五种颜色的什么标签。</strong>」</p>
+<p>大家议论纷纷。杨子藏通过光幕看到这一幕，看到这两种东西，他深吸口气。</p>
+<p>不愧是圣环议会给予的魔英级奖励啊！</p>
+<p>......</p>
+<p>雄英组内一片阴郁之色。</p>
+<p>「<strong>妈个蛋，这么好的东西就在眼前，唉，却是银白那边的人的排名赛。</strong>」</p>
+<p>一位绝美女人倚靠在椅子上嘟着嘴：「<strong>我想要亲人过来，我要妈妈。</strong>」</p>
+<p>「<strong>我也想要重要的人过来，这是等他们在地球自然寿终才会转移过来，这…相当于是第二次生命啊！</strong>」</p>
+<p>座椅上，哪怕是吕布这样的人，也不禁自眼底显露最深的温情。他们总有放不下的人，想要再见。</p>
+<p>「<strong>可惜啊，这竟然是银白那边的排名战。</strong>」</p>
+<p>「<strong>真不知道他们是怎么搞出这样的竞技场的。</strong>」</p>
+<p>有人沉思着抬头，周瑜试探性的道：「<strong>我怀疑，会不会又是杨子藏搞的鬼。</strong>」</p>
+<p>「<strong>为什么这么说？</strong>」</p>
+<p>「<strong>因为他已经安静了好几个月了。</strong>」</p>
+<p>「<strong>切~</strong>」原本还有点期待的雄英组众人不屑地撇嘴。</p>
+<p>吕布仰头靠在椅子上。</p>
+<p>「<strong>一会儿我问问副镇，看他知不知道这种魔英级竞技城是什么意思。不过，说起来...</strong>」</p>
+<p>一些人看向吕布。这个年轻人严肃地坐起身看向屋内这些红Moxel成员。</p>
+<p>「<strong>会长，你想说什么？</strong>」</p>
+<p>「<strong>我想到些事。据说我们雄英之名，似乎来自于某位前辈得知的旧世界信息，难道就是这魔英殿？</strong>」</p>
+<p>众人你看看我，我看看你，都拿不准是不是如此。</p>
+<p>与此同时，23城中一片欢腾。</p>
+<p>尖叫声响起，好多人觉得自己肯定能够拿到奖励，特别是那个可以将一名逝者在去世瞬间复活到身边的「<strong>印象复苏</strong>」。</p>
+<p>到时候只要进入场中，保持到最后就能得到这件宝物！</p>
+<p>而城市红Moxel的人，则难过的看着身前的虚影。一些人已经哭了起来。</p>
+<p>「<strong>爸爸啊，妈妈…</strong>」</p>
+<p>「<strong>我为什么不是银白的人啊…</strong>」</p>
+<p>「<strong>要是我们也能参加就好了。</strong>」</p>
+<p>「<strong>那是银白的排名战…亲人不过来也是好事吧...</strong>」</p>
+<p>一处废墟旁，洪灏承正茫然看着身前漂浮的幻影信息，他身旁三人都如抽风般跳了起来。</p>
+<p>「<strong>洪哥，你去找四相天团参加比赛吧，这样好的奖励，错过就难以再遇了！</strong>」</p>
+<p>洪灏承脑海中想到的首先是自己的父母，可又立即想到了那个倩丽的身影。</p>
+<p>......</p>
+<p>程允泽早就惊住了，身前这两样东西，不愧是魔英级别的战斗宫殿。</p>
+<p>「<strong>老大，你...不是说，弄个最难的。我们都过不了，他们肯定也过不了。</strong>」</p>
+<p>「<strong>可是这奖励，比我们之前的所有奖励都好。</strong>」</p>
+<p>「<strong>好想要，这两个东西都好想要啊！</strong>」</p>
+<p>陈允泽一下倒在靠椅背上。</p>
+<p>「<strong>这不是引诱我们全力参加吗。</strong>」</p>
+<p>……</p>
+<p>一想到还要等上五天，杨子藏就抓耳挠腮。</p>
+<p>「<strong>最终奖励的物品，竟然可以让人在死亡的瞬间出现在自己身边，并重新获得一百年的寿命。</strong>」</p>
+<p>他首先想到的就是莫里。</p>
+<p>只要拥有它，哪怕莫里死一次，也可以再出现！</p>
+<p>「<strong>太好了波波利，这次我们干得漂亮！可是…五天啊啊啊！</strong>」</p>
+<p>他一下倒在地上，几秒后身体又发癫般抖动了一下。但当他突然听到无数的欢呼声后，猛地坐起。</p>
+<p>热烈气氛中，威严的声音再次出现。</p>
+<p>{<strong>拥有进入资格者：截至今日午时，23号城、41号城应选者全体成员，及其它城队友。</strong>}</p>
+<p>{<strong>排名之战，事关荣誉，生死自负。</strong>}</p>
+<p>「<strong>所有人都可以进入这个我知道，但甚至连这座城之人的其它队友也可以进入？！</strong>」</p>
+<p>杨子藏瞪大了眼。</p>
+<p>随后他很快想明白，就像是自己这样的组合，若有专门负责投资者或奇异的辅助者一直在枢纽镇，那么，这个限制就是对他们的放宽。</p>
+<p>……</p>
+<p>莫里已经快疯了。</p>
+<p>他当然第一时间就得知了这样的消息。</p>
+<p>「<strong>这是见面的契机，是最晚...很多年以后！</strong>」</p>
+<p>不光是他，整个枢纽镇都轰动了。</p>
+<p>镇子内无数人奔走相告，蕴含现场画面的融资链接扩散得到处都是。现在所有人都得知了「<strong>魔英殿，魔齿磨轮</strong>」与其中蕴含的奖励的出现。</p>
+<p>好多人求爹爹告奶奶的到处发送垃圾融资请求，就为了求一个现场画面，涨涨见识。</p>
+<p>「<strong>居然出现了听都没听过的竞技场，还是两座城市所有人可以进入的比赛！</strong>」</p>
+<p>「<strong>这是城战啊！</strong>」</p>
+<p>23号城的排名战居然出现了闻所未闻的魔英级竞技城，甚至出现了根本没想过的道具，这如何不让他们疯狂。</p>
+<p>对家乡的思念，对亲人的思念，对可以为想要的人再续一次命的强烈愿望，让他们恨不得立即成为23或41号城的人。</p>
+<p>其中，一些无意中加有这两座城为队员的人，都已经高兴得快把房顶给掀翻了，他们已经开始融资准备几小时后的参战！</p>
+<p>但更多的人抱头呐喊。</p>
+<p>这会已经过了十二点了！他们再加入这两座城的队伍也不会获得进入资格。</p>
+<p>逐银的手紧紧抓住身前的椅子，目光瞪得老大。</p>
+<p>「<strong>以前从未在排名战前就放出奖励的，而这次却公开了，这就是魔英殿的特殊。</strong>」</p>
+<p>绯红枢纽镇，徭桐的手都快锤烂了。</p>
+<p>「<strong>马的！怎么不早说还有这样的竞技城啊！</strong>」</p>
+<p>「<strong>副镇，这东西一看就很难的吧。你看，这种奖励是正常交错之地能出现的吗？</strong>」</p>
+<p>「<strong>怕个卵，你怕我可不怕。我问问镇长，这东西是怎么来的。</strong>」</p>
+<p>他胸前红色光圈亮起，几秒后，徭桐一声长嘶。</p>
+<p>周围人齐齐道：「<strong>问到了吗？</strong>」</p>
+<p>徭桐嘴角抽搐：「<strong>十枚...来自11号城的...血脉级缚灵核心，还必须同一种颜色才能兑换一次资格。</strong>」</p>
+<p>周围人倒吸凉气。</p>
+<p>「<strong>难怪，能在11号城搞到那么多高级核心，已经证明了他们拥有进入的实力。</strong>」</p>
+<p>「<strong>靠啊！23城的首席这么逆天，就那个程允泽？</strong>」</p>
+<p>徭桐的牙紧了紧：「<strong>只有守名者才有资格，除了他还会是谁。</strong>」</p>
+<p>「<strong>程允泽那家伙绝对隐藏了实力。十枚，我想都不敢想，碰一下就死的地方，靠！</strong>」</p>
+<p>两座城中的红Moxel之人都瞬间欢呼了起来。</p>
+<p>吕布等人听到消息的瞬间就「<strong>噌</strong>」地大喜站起身来。</p>
+<p>「<strong>好家伙，银白的人这是要疯啊，两座城的所有人都可以参战。</strong>」</p>
+<p>「<strong>哈哈哈哈！</strong>」吕布张开双手狂喜大笑：「<strong>真乃天助我也！</strong>」</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="chapter-104.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="chapter-106.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="chapter-104.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="chapter-106.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="ace.js"></script>
+        <script src="editor.js"></script>
+        <script src="mode-rust.js"></script>
+        <script src="theme-dawn.js"></script>
+        <script src="theme-tomorrow_night.js"></script>
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

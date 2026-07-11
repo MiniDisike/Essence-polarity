@@ -1,0 +1,347 @@
+<!DOCTYPE HTML>
+<html lang="zh" class="coal sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>第一百零三章 你的秘能难道是... - 魂孪英旅 下 魔齿磨轮</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "coal" : "coal";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('coal')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">魂孪英旅 下 魔齿磨轮</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="第一百零三章-你的秘能难道是"><a class="header" href="#第一百零三章-你的秘能难道是">第一百零三章 你的秘能难道是...</a></h1>
+<p>李弥快速地竖起指头道：</p>
+<p>「<strong>第一，由肖宇山团队去将霍尔所在团队的总部围住，找出那名女士。</strong>」</p>
+<p>洛宾眼角扯了扯，「<strong>我正想说这个。你还有两个方案是什么？</strong>」</p>
+<p>莫里就是被肖宇山选中，帮这只团队在A级交错地进行Chronos储存与管理，最终成功稳定了大型交错地后才到达的枢纽镇。后续肖宇山团队获得的代练契约书的感谢是最多的，请他帮忙绝对不会拒绝，这是两人自然先能够想到的事情。</p>
+<p>李弥道：「<strong>第二个方案，就要欠点人情，那便是找逐银发动安保队，随我进入27城护送莫里先生前往霍尔的住处。但如果是这样，很可能那位茱莉亚女士会突然恶疾而亡。当然，第一种也有那可能，概率稍微小点。</strong>」</p>
+<p>洛宾的头微埋思索。</p>
+<p>他也清楚莫里的电话内容，毕竟杨子藏找自己提取过情报。未来的莫里的确给半年前的莫里说过，自己的未婚妻跟人跑了。</p>
+<p>但又说好像在地球没过来，反正稀里糊涂的。</p>
+<p>洛宾只当是莫里因为洪灏承的干扰而记错了，或者后期记忆混乱。</p>
+<p>但现在...他猜测未来的莫里所见的，很可能就是假的茱莉亚！</p>
+<p>假冒的茱莉亚怕莫里发现自己是假冒，而选择在见面后立即跟莫里划清界限，装作跟别的人跑掉了。但最终「<strong>未来的莫里</strong>」还是对这方面产生了怀疑，但又不敢肯定，怕自己将「<strong>猜测</strong>」当「<strong>结论</strong>」说出来而令「<strong>当前的莫里</strong>」产生误解，所以才说得稀里糊涂的。</p>
+<p>[<strong>我将花费1N本金来提取情报。</strong>]</p>
+<p>[<strong>格位展开，千位。</strong>]</p>
+<p>[<strong>我搜集到关于茱莉亚的情报。茱莉亚，曾用名「<strong>莉娜.沃克</strong>」，当前刚康复。</strong>]</p>
+<p>一股寒气从洛宾背后直冒而出。</p>
+<p>有人在针对杨子藏的团队！</p>
+<p>车门里的胖子看了眼李弥这间屋内堆满的各种大件金属垃圾，将目光落在身前年轻人脸上。</p>
+<p>「<strong>哼，竟然有人把主意打到老子朋友身上来了...李弥，你的第三个方案是什么？</strong>」</p>
+<p>「<strong>很简单，给我弄一台更好点的恶魇电台。最好可以覆盖两三百公里的那种。</strong>」</p>
+<p>「<strong>拿它做什么？</strong>」</p>
+<p>「<strong>让莫里死心。</strong>」</p>
+<p>洛宾缓缓吐出肺腑之中的热气，在寒冷空气中形成一道水雾。</p>
+<p>「<strong>别跟我玩什么上中下计了，老子全都要！那些妄图暗算莫里的人，必须全部清理，杀一儆百！</strong>」</p>
+<p>说罢的洛宾，胸前亮起圆环与徐爱媛进行联系。恶魇电台那种东西，红枢纽镇那边应该更好找一点。</p>
+<p>空气荡漾，恶魇列车化为阴暗光芒从这间旧工厂般的屋子中飞奔而出，极驰在荒原，前往「<strong>李素美站</strong>」。</p>
+<p>三小时后，列车为李弥送来了恶魇电台与一把灰色波纹闪动的臂长短剑。</p>
+<p>这剑是蕴含15N虚零Chronos的50NChronos战器。</p>
+<p>这种极其适合贴身收藏的短剑，是玫瑰溪女孩子们的最爱。</p>
+<p>「<strong>这个给你防身。这次莫里若无意外，它就是你的了。</strong>」</p>
+<p>李弥的手轻颤接过。</p>
+<p>[<strong>我获得了虚零Chronos战器。</strong>]</p>
+<p>「<strong>感谢。</strong>」</p>
+<p>不到半小时。</p>
+<p>联系好赵雪美，并通知了负责安保管理的那位副队齐先生后，李弥一群人通过一座枢纽镇边缘的隧道门，直接出现在了27城的一处废墟的隐匿大门附近。</p>
+<p>而此刻，莫里还在与霍尔在A级交错地中穿行，距离回到城市之中，才走了一半多的距离。</p>
+<p>细密的雪花飘舞。</p>
+<p>黎明前的微光中，李弥转头看向身后的三十多人。</p>
+<p>他们齐齐看着前方，这身穿黑灰色质地棉服的消瘦青年。</p>
+<p>李弥身后一人往手上带着黑手套道：「<strong>小李，你怎么说，我们就怎么做。</strong>」</p>
+<p>「<strong>有劳诸位了。</strong>」</p>
+<p>「<strong>不，这次是靠你的警觉。</strong>」</p>
+<p>李弥点点头：「<strong>等莫里快出来前我再开始行动，免得他们万一在交错地中对莫里先生造成伤害。</strong>」</p>
+<p>「<strong>好。</strong>」</p>
+<p>时间一分一秒过去。</p>
+<p>一群人安安静静矗立。</p>
+<p>偶尔有本城的拾荒者路过这处废墟附近，瞧见那一帮带着车与武器站在风雪中的人，也都直接绕远着走。</p>
+<p>天色刚亮时，肖宇山等人跑来在李弥耳畔道：</p>
+<p>「<strong>查到了，是‘至上狂蟒’。另外，疑似茱莉亚的人我们也找到踪迹了，不止一个，其中还有三具尸体。</strong>」</p>
+<p>「<strong>尸体。</strong>」</p>
+<p>身后三十来人顿时低声交流了几句，赵雪美的脸色寒若冰霜，风雪在她身旁沉浮打转，仿佛在将她的怒意聚成更寒的寒气。</p>
+<p>最前方的李弥静静的听着，他没有评价身后众人低语的怒意。</p>
+<p>他只是等待阳光一点点变亮，等待那个穿越A级交错地的人的到来。</p>
+<p>[<strong>枢纽镇标记重要人物即将出现于27城。</strong>]</p>
+<p>隐约的坐标点出现在李弥心中，那是莫里所在的A级异度空间所在的入口处。</p>
+<p>「<strong>快来了，李弥。</strong>」</p>
+<p>「<strong>嗯，行动吧。</strong>」</p>
+<p>身后这支安保队伍在肖宇山等人的带领下，乘上车快速往「<strong>至上狂蟒</strong>」所在之地开道而去。</p>
+<p>时间一分一秒地过去，李弥看着手腕上汉觅尔顿机械手表的秒针一圈圈转动，十几圈后，他拍了拍身旁长得如同大音箱般的恶魇模器，只有这种死去的恶魇才能被带进其它城市。</p>
+<p>随着折线的刺入，一道融资宣言瞬间扩散而出，覆盖三百多平方公里。</p>
+<p>{<strong>我是枢纽镇安保队李弥。城中所有人，发现茱莉亚者，奖励九千九百九十九年寿命。</strong>}</p>
+<p>他举起一张传神的画像。</p>
+<p>{<strong>与茱莉亚长相相似者，奖励五千年寿命。</strong>}</p>
+<p>{<strong>伤害茱莉亚者，死。</strong>}</p>
+<p>城市瞬间喧嚣了起来。</p>
+<p>「<strong>茱莉亚，那是谁？</strong>」</p>
+<p>城市中众人疑惑地回应。</p>
+<p>……</p>
+<p>「<strong>莫里马上就到了。尼科洛。真有你的啊，哈哈哈哈！</strong>」</p>
+<p>拥有乌黑浓密短发的尼科洛淡淡一笑，指尖滚动着一枚莹莹光辉的物华天宝。</p>
+<p>「<strong>只要有了莫里，杨子藏还不是任由我们拿捏。</strong>」</p>
+<p>「<strong>只要莫里在我们的队伍，以后这座城市，除了肖宇山那群幸运儿，我们将会是城市第二。谁见了都得绕道走。</strong>」</p>
+<p>「<strong>以后会成为第一的。</strong>」</p>
+<p>众人在房间内等待着莫里的到来，一名浑身颤颤惊惊的女士在旁边一人怀中，埋头不敢言语。</p>
+<p>这分明就是茱莉亚的长相。</p>
+<p>这壮硕身材的队长看向她，再次提醒道：</p>
+<p>「<strong>茱莉亚，还记得我们给你交代的话吗，你以后疯狂爱上的就是这位鲁比！见到莫里后，你应该知道怎么做吧。</strong>」</p>
+<p>这略显憔悴的女人快速点头。</p>
+<p>忽地，一道折线扩散，感应到其中这段话的所有人，瞬间瞪大了眼，这是融资宣言。</p>
+<p>同时，又一道折线如同闪电般射来，与坐在主位上的黑肤大汉连接。</p>
+<p>{<strong>你好博伊尔，我是肖宇山。</strong>}</p>
+<p>[<strong>肖宇山想为我进行主动投资。</strong>]</p>
+<p>黑肤大汉脸色愕然。</p>
+<p>沙发上，尼科洛手上滚动的物华天宝一顿。</p>
+<p>突然，地面剧烈颤动！</p>
+<p>轰！</p>
+<p>数道匹练般的光芒轰然炸碎房屋，屋旁两道身影还未看清是怎么回事，便化为了灰飞。</p>
+<p>黑人大汉一声尖叫，外界不知什么时候，已经一片寒冰之国。</p>
+<p>面若寒霜的女士秀发飞舞高高举起长剑，仿佛风雪中的女王！</p>
+<p>她的长剑刺破苍穹！</p>
+<p>咔哧咔嚓！</p>
+<p>霜雪瞬间弥漫扩散。</p>
+<p>躲在沙发下的尼科洛毫不犹豫用掉了手上钱币蕴含的Chronos。</p>
+<p>「<strong>死！</strong>」从未如此愤怒的赵雪美，娇喝声传遍四野。</p>
+<p>飘渺的雪花化为钢片般疯狂旋转扩散！</p>
+<p>瞬间，鹅毛大雪疯狂飞涌，它们本散发着的淡金色虚焰，亮起了密密麻麻的红芒！</p>
+<p>轰隆隆隆隆，蓬蓬啪啪...</p>
+<p>大地仿佛被冰雪的炮弹击中，爆破出扩散百米的寒冰之花。屋内除了那瑟瑟发抖惊恐万分的女人，已无一个活人。</p>
+<p>……</p>
+<p>「<strong>莫里先生，马上你就可以见到你的茱莉亚了。</strong>」霍尔笑道。</p>
+<p>跟着这一瘦一高两人前行的莫里，心中激动，他盼望已久的画面，即将出现！</p>
+<p>「<strong>我挚爱的茱莉亚…</strong>」</p>
+<p>看到那入口处就在眼前，莫里眼中含着泪，提着手提箱快步冲了过去。</p>
+<p>突然，霍尔一愣。</p>
+<p>他面色大变，转头看向身旁的高个子男人：「<strong>切瑞，快，快回去。</strong>」</p>
+<p>「<strong>回去？我们不就是在回去吗。</strong>」</p>
+<p>「<strong>回去枢纽镇！快！</strong>」霍尔慌不择路的扯着这阚阚的高个子往后方跑。</p>
+<p>「<strong>你疯了？队长怎么说的！</strong>」</p>
+<p>高个儿切瑞一耳光甩在霍尔脸上，重重的一巴掌打得霍尔瞬间懵逼。</p>
+<p>此刻，莫里已经触摸到了交错地的大门，他转头道：「<strong>你们怎么还不来。</strong>」</p>
+<p>「<strong>不能出去！</strong>」</p>
+<p>霍尔大喊着，「<strong>等下，切瑞，咱们队伍，队伍已经…</strong>」</p>
+<p>晚了。</p>
+<p>这个只知道听老大吩咐的小伙已经用此空间的A级频晶开启了通道大门。</p>
+<p>随后，他们就看到了外面站立迎接自己的几道身影。</p>
+<p>提着箱包的莫里疑惑的看着门口站着的李弥，难道自己走错了方向？这是回到了枢纽镇入口？</p>
+<p>「<strong>你怎么…在…</strong>」</p>
+<p>李弥未说话，他侧过身，为这位刚站在洞口的莫里让开了视线。</p>
+<p>后方黑压压挡住光线的人群最前方，出现了一道他朝思暮想的人儿身影。</p>
+<p>随后是第二道，以及第三道、第四道、第五道…</p>
+<p>莫里挂在脸上的笑容逐渐僵硬。</p>
+<p>几个枢纽镇安保队的人已经从呆滞的莫里身边冲向后方的洞中，将面容呆滞和尖嘴猴腮的两人给死死按在了地上。</p>
+<p>八个茱莉亚抬头看向拎箱的莫里。</p>
+<p>好几个面相不是茱莉亚，但名字叫做茱莉亚的女孩也都望向了他。</p>
+<p>「<strong>这…</strong>」</p>
+<p>莫里震惊地看向前方。</p>
+<p>「<strong>茱莉亚？</strong>」</p>
+<p>大脑空白的莫里迟缓地迈步跨出墙壁上的裂缝，却一下腿软的摔倒在地上。</p>
+<p>他慌乱爬起身来，看向最左边穿着红色衣衫的茱莉亚。</p>
+<p>「<strong>啊…</strong>」</p>
+<p>莫里要疯了般在她面前细看，然后望向右边，这个身高稍微矮了点，「<strong>你、你怎么…</strong>」</p>
+<p>莫里挪动脚步，走到第三个茱莉亚身前。</p>
+<p>这个茱莉亚的身材最好，长腿细腰，红唇似杏，皮肤细腻白皙，见莫里痴汉般望来，这女人含羞般埋下了头。</p>
+<p>男人又转头看向第四个第五个！</p>
+<p>他缓缓望着这七八道面目相似的倩影，皮箱落在了地上，张开了双臂！</p>
+<p>「<strong>茱莉亚！你，你的秘能，难道是分身吗？！</strong>」</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="chapter-102.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="chapter-104.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="chapter-102.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="chapter-104.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="ace.js"></script>
+        <script src="editor.js"></script>
+        <script src="mode-rust.js"></script>
+        <script src="theme-dawn.js"></script>
+        <script src="theme-tomorrow_night.js"></script>
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

@@ -1,0 +1,322 @@
+<!DOCTYPE HTML>
+<html lang="zh" class="coal sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>第五十九章 洪医生 - 魂孪英旅 下 魔齿磨轮</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "coal" : "coal";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('coal')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">魂孪英旅 下 魔齿磨轮</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="第五十九章-洪医生"><a class="header" href="#第五十九章-洪医生">第五十九章 洪医生</a></h1>
+<p>两日后整个25城稍微有点实力的格斗人员，以及能够加速的人员齐聚孤岛，岸边人声鼎沸。</p>
+<p>那一夜因有人进岛，将怪物全体引向岛对面。程允泽便抓住契机迅速下令，快速深入岛内绘制出了附近的区域地图、以及地缚之灵的脚印密集区。</p>
+<p>再结合这两日的缜密观察与数次协商，终于制定出了份较为稳妥的计划。</p>
+<p>「<strong>那个人不知道是谁，但如果只是一个人的话，对我们计划的影响应该不算大。</strong>」</p>
+<p>程允泽道：「<strong>今天就开始入城吧。</strong>」</p>
+<p>随着命令下达，一只只队伍的人开始以固定线路去引动外围的地缚之灵，每成功引走几个，就有其它人继续深入岛内，次第引开剩余的怪物。</p>
+<p>一波波扩散的精神威压逐渐传遍岛屿。</p>
+<p>「<strong>2组已经开始行动，我们跟上。</strong>」</p>
+<p>「<strong>只有整体实力更强，我们才能获得更多来自枢纽镇的福利。大家加油！</strong>」</p>
+<p>……</p>
+<p>岛屿深处，洪灏承看着身前断掉偷听广播的三人。</p>
+<p>「<strong>他们开始进来了。</strong>」李永勤道，「<strong>灏承会长，你怎么打算。</strong>」</p>
+<p>洪灏承目光落在张苗缺了只胳膊的身体上，虽然止住了感染引起的发烧，但他脸色苍白，没什么血色。</p>
+<p>「<strong>我们回去吧，回你们的那座城。</strong>」少年道。</p>
+<p>「<strong>不，灏承，你不能错失这个机会。</strong>」</p>
+<p>张苗虚弱的抬起独臂，按在他肩膀上，「<strong>去展现你自己吧，跟他们一起进去，你绝对会得到重用。你会成为四相天团探索11城不可或缺的左膀右臂。</strong>」</p>
+<p>洪灏承深吸了口气。</p>
+<p>「<strong>我是红Moxel。</strong>」</p>
+<p>崔荣望了过来：「<strong>会长，四相天团的程队长，其实对待红Moxel中优秀人才很宽容。不过，可能是私心吧...</strong>」</p>
+<p>他看向两人苦笑道：「<strong>我倒是不希望有人晓得灏承的这些侦查本事，咱们洪途会就咱几个，以后每人拿上把虚零武器进A级交错地，多好啊！</strong>」</p>
+<p>李永勤瞄了崔荣一眼，嘴角瘪了瘪。</p>
+<p>不过这话倒也是他希望的。</p>
+<p>洪灏承沉思良久，数分钟的沉默后，他抬起眼，「<strong>其实，我是个医生。</strong>」</p>
+<p>「<strong>啥呀？</strong>」三人嘴巴微张。心想这又是要闹哪一出。</p>
+<p>「<strong>这关进不进去有什么相干的？</strong>」</p>
+<p>洪灏承站起身，「<strong>我去给张苗苗做份药，如果他能康复，我们就一起进城。</strong>」</p>
+<p>地上的三人瞪圆眼。</p>
+<p>「<strong>会长，你开玩笑的吧。</strong>」</p>
+<p>「<strong>谁跟你开玩笑，本人威武霸气，是能开玩笑的人吗！</strong>」</p>
+<p>「<strong>不是啊。</strong>」崔荣抱着最后拾起的那把其貌不扬的长剑，带着哭腔道，「<strong>我们也没想进去啊。</strong>」</p>
+<p>「<strong>少废话。把你的剑给我。</strong>」</p>
+<p>「<strong>不给，我的。</strong>」</p>
+<p>「<strong>瞧你这熊样，我拿流星锤跟你换。</strong>」</p>
+<p>「<strong>好好好！</strong>」</p>
+<p>崔荣喜滋滋接过流星锤，而洪灏承提起他带回的那把长剑。</p>
+<p>[<strong>我获得60N血脉Chronos战器【奇偶湖之剑】。</strong>]</p>
+<p>[<strong>我洞察了血脉战器，「<strong>奇偶湖之剑</strong>」的特殊效果：奇数斩物，偶数斩风，奇偶斩灵。</strong>]</p>
+<p>[<strong>奇偶湖之剑宣告，当前为偶数。</strong>]</p>
+<p>洪灏承看了眼身前三人，算上自己的确是四个。但奇数和偶数都能理解，这奇偶数是什么意思？</p>
+<p>李永勤怒斥崔荣：「<strong>你神经病啊，拿这把破剑换走灏承的虚零武器。</strong>」</p>
+<p>他转头道：「<strong>灏承，你别听他的，咱们的武器你随便用，那流星锤就是你自己的。</strong>」</p>
+<p>崔荣顿时一惊，如梦初醒般将这有主的流星锤一丢，「<strong>哎呀，我的剑好歹是六十年Chronos战器嘛。</strong>」</p>
+<p>「<strong>它也配？</strong>」</p>
+<p>「<strong>好啦好啦，虚零武器我不要了，那东西就是你们的了。</strong>」</p>
+<p>「<strong>会长，流星锤虽属于我，但你拥有24小时的随时使用权。</strong>」</p>
+<p>[<strong>奇偶湖之剑宣告，偶数斩风</strong>]</p>
+<p>洪灏承手上的长剑亮起银白的虚焰，略一挥动，剑光在空气中划出如湖水般的波动，几人的说话声都降低了许多。</p>
+<p>「<strong>唉哟，随便吧。我先走了，给张苗苗去做药。</strong>」</p>
+<p>洪灏承拎起个从船上带下的饭盒与袋子跳上窗台，转过头道：「<strong>我还要去抓点鱼做鱼羹，可能晚点才回来。你们就在此地，不要走动。</strong>」</p>
+<p>外界已传来道道精神威压的波动，仿佛一道道让人惊颤的阴冷气息，不断拂过灵魂。</p>
+<p>洪灏承提着剑跑出去没多远，心中就响起道声音。</p>
+<p>[<strong>奇偶湖之剑宣告，当前为奇数。</strong>]</p>
+<p>走了更远后，洪灏承停下脚步藏在断壁之后，一道三米高的身影从房子另一端缓步走过。</p>
+<p>[<strong>奇偶湖之剑宣告，当前为偶数，Chronos攻击已调整。</strong>]</p>
+<p>等怪物离去，洪灏承快步冲向远方，心中奇数与偶数的宣告不断响起，他听得烦了，心中吼道。</p>
+<p>[<strong>安静，老子晓得。</strong>]</p>
+<p>[<strong>我幻想自己按住了「<strong>奇偶湖之剑</strong>」并不存在的嘴，没想到竟然成功了。</strong>]</p>
+<p>「<strong>靠，不是奇数就是偶数，奇偶数到底怎么搞。</strong>」</p>
+<p>这把剑能吸引少年的就是最后那个效果，他猜测肯定是跟念力体相关，却不知如何触发。</p>
+<p>洪灏承行至另一处安全藏身地。废弃地下室内，他拿起剑，在自己的手上比划了一下。</p>
+<p>「<strong>呼……</strong>」</p>
+<p>数次深呼吸。</p>
+<p>「<strong>坏老婆能做到的事情。</strong>」</p>
+<p>他举起剑，将剑身一侧，剑刃闪动抹寒光悍然斩下。</p>
+<p>「<strong>老子也能做到！呃！</strong>」</p>
+<p>铖！</p>
+<p>手臂断裂，血液爆射喷洒。</p>
+<p>跌倒在地的洪灏承拿剑撑着身体，但下一瞬间长剑突兀消失，他嗙的声跌倒在地上，昏了过去。</p>
+<p>胸前，Moxel微微亮起。</p>
+<p>[<strong>38号审议员正在注视昏迷的我。</strong>]</p>
+<p>[<strong>43号审仪员向我投来审视的目光。</strong>]</p>
+<p>{<strong>愚执的家伙。</strong>}</p>
+<p>{<strong>但这个世界，缺的并不是自作聪明的人。</strong>}</p>
+<p>迷迷糊糊中，洪灏承听到心中的自己在嘀咕着。</p>
+<p>[<strong>43号议员告知我，用自己血就行了。</strong>]</p>
+<p>几小时后，少年略显疲倦地醒来。</p>
+<p>他首先看了眼左手，已经长好了。奇偶湖之剑则倒在地上，它旁边则还有另外半截手臂，凝固的鲜血侵染地面。</p>
+<p>令人失望的是，这只手臂像是放置了很长时间似的，已经坏掉，只剩整齐切下的断骨还算完整，却也一碰就碎。</p>
+<p>「<strong>没法用了吗。</strong>」</p>
+<p>皱眉看着饭盒内的血液，又看向落在一旁的剑。</p>
+<p>听了听外面，西阳下，整个岛都仿佛出于战争中，到处都是混乱的叫喊声，似乎有人已经为这次行动献出了自己的生命。</p>
+<p>洪灏承失望的提起剑，随后他想起了之前昏迷中的声音。</p>
+<p>「<strong>血液？</strong>」</p>
+<p>两小时后，躲过多波喧闹人马的洪灏承回到三人处。</p>
+<p>「<strong>洪哥回来了。</strong>」</p>
+<p>他们看向少年的手中，除了提着的饭盒，没有鱼也没有药。</p>
+<p>「<strong>太乱了，出不去。</strong>」洪灏承走到昏睡的张苗身边将他摇醒，「<strong>来，把这个草药喝了。</strong>」</p>
+<p>「<strong>草药？</strong>」</p>
+<p>张苗还未反应过来，就被按着嘴巴，将不知什么草给捣碎了的汁液倒进了嘴里。</p>
+<p>咕咚咕咚。</p>
+<p>一股混合着腥味的怪味充斥鼻腔。张苗感觉自己想要呕吐，但又忍了下来。</p>
+<p>随着这些草汁的入口，张苗感觉自己的身体极速发热，心脏如同得到激素刺激般快速泵动，胃袋绞肉机般快速消化着里面的一切。</p>
+<p>「<strong>我……</strong>」</p>
+<p>他曲卷身躯，汗珠滴落。</p>
+<p>李永勤两人看着皮肤一阵鼓动的张苗，惊异道：「<strong>洪哥，你给他喂了什么？</strong>」</p>
+<p>「<strong>药。</strong>」</p>
+<p>刚说完，洪灏承目光中就亮起抹得逞的神采。</p>
+<p>只见张苗断裂的臂膀处，皮肤如细小触手般蠕动，不断缓慢地往外延伸。</p>
+<p>李永勤两人则瞠目地看着。</p>
+<p>「<strong>不，不会吧！</strong>」</p>
+<p>张苗浑身的燥热逐渐褪去，他感觉饥肠辘辘，但更强烈的兴奋与震动萦绕着他的心。因为仅仅不到半小时，自己这条缺失臂膀，就已经新长了出来！</p>
+<p>他抬头看去，洪灏承正笑眯眯靠墙坐在地上，将手搭在曲起的一只腿的膝盖。</p>
+<p>他想到恶魇飞机中，此人也是如自己这般，将其缺失的身体部位，乃至整个被烧得面目全非的皮肤，在短短几小时内修复完毕。</p>
+<p>「<strong>灏承，你...</strong>」张苗想问什么，但最后只说出了两个字。</p>
+<p>「<strong>谢谢。</strong>」</p>
+<p>「<strong>谢什么，咱们是洪途会啊！</strong>」毛毛头少年站起身，「<strong>小崔不是说过了吗，咱们‘鹏程衡雁’要‘共征途’才行。所以我们的第一条帮规是，‘共进退’。</strong>」</p>
+<p>「<strong>啊对对对。</strong>」崔荣开心的点头，「<strong>阿不对！</strong>」</p>
+<p>「<strong>起来吧，咱们现在就准备一起进11城。</strong>」</p>
+<p>「<strong>不啊——</strong>」崔荣抱住了洪灏承的脚。</p>
+<p>练习下若主角换个方式出场，该怎么写。（打哈欠）</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="chapter-058.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="chapter-060.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="chapter-058.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="chapter-060.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="ace.js"></script>
+        <script src="editor.js"></script>
+        <script src="mode-rust.js"></script>
+        <script src="theme-dawn.js"></script>
+        <script src="theme-tomorrow_night.js"></script>
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

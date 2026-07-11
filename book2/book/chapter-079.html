@@ -1,0 +1,330 @@
+<!DOCTYPE HTML>
+<html lang="zh" class="coal sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>第七十九章 珍贵指导 - 魂孪英旅 下 魔齿磨轮</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "coal" : "coal";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('coal')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">魂孪英旅 下 魔齿磨轮</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="第七十九章-珍贵指导"><a class="header" href="#第七十九章-珍贵指导">第七十九章 珍贵指导</a></h1>
+<p>克罗夫特走过来，自己找了张椅子坐上。</p>
+<p>「<strong>废话我也不多讲，这次我可以免费授权你们使用我的理念。</strong>」</p>
+<p>「<strong>哦？</strong>」幻保儿眼睛一眯。</p>
+<p>「<strong>但是。嗯…</strong>」克罗夫特看了宫桓武一眼：「<strong>我早上给宫干事提过，看来他还未告知你。</strong>」</p>
+<p>听到「<strong>但是</strong>」，幻保儿就知道对方肯定会有什么后招。她看向宫桓武。</p>
+<p>男人靠近身前，埋头在其耳边如此这般说了阵。</p>
+<p>「<strong>这恐怕不符合我们星光幻境秉持的理念。</strong>」</p>
+<p>克罗夫特一听幻保儿的话，发出声冷笑地从椅子上跳了下来。</p>
+<p>他走到桌边将一份由折射光线凝显的「<strong>组长凭证</strong>」丢在幻保儿身前。</p>
+<p>「<strong>这是独属于我的魔英殿的部分详细设计框架，再给你们十天时间，结合你们那位所谓的年轻人的指导，早点给我送来。</strong>」</p>
+<p>他走到门口，看了屋内两人一眼。</p>
+<p>「<strong>什么理念不理念，行不行都还是两个字。努力完成它吧，小伙子小姑娘们。</strong>」</p>
+<p>砰！门被拉上。</p>
+<p>等了一小会儿，幻保儿才摸过那半透明的光芒组长凭证。</p>
+<p>「<strong>又想赚Chronos，又要摆谱。</strong>」</p>
+<p>「<strong>但总算是在妥协了。</strong>」</p>
+<p>宫桓武看向幻保儿：「<strong>不过，他这会送来这东西，或许是想干扰宇文浩文的思路。</strong>」</p>
+<p>「<strong>他毕竟是一位杰出大师的手笔，希望宇文浩文能借它多出些灵感吧。这也是我们答应过他的事情。</strong>」</p>
+<p>……</p>
+<p>夜色宁静。装修豪华的房间内。</p>
+<p>宇文浩文看着身前的克罗夫特干事的所有笔记，以及手中的「<strong>组长凭证</strong>」所蕴含的企划，内心震撼。</p>
+<p>三天后。精神萎靡的宇文浩文来到了幻保儿的办公室。</p>
+<p>「<strong>对不起，幻保儿大人。我…</strong>」</p>
+<p>「<strong>你怎么？</strong>」</p>
+<p>年轻人抬起羞愧的脸庞：「<strong>我想放弃这份外快，我根本不够格。</strong>」</p>
+<p>幻保儿轻轻点着桌面的手指一顿。</p>
+<p>「<strong>不至于吧。你是优秀的年轻才俊，以后的魔英殿设计者中绝对有你的大名。回去继续你的指导工作吧。</strong>」</p>
+<p>「<strong>您未设计过竞技城…当然这也不是您的发展方向，所以您并不清楚这意味着什么。</strong>」</p>
+<p>他捏起手中的图纸。</p>
+<p>「<strong>跟克罗夫特大人的设计比起来，我这个只是皇家宫殿前的串联民房。我，我继续指导新人们，无异于将他们带往歧路。我不能做这样缺德的事！</strong>」</p>
+<p>他目光恳切地看向这位总干事。</p>
+<p>「<strong>让克罗夫特大人来指导他们吧，我愿意成为他的学生。或者，我可以加入你们的队伍，一起设计。</strong>」</p>
+<p>幻保儿的眼眸眯了眯。</p>
+<p>这个老不死的东西，给小年轻上这种手段。</p>
+<p>「<strong>你先回去完成手上的工作，毕竟他的考核还有七天，成与不成到时候再说。</strong>」</p>
+<p>「<strong>我…好吧。但您真的要郑重考虑，竞技城不是儿戏。</strong>」</p>
+<p>……</p>
+<p>在各种不断变化的精神波段中穿梭的杨子藏，将一块又一块被丁娇洁与佐罗等人稳定好的精神波段，用「<strong>心灵具现之权</strong>」来改变它们的质地，并修补其中的空缺，消除它们的阴森恐怖气息。</p>
+<p>最终再根据需要，通过遗失幻境公司提供的庞大的能量，来延展两个场景之间的空缺，让它们成为焕然一新的新场地。</p>
+<p>这就是行动部清理组的工作。</p>
+<p>{<strong>子藏，把你脚下的地基挪往悬号四，标号北五的位置。</strong>}</p>
+<p>[<strong>好。</strong>]</p>
+<p>杨子藏心念一动，这团精神场就被收起，出现在自己手掌上。</p>
+<p>他黑色的员工卡上浮现金丝，如同星轨般扩散，然后整个人以念力体状态，前往了娇玛所说的位置。</p>
+<p>这些失频精神波段展开的精神场，就像是破碎的画卷底稿，自己如同文物修复师，将它们焕然一新后，更换时空，以另一种方式展现全新的生命力。</p>
+<p>星空般的纯粹念力场中，上下四方数百大小不等的场景被左挪右移，每个场景中都有一两个身影在其中忙碌。</p>
+<p>{<strong>大家加油，我们绝对不能丢星光幻境的脸。</strong>}</p>
+<p>随着众人的工作，一个大型建筑的轮廓逐渐浮现台面。</p>
+<p>{<strong>这话你应该对宇文浩文大组长去说。</strong>}</p>
+<p>……</p>
+<p>宇文浩文带着今天的设计来到克罗夫特的住所。</p>
+<p>「<strong>这就是你们的设计？</strong>」</p>
+<p>「<strong>老师，您看能达到最低的标准吗？</strong>」</p>
+<p>「<strong>最低标准？你打算让我克罗夫特的一世英名，葬送在这里吗！我的所有魔英殿作品，都是超级完美级别的作品！</strong>」</p>
+<p>宇文浩文惭愧地低下了头。</p>
+<p>「<strong>算了，我去给他们上上课吧。</strong>」</p>
+<p>就在怪人带着如小跟班的宇文浩文冲入各大组中给他们提修改意见时，幻保儿已经得知了他的最新行动。</p>
+<p>「<strong>那个老家伙，怎么今天这么勤快了。</strong>」</p>
+<p>「<strong>我看他应该是有打算留在这里继续进行指导的意思。毕竟宇文浩文真的在十天内把框架搞出来了。这证明了浩文的实力。</strong>」</p>
+<p>宫桓武看向幻保儿：</p>
+<p>「<strong>如果现在的话，他之前提出的考虑，我们要不要答应呢？</strong>」</p>
+<p>「<strong>我跟耀书令商议过了，毕竟是位设计出三座高评分魔英殿的大师，有他出手，我们至少这次任务稳了。</strong>」</p>
+<p>幻保儿妥协般的吐出口气道：</p>
+<p>「<strong>就依他的吧。换算下来，差不多也是几十万虚零Chronos。并不算太多。</strong>」</p>
+<p>「<strong>那就太好了，我这就去通知他。</strong>」</p>
+<p>宫桓武开心的离去，等待克罗夫特巡视各大制作组的结束。</p>
+<p>庄雅的大门缓缓打开道缝隙。</p>
+<p>克罗夫特从门缝中走出，他背后跟着提着文稿袋的宇文浩文。</p>
+<p>怪人随意地抬眼撇向早已等待许久的宫桓武。</p>
+<p>「<strong>找我有事？</strong>」</p>
+<p>「<strong>是的，克罗夫特干事大人，</strong>」宫桓武喜道，「<strong>您之前提议的虚零Chronos分配方案，幻保儿总干事已经向公司申请下来了。</strong>」</p>
+<p>「<strong>哇哦，这可真是个难以理解的好消息。</strong>」</p>
+<p>克罗夫特阴阳怪气地说完后，转头看向宇文浩文：</p>
+<p>「<strong>回去组里吧，给你一个月时间继续领导并完善这个项目。到时候我来做最终的点评。</strong>」</p>
+<p>「<strong>是，尊敬的克罗夫特老师。另外，感谢老师您能留下来。</strong>」</p>
+<p>宫桓武眼皮子跳着看向年轻人一脸欣喜地回去这间屋子中。</p>
+<p>怪人一只手背着，另一只手拿起皮包递给宫桓武。</p>
+<p>「<strong>来，你给我拎着。</strong>」</p>
+<p>……</p>
+<p>不知不觉，杨子藏从加入魔英殿特别行动组，到现如今已经过去了两个半月，外界也已经十一月多了。</p>
+<p>此刻的三百七十多号人见到自己真的设计出来了个大型的、半原创的竞技城框架，内心都很受鼓舞。</p>
+<p>虽然里面需要填充的东西依旧很多，但那其实更多看议会如何调配旧世界资源。</p>
+<p>自己等人只是用精神力标注着大致所需的怪物与考核者实力就行了。</p>
+<p>「<strong>以后我们的履历上，应该有浓墨重彩的一笔了。</strong>」</p>
+<p>众人齐聚一堂，在一间较大点的科室内嗡嗡议论着。</p>
+<p>「<strong>大家找座位做好。</strong>」</p>
+<p>宇文浩文从门口跑进来抬手道：</p>
+<p>「<strong>尊贵的克罗夫特大师马上就要来了！快坐好。</strong>」</p>
+<p>这位来自命运轨迹之上的干事大人，每一次的到达，都会给此地的和谐气氛带来紧张。</p>
+<p>杨子藏与佐罗、丁娇洁等人紧张的入座。</p>
+<p>「<strong>又要挨骂了。</strong>」王定山笑呵呵地道。</p>
+<p>娇玛白了他一眼。</p>
+<p>哒、哒、哒、哒。</p>
+<p>皮鞋踩在复古地砖上，发出紧致声响。</p>
+<p>鼻尖眉突，仿佛穿着黑西装青面魔的干事从门口走入。</p>
+<p>克罗夫特每一次到来的点评，都犀利无比，如刻刀般入木三分。</p>
+<p>虽然话比较难听，但的确每次都给魔英殿的创造更上了个台阶。</p>
+<p>房间内众人大气都不敢出。</p>
+<p>大家从最初的对他颇有微词，到现在早已习惯。</p>
+<p>「<strong>来吧，首先展示你们每个人各自的劳动成果，动起来，快，手脚麻利点，不要当只晓得听波段的收音机。</strong>」</p>
+<p>竟然不是先看魔英殿的成品。</p>
+<p>宇文浩文跑到前方挥手道：</p>
+<p>「<strong>大家抓紧机会，大师要对每个人进行点评，快，这是十辈子也遇不到的珍贵机遇！</strong>」</p>
+<p>众人哗然，这里可是三百多人，他竟然要点评每个人过手的项目。</p>
+<p>杨子藏和娇玛对视了一眼，女孩如同被老师抽查作业似得，紧着眉头开始在胸前勾勒出红色圆环。</p>
+<p>折线闪动，很快属于她经手过的场景被「<strong>心灵具现之权</strong>」展示了出来。</p>
+<p>所有人都做着这些动作。</p>
+<p>杨子藏胸前Moxel闪动，身前的小场景格外的多。</p>
+<p>因为他是第一清理部行动组，其员工卡属于特别之物，加之是四边形，因此过手的精神波段与力场多得不得了。</p>
+<p>王定山转头震惊道：「<strong>哇，能者多劳，没想到你劳得这么多。</strong>」</p>
+<p>他身前的已经属于比普通人多三倍的场景了，而杨子藏的，至少又比自己多出了两倍。</p>
+<p>杨子藏耸耸肩。</p>
+<p>微缩场景重重叠叠漂浮在身前拥挤的工位上。</p>
+<p>丁娇洁看过来的目光中也是彩光连连，娇玛见着杨子藏身前如此多的小幻像，牵强地笑了笑。</p>
+<p>忽然，一道克罗夫特的身影出现在身旁。</p>
+<p>「<strong>念力体！</strong>」</p>
+<p>杨子藏一眼就看出，这看上去宛如真实的人，实际上只是念力体。他的念力体好强，几乎如有实质。</p>
+<p>青年眼眸微动地看向大办公室中，几十道克罗夫特的念力体身影同时出现。</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="chapter-078.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="chapter-080.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="chapter-078.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="chapter-080.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="ace.js"></script>
+        <script src="editor.js"></script>
+        <script src="mode-rust.js"></script>
+        <script src="theme-dawn.js"></script>
+        <script src="theme-tomorrow_night.js"></script>
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

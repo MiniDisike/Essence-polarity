@@ -1,0 +1,317 @@
+<!DOCTYPE HTML>
+<html lang="zh" class="coal sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>第六十三章 棋与忧 - 魂孪英旅 下 魔齿磨轮</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "coal" : "coal";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('coal')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">魂孪英旅 下 魔齿磨轮</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="第六十三章-棋与忧"><a class="header" href="#第六十三章-棋与忧">第六十三章 棋与忧</a></h1>
+<p>「<strong>我们的人被清理出去了。</strong>」</p>
+<p>程允泽这边，有人回报道。</p>
+<p>「<strong>这么快，三天时间都不到。</strong>」</p>
+<p>这处被整理出来的废弃会议室中，众人窃窃私语。</p>
+<p>程允泽示意众人稍安勿躁。</p>
+<p>「<strong>虽然可惜了书页。不过，至少知道那精神幻象的攻击是什么了，他们得到个好宝贝啊。</strong>」</p>
+<p>「<strong>而且还是个残疾人控制，呵，他们那边还真是人尽其用。</strong>」</p>
+<p>......</p>
+<p>随着最后一只幕景主的倒下，大地猛地一沉，虚无的边缘得到延伸，仿佛扎根在无垠虚无中的真实陆地。</p>
+<p>这处A级交错地也随之宣告稳定完毕。</p>
+<p>「<strong>耶！真的做到了！好快啊！</strong>」队伍里一个小矮子挥舞着剑欢呼。</p>
+<p>童文奇羡慕地看了眼梁喜手上的虚零Chronos战器。</p>
+<p>当李弥向总部申请，让他来帮忙稳定这处A级交错空间的时候，比这梁喜长不了两岁的童文奇还有心想比比，到底是Moxel能力厉害还是元素秘技厉害。</p>
+<p>结果刚稳定完这个月第二个幕景他就感觉不对劲了——这小子的那把剑很可疑。</p>
+<p>找机会触摸到这把剑的那瞬间，童文奇所有的斗气之心也都随着石化的表情，在刹那间裂成了碎片。</p>
+<p>「<strong>这就是...有大佬罩着的...待遇吗？</strong>」</p>
+<p>「<strong>嘿嘿，我这把剑还好啦。</strong>」</p>
+<p>见到是李弥的朋友，梁喜很是炫耀地道，「<strong>雪姐姐那把才好呢，不过你可别打她武器的主意。不然等赵安龙什么时候回来，绝对会揍你。</strong>」</p>
+<p>童文奇看向赵雪美的长剑，他突然冒出个念头——难道新命运轨迹之上，有「<strong>非常超过</strong>」这里的好东西？</p>
+<p>这只十来人队伍穿过门，出现在银白枢纽镇定城墙门洞下。</p>
+<p>楚强望着这里的稀薄阳光，畅怀地道：</p>
+<p>「<strong>啊，都一年多了，我终于又回来啦！走，我带你们去租个落脚的地方。</strong>」</p>
+<p>童文奇撇撇嘴：「<strong>怎么需要你费神，放心吧，这边我们的人已经安排好了。</strong>」</p>
+<p>脚步声中，身穿件暗红鳞甲，两边肩膀拥有如眼睛般的宝石肩章的高挑少女，踩着充满灵气的步伐从墙洞下走出。</p>
+<p>「<strong>这就是安龙以前常提起的枢纽镇吗。</strong>」</p>
+<p>「<strong>是啊，这就是我们Moxel的枢纽镇。</strong>」</p>
+<p>李弥领着梁喜走出来，站在气质变得更为高洁冷艳的女人身旁道。</p>
+<p>赵雪美灵动的目光缓缓打量着夕阳下的悠然建筑。三名等在这附近的41城之人，从颗覆着大树冠的树下跑过来。</p>
+<p>「<strong>李总经理，还有雪美副队长。</strong>」</p>
+<p>赵雪美微微颔首。</p>
+<p>李弥有点奇怪的看着三个高矮胖瘦不尽相同的人，「<strong>总经理？</strong>」</p>
+<p>「<strong>总部为您升职了，就在刚才您快进入这里的时候，我们才得到的消息。</strong>」</p>
+<p>「<strong>发生什么了。</strong>」</p>
+<p>这几人偷摸地互相看了眼，其中高个子道：「<strong>还是李总经理反应快，知道肯定有事，哈哈哈。是这样。</strong>」</p>
+<p>他望了眼腮帮缓缓嚼动着看过来的梁喜后，靠近李弥耳边低语。</p>
+<p>「<strong>杨子藏先生进入11城了。</strong>」</p>
+<p>随着窃窃私语声，李弥眼角微动。</p>
+<p>「<strong>这次，总部希望李弥先生，不，总经理您能想办法搞到两三个进入名额。</strong>」</p>
+<p>李弥轻声道：「<strong>书页有三种，我们连颜色最少的那种书页都不愿意拿出来交换进入名额，却让我想办法？</strong>」</p>
+<p>眼前三人略显尴尬，一人低声道：</p>
+<p>「<strong>这不就是证明李总您价值的时候了嘛。而且，总部不是不愿意拿出来，他们只是想尽量省下而已，毕竟那些书页似乎关乎很重要的事情。听说11城有种很厉害的武器，杨子藏本就是咱们城市的人，为了排名战，也应该让我们多获得点那些武器嘛。</strong>」</p>
+<p>李弥沉默不语。</p>
+<p>嚼着泡泡糖的梁喜斜着眼上挑看过去，那人恰好看过来，便立即尴尬的挪过眼神。</p>
+<p>一道折线射来，心中略有疑窦的梁喜瞬间开心。</p>
+<p>{<strong>量西吗，我终吁要见到泥啦！</strong>}</p>
+<p>「<strong>波波利，我早就想你啦，哈哈哈，你那边有游戏机吗！</strong>」</p>
+<p>{<strong>怎木可能木有，我来接泥门，我们的房间很多狠打。</strong>}</p>
+<p>将长剑环抱在怀中的赵雪美笑眯眯看向梁喜：「<strong>终于要见到杨子藏的队友了，好期待呀。可惜不能见到莫里先生。</strong>」</p>
+<p>李弥转头：「<strong>莫里告诉我大致地方了，我们先走着去吧。</strong>」</p>
+<p>「<strong>好。</strong>」后方几名队伍成员拎着行李跟上，往热闹的城镇中走去。</p>
+<p>......</p>
+<p>下班后，佐罗刚出大门，便见到一袭身穿磨砂皮质感的工装夹克青年，依靠在门口的墙上。</p>
+<p>「<strong>今天不去你那宝贝营地？</strong>」</p>
+<p>杨子藏转过头，看向这个疤痕又淡了点的青年，直起了身来。</p>
+<p>「<strong>我朋友在忙着件事情，准备给算计我那些家伙一个大的。呵，这两天我就不去打扰他们了，反正那些人也不舍得用‘核心’来打探交错地物品的消息。不如陪陪你去下棋。</strong>」</p>
+<p>佐罗猜测，杨子藏可能是想询问自己有没有关于那个书架的更多信息。</p>
+<p>「<strong>去了也是白去，我的棋艺不可能几天就下得比管事好的。</strong>」</p>
+<p>说完后，佐罗看了眼没什么表示的杨子藏，又扭头看了眼周围离开的同事，继续道：</p>
+<p>「<strong>不过，反正闲着也是闲着，咱们就去那里转一圈吧。走，先吃饭。</strong>」</p>
+<p>饭后，两人来到拥有棋盘石桌的亭中。</p>
+<p>佐罗的手触摸在他右手边那朵石雕的花上，这是种魔纹变形成的雕花，可见雕刻者对魔纹的造诣之高，已到超凡脱俗地步。</p>
+<p>[<strong>我获得了使用黑子的权力。</strong>]</p>
+<p>随着触摸，佐罗心中出现熟悉的声音。</p>
+<p>一只手的虚影浮现于棋盘，中指与食指间夹着枚光芒所造的白子。</p>
+<p>啪！</p>
+<p>淡淡的气浪回音激荡在棋盘最中间。</p>
+<p>「<strong>就算起手落天元啊，我也不是对手。</strong>」</p>
+<p>佐罗很是光棍的嘿嘿一笑，将自己那枚由Moxel折线自动构现的棋子，落在左下飞星附近的格子里。</p>
+<p>悬浮棋盘之上的光手迅速落在棋盘某个方位，不带丝毫犹豫。</p>
+<p>佐罗道：「<strong>你的以太通道相片还剩几天？</strong>」</p>
+<p>「<strong>没几天了。你的还不用吗？</strong>」</p>
+<p>「<strong>嗯，我出去也不知道干什么，不如留着吧。</strong>」</p>
+<p>不到十分钟，佐罗叹息了口气，对着亭子上方的虚无道：「<strong>我又输了。</strong>」</p>
+<p>那只手上的白子飞速散去，手也消失不见。</p>
+<p>「<strong>看来这位管事哪怕是赚Chronos，也赚得很体面。</strong>」杨子藏开玩笑似的感叹，「<strong>看来这一百年‘开门费’也不是那么好花出去的。</strong>」</p>
+<p>佐罗扭头看向周围的环境。</p>
+<p>「<strong>上次那人劫持你，所化现的地方就是对这里的模拟对吧。我在想，那样的人为什么要找你？</strong>」</p>
+<p>杨子藏脸上露出了笑容。眼前这家伙，还真是...不过，自己今日莫名其妙找他非来这里，他应该也是第一时间想到这方面的可能吧。</p>
+<p>稍微想了想，组织了下语言后，杨子藏道：</p>
+<p>「<strong>我一位朋友获得了某些情报，改变了未来。因此他陷入了危机，同时...</strong>」杨子藏从石凳起身，在圆桌边缘走动着，最后转头看向棋盘，郑重道，「<strong>他在获得关于未来情报的时候，有人给了份更久远未来的信息。那份信息被埋藏进了我还有一次进入机会的‘完整邮徽’世界。</strong>」</p>
+<p>佐罗看着杨子藏双手撑着棋盘盯着上面的格子，他自己也拿手肘抵在石桌上撑着头。</p>
+<p>「<strong>噢。原来今天本来就打算跟我讲故事啊。</strong>」</p>
+<p>「<strong>呵。</strong>」杨子藏嘲讽似的盯了对面话里有话的青年一眼，「<strong>不是你先问的吗。</strong>」</p>
+<p>「<strong>嗯哼，好吧。你继续。</strong>」</p>
+<p>「<strong>再后来就很简单了。反正那个叫韩鸣啸的人，似乎比我更先知晓那处圣者级念力场里，似乎埋藏了什么东西。我都是这次出去，专门找到我那位朋友询问，才知道这事。</strong>」</p>
+<p>「<strong>喔～原来如此。</strong>」</p>
+<p>佐罗重重点头，「<strong>这么看的话，据说一直在文献室的人韩鸣啸，肯定有方法得知关于这方面的情报。你是想说，公司里可能还有他隐藏的成员混在某些观测室？</strong>」</p>
+<p>「<strong>干事们肯定能想到这一点，应该不用我操这份心。</strong>」杨子藏也摸了石刻花瓣，激活念力之手后，由自己的Moxel折线在指尖构成棋子，说道：</p>
+<p>「<strong>我只是好奇，那份埋进去的信息里蕴藏了什么，居然会得到这些人的关注。那份信息似乎蕴藏了比较高的价值，否则这位隐藏好多年的人不会对它产生如此反应。</strong>」</p>
+<p>「<strong>嗯，这的确是个问题。</strong>」</p>
+<p>啪！</p>
+<p>棋子落下。</p>
+<p>杨子藏看了眼，很是公式化地落在了飞星旁。</p>
+<p>佐罗撑着脑袋想了一会，看向杨子藏道：「<strong>要不，你最近进去看看？</strong>」</p>
+<p>杨子藏的眉目更是纠结起来，棋子落在棋盘，口中道：「<strong>我怕我会得到什么不得了的信息，如果在这个时间点更加强烈的改变未来，我的那位朋友可能就真的会遭遇不测。但我朋友完全脱离扰动时空的反噬危险，得三年以后才算完全安全。</strong>」</p>
+<p>「<strong>如果是找干事的话...</strong>」佐罗摸了摸下巴，「<strong>万一，我只是说万一，没清理干净。而你又要打算三个半月以后离职，对吧。</strong>」</p>
+<p>「<strong>嗯。</strong>」</p>
+<p>「<strong>总的来说，你是不打算进去看那份信息？想要把它交出去？却又怕落入坏人手里。</strong>」</p>
+<p>棋子在杨子藏指尖摩挲着流转，几秒后，杨子藏点了点头。</p>
+<p>「<strong>所以，如果是管事大人，不知道会如何给我建议？</strong>」</p>
+<p>他放下了自己的棋子。</p>
+<p>啪！这次，悬浮手臂一粒棋子直接落在紧逼着杨子藏身前，那列棋格的正中。</p>
+<p>杨子藏一下松了口气。</p>
+<p>行了，自己的话算是带到了，感不感兴趣就不是自己能决定的了。</p>
+<p>佐罗目光一闪，「<strong>好家伙，又让了一手！哈哈，我来我来，咱们一起看能不能把这盘下赢。</strong>」</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="chapter-062.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="chapter-064.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="chapter-062.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="chapter-064.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="ace.js"></script>
+        <script src="editor.js"></script>
+        <script src="mode-rust.js"></script>
+        <script src="theme-dawn.js"></script>
+        <script src="theme-tomorrow_night.js"></script>
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

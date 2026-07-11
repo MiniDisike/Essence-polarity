@@ -1,0 +1,333 @@
+<!DOCTYPE HTML>
+<html lang="zh" class="coal sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>第五十八章 旋灵 - 魂孪英旅 下 魔齿磨轮</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "coal" : "coal";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('coal')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">魂孪英旅 下 魔齿磨轮</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="第五十八章-旋灵"><a class="header" href="#第五十八章-旋灵">第五十八章 旋灵</a></h1>
+<p>岛对岸的城市边缘。</p>
+<p>杂草丛生的废弃楼房内，几人正在篝火旁熟睡，忽地被人踢醒。</p>
+<p>「<strong>起来！</strong>」</p>
+<p>「<strong>别睡了，快起来。发动你们的Moxel进行融资广播，给我们找人。</strong>」</p>
+<p>「<strong>找人？</strong>」几个红Moxel的人不情不愿地坐起身，抠了抠膀子，看向门口几个银白Moxel的人。</p>
+<p>「<strong>找谁啊？</strong>」</p>
+<p>火光映照着门口为首那人冷然的脸庞。</p>
+<p>男人目光下视，盯着几个蓬头垢面的家伙，沉声道：</p>
+<p>「<strong>找一位，疑似进入了11号孤岛核心之高手。</strong>」</p>
+<p>他们面面相觑，「<strong>这关我们什么事。</strong>」</p>
+<p>地上一名青年面色微微一变，王小顺抬头看周围几人：</p>
+<p>「<strong>进去岛屿核心的，难道是咱们红Moxel的人？</strong>」</p>
+<p>「<strong>什么，不可能吧！</strong>」</p>
+<p>几人慌成一团。</p>
+<p>这座城市中，稍微好点的红Moxel恶魇都要么归顺了对方，要么被统一击杀制成了模器。凡是红Moxel的人，都只剩Moxel的增幅与投资能力。</p>
+<p>可就是在这样的逆势之下，竟然还有人能在这些白Moxel的家伙们眼皮子底下，给跑进了岛屿深处吗！</p>
+<p>那可是四相天团的程允泽也办不到的事！</p>
+<p>「<strong>少废话，快发广播。只要找出来，你们以后就是四相天团的预备团成员了。</strong>」</p>
+<p>说完这话，门口几人不抱希望地哼了声，转身出门前往下一个有篝火的废弃楼房。</p>
+<p>王小顺看了眼身旁这些Moxel闪动的同病相怜者们，想了想后，他咬了咬唇，胸口也亮起微弱的红色光环。</p>
+<p>一道三角形光线扩散进虚空。</p>
+<p>{<strong>进入岛屿深处的人啊，请不要回答任何人的心灵链接！</strong>}</p>
+<p>细线瞬息跨越渺渺烟波，与无数扩散开的红色与白色Moxel线条一起，传遍几十里地。</p>
+<p>再次从地缚之灵手中逃掉的洪灏承停下脚步，剧烈喘息着胸膛，他整个人脸上都是汗水流淌地仰望朦胧夜色。</p>
+<p>「<strong>糟了，没有给那三个呆子交代，该在哪里汇合。</strong>」</p>
+<p>夜色中，洪灏承胸前忽地出现了一根红色线条。</p>
+<p>{<strong>谁在岛里面。</strong>}</p>
+<p>它迅速消失，随后是两道三道。</p>
+<p>{<strong>里面有咱们的人吗？</strong>}</p>
+<p>{<strong>不论是谁，要小心，不要暴露自己。</strong>}</p>
+<p>{<strong>请忽略所有像我这样的融资请求，不要连通它们！</strong>}</p>
+<p>越来越多的线条如波浪般一遍遍涌来又消散，有询问有提醒。</p>
+<p>{<strong>多保重，我们陌生的大高手，如果你真的存在！</strong>}</p>
+<p>{<strong>岛深处有进入11城之门，进入可用「<strong>缚灵核心</strong>」制作虚零Chronos战器！它可以无视Chronos防御...</strong>}</p>
+<p>很多人的Moxel声音中，像是怕这位高手还不懂某些这边的情况，一股脑儿的将自己知道的东西都给抛出来，生怕会因某个疏忽就造成大憾事。</p>
+<p>{<strong>既是高手，肯定知道这些信息。</strong>}</p>
+<p>有人想要阻止的道，却被人给无视。这些叮嘱声依旧不断响起，且一闪而逝，根本不给接受之人可能接通的反应时间。</p>
+<p>{<strong>据说虚零武器能无视某些Chronos效果，达成一击必杀。前提是对方本身寿命比虚零Chronos覆盖之内。</strong>}</p>
+<p>洪灏承前行的脚步逐渐放缓，感受着胸前光环接受到的，这无数低语般的陌生心念声。</p>
+<p>{<strong>哈哈哈，你们在干嘛啊？有人能深入孤岛，还是四相天团眼皮底下？吹牛吧。</strong>}</p>
+<p>{<strong>我们红Moxel真的会诞生这样的人吗？你们小心是不是又是对面的圈套，说不定接下来就又是一轮大清洗。</strong>}</p>
+<p>{<strong>如果你是新人，请保护好自己的恶魇。</strong>}</p>
+<p>{<strong>我们已经没有未来，若可以，请早点存够万年Chronos离开。</strong>}</p>
+<p>洪灏承仰头望天。</p>
+<p>他不由得想到，不知寺庙中的雕像们，是否也成日如此，倾听无数此起彼伏的声音。</p>
+<p>{<strong>你是我们不知其名的王者，你证明了我们红Moxel不是废物。</strong>}</p>
+<p>可不同的是...</p>
+<p>{<strong>进入岛屿深处的人啊，请不要回答任何人的心灵链接！保护好自己......</strong>}</p>
+<p>[<strong>我感受到了上千人的共同心愿。</strong>]</p>
+<p>属于自己的声音在洪灏承的心中低语。</p>
+<p>「<strong>我？</strong>」</p>
+<p>[<strong>我满足了超过千人的共同愿望——只因我的存在。</strong>]</p>
+<p>一道光华在心前诞生，随后融入Moxel。</p>
+<p>黑暗中的这道轮廓停止了所有动作。</p>
+<p>洪灏承愣愣感受着这份全新诞生的所谓护符。</p>
+<p>[<strong>我收获了一枚由心念之力凝聚的「<strong>护符</strong>」。</strong>]</p>
+<p>[<strong>心愿护符，千人级。可在此世界许下某些合理的愿望。</strong>]</p>
+<p>......</p>
+<p>洛宾的脚踩在地面，将浮在地上的一层如舞台特效的稀薄雾气暂时驱散，几秒后飘在地上的它们又重新将踩踏过的地方填补。</p>
+<p>「<strong>天啊，这就是11号城！</strong>」</p>
+<p>秦队长等人，以及几名英姿飒爽的女子们，带着武器与物资，从凭空浮现而出的幽光列车上走下。</p>
+<p>这些人身后，还跟着几位不同城市由「<strong>书页</strong>」换取进入资格的人——这一次的11城进入资格，便是大伙儿靠这些本就难以获取的书页，从杨子藏手上所换取。</p>
+<p>一趟下来，杨子藏手里已经多出了11张两种颜色的书页。</p>
+<p>「<strong>这里原本跟我们的城市一样，却成了这副魔窟般的样子。</strong>」</p>
+<p>扶着车门的大厨马彬抬头仰望。</p>
+<p>城市破碎，漩涡状的乌云旋转天际——它是湛蓝色的。丝丝缕缕蓝色能量线条密布在半空，形成令人不适的淡蓝色能量纹路，它们在整个城市中缓缓打着旋儿，漩云目测有几十甚至上百公里。</p>
+<p>金色阳光从百里地外的深蓝乌云外撒下，仿佛金色的幕布将城池笼罩。</p>
+<p>「<strong>吼……</strong>」</p>
+<p>淡淡的，带着悲怆的吼声，自遥远地方传来。</p>
+<p>「<strong>呜啊……</strong>」</p>
+<p>这些怪物们的叫声，仿佛让是被绝望永远紧缚而不得逃离之悲兽的哀叹。</p>
+<p>李素美的目光愣愣看着上方，她的手指向天上。</p>
+<p>「<strong>你们看那里。</strong>」</p>
+<p>陆续下车的众人抬头。</p>
+<p>云层中，似有什么东西被吊着，但雾气涌动，很快将它掩埋。</p>
+<p>「<strong>天上的那个是什么？</strong>」</p>
+<p>他们转头看向车上最后走出的青年，杨子藏的手扶在车门上，仰头道：「<strong>是【悲怆】。</strong>」</p>
+<p>随着他的脚步踩在坚实的大地上，一道声音在十几人的心间响起。</p>
+<p>{<strong>诸位已来到旋灵之城。</strong>}</p>
+<p>{<strong>在这里，诸位可以用缚灵核心，为适宜之物添加部分「<strong>湍流之虚零</strong>」效果。湍流之虚零可抵消部分「<strong>Chronos</strong>」效果。</strong>}</p>
+<p>一道微弱的光芒凝聚在众人身前，它扩散成个类似古拙核心般的东西影像。</p>
+<p>随后这光芒略微扭曲，分散开来，变成了两份——它们依旧是缚灵核心，但表明颜色却附着了淡淡的褐红与淡白两种色泽。</p>
+<p>仿佛是放置许久后的古董上，所诞生的斑驳锈迹。</p>
+<p>{<strong>这些血脉缚灵核心，乃是该城的人们中，曾获得过「<strong>血脉</strong>」之人所坍缩。</strong>}</p>
+<p>「<strong>获得血脉之人？！</strong>」</p>
+<p>{<strong>每十份绯红或银白缚灵核心，可向【悲怆】兑换一份为百年器以上Chronos战器附着虚零的机会。</strong>}</p>
+<p>{<strong>亦可由城市首席，向枢纽镇换取一次适当请求。</strong>}</p>
+<p>{<strong>还可向「<strong>遗失幻境公司</strong>」精锐级别以上雇员，请求传达关于特殊物品与交错空间的消息。</strong>}</p>
+<p>大家都是或多或少了解过血脉信息的人，此刻听闻这话，心中纷纷震撼。</p>
+<p>原来11号城之人，竟然有如此之多的人已经获得过了血脉！</p>
+<p>洛宾等人心道，难怪最后把城市都玩脱了，造成这般灭城之灾。原来11城曾经的强者们，已经远远将其它城市之人甩在身后。</p>
+<p>他们不是一个两个获得了血脉，而是想让整个城市的人都获得血脉！</p>
+<p>这就是他们想让第十城降临的原因吗！</p>
+<p>列车外这群已经算是各大城市靠前势力代表的人们，心中震撼得无以复加。</p>
+<p>声音渐渐平息。</p>
+<p>远方再次传来无数淡淡的嘶吼声。</p>
+<p>众人收回目光，厨子马彬道：「<strong>悲怆指的是天上那个东西？</strong>」</p>
+<p>「<strong>我还以为这座城市中，什么地方有特殊的武器熔炉呢。没想到在天上啊。</strong>」</p>
+<p>人群中有人迫不及待想开启Moxel告知外界关于这里的信息，但随着想法升起，一股强大的心灵压迫力出现。似大漩涡般将他们想要说出口的欲望给束缚、吞噬，直至消泯。</p>
+<p>一人看向周围的这些高手：「<strong>请问，城市首席是什么？</strong>」</p>
+<p>王公子身旁，与他几分相似的帅气青年，语气沉着地解释道：</p>
+<p>「<strong>那是只有排名三十五以前的城市才有的名衔。就是城市中公认最强的队伍，一般他们在年末会代表所在城市，进行名次排序的争夺战。</strong>」</p>
+<p>「<strong>原来如此。</strong>」</p>
+<p>随后，一人皱眉：「<strong>话说，最后的那句，向遗失幻境公司的雇员请求交错空间的消息，这又是啥？</strong>」</p>
+<p>很多人连这个公司的存在都不知道，更别说什么精锐雇员了。</p>
+<p>「<strong>这声音也没说怎么向那什么雇员们请求。咱们就算得到了那什么‘缚灵核心’，也不知道给谁啊。</strong>」</p>
+<p>洛宾几人看向杨子藏。</p>
+<p>「<strong>咳嗯。</strong>」</p>
+<p>身穿黑色运动服的杨子藏清了清嗓子。</p>
+<p>「<strong>大家好，重新认识一下。</strong>」</p>
+<p>「<strong>啥？</strong>」众人的目光扭头望来，对哦，杨子藏说不定知道。</p>
+<p>「<strong>我是遗失幻境公司，星光幻境的精锐雇员。如果大家接下来获得缚灵核心，又想提前知道你们频晶对应的交错空间会出现什么样的东西，及它们的用途，就来找我吧。</strong>」</p>
+<p>众人下巴跌落一地。</p>
+<p>{<strong>你们快下车，我快坚持不住了。现在，还不是晚上。</strong>}</p>
+<p>获得掌管「<strong>昼</strong>」的主编一道「<strong>锁链能量</strong>」的大明星小马超，已经能在失频之地以外以幽光列车姿态短暂出现，但还不能久待。</p>
+<p>众人闻言，这才慌忙将东西往外盘。</p>
+<p>「<strong>这里就交给你们了，注意危险。</strong>」</p>
+<p>杨子藏不能参与对地缚之灵的战斗，因此很快便随着列车去往城市边缘，独属于幻境公司的「<strong>沙滩度假区</strong>」。</p>
+<p>人群中，秦队长拍拍手吸引众人目光，「<strong>大伙们，咱们先建个据点吧，搭几个帐篷。</strong>」</p>
+<p>「<strong>好耶！</strong>」</p>
+<p>几个来自玫瑰溪的女孩子欢呼。</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="chapter-057.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="chapter-059.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="chapter-057.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="chapter-059.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="ace.js"></script>
+        <script src="editor.js"></script>
+        <script src="mode-rust.js"></script>
+        <script src="theme-dawn.js"></script>
+        <script src="theme-tomorrow_night.js"></script>
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

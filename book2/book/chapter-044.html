@@ -1,0 +1,317 @@
+<!DOCTYPE HTML>
+<html lang="zh" class="coal sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>第四十四章 新工作 - 魂孪英旅 下 魔齿磨轮</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "coal" : "coal";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('coal')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">魂孪英旅 下 魔齿磨轮</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="第四十四章-新工作"><a class="header" href="#第四十四章-新工作">第四十四章 新工作</a></h1>
+<p>办公室内，辉光管剧烈震荡。</p>
+<p>娇玛等人的注视中，辉光管的橘黄光线突然冒出青色弧光。</p>
+<p>杨子藏感觉自己的头都开始轻刺痛，意识中远处那道黑色堆积物轰地下炸开，精神视角如穿行狂风骤雨的垃圾之间。他只觉得精神一下变得紧致，仿佛有什么塞了进来。</p>
+<p>瞬息的恍惚后。</p>
+<p>脸似刀削的青年睁开眼，看向自己指尖。就在刚才，如同倒悬在精神之流中似的，自己虚无的精神手臂像是抓到了一道鬼魅般的模糊身影，将它从飘渺的宇宙洪流中给拽住，避免其被卷进没有尽头的虚无深渊之中。</p>
+<p>「<strong>了不起啊子藏，你知道你捕获到的是什么等级的失频波段吗？</strong>」</p>
+<p>「<strong>什么？</strong>」杨子藏还有点恍惚。</p>
+<p>「<strong>居然是满月级的波段，你该晓得吧，一整个B级交错地呢。</strong>」</p>
+<p>「<strong>恭喜子藏！</strong>」娇玛雀跃的道，「<strong>有了这个，再抓到几个普通点的波段，你年底就是精锐雇员了。</strong>」</p>
+<p>「<strong>这样啊…</strong>」</p>
+<p>杨子藏看向自己空空的手。</p>
+<p>那一丝触感正在淡淡消散。</p>
+<p>几人道喜后各自回去自己的座位，唯有娇玛留了下来。见着弯腰的青春少女在身旁有条不紊地处理这些提取到的波段，杨子藏轻松靠在椅子上。</p>
+<p>「<strong>下午和明天就休息吧，捕获一次这样的频率很累的。</strong>」娇玛体贴的道，「<strong>我下午也可以休息，我们…嗯，要不你到我那边来，看看山看看水，感受下风景放松心情。</strong>」</p>
+<p>那恐怕是放松不了。</p>
+<p>杨子藏一下坐起：「<strong>那个，组长。其实…好几天以前，行动部的一个清理组就邀请我过去了。</strong>」</p>
+<p>娇玛手上的动作一顿。</p>
+<p>「<strong>你没有去对吧。</strong>」</p>
+<p>「<strong>嗯，我想去。</strong>」</p>
+<p>娇玛沉默地继续做着事情，随后头也不回的走向自己的座位。</p>
+<p>[<strong>我为娇玛返还虚零Chronos投资10000N，并派发超级红利50000N。</strong>]</p>
+<p>「<strong>哼！</strong>」走道的少女鼓着腮帮转头怒视而来，娇嗔道，「<strong>谁稀罕你这个臭小子的Chronos，呸呸呸。</strong>」</p>
+<p>[<strong>我拒绝了娇玛组长的50000N虚零Chronos赠予。</strong>]</p>
+<p>几个阿姨叔叔们实在没忍住，好多脑袋从工位上抿着嘴悄悄抬头。</p>
+<p>[<strong>我感觉到好多热情的注视。</strong>]</p>
+<p>[<strong>我想是时候脱离办公室恋情的氛围了。</strong>]</p>
+<p>……</p>
+<p>「<strong>呼~</strong>」杨子藏逃也似的离开了办公室，还好这里没什么私人物品，一件外套就是全部家当了。</p>
+<p>「<strong>接下来休息...算了，我还是直接去清理组报道吧。</strong>」</p>
+<p>他拿出了那张信纸，看着上面的门牌号以及简易地图。</p>
+<p>随着精神力的强度到达「<strong>二环九阶</strong>」，脑海中时不时响起的林海幻听已经淡了许多，不过那种感受却越发醇厚，身心都像是侵泡在林海的风里。</p>
+<p>边走，杨子藏边想着昨日与佐罗的会面。</p>
+<p>没有太多初次相识的疏离感，毕竟名义上两人是有过很多业务往来的合作伙伴，就算装也得装得熟络点。不过除开这点，杨子藏还是挺喜欢那个家伙身上自然透发出的，正经却又带着点「<strong>不恭</strong>」的落拓气质。</p>
+<p>他想到了佐罗昨日的那句话。</p>
+<p>——「<strong>文献库没有你想得那么全面。</strong>」</p>
+<p>虽然那男人的语气很平常，但配合他立即将指头悬在棋盘格子上的动作——那两两相交的线条，分明是想提示自己格子也是「<strong>井</strong>」字。</p>
+<p>而他接下来讲的便是...如何离开这里的情报。</p>
+<p>很隐秘。但从这家伙一开始非要从「<strong>水井失念引擎</strong>」入手来跟自己取得联系，乃至后面只帮自己于各处推销「<strong>水井</strong>」的做派来看，他已经很多次试图给自己种下与「<strong>井</strong>」相关的概念，企图培养出这方面的默契。</p>
+<p>这还是杨子藏昨天看到指头指向棋盘的那瞬间，所意识到的事情。</p>
+<p>「<strong>‘井’与‘离开’的方法，‘井’加‘走’，不就是‘进’字了吗，这个家伙...</strong>」</p>
+<p>前行的杨子藏心中默想着。</p>
+<p>明明制作「<strong>水井引擎</strong>」和询问「<strong>虚零Chronos</strong>」相关的事都是临时起意，但这个人却能立即抓住这个节点，并将之利用。真不愧是能够靠自己的力量，以朴实的方式受到遗失幻境公司邀请的人物。</p>
+<p>[<strong>所以，我有理由猜测，佐罗并有在文献部找到与「<strong>暗金</strong>」与「<strong>引擎</strong>」相关的资料。</strong>]</p>
+<p>他沉思的身影在过道上前行着，一位面容秀气的高挑身材女士出现在前方拐弯处。</p>
+<p>「<strong>你好，子藏先生是吗。</strong>」</p>
+<p>「<strong>是的。你好，我是杨子藏，请问你是？</strong>」</p>
+<p>「<strong>我是第一清理组的后勤人员，负责资料上的事情，我叫周琳娜。之前傅组长给过我关于你的相关资料，所以我一眼就认出了你呢。</strong>」这个女人笑道，「<strong>刚好在这里碰到你，你稍微等下。</strong>」</p>
+<p>说罢她开始埋头在手中的一摞文件夹中寻找起来，没两下便将一份比较薄的拥有黑金纹路的文件夹递给了杨子藏。</p>
+<p>「<strong>这个是？</strong>」</p>
+<p>「<strong>加入第一行动部是一件比较困难的事情，因为组长的推荐你被免去了进入的考核，可以直接加入咱们第一清理组。不过，那也只是后补队员，不能进入精锐团队，也不能在第一行动部内转组。所以，你还要加入吗？</strong>」</p>
+<p>「<strong>第一行动部，第一清理组？</strong>」</p>
+<p>是那个在念力卡带训练场内，观看过自己的组长！</p>
+<p>杨子藏翻看起文件。他对周琳娜所言的事还是能够理解的，毕竟自己也只是个什么都不懂的新人而已。文件上详细写明了关于工作方面的内容，只需要自己确认签字。</p>
+<p>「<strong>这上面说，以念力体进入失频的精神洪流？</strong>」</p>
+<p>「<strong>没错，你听说过‘黑鱼’幻境吗，我们的工作内容与他们有些相似。因为即便是被疏离出的相对安全的波段流中，也是偶尔会跑进来危险的东西的，我们就是负责将之清理与再整合。</strong>」</p>
+<p>杨子藏轻吐了口气，这些日子他从同事口中偶尔听过关于黑鱼幻境公司的事情，能够被选入那里的，都是念能力一等一的高手，或是在这方面有很大潜质的人。</p>
+<p>看来自己能够被选中，应该是自己的精神力在这个时间成长到快要接近「<strong>三环强度</strong>」缘故。</p>
+<p>「<strong>如果子藏先生愿意的话，就签下这份文件吧。</strong>」</p>
+<p>周琳娜浅笑道。</p>
+<p>「<strong>等你成为咱们的组员，就能通过普通的清理任务，来锻炼战斗与累积可换取‘黑金员工卡’的积分。等累积够可兑换到黑金卡，便有资格加入精锐小组参与任务了。</strong>」</p>
+<p>杨子藏看完后，立即便接过笔签起了自己的名字。</p>
+<p>以前还不觉得，但通过对那些波段的捕捞后，杨子藏感叹自己居然还是个倾向于战斗的人。</p>
+<p>「<strong>好啦，欢迎子藏先生的加入。</strong>」女孩笑眯眯地道，「<strong>本月快要结束了，在九月一日前，随时欢迎你来报道喔。</strong>」</p>
+<p>「<strong>我现在就去看下所谓的任务吧。</strong>」</p>
+<p>「<strong>哇，这么着急...不过现在已经到了午饭的时间了呢。</strong>」</p>
+<p>「<strong>......</strong>」</p>
+<p>话虽如此，杨子藏回到宿舍的时候，手中还是多出了张有着一个「<strong>失念引擎</strong>」画面的暗沉相片。被拍下的引擎凝固雾气般充满虚幻感。</p>
+<p>这种引擎难道是...</p>
+<p>随着注视，新更换后的员工卡那淡淡的声音出现心间。</p>
+<p>{<strong>亚以太通道：HJA403区域。若想激活，可以投入1N本金。</strong>}</p>
+<p>{<strong>当前已有4位组员选择本清理任务。</strong>}</p>
+<p>「<strong>这么多人了？果然有‘以太通道’的任务，选择的人都很多啊。</strong>」</p>
+<p>杨子藏笑了笑。据周琳娜所说，这种清理任务意味着通道可能出现在非遗失幻境公司的附近区域。</p>
+<p>那意味着什么？意味着可以公派旅游！说不定还能联系到小马超。</p>
+<p>不过这个东西不能在人们的注视下使用，所以杨子藏拿回到了自己的房间。</p>
+<p>投入1R后，相片瞬间往前炸开，无数细密能量线条扩散而出，形成个两米见方的立方体交错空间。</p>
+<p>空间对面浮现出一片光线朦胧的世界。当杨子藏一步跨入进去后，景色当下鲜明起来。</p>
+<p>已经无人的卧室中，闪动的黑色立方体像是一个黑洞般吸纳着附近的光线，静静悬浮。</p>
+<p>咚咚咚。</p>
+<p>锤门声响起。</p>
+<p>「<strong>在吗，子藏哥哥，我是娇玛。</strong>」</p>
+<p>无人应答。</p>
+<p>小娇玛站在外面看着这房间外的小门牌，上面露出个代表有人在的黄色笑脸图案。</p>
+<p>少女皱了皱眉头，她胸前酒红色的光环亮起。</p>
+<p>「<strong>傅组长你好。</strong>」</p>
+<p>感应画面中是个正躺在一片沙石遍地的躺椅上的男人。</p>
+<p>{<strong>是娇娇组长？你好，这还是我们第一次进行心灵通讯吧，哈，有什么事吗？</strong>}</p>
+<p>「<strong>我想询问，你们给了我的组员转组邀请吗？就是最近加入的杨子藏先生。</strong>」</p>
+<p>{<strong>哦，他呀，有的，我们十天前就做了邀请，哦不对，是七天，诶？</strong>}</p>
+<p>对面沙滩椅上的男人抠了抠脑袋，显然他已经不晓得自己是多少天前邀请的了。</p>
+<p>娇玛小嘴吐出了口郁闷的浊气。</p>
+<p>「<strong>我问了好几个清理组都没问到，我还以为没有邀请呢，原来竟是第一组的傅组长的邀请啊。</strong>」</p>
+<p>{<strong>毕竟是拥有念力攻击能力的组员，他加入对我们的帮助很大。</strong>}</p>
+<p>心灵链接另一端的傅契雍笑了笑。</p>
+<p>{<strong>嗯，刚才我的组员说，他已经开始工作了，第一份工作就是选的有亚以太通道的工作。呵，这小子。</strong>}</p>
+<p>娇玛看了眼那个笑脸，心想难怪里面既然有人却不回应，恐怕是已经迫不及待进入亚以太通道了。</p>
+<p>这一刻她有点释然。</p>
+<p>{<strong>看来娇组长有点舍不得自己的组员嘛，不过没关系，他万一应付不过来，说不定会回去你的组的。</strong>}</p>
+<p>已经转身往回走的娇玛停顿了下。</p>
+<p>「<strong>傅组长为什么这样讲？</strong>」</p>
+<p>{<strong>因为他选择的是403区域，那里的清理任务，对新加入的普通队员来说，是最难的。</strong>}</p>
+<p>「<strong>最难！</strong>」娇玛眼眸微张：「<strong>傅组长指的该不会是，死雾里面那片陆地？</strong>」</p>
+<p>{<strong>没错，就是那里。不过你放心，那里已经被持亲管事给清理过了，没大危险。</strong>}</p>
+<p>娇玛转身看向那道深色的房门，眼中露出复杂的神色。</p>
+<p>清理组的工作再不危险，也不是自己组里那般安全。</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="chapter-043.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="chapter-045.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="chapter-043.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="chapter-045.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="ace.js"></script>
+        <script src="editor.js"></script>
+        <script src="mode-rust.js"></script>
+        <script src="theme-dawn.js"></script>
+        <script src="theme-tomorrow_night.js"></script>
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

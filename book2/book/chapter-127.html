@@ -1,0 +1,330 @@
+<!DOCTYPE HTML>
+<html lang="zh" class="coal sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>第一百二十七章 美好未来 - 魂孪英旅 下 魔齿磨轮</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "coal" : "coal";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('coal')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">魂孪英旅 下 魔齿磨轮</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="第一百二十七章-美好未来"><a class="header" href="#第一百二十七章-美好未来">第一百二十七章 美好未来</a></h1>
+<p>只有开启这扇通往魔喉之殿的最终大门，才能得知这最为关键的消息。</p>
+<p>一股酥麻从两人背脊窜至头颅。他们一起想到了一个可能！</p>
+<p>如果抵抗失败，抵御者可能会携带它转化的声波军队离开魔英殿！</p>
+<p>[<strong>地霞眠寝共鸣度10%</strong>]</p>
+<p>胸前四边形Moxel微微闪烁，正要步入通道的杨子藏忽地听到一阵摩托声传来。</p>
+<p>他扭头看去，摩托的轰鸣中，一道身穿黑色皮衣的身影骑着摩托出现。</p>
+<p>脚步声随后传来，背负长剑的赵雪美英姿出现在摩托车后方的走廊中，她看了眼淡漠扫来的赵云，望向杨子藏道：「<strong>我跟你一起。</strong>」</p>
+<p>「<strong>子藏哥哥，这是大家带给你的各种能制造声波屏障，以及紧急治疗的能力球，</strong>」身穿紧身皮衣，戴着黑头盔的少女将一袋能力球丢向杨子藏，嗓音清秀地道：「<strong>你有没有什么东西需要我带送的？</strong>」</p>
+<p>还真有一个，杨子藏迟疑地将手伸进衣兜，可是这个东西过于贵重。</p>
+<p>一道折线扩散而来。</p>
+<p>{<strong>杨子藏，我是李弥，接下来所有的一切你都可以放心托付给我们。</strong>}</p>
+<p>「<strong>天啊，是那个卫星的岳父。</strong>」</p>
+<p>并不晓得李弥为何许人也的众人议论地道。</p>
+<p>「<strong>他跟杨子藏也认识吗？</strong>」</p>
+<p>{<strong>所有人不可动杨子藏的朋友，遗留的任何物品，乃至那份石棺。否则我会出手清理。</strong>}</p>
+<p>「<strong>我就知道，我就知道！刚送走一个飞将吕布，又来个岳父李弥！</strong>」</p>
+<p>城市里的人喧嚣。</p>
+<p>杨子藏对这位小姐的装扮有印象。戴头盔的少女冲他点点头，像是在认同李弥的话。</p>
+<p>「<strong>有一个东西，请你送给梁喜。</strong>」</p>
+<p>说罢，杨子藏将某个黑乎乎的东西一抛，落入了女孩掌中。</p>
+<p>接过这小东西的少女身体一怔，「<strong>你...好。那个弟弟对吧，我会带给他。</strong>」</p>
+<p>「<strong>嗯…</strong>」杨子藏迟疑了一秒后，继续道，「<strong>还有，告诉他，有个叫小离的女孩可以跟他一起到陈老师那里上课。</strong>」</p>
+<p>「<strong>欸？嗯~我会把话带到的。</strong>」少女不明白为什么这种关于上课的事情不是去找负责人，而是要告诉那个弟弟。</p>
+<p>自己这句话肯定会传到小离的耳中吧，杨子藏默默地想到，就算是自己离开前给不长眼的人留下个无声威胁好了。</p>
+<p>摩托快速转弯，她的一只曲线弧美的长腿撑在地上，扭头道：「<strong>我叫夜机小姐，来自废都。如果你成功...嗯，加油好啦。</strong>」</p>
+<p>说罢，夜机小姐收腿一蹬，恶魇摩托车「<strong>唔喔</strong>」地叫了声，快速自墙上冲了出去。</p>
+<p>来自眼球喇叭的压迫越来越大。</p>
+<p>两人带领着几名实力能够抵抗音波的人进入通道。</p>
+<p>魔英殿内各处的人们静静观看与等待着，一路出现的幻影怪物被那只骷髅、以及随机凭空出现的虚焰长枪快速剿灭，无数人在评估着自己与对方的差距。</p>
+<p>最后发现差距极其之大。</p>
+<p>「<strong>这些东西都是你设计的吗？</strong>」</p>
+<p>通道内，面对程允泽的询问，杨子藏摇摇头。</p>
+<p>「<strong>我没有搞这么大难度。</strong>」</p>
+<p>「<strong>这魔英殿还真是你搞的！</strong>」</p>
+<p>听到杨子藏亲口承认，四相天团跟进来的三人气不打一处来。</p>
+<p>「<strong>哼，谁让你们要申请这东西的。</strong>」杨子藏的语气中不乏杀意。</p>
+<p>随着这群人的进入，殿内等待的一些人走到门口，一些人的手很自然的撑住探头往里看，随后心中突地响起那道心念提示。</p>
+<p>[<strong>我，神秘的三角形，作为开启塞克伯德门扉者，有资格知晓「<strong>塞克伯德的无名守护者</strong>」已掌控两只军种小队。</strong>]</p>
+<p>同时威严声音再次响起。</p>
+<p>[<strong>「<strong>塞克伯德的无名守护者</strong>」将掌控自己的私人军团，获得成为魔英殿主的资质。</strong>]</p>
+<p>「<strong>抵御者在创造军团！</strong>」这人一声惊叫！</p>
+<p>「<strong>靠啊，我们要面对的是一支军队？</strong>」</p>
+<p>「<strong>是军团！</strong>」</p>
+<p>强烈的危机感瞬间在众人心间升起。要是那所谓的军团真被抵御者全部掌控，这魔齿磨轮肯定会成为魔物肆虐的战场。所有进入的人都得完蛋！</p>
+<p>「<strong>外面的大家别互相攻击了啊，死了就成抵御者的声波傀儡了！</strong>」</p>
+<p>「<strong>希望军团不会跑出魔齿房间。</strong>」</p>
+<p>联想到抵御者掌控军团成功，将拥有成为「<strong>魔英殿主</strong>」的资质，两座城的人心中都很暗沉。</p>
+<p>在平时，好些B级与A级异度空间的强大怪物，都有可能突破异度空间出现在城市中，这样高等级的魔英殿，没道理不会出现那种状况！</p>
+<p>若所谓的魔英殿主拥有了成为魔英殿主的资质...</p>
+<p>好些观看着此地状况的人立即感觉一阵头皮发麻，他们已经开始审视自己想要魔英殿同样降临到自己城市的想法，是不是真的是个好主意了。</p>
+<p>......</p>
+<p>清理干净通道上涌现的各种怪物，赵雪美走上前触摸挡在路上的这个石闸门。</p>
+<p>程允泽审视着杨子藏身边唯一跟来的人，她身上散发淡淡幽冷，眼眸清澈如冰下甘泉。</p>
+<p>「<strong>这位小姐，你在做什么？</strong>」程允泽问向她。</p>
+<p>「<strong>感知。</strong>」赵雪美身上的幽寒之气消泯，「<strong>前面有东西在等我们。</strong>」</p>
+<p>箜箜！</p>
+<p>闸门被王纯找到机关打开，还未完全开启，几条豺狼虎豹般的声波能量体就冲了出来！</p>
+<p>「<strong>呜呃~</strong>」</p>
+<p>「<strong>吼~</strong>」</p>
+<p>关注到这里的人看到那密密麻麻的攻击，都不寒而栗。</p>
+<p>通道后方一队人跑进来。</p>
+<p>「<strong>如果只是这些东西，这里就交给我们吧！</strong>」</p>
+<p>时间不等人，不能在这里浪费太久让里面的魔物转化更多的声浪战士。</p>
+<p>「<strong>那我们继续了。</strong>」</p>
+<p>几人在赶来的十来人接力攻击中，抽出身前往幽暗通道更深处。</p>
+<p>阴森呓语在耳边不断响起，前方一缕微光晃动，如同水波之后的摇晃门帘。</p>
+<p>「<strong>有人！</strong>」</p>
+<p>{<strong>你叫杨子藏，而你叫程允泽。</strong>}</p>
+<p>待几人走近发现，一道女人的身影轮廓矗立在门洞前。</p>
+<p>这面目模糊的女人怪异的心念声道。</p>
+<p>{<strong>你们这点实力，根本无力抵抗我。留下来吧，成为我军的大将军，成为真正守护这座城市的人。</strong>}</p>
+<p>赵雪美快速挥剑冲了上去，寒冰与铁剑对这样的声波能量体伤害虽不是最大，但至少不像对念力体一样毫无作为。</p>
+<p>谁知轰地下，这道身影迅速爆发出数十个扩散出的影像，如同它们一直重叠在一起等待着人的靠近！</p>
+<p>它们不是活人，自然也没有念力体供人攻击，但程允泽的月天使极速闪烁上去，几乎一抓一个，迅速清理着这些波段幻化的人形。</p>
+<p>咔嚓嚓嚓！</p>
+<p>寒冰扩散，嘭地碎开，雪花飞舞中，十数个能量人形炸开。</p>
+<p>但更多的重叠影像涌来，仿佛要堆满隧道。</p>
+<p>外面通过融资链接看着这一幕的无数人，心中震颤，这疯狂涌上来的潮水般的能量人影居然伪装成一个人！还真是阴险。</p>
+<p>嘭！程允泽迅速捏爆了个蕴含声波防御的能力球。</p>
+<p>杨子藏握拳收臂，一拳轰出，空气暴鸣！</p>
+<p>「<strong>爆风拳！</strong>」</p>
+<p>拳头上的风浪霍然冲至人影堆里，爆炸扩散掀起风浪。</p>
+<p>[<strong>我抵消了2399N！</strong>]</p>
+<p>[<strong>我抵消掉了7421N！</strong>]</p>
+<p>[<strong>我抵消了12038N！</strong>]</p>
+<p>嘭隆！</p>
+<p>爆风拳携带爆鸣橙色辉光风暴，一拳就将前方的重重人影打得碎裂。</p>
+<p>[<strong>我返回32人投资的32000N.</strong>]</p>
+<p>[<strong>刘建中为我投资1200N.</strong>]</p>
+<p>[<strong>李荣选为我投资4800N.</strong>]</p>
+<p>[<strong>王思敏为我投资329N.</strong>]</p>
+<p>仿佛风暴扩散，连带通道中浮动的晃动能量层都搅动得冲出了洞门，在前方空间中狂放爆开。</p>
+<p>融资Moxel中瞬间炸开了锅，被几人连吼安静才消停下来。</p>
+<p>通道中强烈的负压让三人身形摇晃、衣衫猎猎作响。</p>
+<p>「<strong>真羡慕你们的秘技。</strong>」张拳头哪壶不开提哪壶地道。</p>
+<p>杨子藏收回打出的这一拳，淡淡看了这个男人一眼。</p>
+<p>一道声音在众人心间响起，听上去像是自前方的通道后方传来。</p>
+<p>{<strong>不错，没想到...是「<strong>地球</strong>」对吧，没想到来自地球那个世界的你们，能很快成长到这样的强度。</strong>}</p>
+<p>音响般嘹亮的惨叫声从前方的空间传来，它在共鸣，在震动！</p>
+<p>又一道人影冲来，瞬间它扩散而开变成无数张牙舞爪的声浪之人身体！</p>
+<p>轰！通道内再次爆发狂暴的气浪。</p>
+<p>[<strong>我，伟大的四边形，返还15位Chronos投资人的40000N，我很遗憾没有分润任何红利。</strong>]</p>
+<p>[<strong>王琴为我投资127N。</strong>]</p>
+<p>[<strong>赵铨安为我投资478N。</strong>]</p>
+<p>[<strong>我获得猎怪者阵营董事会29999N投资。</strong>]</p>
+<p>[<strong>杨千为我投资2100N。</strong>]</p>
+<p>[<strong>李宇轩为我投资1272N。</strong>]</p>
+<p>[<strong>我获得其他12人共计40000N投资。</strong>]</p>
+<p>又一人从身后通道中跑来，三人回望，是名红Moxel的人。</p>
+<p>「<strong>我来给你们开力场，我刚刚已经将力场格位提升到百位了。</strong>」</p>
+<p>「<strong>好。</strong>」杨子藏点点头，「<strong>最好扩展到千位！</strong>」</p>
+<p>[<strong>地霞眠寝共鸣度20%</strong>]</p>
+<p>穿过通道，前方大殿中一名能量化的人盘坐于地，三道眼球喇叭在他上方旋转，散发着肉眼可见的声波能量，维持着它的凝实体型。隐约可见到，他穿着黑甲，是名身材魁梧的战士。</p>
+<p>「<strong>这些能量体的外观在变得真实。</strong>」众人道。</p>
+<p>这名战士闻声望来，它的喉咙震动，以众人能听懂的语言道：</p>
+<p>「<strong>这个世界没有任何意义。加入我的军团，带给这片世界的人真正的美好未来。</strong>」</p>
+<p>「<strong>美好未来？</strong>」</p>
+<p>「<strong>成为集体的一部分！</strong>」</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="chapter-126.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="chapter-128.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="chapter-126.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="chapter-128.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="ace.js"></script>
+        <script src="editor.js"></script>
+        <script src="mode-rust.js"></script>
+        <script src="theme-dawn.js"></script>
+        <script src="theme-tomorrow_night.js"></script>
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

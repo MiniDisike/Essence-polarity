@@ -1,0 +1,342 @@
+<!DOCTYPE HTML>
+<html lang="zh" class="coal sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>第九十九章 他就是个间谍 - 魂孪英旅 下 魔齿磨轮</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "coal" : "coal";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('coal')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">魂孪英旅 下 魔齿磨轮</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="第九十九章-他就是个间谍"><a class="header" href="#第九十九章-他就是个间谍">第九十九章 他就是个间谍</a></h1>
+<p>「<strong>如果公司不惜为了数万人的生命与数十万人的信任而铤而走险的话。</strong>」</p>
+<p>「<strong>虽然很小，但这个可能性也是有的...</strong>」</p>
+<p>众人点头，大家虽心向公司，但没人会傻到觉得自己可以在议会面前作伪证。</p>
+<p>「<strong>不好意思，克罗夫特先生。</strong>」</p>
+<p>「<strong>嗯？</strong>」怪人扭头，那封皱巴巴的合约漂浮在自己身后。</p>
+<p>「<strong>我们签约的魔英殿，跟你这合约里的，完全不同。</strong>」</p>
+<p>克罗夫特震惊的目光落在观察员身后的惜云身后，他这位好友早就用脸捂爪，不敢抬头看他。</p>
+<p>蒙西干事体贴地走来，轻轻搀扶着脑袋嗡嗡的他，低声在其耳边道：</p>
+<p>「<strong>我们知道，克罗夫特先生也是在为我们着想，怕我们上当受骗。但您放心，我们早就调查清楚了，请放心见证这一刻的到来吧。</strong>」</p>
+<p>克罗夫特不知道自己是怎么回到椅子上坐下的，好像是被人抱起来放到了椅子上。</p>
+<p>他只觉得自己的精神已经死亡了一般，只剩个躯壳还在这里，听着不知所谓的嗡嗡呓语。</p>
+<p>什么热烈欢迎波波利先生，什么感谢大家的帮助，什么感谢大家的见证，什么常驻型魔英级竞技城...</p>
+<p>等等！</p>
+<p>什么叫常驻型魔英级竞技城？！</p>
+<p>他豁然抬起头来。</p>
+<p>只见一片虚影浮现在大殿中，它只有外部轮廓，是一个个旋转齿轮的单色线条。</p>
+<p>「<strong>从我接到遗失幻境公司的制作邀请后，我就在想，该怎么做才能在如此短的时间内，建造出一座魔英殿。</strong>」</p>
+<p>少年的声音紧张地响起，「<strong>毕竟，时间只有一个月二十多天。</strong>」</p>
+<p>「<strong>哇哦！</strong>」下方众人疯狂拍手。</p>
+<p>古管事也动容。</p>
+<p>他在几小时前才知道自己公司又单独申请了一座魔英殿的事情。</p>
+<p>虽然路上大概了解了下，当时就感觉不可思议，此刻听到波波利的话，他还是觉得的震撼。</p>
+<p>这简直就是真正的不可能完成的任务。</p>
+<p>但他完成了。</p>
+<p>金先生也惊异不已。</p>
+<p>被自己忽略的小地方居然玩得这样野。</p>
+<p>昨天收到这样的申请后，议会评审团顿时惊为天人。</p>
+<p>这个方案太适合这里了。</p>
+<p>这样的场景，随便换换就能成为一座新的魔英殿，而且哪怕你知道其中的某些窍诀也无法带来实质性的通关帮助。因为每一次的进入都是随机的，房间也是可以轻易打乱更换的。</p>
+<p>而此刻，金先生才晓得，这个设计居然是一个月前才开始，还是个连魔英殿是什么都不知道的年轻人进行主导。</p>
+<p>「<strong>一个月？他是隐藏的大设计师？</strong>」克罗夫特看向少年。</p>
+<p>金首席不由自主地问道：「<strong>请问，你是如何在短时间内学会些的呢？是天赋吗？</strong>」</p>
+<p>「<strong>嗯，我的Moxel能力帮助了我。</strong>」</p>
+<p>波波利有点不好意思的拿起个能力球。</p>
+<p>「<strong>幻境公司里很多人帮我背诵了数本制作手册，所以我才能够在接近两天的时间内，快速学会这些珍贵的知识。</strong>」</p>
+<p>能力球的幻影被投放在会议大殿内，「<strong>代练契约</strong>」的能力映入众人眼帘。</p>
+<p>「<strong>原来如此。</strong>」金首席拍起手来，「<strong>能如此娴熟的运用，你真是个天才。</strong>」</p>
+<p>克罗夫特一下瘫软的靠在椅背上。</p>
+<p>会场中一片哗然。</p>
+<p>人群中一些人惊喜的暗自挥舞手臂，某些人快速与自己未到场的朋友进行心灵链接，告诉他们错过了怎样的一幕。</p>
+<p>[<strong>阿橙，你绝对想不到，一个多月前我们顺手背过的那几页纸，创造了怎样的传奇！</strong>]</p>
+<p>{<strong>什么意思？</strong>}</p>
+<p>[<strong>你自己看吧！</strong>]</p>
+<p>越来越多的人发动心灵链接。</p>
+<p>「<strong>请问！</strong>」在这设计师阐述自己设计理念的环节，一人抬手道：</p>
+<p>「<strong>波波利先生，我很好奇，为什么它是齿轮的。</strong>」</p>
+<p>「<strong>这就是我要说的事情了，那些齿轮里面就是一个个失频频谱展开后的场景。为了节约时间，我将它们全部弄成一模一样的尺寸。</strong>」</p>
+<p>听到这里，金先生和克罗夫特瞬间就明白了这样的好处。</p>
+<p>他们都是经验丰富的人，只是一秒，这样的设计带来的灵巧与便捷就更多的浮现在他们心中。</p>
+<p>「<strong>原来是这样...</strong>」克罗夫特低语，他脑海中已经展开了更多的设计。</p>
+<p>波波利在台上说到自己的设计理念，之前的胆怯与局促逐渐消失：</p>
+<p>「<strong>这些房间可以随意被拆卸...</strong>」</p>
+<p>「<strong>只要大家愿意，你们每人都能...</strong>」</p>
+<p>众人感叹不已，换作他们，学会那些手册内容也想不出来。</p>
+<p>这里至少三分之一的人是都这次「<strong>魔英殿特别行动组</strong>」的人，他们知道摆放场景的困难。</p>
+<p>那是成千上万个三维坐标。一点不对劲就会与其它场景发生碰撞，还要解决它们之间的间隙，牵一发而动全身。特别是在拆分修改的时候，简直是精神的地狱。</p>
+<p>但眼前这组合，随便拿一块组装到圆盘的凹槽上都不会出错。</p>
+<p>它既可以是一号盘的部件，也可以是五号、十号转盘的部件！</p>
+<p>金先生接过话道：</p>
+<p>「**所以，这样的设计思路，让我们也惊叹，因为这种设计，完全可以成为在命运轨迹之外，在你们这种城市的竞技中，作为保留设计。</p>
+<p>“它简便易做，以后若有新的城市申请最高难度的排名战，那么它完全可以略加修改就重新出现。**」</p>
+<p>众人纷纷再次鼓掌喝彩。</p>
+<p>「<strong>所以，这次我们签约的魔英级竞技城，就是有史以来第一座可以反复使用的竞技城！</strong>」</p>
+<p>克罗夫特终于明白，所谓见证与光荣是什么了。</p>
+<p>同时，克罗夫特快速地通过自己的资源，收集着关于波波利的信息。</p>
+<p>这家伙不是来自新命运轨迹，所以所谓的波波利应该是这里的人，甚至这魔英殿很可能是他的第一个作品！</p>
+<p>他是谁！</p>
+<p>{<strong>查到了，老师。</strong>}</p>
+<p>[<strong>这么快？</strong>]</p>
+<p>{<strong>因为他就是您之前想要带上命运轨迹的，那位小师弟的队友。</strong>}</p>
+<p>在波波利不断介绍的声音中，克罗夫特目光顿住。</p>
+<p>这位怪人微低头地看向眼前梦幻般的感应画面。</p>
+<p>[<strong>杨子藏的队友？</strong>]</p>
+<p>{<strong>是的。</strong>}</p>
+<p>克罗夫特只觉得鼻子中有岩浆的热浪在喷涌。</p>
+<p>{<strong>而且就在刚才我们已经从议会建筑部确认到了新魔英殿的设计。这座竞技城就在几个小时前才通过，设计者签名是「<strong>朴明集团首席波波利</strong>」与「<strong>星光幻境</strong>」联合设计。</strong>}</p>
+<p>「<strong>这怎么可能！</strong>」</p>
+<p>克罗夫特当然知道杨子藏是才来半年的人。</p>
+<p>杨子藏的队友实力上甚至都还不如他。因此了解了杨子藏的资料后，克罗夫特非常满意这种运气好又充满干劲的小伙子。</p>
+<p>可此刻，克罗夫特感觉自己太失败了。</p>
+<p>看走眼了！</p>
+<p>这是个不折不扣的反骨仔、间谍！</p>
+<p>克罗夫特想起来了，最后这个设计师进场前，杨子藏和娇玛在这黄毛小子之前才到。</p>
+<p>这三个人是一伙儿的。</p>
+<p>「<strong>是杨子藏这个家伙干的好事！</strong>」</p>
+<p>怪人鹰一样的眼光扫向杨子藏，又落到门口的红之总干事身上。</p>
+<p>对方早就在注意自己的表现，瞧见克罗夫特终于看向来自己过后，幻保儿昂起下巴，仿佛得胜的小黄雀。</p>
+<p>「<strong>是你们这些家伙干的好事吗！可恶的东西啊！</strong>」</p>
+<p>调查过杨子藏经历与秉性的克罗夫特早就对其了如指掌，甚至就连申请魔英级考核的人是谁都清楚，自然晓得这魔英殿的参与者是哪两座城！</p>
+<p>他原本还想将这个作为礼物送给杨子藏，以感动他跟自己离开！</p>
+<p>结果这是个遗失幻境公司的「<strong>间谍</strong>」！</p>
+<p>远处的幻保儿感觉克罗夫特气得都快昏厥过去了。</p>
+<p>她心想，这位干事不是心理素质极端的高吗？</p>
+<p>他已经彻底降伏了属于自己的Moxel，怎么这会全身抖得跟便秘似得。</p>
+<p>[<strong>你们几个，马上，立即向议会报告。</strong>]</p>
+<p>{<strong>老师，报告什么？</strong>}</p>
+<p>[<strong>杨子藏他不是早就叫嚣年底离职吗！他可能会在几天后的竞赛中作弊！把我搜集到的关于他的资料快点递上去，快点！告诉议会，那个魔英殿就是他所在城市的战场！</strong>]</p>
+<p>克罗夫特在心中盛怒道！</p>
+<p>[<strong>他就是个不折不扣的间谍！他在为他的城市排名偷取竞赛情报，全部的情报！</strong>]</p>
+<p>因为遗失幻境公司还未有过魔英殿，所以相关规章不全。</p>
+<p>这是个极其严重的泄密事件。</p>
+<p>克罗夫特工作室那边得到信息的组员马不停蹄地开始上报议会。</p>
+<p>「<strong>哼哼。</strong>」克罗夫特抬眼看向正在签约的几人，又看向悬浮在空中的【常驻型魔英级竞技城架构】，脸上露出抹充满怒色的微笑。</p>
+<p>虽然这个竞技城房间是随机的。但毕竟这是杨子藏一行制作出来的竞技城，万一他们留有某种暗门。</p>
+<p>比如在什么时间从某个门进入，以计算好的时间通过房间，就可以轻易到达最终竞技之地。</p>
+<p>不管这种可能存不存在，只要把这个消息报告上去，议会绝对会尽最大可能去阻止这种情况的发生！</p>
+<p>自己算是给议会堵住了个漏洞。</p>
+<p>「<strong>哼哼。</strong>」克罗夫特重新变得轻松地靠着椅子，他丝毫不在紧张于当前的签约事件，反而像是享受这幅画面似的。</p>
+<p>桌子上其他人好奇的看着这位刚刚还情绪激动的干事，现在又变得轻松。</p>
+<p>远方的幻保儿见此皱了皱眉。</p>
+<p>「<strong>难道这老东西还能耍花招...不，已经尘埃落定，他不...不会再有机会的了。</strong>」</p>
+<p>签约席上。</p>
+<p>波波利看着手上的合约，上面已经签下了两个名字。</p>
+<p>——圣环议会金首席，金方卯。</p>
+<p>——遗失幻境公司星光幻境管事，古青泉。</p>
+<p>接下来就是自己的了。</p>
+<p>波波利深吸口气，拿笔快速在这两道行云流水般的字迹下的空缺横线上，以狗啃般的字迹写下了「<strong>朴明集团首席董事波波利</strong>」几个歪斜汉字。</p>
+<p>这是杨子藏和莫里以及自己商议后的留名。</p>
+<p>以后自己的队伍，三人就自称「<strong>首席董事</strong>」。</p>
+<p>任何重大决策，都要三人同时点头同意才能进行。</p>
+<p>现在，是这只队伍，登上重大舞台的第一次闪耀时刻！</p>
+<p>随着字迹落下，三份合约在助手的帮助下不断轮换着再次签写。波波利越写越流利，这种感觉，真棒！</p>
+<p>砰砰！</p>
+<p>彩带自大厅上空如雨落下。</p>
+<p>三人站起身，以古干事为核心，三道身影交叉着握手，大厅各处爆发出热烈掌声。</p>
+<p>咔嚓，前方闪光灯闪烁。</p>
+<p>一人咧着牙半蹲着举着照相机，将这一幕记录下来。</p>
+<p>侧方边缘席位上，克罗夫特昂首拍掌，看着这一切。</p>
+<p>「<strong>这是对我的记录。</strong>」</p>
+<p>他嘴角微翘。</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="chapter-098.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="chapter-100.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="chapter-098.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="chapter-100.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="ace.js"></script>
+        <script src="editor.js"></script>
+        <script src="mode-rust.js"></script>
+        <script src="theme-dawn.js"></script>
+        <script src="theme-tomorrow_night.js"></script>
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

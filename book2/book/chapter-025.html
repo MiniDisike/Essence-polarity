@@ -1,0 +1,324 @@
+<!DOCTYPE HTML>
+<html lang="zh" class="coal sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>第二十五章 坠入 - 魂孪英旅 下 魔齿磨轮</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "coal" : "coal";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('coal')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">魂孪英旅 下 魔齿磨轮</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="第二十五章-坠入"><a class="header" href="#第二十五章-坠入">第二十五章 坠入</a></h1>
+<p>这段时间，林思特感觉自己成为了玫瑰溪的名人。</p>
+<p>虽然他们不当面讨论，但那些女孩的笑声与窃窃私语，还有些工队成员看自己的怪异眼神，都让这个矮小的男子知道，自己半个多月前那晚的表现，已经被很多人所熟知了。</p>
+<p>宁肯舍命也要让敌人失去胁迫手段的玫瑰女王徐爱媛，最终发现是念力场而调转枪头刺向自己的大甲方货队长杨子藏，以及...能够破除真实降临念境力场的自己。</p>
+<p>都成为了大家私下讨论的对象。</p>
+<p>前两位还好，轮到自己后...那晚的某些深情话语，已经都被人倒背如流。这让林思特感觉不论走到哪里都仿佛在备受煎熬，有时候都想给自己两个巴掌，没事当着那么多人表什么白，现在正主就在那殿中，更不敢再过去了。</p>
+<p>「<strong>唉！</strong>」倒塌的砖墙下，林思特将手中土砖丢到一旁，一屁股坐在拿来当木座的房梁木上，拿起水瓶咕咚喝了两口，抹了抹头上的汗。</p>
+<p>「<strong>漫漫时光长河，谁会最终留在身边，只有天知道。</strong>」</p>
+<p>脚步声传来，瘦小男人抬头看去。</p>
+<p>一道戴着淡褐色眼镜，身穿干净白色衣衫的人出现在这处倒塌的城墙外。</p>
+<p>「<strong>你是谁，进这里请报备。</strong>」</p>
+<p>林思特凝重的盯着这位打扮得如同明星的来人，在失频之地上有这种穿着，基本都是拥有很厉害或诡异能力的存在。不过现在自己不怕了，因为莫里先生给了自己非常强大的秘技。</p>
+<p>「<strong>你好，林思特先生，我是专程来找你的。</strong>」</p>
+<p>「<strong>找我？</strong>」瘦小男子愣了下，自己跟对方一比，就是个脏兮兮的小土豆，大家是两个世界的人。</p>
+<p>「<strong>我来自遗失幻境公司。我名禹彼方。</strong>」</p>
+<p>「<strong>喔，又是遗失幻境公司啊，你们不是已经找过我了吗。</strong>」</p>
+<p>「<strong>哦？是星光幻境吧。</strong>」禹彼方轻笑了声，「<strong>我不是它们，我来自另一个遗失幻境公司，我们叫做黑鱼。</strong>」</p>
+<p>「<strong>那是做什么的，也是提取与引导交错空间信息波段的吗。</strong>」</p>
+<p>禹彼方也蹲下了来，随手从旁边拿了两块砖头垫在屁股下面坐下后，说道：</p>
+<p>「<strong>在我们曾经的世界，无数失念波段如泛滥洪流。如果说星光幻境就像那治理河道，将洪流分出细微枝节，把被驯服的水流引向干枯大地的疏水工。那么我们，则是深入洪流寻取宝藏的寻宝者。</strong>」</p>
+<p>林思特一听就明白了个大概。</p>
+<p>「<strong>你们的工作更危险？</strong>」</p>
+<p>「<strong>是的，以念力体行走各种毁灭般的洪流波段之中，是非常非常危险的事情。</strong>」</p>
+<p>全身白色西服的禹彼方点头道：</p>
+<p>「<strong>那里可能会碰到恐怖如太阳风暴般的念力波段，但也可能获得璀璨钻石般的丰厚回报，一次意外可以让你沉入地狱，也能让你赚到如天堂珍宝般的财富。因此你要谨慎考虑。</strong>」</p>
+<p>自己在十多天前就已经收到过遗失幻境公司的入职邀请了。那个时候的林思特想也没想就拒绝了对方。他只想守在玫瑰溪，以自己的力量保护玫瑰女王。</p>
+<p>但接下来这半个月，林思特已经感受到越来越多的议论压力，毕竟自己是个一直隐藏的四边形Moxel。而且他也听说了当时在念力场中，杨子藏后面的表现。</p>
+<p>那样的实力，自己根本比不了。</p>
+<p>他已经清醒的自问，有时候自己想要给予的守护，可能只是一厢情愿而已。</p>
+<p>「<strong>如果我加入你们，可以再回到这里吗？</strong>」林思特对着身前戴着眼镜的男子询问。</p>
+<p>「<strong>不可以。</strong>」</p>
+<p>「<strong>那我拒绝。</strong>」</p>
+<p>「<strong>你不用这么快做出回应。</strong>」</p>
+<p>禹彼方从衣兜里取出份类似星光幻境的邀请函递给了男人。</p>
+<p>「<strong>另外这个给你代步，毕竟穿越‘死雾’，没有交通工具可是不行的。</strong>」</p>
+<p>林思特看着男人递给自己的一个小丝巾。</p>
+<p>[<strong>我获得了未知复制品一号，剩余可使用时限，好像还有三日。</strong>]</p>
+<p>「<strong>这不是杨子藏的...</strong>」</p>
+<p>「<strong>服装飞毯化是一项非常古老且秘密的炼金术。很巧的是我们公司恰好有在‘失念洪流’中成功打捞过这种秘术的部分配方。虽然距离修复出像杨子藏先生手中，那种珍贵级物品的路还非常遥远，但这种暂时化的物件还是能够制造出来的。</strong>」</p>
+<p>「<strong>哇哦。难怪。</strong>」</p>
+<p>林思特抚摸了下手中的丝巾，他能感受到如何使用这东西。</p>
+<p>禹彼方起身看了眼周围忙碌修复建筑的人影们。</p>
+<p>「<strong>地球缺少了这么多人，依旧每年三百六十五天的旋转。哼哼，小伙子，不要被荷尔蒙给骗了。</strong>」</p>
+<p>男人冲瘦小的林思特笑道：</p>
+<p>「<strong>总之，若决定入职，就在两天内出发吧。在遗失幻境公司，你的实力提升会很大。而且精神力增强后，别人看你都会觉得你非常帅哦！</strong>」</p>
+<p>「<strong>什，什么？</strong>」林思特抬起头。</p>
+<p>「<strong>我替公司期待你的加入，再下告辞。</strong>」</p>
+<p>这人转身一步步离开，就像普通人，走了好一会儿才走出老远距离，身影越来越小。</p>
+<p>林思特站起身，看了眼身后的大殿，又看向已经消失在西南方的那道身影。</p>
+<p>咬了咬牙，他将丝巾一杨，嘭地声丝巾化为了张飞毯漂浮。</p>
+<p>林思特深吸口气，在周围人的诧异目光中坐了上去，一下飞起老高，嗖地冲向远方。</p>
+<p>没多久下方的禹彼方注意到了来自天空的注视，他抬头捏了捏眼镜架，冲上面挥挥手，笑了笑后继续步行。</p>
+<p>林思特愕然想到，对方居然没直接消失。这种存在不是应该直接借助什么能力立即回去的吗。</p>
+<p>飞毯速度降了下来，悬浮在不高处。</p>
+<p>「<strong>要一起走吗？</strong>」林思特问道。</p>
+<p>「<strong>不用，我走路就行了，要不了几天。</strong>」</p>
+<p>「<strong>几...天？难道你是一直走路过来的？</strong>」</p>
+<p>「<strong>对啊。</strong>」</p>
+<p>林思特闻言感觉大脑宕机了下，随后嘴角扯了扯，「<strong>好吧...那，阁下保重。</strong>」</p>
+<p>「<strong>谢谢，咱们月末再见。</strong>」</p>
+<p>......</p>
+<p>「<strong>死亡便是救赎吗？如果我还能有愿望，请代我…继续在这永恒的地狱之中挣扎...</strong>」</p>
+<p>剧烈的爆炸中，一只血肉翻卷的手臂伸出，用尽力气将手中的半卷残破的卷轴递给他身前的那人，然后一把推出——</p>
+<p>「<strong>去吧！我们是这个世界上最强佣兵，没有完成不了的任务！去吧！代替我这个队长，将它代回…</strong>」</p>
+<p>画面带着抖动迅速坍缩，仿佛倒放的爆炸画面。女人猛地睁开眼睛，心跳如鼓，额头上渗出细密汗珠。</p>
+<p>飞机引擎的轰鸣声逐渐取代了梦中的爆炸声。</p>
+<p>她深吸一口气。又做这个梦了，这些往事，不论过了多久，也还是无法忘却啊。</p>
+<p>几分钟后，看着还很深的夜色，女人揭开被子，从床上下来，赤脚走到了门口。</p>
+<p>[<strong>为什么在这里，还是不喜欢穿鞋子。</strong>]</p>
+<p>[<strong>或许只有这种脚踏实地的感觉，才能让人安心。只有这样，才能感受到，大地还存在着…</strong>]</p>
+<p>她拖着小行李箱走至隔间中段，手一抬就将门给推开了。</p>
+<p>洪灏承熟睡的身体胡乱地夹着被子，将自己甩在床边，随时都可能掉下来似的。</p>
+<p>「<strong>已经是十四号了。</strong>」</p>
+<p>她走过来坐在男人身边，轻轻抚摸着洪灏承的脸颊，指尖微触着划过皮肤，仿佛在确认他是真的存在着。</p>
+<p>「<strong>你会做到吗...</strong>」</p>
+<p>她更用力了丝抚摸的力道，眼中浮现难以察觉的悲色...旅程的终点，不是想象的那样美好。</p>
+<p>洪灏承的呼吸很平稳，他的睫毛微微颤动，似乎在梦中回应着她的触碰。</p>
+<p>「<strong>老公的样子，还真是好看呢。我或许知道，为什么会在未来与你结婚了。</strong>」</p>
+<p>感受到抚摸与这道黑暗中轻灵的声音，这半个月来舟车劳顿的男人迷糊张开眼，他见到温柔的身影坐在自己身侧。</p>
+<p>「<strong>你，又想做什么。</strong>」</p>
+<p>她起身蹲下来，脸刚好和床上的男孩齐平。</p>
+<p>「<strong>我想带我老公去一个地方。</strong>」</p>
+<p>「<strong>什么，哪里？我们这半个月哪里还没去过？</strong>」</p>
+<p>她露出好看的笑容，然后站起身来，缓缓解下自己的轻纱。</p>
+<p>洪灏承眼睛都直了。</p>
+<p>他缓缓咽了口唾沫，看向女人的倩影道：「<strong>你，你不会是…来真的？你不是说带我去哪儿。</strong>」</p>
+<p>她的手挪到被单将它揭开……</p>
+<p>「<strong>去我心里。</strong>」</p>
+<p>「<strong>喂！唔...</strong>」自己的唇被什么给堵住了。</p>
+<p>洪灏承感觉自己像是被卷入了一场无法抗拒的海洋风暴，如同温暖洋流卷动的鱼儿，无法拒绝地被裹挟着随着海浪浮动。他想要挣脱，却又无法抗拒这种深入骨髓的温柔。</p>
+<p>夜更深的时候，陷入梦乡的洪灏承，发现自己在梦中清醒了过来。</p>
+<p>「<strong>这里是...</strong>」</p>
+<p>他猛然发现自己正在坠落。</p>
+<p>身旁是厚厚的云层，而自己的身姿如同滑翔的鱼，跃向下方黑色但火光遍布的大地。</p>
+<p>正在他孤独慌乱的胡乱挥抓的时候，忽然一只手牵住了自己。洪灏承向右侧看去，一位白色如精灵般的女子也正好转过头来，她冲着自己微笑。</p>
+<p>{<strong>不要慌，这是我的心里。</strong>}</p>
+<p>「<strong>你的心里，为什么世界是这样的…我，这真的是在梦中吗，好真实。</strong>」</p>
+<p>两人如同俯冲的战机，她另一只手指向前方，忽然周围快速变幻，仿佛神灵在移天换地。</p>
+<p>景色骤然变幻，火光冲天的建筑快速复原，山河明艳秀美无限。</p>
+<p>「<strong>这些建筑好奇怪，这是什么地方。</strong>」</p>
+<p>洪灏承看着天际落下的成片银色雨滴，如同一道道精美珠帘。</p>
+<p>女人拽着他的手一扯，两人就抱在了一起，洪灏承看着眼前的这张如同精灵般更为美艳又纯净的，不似人类的脸庞。</p>
+<p>「<strong>我怎么这么好命，遇到你这样的女子。</strong>」他喃喃的说。</p>
+<p>少年发现自己已经真心爱上了这样的灵魂。</p>
+<p>{<strong>因为你成功觉醒了远古的遗失血脉，你体内醒过来的那一丝遗失的血脉，甚至纯净到收容了怪物们的「<strong>绘迹</strong>」血脉。</strong>}</p>
+<p>随着女人的话音落下，洪灏承觉得自己体内有什么在苏醒。</p>
+<p>他瞪大了眼，一种食欲出现在心中。</p>
+<p>这一刹那，洪灏承忽然看到女人背后无数的轨迹，它们呈现着金紫色、红紫之色，繁复复杂，无数线路勾勒出了她所行过的土地，走过的路。</p>
+<p>「<strong>个十百千……亿，二十五亿平方千米？</strong>」</p>
+<p>不断坠落的洪灏承想到了那个吃掉出租屋内同学们的怪物，他感觉那东西在自己精神中苏醒！</p>
+<p>体内那东西还没死！</p>
+<p>之前与自己对话的，就是它，那只怪物！</p>
+<p>[<strong>美味啊...</strong>]</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="chapter-024.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="chapter-026.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="chapter-024.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="chapter-026.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="ace.js"></script>
+        <script src="editor.js"></script>
+        <script src="mode-rust.js"></script>
+        <script src="theme-dawn.js"></script>
+        <script src="theme-tomorrow_night.js"></script>
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

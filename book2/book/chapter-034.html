@@ -1,0 +1,307 @@
+<!DOCTYPE HTML>
+<html lang="zh" class="coal sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>第三十四章 精神念境训练场 -2 - 魂孪英旅 下 魔齿磨轮</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "coal" : "coal";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('coal')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">魂孪英旅 下 魔齿磨轮</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="第三十四章-精神念境训练场--2"><a class="header" href="#第三十四章-精神念境训练场--2">第三十四章 精神念境训练场 -2</a></h1>
+<p>[<strong>犬吠之门注视着我。</strong>]</p>
+<p>「<strong>......</strong>」</p>
+<p>眼前黑黑的大门上，左边浮刻着条喜笑颜开的短毛哈巴狗；右边则是只如海盗船长般蒙着右眼，露出的左眼瞳孔有着璀璨光华的...冷酷的漆黑杜宾。</p>
+<p>它的耳朵看上去很有精神的伫立着。</p>
+<p>「<strong>这个屋子？</strong>」</p>
+<p>通道尽头的两人靠前，都快贴到门上了。</p>
+<p>「<strong>虽然看上去有点像咱们的办公室，但实际上里面是一个真实降临的念力空间。走吧，进去选择适合你的训练场。</strong>」</p>
+<p>{<strong>请提交你的员工卡。</strong>}</p>
+<p>杨子藏将手中的卡片插入门旁的缝隙。</p>
+<p>漆黑杜宾的眼中闪耀出如同Moxel光环般的线条，它们迅速勾勒出雾影般的小型光幕。</p>
+<p>[<strong>我，伟大的四边形，将开启【精神念境训练场III】</strong>]</p>
+<p>[<strong>犬吠之门告诉我可以先看看。</strong>]</p>
+<p>—...</p>
+<p>——精神念境训练场III</p>
+<p>——可通过此门者：即将稳定精神力「<strong>三环一阶</strong>」之遗失幻境公司雇员。</p>
+<p>——本训练场内容以念力卡带形式投放。</p>
+<p>——依据所得积分可兑换适用与稳定三环精神力的「<strong>精神力运转纹路</strong>」。</p>
+<p>—...</p>
+<p>光幕在杨子藏看清过后没几秒便消失。</p>
+<p>「<strong>精神力运转纹路到底是什么？</strong>」杨子藏看着光幕上的文字寻问。</p>
+<p>「<strong>总的来说，</strong>」伟振国看向他开口道，「<strong>所谓的运转纹路，你可以将它理解成一种在体内运转的精神力路线，与秘技不同，它在你彻底稳定三环精神力后会逐步消失。</strong>」</p>
+<p>「<strong>三环？</strong>」</p>
+<p>「<strong>没错，它的主要作用就是帮助你稳定精神力的第三环强度。这样，你以后才能真正融合血脉之环第三环。</strong>」</p>
+<p>杨子藏若有所思的道：「<strong>意思是，给我们的精神力评价，只是参考能够承载血脉的人的精神力强度，对吧。</strong>」</p>
+<p>伟振国严肃地点头。</p>
+<p>「<strong>第三环是非常关键的一环。只有真正稳定第三环，融合血脉才有意义。</strong>」</p>
+<p>「<strong>我知道，因为‘星元’对吧。只有觉醒第三环血脉，才会诞生星元。</strong>」</p>
+<p>「<strong>知道得不少，不过有件事你却是说错了。并非觉醒第三环才有星元，而是成功融合就有。</strong>」</p>
+<p>杨子藏的眉毛微微抖了抖，「<strong>那‘觉醒’又是什么？</strong>」</p>
+<p>「<strong>想知道更多，就做好留下来的准备吧。</strong>」这中年男人笑呵呵的道，「<strong>如果是那样，我说不定在离开前还能喝上你的喜酒。</strong>」</p>
+<p>「<strong>呵...</strong>」正在思索的杨子藏莫名的呵笑了声，「<strong>您想得有点多。等下，你说离开？</strong>」</p>
+<p>「<strong>哈哈哈。还好，公司里适龄青年可是非常多的，而且都是郎才女貌...嗯，对，我打算离开了。</strong>」</p>
+<p>杨子藏一把推开了门。</p>
+<p>与预想中的不同，推开门的杨子藏看到的并非是一个黑暗安静的世界，而是如同小酒馆似的，里面有着略显热闹但并不喧嚣的场景。</p>
+<p>柔和灯光如月亮的纱裙笼罩在前方的几十平空间内。</p>
+<p>随着门被推开，里面闹哄哄的「<strong>人</strong>」都转头望了过来。</p>
+<p>——「<strong>是新来的人类。</strong>」</p>
+<p>——「<strong>又有接近三环精神力强度的人要来进行考核了吗？</strong>」</p>
+<p>——「<strong>欢迎，欢迎。</strong>」</p>
+<p>本想询问伟振国打算何时离开的杨子藏，瞬间就被这一幕给惊到了。</p>
+<p>「<strong>这些是...</strong>」杨子藏看了眼里面的各种怪异人影后，扭头看向身后的伟振国。</p>
+<p>「<strong>它们是伴生恶魇之灵，在这个训练场里暂时拥有的人形念力躯体。嗯，远程的。</strong>」男人摸着下巴道。</p>
+<p>「<strong>难怪。</strong>」杨子藏看去，这些半透明的人如同果冻似的，有的大有的小。虽然都身穿着类似人类的衣物，但活脱脱就是一群冒充人类的妖物。</p>
+<p>——「<strong>你好，我叫赵胖胖，你要参加哪个训练场？</strong>」</p>
+<p>一个头大如牛的女士摇晃着身体走来，她一巴掌排在杨子藏的肩膀上。</p>
+<p>随着她的话音落下，远处一些房间中如玩具娃娃般的一些怪异念力身躯又苏醒过来几位。看样子，是得知有人进入这里后，赶着过来看热闹的「<strong>恶魇之灵</strong>」。</p>
+<p>——「<strong>我们也可以给你投资零花钱哦。</strong>」</p>
+<p>——「<strong>我上个月有一百年虚零硬币。</strong>」一个帅气的念力男人站起身道，「<strong>我叫小宾。</strong>」</p>
+<p>但随着帅气男人的迈步，扭曲的走路姿势让这个念力体看上去，仿佛是手机店门口不断被风鼓动着摇晃的长条气球人。</p>
+<p>围向这里的「<strong>人</strong>」越来越多，看上去都让人渗得慌。而杨子藏瞧见，他们的说话声并非是来自于这些念力身体，而是房间周围的喇叭，而且还有相当多的声音伴随着模糊的、不属于此地的其它声响。</p>
+<p>这些念力体，只是被远方的恶魇所操控。</p>
+<p>两个步履稍微稳健点，但身材只有人半高的男士飞快地扛着个小架子跑来，将它立在杨子藏身前。</p>
+<p>洋娃娃般的矮小念力男士，拿起个带有动态闪电纹样的卡带递到杨子藏手上。</p>
+<p>——「<strong>第一次来吧，快选，这个好玩。</strong>」</p>
+<p>杨子藏看着这塞进手里的橙亮念力游戏卡带。</p>
+<p>《像素疾风传II：极速冲刺》</p>
+<p>——「<strong>这个太难了！</strong>」</p>
+<p>另一个精灵般的瘦小女孩子跑来，她嘴唇上吐着鲜艳到土到爆的口红。</p>
+<p>——「<strong>奥力闪！你这个家伙只是想让这个人类没办法拿到优评，自己好进去玩的吧！</strong>」</p>
+<p>她一口就说出了这个矮小念力男士的心头想法。</p>
+<p>杨子藏疑惑地看了这个翻着白眼耸起肩膀的家伙一眼，另一个扛着卡带架子的念力人看向杨子藏，憨憨地道：</p>
+<p>「<strong>训练场的评价为SUPER，GOOD和DULL三个级别。</strong>」</p>
+<p>「<strong>然后呢？</strong>」结合刚才这家伙的建议，杨子藏差不多已经估计到会有什么事情。</p>
+<p>果然，这个憨憨的念力体声音在墙上的喇叭响起道：「<strong>如果你没办法到达GOOD级别，我们就可以进去一起玩，帮你通关。</strong>」</p>
+<p>——「<strong>要不你玩这个吧。</strong>」</p>
+<p>精灵女孩般的念力体吃力拿起个写有《黑爱丽丝梦游地狱》的卡带道。</p>
+<p>杨子藏还来不及细看，胖胖的女士念力体便拿起个《超级加倍厨房乱砍》的念力游戏卡带。</p>
+<p>——「<strong>这个也可以，这个很好玩的。如果在这里面拿到SUPER评价，会获得对风感知更为敏锐的‘基础运转纹路’哦。</strong>」</p>
+<p>「<strong>你们都是想自己玩的吧。</strong>」</p>
+<p>伟振国笑嘻嘻地走了进来。</p>
+<p>杨子藏看了他一眼，「<strong>我恐怕知道为什么一般没人来这里了，因为这就是给那些红Moxel同事的伴生恶魇进行精神训练的地方，对吧。</strong>」</p>
+<p>「<strong>哈哈，算是吧。大家都可以用。只不过，它们能进入的训练场，都属于‘教化’类，你应该知道那是什么意思吧。</strong>」</p>
+<p>杨子藏的脑袋里瞬间就浮现出一群伴生恶魇之灵，规规矩矩坐在教室里，枯燥地听老师讲思想美德等待下课的画面。</p>
+<p>看着眼前这些闪动着渴望的眼睛，杨子藏的嘴角扯了扯。</p>
+<p>伟振国拿过杨子藏手上的几个卡带放入架子里。</p>
+<p>「<strong>小藏你的Moxel能力契合‘风’，风属木，我建议可以选对这方面比较强化的训练场。</strong>」</p>
+<p>[<strong>犬吠之门告知，我，伟大的四边形，只有靠自己拿到GOOD评价之后，才能选择第二项训练卡带。</strong>]</p>
+<p>所以要慎重选择，如果跟上班一样许久都无法拿到GOOD评价，那么就算想换其它基础运转纹也不可能了。</p>
+<p>目光扫过一摞摞如同书脊般排列的念力卡带，忽地他目光微凛。</p>
+<p>「<strong>就你了。</strong>」</p>
+<p>杨子藏抽下这卷实质化的念力游戏卡带，指尖触摸，它的表皮有着隐约的烟雾弥漫，仿佛刚从冰柜中拿起来的冰淇淋所携带的冰雾。</p>
+<p>《烈豪传：在疾风中推箱子》</p>
+<p>伟振国道：「<strong>哦？推箱子，你选择这个？</strong>」</p>
+<p>「<strong>嘿嘿，你不是说风属木吗，这个光看名字就是适合我的训练场。</strong>」</p>
+<p>周围几人念力人看向杨子藏手中的卡带。</p>
+<p>——「<strong>这个不好玩。</strong>」</p>
+<p>——「<strong>天上掉，大箱子，还打转，满头包，你若选，难通关。听我的，换一个。</strong>」</p>
+<p>——「<strong>我想起了我在邮汇战场里挨炮弹的时候。</strong>」</p>
+<p>「<strong>去吧，就在那对面。</strong>」</p>
+<p>伟振国拍了拍杨子藏的肩膀，拿手指了指「<strong>酒馆舞池</strong>」般的房间对面那扇禁闭的大门。</p>
+<p>拿着卡带的杨子藏转过头：「<strong>为什么要离职，伟叔你还能离开这里吗？</strong>」</p>
+<p>「<strong>当然，我可以前往新的命运轨迹。</strong>」</p>
+<p>「<strong>原来是这样，</strong>」杨子藏的眼眸微垂，「<strong>知晓了关于过去的事情，却反而能去往新的命运轨迹。</strong>」</p>
+<p>「<strong>因为新的命运，不也是从古老的命运轨迹所复制的吗。</strong>」他笑到：</p>
+<p>「<strong>我啊，在这里已经休息好几年了，虽然拿到过精锐雇员评价，但却连组长也遥遥无期。所以...哼哼，有点怀念曾经能够以年轻人的姿态在外面战斗的日子了。</strong>」</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="chapter-033.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="chapter-035.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="chapter-033.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="chapter-035.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="ace.js"></script>
+        <script src="editor.js"></script>
+        <script src="mode-rust.js"></script>
+        <script src="theme-dawn.js"></script>
+        <script src="theme-tomorrow_night.js"></script>
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

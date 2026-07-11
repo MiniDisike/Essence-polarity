@@ -1,0 +1,309 @@
+<!DOCTYPE HTML>
+<html lang="zh" class="coal sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>第三十章 一定是很受欢迎的人吧 - 魂孪英旅 下 魔齿磨轮</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "coal" : "coal";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('coal')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">魂孪英旅 下 魔齿磨轮</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="第三十章-一定是很受欢迎的人吧"><a class="header" href="#第三十章-一定是很受欢迎的人吧">第三十章 一定是很受欢迎的人吧</a></h1>
+<p>银白枢纽镇。</p>
+<p>波波利拿着盘青色圆润的葡萄过来，放在撑着脑袋唉声叹气的莫里跟前。</p>
+<p>这个身材中等偏上的英格兰教师，已经大半个月没有出过一次门了。而根据和杨子藏的约定，莫里的禁足时间要一直持续到三年以后，他自己「<strong>接电话</strong>」的那一天。</p>
+<p>「<strong>上次你跟杨子藏聊了些什么，为什么就不能说呢？</strong>」波波利坐在他旁边的椅子上拿起水果丢入嘴中道。</p>
+<p>莫里转头想了下，看向波波利。</p>
+<p>「<strong>他倒是没说不能对你说，反而...</strong>」</p>
+<p>「<strong>他？谁啊。</strong>」</p>
+<p>莫里迟疑了一秒，想到了洪灏承那句「<strong>把波波利也叫上</strong>」。</p>
+<p>也是啊...</p>
+<p>像波波利这种超级稀有的代练能力，以前不知有什么用也就罢了。现在还看不出他的价值，也就太蠢了。</p>
+<p>「<strong>在想什么呢，苦大仇深的样子。</strong>」</p>
+<p>「<strong>呃，没什么。</strong>」莫里放下手，想到：</p>
+<p>只是像跟杨子藏聊天那样，稍微透露点洪灏承的存在信息，应该不算在现在改变。反正离开之类的事情还早，只要挺过三年以后就OK了。</p>
+<p>「<strong>上次我跟子藏两人，聊的是关于我昏迷原因的事情。之所以会昏迷那么久，是关于一个人。</strong>」</p>
+<p>「<strong>呀，</strong>」波波利露出惊讶的表情，「<strong>我就说你怎么接了通电话就那样了。怎么回事，快说说。关于的是谁？提供恶魇电话的麦蚜女士吗？</strong>」</p>
+<p>「<strong>不。是一个名为洪灏承的人，他在未来给我反向拨通了电话。</strong>」</p>
+<p>「<strong>咦？那家伙是谁啊，我都没听说过。</strong>」</p>
+<p>「<strong>是我们未来的队友。</strong>」</p>
+<p>「<strong>哇！能加入我们的，一定是很受欢迎的人吧！</strong>」</p>
+<p>......</p>
+<p>张苗紧张的对着残破恶魇飞机，心扑扑响地合掌拜了拜。</p>
+<p>「<strong>大佬，可别吃我啊，有我在你能少走很多弯路。</strong>」</p>
+<p>说完后，男人看向一处正在蠕动复原的破洞，赶紧迈步冲了进去。</p>
+<p>飞机内阴森气息弥漫，周围游走的某些「<strong>活过来</strong>」的物品，在触碰到自己后，又缓慢缩了回去。剧烈痛苦刺激着洪灏承身体，他的手掌撑在门上，缓慢将它推开。</p>
+<p>「<strong>绘迹血脉…</strong>」</p>
+<p>那属于婚床的床垫已经翻到了墙边，不过，它只是变得陈旧，而没有摧毁。</p>
+<p>「<strong>坏女人老婆...</strong>」</p>
+<p>洪灏承的手捂着随时可能掉下的脑袋。</p>
+<p>「<strong>还有不知名的，能吞噬怪物灵魂将之收容的远古血脉…什么鬼世界啊…</strong>」</p>
+<p>这里面的一切物品都在变得陈旧，仿佛放了数年乃至数十年。它们的某种「<strong>精气</strong>」被飞机吸纳，成为了其孕育的怪物的一部分。</p>
+<p>[<strong>来吧，来吃吧，来…现在我能有更多的寿命给你。</strong>]</p>
+<p>洪灏承将手放在长出肉膜的墙上。</p>
+<p>[<strong>我分享给了我们2000N.</strong>]</p>
+<p>还剩一千五百年左右。</p>
+<p>随着额外寿命的分享，飞机剧烈抖动。肉膜快速密布整个残破的机舱，如同血肉的红色金属修补着破败之处。</p>
+<p>「<strong>咳咳！</strong>」张苗咳嗽着走到门口。</p>
+<p>他看到这烧焦的人一头栽倒在地，但在摔落地面的瞬间，那里长出无数血肉之膜，将这人的整个身体拖住并迅速包裹。</p>
+<p>{<strong>我知道了，队员是帮手的意思！</strong>}</p>
+<p>吃掉两名挣扎之人的飞机恶魇智慧迅速提升着。</p>
+<p>「<strong>你能动了吗？最好快点离开，这里很危险。</strong>」张苗急道。</p>
+<p>{<strong>危险是，什么意思。</strong>}</p>
+<p>「<strong>就是像你现在这样，这就叫危险。附近很多人在赶来的路上，有人想要杀死你。</strong>」</p>
+<p>{<strong>杀死，我们？杀死，爱我的，爸爸？！坏，坏蛋！</strong>}</p>
+<p>城市很大。</p>
+<p>因此哪怕数万人分散在城市之中，也显得很是空旷。</p>
+<p>但此刻嗡嗡汽车轰鸣声不止一处地传来。</p>
+<p>「<strong>杀掉红Moxel的人！</strong>」</p>
+<p>长道上，从皮卡车窗伸着脑袋的一人指着前方的火海叫道：</p>
+<p>「<strong>快，那恶魇要成功孵化出来了。</strong>」</p>
+<p>「<strong>我的老天爷，那家伙连恶魇都没有完全催熟，就能杀掉能打炮的那家伙，这人的恶魇觉醒了不得了的能力啊。</strong>」</p>
+<p>「<strong>绯红那帮家伙肯定兴奋死了，但靠一个新人也难逆天改命。</strong>」</p>
+<p>「<strong>不一定，难道你不知道那排名41城的家伙吗。</strong>」</p>
+<p>「<strong>哪个？哦，你说那个地铁组啊，那是恰好遇到了‘抵御者’现世，破坏了对方的收容得到了百年器和完整邮汇。运气好而已。</strong>」</p>
+<p>「<strong>今天出现在咱们城这位，可就没有那么好运了。</strong>」</p>
+<p>爆炸点附近数十人已经陆续靠近那飞机残骸，就在他们即将到达之时，飞机再次轰地大爆炸。</p>
+<p>无数碎片飞舞旋转，在天际抛洒。</p>
+<p>「<strong>怎么回事？</strong>」</p>
+<p>光线一暗。</p>
+<p>「<strong>死了？</strong>」</p>
+<p>「<strong>没有，你们看！</strong>」</p>
+<p>暗淡的光线不断升起！</p>
+<p>围拢的几十人抬头望去，扩散的烟雾里一道残破机骸如骨架般拔地而起！</p>
+<p>它犹如骨肉血魔般，带着阴沉的气息往高空爬升，冲向城市边缘之外——那里，有如同海洋般的无垠碧波。</p>
+<p>人群立即跟着它的沉缓轨迹往前，冲向城市另一边。</p>
+<p>轰！</p>
+<p>飞得本就不高的飞机残影坠入十几里外的蓝色的水面，往更远处滑行。</p>
+<p>当四相天团的程允泽等人赶到的时候，魔物飞机已经连影子都看不到了。但有碧波上的小船只遥遥传来感应画面。</p>
+<p>感应画面中，远处的飞机顶端似有道人影爬出来，趴在其背上往这边看。</p>
+<p>「<strong>是那个墙头草。</strong>」</p>
+<p>「<strong>那新人竟然没杀掉他，陈哥，看来里面的人不一定被恶魇改变性情也说不定呢。</strong>」</p>
+<p>程允泽的目光带着丝阴沉，「<strong>这样的人，反而难办。想办法招募吧，不然就杀掉。</strong>」</p>
+<p>......</p>
+<p>莫里讲述着自己在念力场里几千年来做的事情。</p>
+<p>「<strong>好羡慕~</strong>」波波利听到高兴处，啪啪拍起手来。</p>
+<p>「<strong>能将世界文明提升一个台阶，还给他们一个新语言，不愧是咱们的莫里老师啊。</strong>」</p>
+<p>莫里往嘴中丢了颗葡萄。</p>
+<p>「<strong>闲着无聊而已。</strong>」</p>
+<p>「<strong>那内个洪灏承呢？他在你醒来那天露面了下，就没有再出现过？</strong>」</p>
+<p>莫里低眉想了想。</p>
+<p>他并没有告诉波波利，洪灏承在念力场里写小说的事情。</p>
+<p>当然也隐去了关于自己苏醒前的漫长岁月中，大陆上那些人对自己做过的各种莫名其妙的实验——那都是后面他才慢慢晓得的。</p>
+<p>包括不限于，各种物质的灼烧与液体的侵泡，光无用配方就有上万种，但这些配方后面意外的发现有着各种稀奇古怪的用途，比如对症某种疑难病症、制成染料与涂香、醒神臭味与振奋精神或能令人昏迷的香味...驱虫药与调味剂，以及...肥料。</p>
+<p>这一切发现，都被圣殿当作不死之王的追随者给予的「<strong>恩赐</strong>」。</p>
+<p>除此以外，还有各种魔物的献祭与元素符号的摆弄、千百年来无数的祈祷文、纯洁女子的吻与终身的侍奉，血液与肉类、乃至更让人头皮发麻浑身不适的事情。</p>
+<p>它们都没有唤醒自己。</p>
+<p>这些都还是圣殿有过明确记载的内容。</p>
+<p>而莫里后期在属于自己的所谓「<strong>梦之神殿</strong>」中，还老听到某些人在忏悔室，替他们不知是多少辈以前的先祖来忏悔。</p>
+<p>那些都是在古时候...刚发现自己的前几百年流落在大陆各处时，被不明所以的普通人所做的实验。要么是后来被几个王国互相争夺的几百年间发生的事，要么就是自己身体在进入圣殿后，一些狂热的护卫们悄悄干过的奇怪实验。</p>
+<p>每当这个时候，莫里在神殿后方属于自己的小屋子内通过黄铜听管听着这些忏悔，都恨不得将自己的脸给揉成另一个模样。</p>
+<p>「<strong>喂，怎么一提这个人，你就闷声半天呀？</strong>」</p>
+<p>莫里揉了揉脸，吐了口气。</p>
+<p>「<strong>是的，后面还是出现过几次，不过都是些没什么营养的事情。</strong>」</p>
+<p>「<strong>他干嘛了？没营养，这个人性格不正派吗？</strong>」</p>
+<p>「<strong>嘶...性格嘛...</strong>」莫里犹豫着说道，「<strong>能够想这么大办法联系我，应该还是挺正派的吧。</strong>」</p>
+<p>......</p>
+<p>魔物身体般的破败机舱内。</p>
+<p>包裹洪灏承的血肉温度不断升高，乃至于将周围恶魇飞机所诞生的怪异血肉都吸纳得枯萎。仿佛一个正在被孕育的恶魔。</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="chapter-029.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="chapter-031.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="chapter-029.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="chapter-031.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="ace.js"></script>
+        <script src="editor.js"></script>
+        <script src="mode-rust.js"></script>
+        <script src="theme-dawn.js"></script>
+        <script src="theme-tomorrow_night.js"></script>
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

@@ -1,0 +1,328 @@
+<!DOCTYPE HTML>
+<html lang="zh" class="coal sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>第六十章 暴露 - 魂孪英旅 下 魔齿磨轮</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "coal" : "coal";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('coal')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">魂孪英旅 下 魔齿磨轮</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="第六十章-暴露"><a class="header" href="#第六十章-暴露">第六十章 暴露</a></h1>
+<p>今日天气明朗，下午时分，当程允泽等人沉着脸到达岛屿中心时，洪灏承领着三个惴惴不安的人也来到了那附近。</p>
+<p>「<strong>哥，回头是岸啊。我们去了也根本杀不死怪物。</strong>」抱着流星锤的崔荣哭着道。</p>
+<p>「<strong>我已有周全安排，放心。</strong>」</p>
+<p>提着干粮的三人一个字都不信。</p>
+<p>「<strong>这些家伙拉扯怪物的能力还不错，等他们进入我们就跟着进去。</strong>」</p>
+<p>轰隆隆！</p>
+<p>那体型较小却实力强横的地缚之灵被拉远。</p>
+<p>事实证明，整个城市的高手齐心合力，还是比较容易达成计划，虽然依旧有人为此献出生命。</p>
+<p>远处阴影中有四相天团的人吼道：「<strong>快，就是现在，使用加速球冲！</strong>」</p>
+<p>几百米外，二三十人的队伍纷纷捏破能力球，以比短跑冠军更快的速度冲向中间那道只剩门框的岩门。</p>
+<p>这群人从小山包的另一面穿过。虽然山包侧面尸骨遍地，大家也晓得可能有Chronos战器，却都不关心。</p>
+<p>因为没人会浪费来之不易的时间去捡那几颗芝麻。</p>
+<p>随着对方最后一人的进去，洪灏承站起身，「<strong>接下来是我们！</strong>」</p>
+<p>瞳孔旁亮起圈细微的土黄光圈。</p>
+<p>「<strong>走！</strong>」他不容置疑地道，当先充了出去。</p>
+<p>远处，舍命拉动怪物的人在Moxel中正在欢呼。</p>
+<p>{<strong>程允泽成功了！</strong>}</p>
+<p>{<strong>三十二人成功进入！历史首次啊！咱们城这次铁定会获得好几把虚零武器！</strong>}</p>
+<p>观看着近处融资Moxel的视角，无数人喧嚣着自己的兴奋，有人还1R、2R的打赏着直播者。</p>
+<p>他们已经幻想着自己队伍在不久后就会拥有一把虚零Chronos战器！</p>
+<p>近处那几人正要离去，忽地，周围一阵惊呼。</p>
+<p>「<strong>有情况！</strong>」</p>
+<p>「<strong>那是？</strong>」</p>
+<p>通过心灵感应关注着这里的数百人见到，一道宛如猎豹般灵动的身影从远方草丛中突兀出现，冲向了大门！</p>
+<p>在他身后，还有另一道身影吃力的追逐。</p>
+<p>蛇行组以及龙腾组未选上的人，瞬间认出了前方那道看不清的轮廓身影。</p>
+<p>江俊毅猛地从隐藏的树丛中挺直身躯，难以置信地瞪大双眸望向远方的那道灵动身影。</p>
+<p>「<strong>是他！</strong>」</p>
+<p>络腮胡男人身旁，一位女队员拿手捂住了自己的惊呼声。</p>
+<p>「<strong>是那个新人！</strong>」</p>
+<p>哗地下，Moxel中无数喧哗声冒出。</p>
+<p>{<strong>那家伙是谁！他是浑水摸鱼靠近，还是早就潜伏进岛深处了？</strong>}</p>
+<p>{<strong>即便今日有人引开怪物，但那也只是引出一条线路，不可能让整个岛屿的怪物如那夜般全部冲往另一边。</strong>}</p>
+<p>{<strong>他是谁！</strong>}</p>
+<p>汪千绝的几名队员疑惑看了半天，一人惊道：</p>
+<p>「<strong>好像是那个偷船贼！</strong>」</p>
+<p>{<strong>前段时间两次深入岛心难道是他！</strong>}</p>
+<p>{<strong>我见过他们，那小子在湖上卖过鱼和巧克力！他们还有三个人。</strong>}</p>
+<p>{<strong>逮住剩下三个就知道那家伙是谁了！</strong>}</p>
+<p>无数声音在数道Moxel中混乱的描述着，很快就有意见开始统一，混在Moxel中偷听的张苗三人哪里还敢留在原地，他们猛地就捏爆手上的加速球，跟着已经跑远的洪灏承就冲了出去。</p>
+<p>迟点死还是马上被活刮，就看这一着了！</p>
+<p>「<strong>啊啊啊啊！！！</strong>」</p>
+<p>眼见被拉远的地缚之灵感应到这边的动静，开始抛下猎物返回。以及到处扩散出银色Moxel线条之人正在靠近这边，崔荣哪里敢怠慢，晃着流星锤就跟着冲了出去。</p>
+<p>瞧见真的还有三人跟着往门冲去，所有关注着这里的人大惊失色，一些认识三人的人也立即将他们给认出来。</p>
+<p>崔荣、张苗、李永勤！他们全都是不可能进入岛内的普通身手的家伙！</p>
+<p>「<strong>停下！</strong>」</p>
+<p>「<strong>站住！</strong>」</p>
+<p>「<strong>天啊，他们手上那两把武器，怎么会有细碎的波浪纹！</strong>」</p>
+<p>「<strong>虚零武器！</strong>」</p>
+<p>轰地下，Moxel链接内无数人炸锅。扩散出Chronos融资的人已经听到自己Moxel中出现了几乎上千道声音，这代表很多人已经将其他人给拉进了这道扩散而出的链接中！</p>
+<p>这只一个巴掌能数清成员的队伍中，居然有两把虚零武器！</p>
+<p>而且最前方即将冲进门的那小子手中，还有把色泽反复来回变化的武器！</p>
+<p>此时此刻，城中已经有超过大半人在一波波扩散出的Chronos融资与Moxel宣告中，得知了岛上的实况，并加入观看。</p>
+<p>帮助四相天团拉走怪物的队伍中，少数红Moxel的人咬紧牙关，蕴含热泪，通过电台般的Moxel「<strong>宣告</strong>」感知着那道灵动身影的画面。</p>
+<p>进入11号城的四相天团，没有带哪怕一个红Moxel的人进入。</p>
+<p>而现在...</p>
+<p>却有一人在所有人不可预料的情况下，突然出现，而且还是这座城市中被打压得几乎没有翻身之地的红Moxel之人！</p>
+<p>洪灏承目光如圈圈波光闪动的黑宝石，侧面几道人影携带着空气躁动冲来，要阻止他的进入。</p>
+<p>「<strong>滚开！</strong>」</p>
+<p>见有两人速度高到近乎百码冲刺的摩托，少年双腿一矮弹起，瞬间来到两人身前。</p>
+<p>「<strong>我知道，你渴望成为我的一部份。</strong>」</p>
+<p>少年手上似有神秘力量般在最前方高瘦青年脖子处一扯，一道灵动飘逸的能量线条就被扯出。</p>
+<p>听到这如野兽般冷漠的声音，见到这双亮着土黄光环的瞳孔，高瘦青年身边另一人瞬间感觉周身毛孔都在爆炸。</p>
+<p>「<strong>血脉！跑啊！</strong>」</p>
+<p>他连身旁这高瘦的队友都没管，转身就往外冲，与身后慢了步的三人撞了个满怀。</p>
+<p>洪灏承没有吃掉这人由灵魂演变的「<strong>航迹绘线</strong>」，见到张苗三人冲进大门后，他将手上的能量线条一丢，胸前第一次扩展开来红色的Moxel线条。</p>
+<p>暗红丝线瞬间以三角姿态跨越茫茫湖面，惊扰一片天地。</p>
+<p>[<strong>我听到你们的声音了，再会。</strong>]</p>
+<p>Moxel瞬间断掉。</p>
+<p>但这片刻已经有好几人接入了进来。</p>
+<p>没几秒，城中各个破烂建筑内，无数人先是惊愕，随即便是疯了般哈哈笑着跳着、挥舞手臂叫喊。</p>
+<p>{<strong>四相天团要全城高手帮忙的事...</strong>}</p>
+<p>{<strong>咱们家一个人就办到啦！</strong>}</p>
+<p>{<strong>哈哈哈哈，白Moxel的废物！</strong>}</p>
+<p>闪动的红色Moxel带着激烈的情绪纷乱扩散...</p>
+<p>......</p>
+<p>门后的世界，是什么。</p>
+<p>门后面不是十一号城市，而是一片混沌的，充满各种颠倒旋转碎片的奇异之地。</p>
+<p>「<strong>允泽老大，这里好像是片交错地。</strong>」</p>
+<p>「<strong>那边有光幕。</strong>」</p>
+<p>程允泽道：「<strong>那东西就是与11号城的交界门，我们现在在一片奇异的空间里。快出去吧，这里待久了恐怕会不好。</strong>」</p>
+<p>一道道射起的光幕或近或远的排布。</p>
+<p>三十多人刚走入最近的光幕中，这片空间不远处就出现了洪灏承的身影。</p>
+<p>洪灏承看向身旁的四人。</p>
+<p>等等！四人？！</p>
+<p>洪灏承对着四道身影中，那体型陌生的人尖声叫道：「<strong>你是谁！</strong>」</p>
+<p>「<strong>哼。</strong>」这人呵笑了声，「<strong>诸位，藏了这么久，还是被我们给逮到了。走吧，我陪你们过去那边。</strong>」</p>
+<p>洪灏承立即明白，这人是不惧自己的威胁跟了进来。</p>
+<p>他看了眼各处的光幕。</p>
+<p>「<strong>分散跑！</strong>」四人嗖地窜了出去。</p>
+<p>跟进来的那人左右一望，这只队伍的四人都用加速球在往不同方向狂奔，他一时难以选择到底去往哪边。</p>
+<p>「<strong>靠！</strong>」这人一咬牙，趁着还有时间，快速返回。</p>
+<p>......</p>
+<p>四人重新来到片光幕旁。</p>
+<p>它里面就像海市蜃楼，映射着的是一片破败的城市画面，正是11号城。</p>
+<p>李永勤道：「<strong>应该是通过不同光幕，能到达城市不同的地方。</strong>」</p>
+<p>「<strong>好神秘的空间。</strong>」</p>
+<p>洪灏承走入这片光幕后，如梦苏醒般站立在刚才所看的城市中。周围那片混沌之地已经消失，但身后有一道建筑大门，门上有淡淡能量漩涡。</p>
+<p>{<strong>诸位已来到旋灵之城。</strong>}</p>
+<p>{<strong>通过城中任意念力门，可回到来处。</strong>}</p>
+<p>崔荣三人陆续走出，他们看向天际如乌云的能量漩涡。淡漠平缓的心念声出现在心中做着介绍。</p>
+<p>四人的的眼眸张得老大。这就是真正的11号城，周围隐约的吼叫声让他们脸色狂跳。</p>
+<p>「<strong>难道，这里到处都是那种守门实力的怪物！</strong>」</p>
+<p>「<strong>现在怎么办。</strong>」</p>
+<p>「<strong>来都来了。</strong>」洪灏承看了眼周围，说道：「<strong>食物省着点吃，给我两三天时间，我要探查这里的地形。</strong>」</p>
+<p>除了武器，两手空空的三人互看了眼，李永勤道：</p>
+<p>「<strong>灏承，我们三个身手都不好，这里面真帮不上什么忙。我们去帮你寻找这里面的物资吧，我想肯定有11号城的高手们遗留的东西。</strong>」</p>
+<p>「<strong>食物问题嘛...</strong>」</p>
+<p>周围虽然破败，但植物很茂盛，应该能找到裹腹之物。</p>
+<p>「<strong>再坚持几天九月中了，咱们到时候可以从交错空间里获得食物。</strong>」</p>
+<p>「<strong>没错，就这么办。</strong>」</p>
+<p>洪灏承颇为豪气地点点头，「<strong>看来你们已经猜到了我的完美计划了嘛。</strong>」</p>
+<p>「<strong>......</strong>」</p>
+<p>嘭咚嘭咚！一阵沉重脚步声传来。</p>
+<p>正在得意的洪灏承面色一变。</p>
+<p>「<strong>有大家伙！快跑！</strong>」</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="chapter-059.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="chapter-061.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="chapter-059.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="chapter-061.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="ace.js"></script>
+        <script src="editor.js"></script>
+        <script src="mode-rust.js"></script>
+        <script src="theme-dawn.js"></script>
+        <script src="theme-tomorrow_night.js"></script>
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

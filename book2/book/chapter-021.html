@@ -1,0 +1,330 @@
+<!DOCTYPE HTML>
+<html lang="zh" class="coal sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>第二十一章 自由前进的信念 - 魂孪英旅 下 魔齿磨轮</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "coal" : "coal";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('coal')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">魂孪英旅 下 魔齿磨轮</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="第二十一章-自由前进的信念"><a class="header" href="#第二十一章-自由前进的信念">第二十一章 自由前进的信念</a></h1>
+<p>暴露了！</p>
+<p>这就暴露了？肖宇山心中一惊，被这小子给诓了！</p>
+<p>「<strong>果然是你！</strong>」</p>
+<p>微小黑洞突然出现，周围的几十人胸前圆形光芒全都亮了起来，三角形与四边形折线闪动着扩散而出。</p>
+<p>「<strong>这个混账！</strong>」</p>
+<p>「<strong>全力攻击他，不能让他跑了</strong>」</p>
+<p>砰砰砰砰！无数武器如打过街老鼠般砸来。</p>
+<p>然而在被长枪短刀刺中的瞬间，肖宇山的身体如同高速瞬移般，带着残影咻地拔地而起。</p>
+<p>{<strong>真是冲动啊。</strong>}</p>
+<p>这话也不知道是说的众人还是他自己。</p>
+<p>{<strong>不过以为这样就能逮住我吗！</strong>}</p>
+<p>飞在空中的肖宇山猛然清醒过来。他感觉自己的身体抛物线霎时扭曲，整个人以诡异的姿态往更高处飞去。几道高空的绷带迅速冲来，将他的身体层层缠绕。</p>
+<p>悬吊的肖宇山背后蠕动起来。</p>
+<p>一道人影如同寄生者般从他背后的衣服上拱起，探出肩头。</p>
+<p>{<strong>来吧，刺来！他死了，这个念力场就结束了。</strong>}</p>
+<p>「<strong>我，我怎么了！</strong>」</p>
+<p>苏醒的肖宇山大惊失色，他听到背后出现道让人头皮发麻的声音。</p>
+<p>{<strong>居然用那种问题来让我上当，杨子藏，你果然是个可恶的坏人。来吧，杀了他啊。</strong>}</p>
+<p>「<strong>什，什么？什么叫我死了就结束了？</strong>」</p>
+<p>众人看向上方，杨子藏的眼睛虚了虚。</p>
+<p>他们都想要看清肖宇山背后长出之人的真面目。</p>
+<p>李尚响外貌的男子阴笑着望向下方的杨子藏，把玩着把手术刀，忽地抵在了肖宇山的喉咙上，让这个男人震惊的瞪大了眼。</p>
+<p>他到现在根本不知道发生了什么。</p>
+<p>杨子藏看了肖宇山一眼：</p>
+<p>「<strong>肖先生，你愿意为了我们而死吗？</strong>」</p>
+<p>「<strong>什么啊，喂，别开玩笑啊，到底发生了什么事。</strong>」</p>
+<p>一根绷带塞入了肖宇山的嘴中，将他的声音呜呜堵进喉咙内。</p>
+<p>{<strong>又想将自己的脱险责任，丢给别人来做主吗？呵呵，既然找到了我，来吧，让我看看你后面想怎么做。</strong>}</p>
+<p>随着李尚响的话语落下，一道绷带从杨子藏的脚下飞出，瞬间缠绕向他的双脚。杨子藏反应极快，身体一跃避了开来，但更多的绷带从四面八方涌来，如同一张巨大的网，想要将他团团围住。</p>
+<p>「<strong>子藏，能行吗！</strong>」莫里焦急的喊道。</p>
+<p>他们从未想过会有如此难缠的敌人，这比在A级交错地里的疯狂魔物要恐怖十倍以上。</p>
+<p>「<strong>需要我们帮忙吗？</strong>」</p>
+<p>「<strong>到处都是念力，别妄动。</strong>」</p>
+<p>「<strong>杨子藏，我们也可以为你投资！</strong>」</p>
+<p>某些家伙蛊惑人的记忆画面闪过杨子藏的脑海，他已经有六七层把握，自己遭遇了什么。</p>
+<p>「<strong>不用担心，我有办法！</strong>」</p>
+<p>得拼进全力了…</p>
+<p>众人紧张的看着前方被无数绷带攻击的杨子藏，白影念龙已经转冒了烟。</p>
+<p>「<strong>哈！</strong>」杨子藏双手一挥，引力弧光的黑洞幻影显现。</p>
+<p>「<strong>既然这是念力场！</strong>」他望着冲来的绷带们咬牙吼道：「<strong>那就随我的意愿来变化！扩大！</strong>」</p>
+<p>轰隆！</p>
+<p>身前引力弧光的黑洞猛然变大，强大的吸力迅速将周围缠绕而来的绷带们一一吸引过来。</p>
+<p>蹦蹦蹦蹦！</p>
+<p>道道绷带全部缠绕进去。</p>
+<p>「<strong>居然…能这样！</strong>」</p>
+<p>周围的三十多人骇然的看着那猛然扩大的黑洞，他们原以为那只是杨子藏的百年器的出口，没想到此刻竟然真的化为了强大的黑洞。</p>
+<p>随着它的增大，杨子藏的衣衫簌簌飞舞，他的面容也变得痛苦。</p>
+<p>{<strong>你还能继续扩展你的黑洞？噫，哪怕是在念力场，想要改变现实的认知惯性，也不是可以长久维持的。你又能维持多久呢？</strong>}</p>
+<p>杨子藏咬牙切齿，全身的Chronos虚焰更加猛烈地燃烧起来。他深吸一口气，全部的注意力汇聚于身前的黑洞，猛然爆发！</p>
+<p>轰！</p>
+<p>一股强大到如有实质的能量波从杨子藏身上爆发出来，随后全部灌入黑洞之中！</p>
+<p>嘭隆！轰隆！</p>
+<p>数十上百的绷带哗啦啦灌入黑洞，整个大殿都在摇晃，仿佛即将破碎。</p>
+<p>周围的三十多人震撼的看着这一幕！</p>
+<p>那双手悬浮抱着黑色能量球的杨子藏，仿佛拖拽着深渊入口的魔王，将一根根让人恐惧的钢铁匹练般的存在尽数吸入其中。</p>
+<p>剧烈的空气震荡后，整个大殿都干净许多，但杨子藏双手之间也没有了任何旋转能量球的迹象。</p>
+<p>空气平静了。</p>
+<p>杨子藏双腿一下瘫软倒下，拿手吃力撑着地。</p>
+<p>{<strong>打扫得真干净呢。</strong>}</p>
+<p>「<strong>你！</strong>」</p>
+<p>「<strong>混账啊！</strong>」</p>
+<p>「<strong>可恶的东西，居然…</strong>」</p>
+<p>众人气急败坏地指手跳骂，一些人向着杨子藏跑了过去。</p>
+<p>瞬间一道红色手术刀从背后飞来，直刺杨子藏的后心，他下意识斜眼瞟去。</p>
+<p>「<strong>小心！</strong>」莫里大喊一声，周围人也齐齐而动。各种武器就敲了上去。</p>
+<p>「<strong>虚假的东西！</strong>」</p>
+<p>[<strong>调度！</strong>]</p>
+<p>调度能力变强许多，飞刀瞬间转向刺入地面。</p>
+<p>{<strong>怎么不往这里刺呢。</strong>}</p>
+<p>坍塌下去的衣服重新鼓起，肖宇山看到自己背后怪物拿手按在心脏的位置，吓得呜呜直叫。李尚响以让人腻歪又毫无办法的阴森笑容，循循善诱地道：</p>
+<p>{<strong>只要刺入你的枪，你们就能都醒过来，不是吗？死的人这么多，反正不差他一个啊。在等什么呢？</strong>}</p>
+<p>......</p>
+<p>下方众人的眼神在杨子藏和悬吊的肖宇山之间来回挪动。</p>
+<p>杨子藏深吸了口气，强压下心中升起的某种情绪。</p>
+<p>他不由得想到了接近两个月前，为了治疗沐小雨的伤势，第一次偷渡进枢纽镇时，逐银递给自己的那份手册。</p>
+<p>——我是燎光者，谢尔盖·特涅多罗夫斯基。</p>
+<p>当自己在失频之地的黑土地上举起那被灼烧的手册时，里面的信息也逐渐进入了心中。</p>
+<p>——银与红不应被隔绝，链接它们的是黑金，这是我们「<strong>自由前进兵团</strong>」获得的珍贵情报。</p>
+<p>——…关于所谓「<strong>黑金</strong>」的信息藏匿于一个书架内。</p>
+<p>——…根据情报汇总，书架位于某处名为【旧世界文献室】的地方。</p>
+<p>——…根据情报更新，它应该处于某处名为【遗失幻境公司】的旧世界组织。</p>
+<p>——…根据情报确认，若想前往旧世界史文献室，首先应进入遗失幻境公司。</p>
+<p>——…根据情报补充，目前前往遗失幻境公司，已知途径则有两种，虽然实际上也算只是一种。</p>
+<p>——…首先前往失频之地，以下是关于失频之地的部分情报…成为名人…默默奉献，改造这个苦难的世界…</p>
+<p>——…但，相较于循规蹈矩累积数十万公里的安全驾驶，一次三百码的超速可能更会立即引起人们的注意....不过这种行为的后果也是很严重的，总之…以下是特别注意事项…</p>
+<p>——…若确认自己正在被考核，请一定要保持绝对的情绪稳定…据失败者提供的推测与汇总，考核内容大概为两项或三项…</p>
+<p>——回来一次不容易，记录下这些信息也很困难。虽然这是很危险又艰巨的事情，但…如果我们的愿望相同，志向相符，请继承我们的这份心愿：将人为的隔绝予以消泯。</p>
+<p>——没有人给予我们任务，我们的愿望就是我们的任务。这就是我们自由前进兵团的信念。</p>
+<p>——只要你前进，你就是自由前进兵团信念的下一位延续者。</p>
+<p>——万请保密，或，祝你成功。</p>
+<p>{<strong>你还打算在这里睡多久？</strong>}</p>
+<p>杨子藏抬眼看上去，可恶的李尚响正在将暗红的手术刀在可怜的肖宇山脖子上上下比划着。</p>
+<p>{<strong>要知道，外界的清醒者正在跟真正的我进行战斗啊。他们都想保护你，不让隐身能力球落入我的掌中喔。</strong>}</p>
+<p>殿中无数绷带从四面八方涌来，如海浪般要将杨子藏再次包围压下。</p>
+<p>杨子藏冷笑下。</p>
+<p>他双手虚拖，引力弧光的黑洞再次出现，并迅速扩大。但他身体突然一晃。</p>
+<p>「<strong>不要，子藏，你已经消耗很多精神了。</strong>」</p>
+<p>波波利扶着瘫软倒地的青年，莫里则警惕的看着周围的人。王公子和秦队长等人则将其他人挡住，不让他们靠近杨子藏。</p>
+<p>「<strong>就没有别的办法对付他了吗？</strong>」众人略显无奈与紧张地咬牙盯着上方道。</p>
+<p>{<strong>怎么，后悔来救人了？也是啊，不来就不会失去生命，没事干嘛当好人呢？呵呵…</strong>}</p>
+<p>下方一人跳脚指着李尚响吼道：</p>
+<p>「<strong>去你娘的蛋！你这个恶魇，永远不会明白人类的精神！</strong>」</p>
+<p>{<strong>那你就去死吧！</strong>}</p>
+<p>嘭！这人瞬间被一道绷带冲来爆头。剩下的人噤若寒蝉，但隐隐的愤怒在他们胸中燃烧。</p>
+<p>「<strong>怎么办，杨子藏！</strong>」</p>
+<p>「<strong>子藏，要不，就牺牲肖…</strong>」</p>
+<p>「<strong>不要冲动，还没到绝路。</strong>」</p>
+<p>「<strong>什么，子藏队长，你还有别的办法出去吗？</strong>」</p>
+<p>杨子藏深吸了口气，如果是错的呢？不，可能性已经超过七十。</p>
+<p>没有什么事是绝对能成功的。</p>
+<p>「<strong>是的，我有。</strong>」</p>
+<p>劫持肖宇山的李尚响阴恻恻地看着杨子藏举起长枪，对准上方。</p>
+<p>{<strong>对，就是这样，投过来吧。冲着他的心脏投过来，你就能提前结束这个念力场了。</strong>}</p>
+<p>莫里道：「<strong>杨子藏。你…</strong>」</p>
+<p>「<strong>你要杀死肖宇山吗？</strong>」周围人紧张的看向举枪上指的杨子藏。</p>
+<p>「<strong>救过我的人，我怎么可能无缘无故去杀他。</strong>」</p>
+<p>「<strong>那怎么办。</strong>」</p>
+<p>前方杨子藏笑了笑，他猛地调转枪头，一枪戳向了自己的心脏。</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="chapter-020.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="chapter-022.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="chapter-020.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="chapter-022.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="ace.js"></script>
+        <script src="editor.js"></script>
+        <script src="mode-rust.js"></script>
+        <script src="theme-dawn.js"></script>
+        <script src="theme-tomorrow_night.js"></script>
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

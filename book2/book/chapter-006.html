@@ -1,0 +1,293 @@
+<!DOCTYPE HTML>
+<html lang="zh" class="coal sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>第六章 百分之十八 - 魂孪英旅 下 魔齿磨轮</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "coal" : "coal";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('coal')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">魂孪英旅 下 魔齿磨轮</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="第六章-百分之十八"><a class="header" href="#第六章-百分之十八">第六章 百分之十八</a></h1>
+<p>{<strong>注意注意，东区发现被掩埋者。</strong>}</p>
+<p>一波波的人在大地上如同四散的蚂蚁队伍般，到处按收到的求救信息来进行着救援。</p>
+<p>{<strong>昊天大棚挖掘队收到。</strong>}</p>
+<p>{<strong>具体方位请告知齐天大棚搜救队。</strong>}</p>
+<p>以前失频之地很多普通人不晓得名气的存在，或是从有名气的队伍听说过那种声音的告知，却不知晓有什么用。</p>
+<p>但现在他们知道了！</p>
+<p>谁不想飞上天当仙人，前提是你得出名。</p>
+<p>许多队伍冒着百分百生病的风险，通过副镇长逐银联系列车，在失频之地上到处穿梭赶路，拯救各处散发出的求救宣告。</p>
+<p>此间的最大受益者也随之出现——以枢纽镇「<strong>阿东匹很多林</strong>」药店为代表的医药供货商。</p>
+<p>「<strong>生意...真是太好了啊！</strong>」</p>
+<p>一间小房屋中，十七八岁青年从一堆药盒中突然直起腰，「<strong>汪汪！</strong>」毛色白底黑斑的斑点大狗也从一堆货物中探出脑袋。</p>
+<p>青年将手中一个制药类失念引擎丢给它，被这条一口衔住。</p>
+<p>「<strong>这次的是止血生血类的引擎，嗯，放到二号发动机上。</strong>」</p>
+<p>「<strong>呜汪。</strong>」</p>
+<p>斑点狗叼着引擎跑到房间后方的屋子内，这里有着两台镶嵌在地上的古老大发动机，如同某种大型的古拙拖拉机车头。它们色泽暗沉，散发着丝丝缕缕的雾气，最中间则是个小凹洞。</p>
+<p>里面已经有一枚碎裂的失念引擎，正在被如筛子般的底座抖动着，让它们变得更碎的落下。</p>
+<p>新的失念引擎被这条斑点犬松嘴放入。</p>
+<p>咔哒！它就像被磁铁吸附般，自动调转方位，稳稳当当嵌在了凹坑内，成为了大发动机的一部分。</p>
+<p>「<strong>丙哥，大甲方货队又来啦！</strong>」</p>
+<p>一道充满发自内心喜色的声音自店外传来，刚刚说完，外界就传来风鸣声。</p>
+<p>斑点大狗一听这声音，迫不及待「<strong>汪汪</strong>」了两声，摇着尾巴就冲了出去。</p>
+<p>陈老师和左非闲从洞开的列车大门走出来，看到迫不及待的跑来往身上扑的大狗，陈老师高兴得摸了摸它的头。</p>
+<p>「<strong>好狗好狗，唉唉唉...别舔，别舔！滚一边儿去。</strong>」</p>
+<p>「<strong>润润过来。</strong>」</p>
+<p>青年喜笑颜开的跑出。</p>
+<p>身穿麻格磨砂休闲西装的陈老师笑吟吟上前握手道：「<strong>丙老板，我们又来进货了。新的货物生产出来了没有？</strong>」</p>
+<p>「<strong>店铺产能已经冒烟了，物理意义上。</strong>」</p>
+<p>随后店主便见到一个面容清瘦，显得比较沉稳的青年从车厢内走下，他身后的车厢上还跟着好几人。</p>
+<p>「<strong>陈老师，这位先生是？</strong>」</p>
+<p>「<strong>我叫李弥。</strong>」</p>
+<p>清瘦的青年侧身，主动抬臂指着车厢内的三口大箱子介绍道：</p>
+<p>「<strong>听闻贵店需要大量还未恶魇化的药物本品，这是自我们城市中收集到的部分药物。都是杨子藏先生授意的。</strong>」</p>
+<p>「<strong>天啊，这么大的箱子，一定花了不少功夫吧。</strong>」</p>
+<p>「<strong>是的，这是我们派遣三只队伍在两天中收集的成果。</strong>」</p>
+<p>「<strong>才两天！好快。</strong>」</p>
+<p>青年店主略显惊讶，看来这是41号城里属于主导队伍才能干成的效率。</p>
+<p>李弥笑了笑。这是他第一次进入传说中的枢纽镇，而且还肩负重任。</p>
+<p>他看向周围略显冷清的店铺。这里都是做类似定制衣物、武器打造、旧电器修理与恶魇模器化之类的商家。</p>
+<p>此时闲来无事的店铺老板与员工们，见到幽影森森的虚幻列车停在这里，都围了过来。</p>
+<p>失念引擎要制造一件物品，并非全部都必须要用未恶魇化的材料做原料。而是可以采用小部分其它失念引擎生产出的物资，只是那样会随着添加量的增多导致成品率的下降。</p>
+<p>「<strong>小丙，要不要我们帮帮忙生产啊。</strong>」</p>
+<p>周围几个店铺老板心痒的道。</p>
+<p>「<strong>药品放久了说不定会恶魇化，我们一起帮忙生产吧。</strong>」</p>
+<p>这要是全部生产成药物，那就是几百倍的产量。这两天失频之地急需药物，不论是救治伤员还是售卖，名与利都能大增！</p>
+<p>恶魇化的确是个问题。</p>
+<p>丙自仙正想说什么，却见左非闲指了指箱盖。</p>
+<p>「<strong>你翻开它。</strong>」</p>
+<p>随着左非闲的指点动作，周围人目光都挪了过去。</p>
+<p>丙自仙将揭着箱盖的手一推，它就整个掀开过去，露出上面的一些金丝的纹路。</p>
+<p>「<strong>这个是？</strong>」</p>
+<p>众人看向箱盖上的金丝线路。</p>
+<p>李弥淡淡地道：「<strong>这魔纹是我们城市曾经一位强者所获得。主要功能就是预防箱内储存的物品快速恶魇化。因此只要盖上它，哪怕你们不短时间内以这些药物为原料制造出药品类失念引擎，也不妨碍它长久储存。甚至都不需要魔晶提供能量，因为它能自动抽取天地间的能量维持运行。</strong>」</p>
+<p>「<strong>什么！</strong>」</p>
+<p>周围人一下喧嚣了起来。</p>
+<p>「<strong>嗯...</strong>」李弥摸了摸自己的下巴，「<strong>存入物品的非恶魇化‘保质期’，应该至少有一年左右吧。</strong>」</p>
+<p>「<strong>这可是宝贝啊！</strong>」</p>
+<p>大伙儿连连惊叹，一些人的丝线已经折射了出去。还有人突然抱头一下差点栽倒在地，这是下意识想要强行记忆魔纹的线路所致。</p>
+<p>「<strong>丙老板，这三口箱子送给你。</strong>」</p>
+<p>「<strong>送，送给我？</strong>」</p>
+<p>「<strong>是的，包括这里面的药物原料全部奉送。你自己出失念Moxel，应该够赚到枢纽镇其它大型店铺一年多的Chronos。这是杨子藏先生给你的礼物，用以答谢这两日你的帮忙。</strong>」</p>
+<p>以及彰显我们的实力。</p>
+<p>李弥默默在心中补充到。</p>
+<p>丙自仙下意识看了眼身后的铺面内，堆积成山的各种药品纸箱。</p>
+<p>如果不是这艘恶魇地铁以及大甲方货队的药物订货，自己想要完成这样大的品类生产与售卖，定然不是两三天内能做到的事情。</p>
+<p>而这两天接这单生意的店，不止自己一家，总的来说，自己只是个负责外围药品生产的小商家。</p>
+<p>「<strong>这...这太贵重了吧。我这两天赚得已经够多了。</strong>」</p>
+<p>陈老师拍了拍这青年的肩膀，很是熟络般的笑道：</p>
+<p>「<strong>你看，售货有我们的大甲方货队和大明星列车，原料供给有咱们41城的强力团队，以后...</strong>」</p>
+<p>丙自仙深吸了口气，感觉自己的脑袋一阵发凉。</p>
+<p>自己...这是在走鸿运的节奏啊。他有了种猜测。</p>
+<p>在众人羡慕的目光中兴奋了几秒后，自称丙自仙的店老板迎着李弥与陈老师的目光道：</p>
+<p>「<strong>有什么条件吗？</strong>」</p>
+<p>「<strong>条件肯定是有的。我们想要一些股份。</strong>」</p>
+<p>他拿出一个单子递过去，在几个脑袋伸头看来的目光中，丙自仙辨认着上面的字迹。</p>
+<p>「<strong>...41号城...“猎怪者阵营总部</strong>」持股百分之十五，并负责提供药物引擎的原料与保存？”</p>
+<p>青年抬头看了眼前代表41号城的李弥，对方点点头，他感觉有点口干舌燥。</p>
+<p>「<strong>失频之地‘大甲方货队’持股百分之十六并负责销售。</strong>」</p>
+<p>他看向身旁的陈老师，对方「<strong>嗯哼</strong>」了一声。</p>
+<p>青年继续看向最后的这句话。</p>
+<p>「<strong>剩下的百分之十八...归41号城...沐小雨小姐所拥有？</strong>」</p>
+<p>他和周围的人都诧异抬头看向李弥。</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="chapter-005.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="chapter-007.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="chapter-005.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="chapter-007.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="ace.js"></script>
+        <script src="editor.js"></script>
+        <script src="mode-rust.js"></script>
+        <script src="theme-dawn.js"></script>
+        <script src="theme-tomorrow_night.js"></script>
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

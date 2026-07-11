@@ -1,0 +1,342 @@
+<!DOCTYPE HTML>
+<html lang="zh" class="coal sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>第一百三十二章 一个普通人的回忆录 - 魂孪英旅 下 魔齿磨轮</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "coal" : "coal";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc.js"></script>
+    </head>
+    <body>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('coal')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">魂孪英旅 下 魔齿磨轮</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="第一百三十二章-一个普通人的回忆录"><a class="header" href="#第一百三十二章-一个普通人的回忆录">第一百三十二章 一个普通人的回忆录</a></h1>
+<p>杨子藏只是看一眼，最终奖励的光团所蕴含信息就出现于心中。</p>
+<p>【魔眼唱片】</p>
+<p>「<strong>我扶着你吧。</strong>」素娥道。</p>
+<p>「<strong>还好，我已经可以独自行动了。</strong>」</p>
+<p>杨子藏拒绝了周围人的帮助，他先是一招手，巨毯化为丝巾飞入手中，随后跌落在地上的百年器长枪也收入了引力弧光。</p>
+<p>他一步步向着那扇黑洞洞的墙走去。</p>
+<p>随着杨子藏的靠近，这团蕴含着最终奖励的悬浮光芒也更快地闪烁起来。</p>
+<p>一张黑胶唱片从眼前划过。</p>
+<p>【魔眼唱片：声浪之王的心念频谱】</p>
+<p>紧接着它背后转过来一团银色辉光，它包裹着一本只能被一手掌控的小册子。</p>
+<p>【一个普通人的回忆录】</p>
+<p>里面真是两个东西。</p>
+<p>但...</p>
+<p>[<strong>我，伟大的四边形...只能二选一。</strong>]</p>
+<p>杨子藏轻叹了口气。</p>
+<p>声浪之王的频谱绝对是个好东西。而评议委员早早给自己准备的额外奖励也在这里。</p>
+<p>虽说这份议员给予的额外奖励，原本只是会出现在普通年终竞赛奖品中发放。</p>
+<p>阴差阳错之下，这场考核试炼被搞到了魔英级，因此这份本只会占用普通年终竞赛的额外奖励，也变成了占用「<strong>魔英级</strong>」的最终奖励。</p>
+<p>要取下这个东西吗？杨子藏内心犹豫地想到。</p>
+<p>一堆人走来，众人虽没有取出资格，这两份都属于最终获胜者的奖励，但却能读到两个奖品上附着的信息。</p>
+<p>「<strong>好像只能二选一欸。</strong>」</p>
+<p>「<strong>奇怪，竟然还要选。</strong>」</p>
+<p>「<strong>那什么回忆录是什么意思？</strong>」</p>
+<p>「<strong>明显声浪之王的频谱更珍贵吧，说不定能创造那种声浪部队？</strong>」</p>
+<p>连遗失幻境公司的存在都不知道的众人，看到「<strong>失频意念波段</strong>」这个信息，也不能理解那是什么东西，可不妨碍他们联想。</p>
+<p>杨子藏被素娥擦过的脸庞抬起，望着这两道奖品的信息。</p>
+<p>身着各式服装的大伙儿看向前方犹豫的青年，梁喜刚想开口，洛宾已经将他嘴捂住。</p>
+<p>夜机小姐载着位跟她年纪差不多的女孩来到附近，她们手中还拎着食物。</p>
+<p>「<strong>旧23城</strong>」这边，身体恢复了些的程允泽走上前，「<strong>子藏，你打算怎么选？</strong>」</p>
+<p>「<strong>我…</strong>」杨子藏转头，「<strong>你觉得呢？</strong>」</p>
+<p>程允泽露出意外的表情，微怔下后，这个被他所在城市公认为最强者的男人才道：</p>
+<p>「<strong>虽然这么说可能会被你当成我在坑你，不过…相比于一眼看去就很珍贵的东西，旁边这份所谓的‘普通人的回忆录’更让我好奇些。当然，也仅此而已，具体选择得你自己做主。</strong>」</p>
+<p>「<strong>嗯。</strong>」</p>
+<p>杨子藏的胸膛缓慢起伏了下，他深吸后吐出口气，抬手触摸向身前墙壁断口上漂浮的光团。即将触碰的瞬间，微顿了下后，杨子藏抬头看向虚空道：</p>
+<p>「<strong>波波利，我应该要离开了，希望未来再见到你时，你已经成为了更为优秀的魔英殿设计者。另外，帮我照顾好我的朋友们。</strong>」</p>
+<p>说罢，他的手往前一触，利落地碰到并握住这本小册子。</p>
+<p>[<strong>我获得虚零Chronos奖励1000000N.</strong>]</p>
+<p>那份黑胶唱片咔嚓碎裂，一块块落在了地上，周围人看得一阵惋惜。</p>
+<p>[<strong>我获得【一个普通人的回忆录】。</strong>]</p>
+<p>「<strong>普通人的回忆录。</strong>」</p>
+<p>略有疑惑的杨子藏缓慢翻开了这份手册的扉页。</p>
+<p>【一个普通人的回忆录。】</p>
+<p>【杨子藏，2014—2092。】</p>
+<p>杨子藏如遭雷殛般呆立当场。</p>
+<p>几秒后他瞳孔才剧烈收缩，晃动地轻轻下移。</p>
+<p>——我叫杨子藏，二零一四年的七月末，我出生了...</p>
+<p>随着这一行字迹映入眼帘，后方一道道段落信息快速融入这段文字，并浮现出了简短的一望即映入脑海的字迹：</p>
+<p>【2014年7月28日，13时41分，我出生了。】</p>
+<p>【2014年7月28日，13时50分，张晓怡姑姑，李茂才叔叔…等26人得知了我的存在。】</p>
+<p>【2014年7月28日，13时52分，我获得了第一份人世间的财富，红包叁仟四佰元，它成了我的婴儿车和妈妈金项链的一部分。】</p>
+<p>【2014年8月28日，我见证了满月宴……】</p>
+<p>令人窒息的信息流开始在手上的小册子中如小水流般的滑动，化为光迹顺着手臂融入Moxel。</p>
+<p>「<strong>这…？</strong>」</p>
+<p>【2017年9月1日，我进入幼儿园，开始了我的学习生涯。】</p>
+<p>这是我的经历？</p>
+<p>【2029年9月1日，我进入高中，开始了三年的高中生活。】</p>
+<p>【2036年6月30日，我毕业于西空大学土木工程系，获得了学士学位。】</p>
+<p>截至于此了吗？</p>
+<p>忽地，杨子藏头皮发麻的继续读到…</p>
+<p>【2036年8月4日，我获得第一份工作，成为了一名土木工程师。】</p>
+<p>「<strong>工作？我过来这个世界，不是还有几个月毕业吗！</strong>」</p>
+<p>他慌乱地快速翻阅着！</p>
+<p>【2037年7月2日，我买了辆车。】</p>
+<p>「<strong>这是哪里来的！</strong>」</p>
+<p>【2038年2月13日，初恋与我提出分手，我经历了人生的第一次失恋。】</p>
+<p>「<strong>不可能！</strong>」</p>
+<p>【2040年，我第一次结婚，并拥有了第一个孩子，一个可爱的女儿。】</p>
+<p>杨子藏瞪大眼的拿左掌捂住了脑袋，这是自己不曾经历过的事情！</p>
+<p>【2048年，父亲因病住院，我离职归乡，并开始第一次创业，进入零售业。】</p>
+<p>「<strong>怎么会！</strong>」</p>
+<p>【2050年3月，我弟弟因疾病去世，年仅二十六岁，我深感悲痛。】</p>
+<p>「<strong>啊！</strong>」</p>
+<p>【2050年6月，店铺破产，第一任妻子提出离婚。】</p>
+<p>「<strong>啊啊！！</strong>」</p>
+<p>杨子藏手中的手册仿佛在咬人般，让他迫不及待想丢出去。</p>
+<p>但对家人的思念以及后续亲人的可能遭遇，又让他痛苦地继续握住这书册，信息不断印入脑海...</p>
+<p>【2052年2月，我第二次结婚，夫人是水电项目附近的镇子当地人，钟祈莲。】</p>
+<p>【2053年5月，我开办了一家小型建筑公司，同年末我拥有第二位孩子，一个活泼的儿子。】</p>
+<p>【2054年7月，久病的父亲辞世。】</p>
+<p>杨子藏心痛的感知着这些信息。</p>
+<p>虽然它们依旧不断涌来，但杨子藏强迫自己不去提炼信息，任凭信息流灌入记忆深处。</p>
+<p>但关键节点的大事件还是不断炸开般浮现。</p>
+<p>【2055年，我的建筑公司逐渐步入正轨，承接了多个地方基建项目，生活开始稳定。】</p>
+<p>【2059年，我送女儿进入海北大学，她选择了医学专业。】</p>
+<p>身后众人难以置信地看着杨子藏的状态。</p>
+<p>【2073年，我退休，将公司交给儿子管理，开始与已经银发的夫人一起环球旅行。】</p>
+<p>【2074年5月8日，我迎来了第一个孙子，家庭更加热闹。】</p>
+<p>「<strong>我，我...</strong>」</p>
+<p>【2092年12月17日，13时33分，我躺在家里的床上。我的生命还有最后的一分钟。我的过往浮现眼前。】</p>
+<p>【2092年12月17日，13时34分42秒，我的生命结束了。】</p>
+<p>【一个普通人的回忆录：杨子藏。完。】</p>
+<p>残壁前的这道身影脚步虚浮的后退了几步。</p>
+<p>足足几分钟后，杨子藏才转头，看向周围关心地注视着自己的人群。</p>
+<p>「<strong>大哥，你，好些了吗？</strong>」人群中的梁喜道。</p>
+<p>「<strong>我…</strong>」</p>
+<p>「<strong>老杨？</strong>」虚胖的身影关切地问。</p>
+<p>「<strong>子藏哥哥？</strong>」拎着食盒的皮衣少女很是担忧地看着他。</p>
+<p>杨子藏看向手上变得陈旧的册子，里面已经是一片空白。</p>
+<p>「<strong>为什么会有这种东西。</strong>」</p>
+<p>所有文字化为影像出现在了自己的脑海中，它们甚至详细到，每一分钟每一秒做了什么，都能够调阅得到。</p>
+<p>「<strong>我，到底活着还是死了？</strong>」</p>
+<p>「<strong>这里到底是什么地方！</strong>」</p>
+<p>众人诧异中，洪亮威严的声音响起。</p>
+<p>{<strong>魔英殿竞技终结，胜者为原41号城。</strong>}</p>
+<p>{<strong>所有达到10000额外Chronos者，将在离开本殿后前往「<strong>第二命运轨迹</strong>」。</strong>}</p>
+<p>{<strong>本魔英级竞技城持续时间，还剩一时五十分。</strong>}</p>
+<p>{<strong>奖励开始发放。</strong>}</p>
+<p>......</p>
+<p>一天后，小丢丢在周貂揉搓下洗完泡泡澡后，穿上了来自枢纽镇的可爱睡衣，立即跑到了赵云房间中。</p>
+<p>「<strong>大哥哥。</strong>」</p>
+<p>獠牙已经收起来的女孩瞪着木床上的赵云。</p>
+<p>「<strong>你...</strong>」刚倒在床上的赵云有点头疼，这小家伙跟曾经马超那列车一个德行，都是夜晚才活动的主儿。</p>
+<p>丢丢爬上床，叉着手扭头左右看。</p>
+<p>「<strong>你在找什么。</strong>」</p>
+<p>「<strong>没什么呢。</strong>」</p>
+<p>丢丢有点无聊地靠着墙坐下。</p>
+<p>「<strong>杨子藏哥哥是莫里哥哥的朋友吗。</strong>」</p>
+<p>「<strong>是的。</strong>」躺着的赵云将头重新放到了枕头上，半眯着眼道。</p>
+<p>丢丢好奇的迈着小脚踩到了他背后的棉被上，继续坐下道：</p>
+<p>「<strong>为什么杨子藏哥哥也要让那个波波利帮忙照顾女孩子呢？</strong>」</p>
+<p>「<strong>......</strong>」赵云想到，大家都在传莫里的确在枢纽镇留言，让波波利帮助照顾他的九位「<strong>姐姐</strong>」。</p>
+<p>「<strong>波波利是谁，他很会照顾女孩子吗？</strong>」</p>
+<p>赵云扭头看向丢丢忽闪的眼眸。</p>
+<p>他突然有点同情那个唯一不在魔英殿出现过的朴明集团董事了。</p>
+<p>「<strong>赵云哥哥要睡了吗。</strong>」</p>
+<p>「<strong>是啊。</strong>」赵云闭上眼。</p>
+<p>「<strong>你睡前不应该给我讲故事吗。</strong>」</p>
+<p>「<strong>......</strong>」</p>
+<p>赵云睁眼，这是什么道理。</p>
+<p>丢丢瞪眼看着他的侧脸。</p>
+<p>「<strong>非讲不可吗？</strong>」</p>
+<p>「<strong>姐姐都会讲。</strong>」</p>
+<p>搜刮了下脑海里仅有的一两个听来的，适合给孩童讲的小故事后。</p>
+<p>「<strong>嗯...</strong>」</p>
+<p>赵云踌躇了下，轻声道：「<strong>从前有个老爷爷，叫塞翁...</strong>」</p>
+<p>《魂孪特工II 无悔塞翁》 完。</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="chapter-131.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="chapter-131.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+        <script src="ace.js"></script>
+        <script src="editor.js"></script>
+        <script src="mode-rust.js"></script>
+        <script src="theme-dawn.js"></script>
+        <script src="theme-tomorrow_night.js"></script>
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>
