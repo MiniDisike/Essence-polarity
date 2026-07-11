@@ -1,16 +1,12 @@
-# 《魂孪英旅 上 地上星》
+# Essence-Polarity
 
-《魂孪英旅 上 地上星》
+《魂孪英旅》系列小说
 
-在线阅读：[点此进入](https://minidisike.github.io/Essence-polarity/)
+## 目次
 
-## 简介
+- [《魂孪英旅 上 地上星》 — 全156章](在线阅读： https://minidisike.github.io/Essence-polarity/)
+- [《魂孪英旅 下 魔齿磨轮》 — 全132章](在线阅读： https://minidisike.github.io/Essence-polarity/book2/)
 
+---
 
-《魂孪英旅》小说存放页面 
-
-全156章
-讲述的是普通的穿越故事。
-该系列完结的作品目前总共三部，在这里进行存放。
-至于Essence-Polarity ,是“魂孪”的英文翻译，作者表示不知道如何表达这个词的含义，借用了磁铁磁极，本身具备了“吸引”与“排斥”的相生相克的性质，就像我作品里逐渐展露的某些设定一样，所以我用它来作为系列名字的总名称。
-
+个人网站：[www.cocovs.space](https://www.cocovs.space)

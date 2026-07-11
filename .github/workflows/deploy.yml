@@ -28,8 +28,15 @@ jobs:
           chmod +x mdbook
           sudo mv mdbook /usr/local/bin/
 
-      - name: Build book
-        run: mdbook build
+      - name: Build Book 1
+        run: mdbook build book1
+
+      - name: Build Book 2
+        run: mdbook build book2
+
+      - name: Merge books
+        run: |
+          cp -r book2/book book1/book/book2
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
@@ -37,7 +44,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./book
+          path: ./book1/book
 
       - name: Deploy to GitHub Pages
         id: deployment
